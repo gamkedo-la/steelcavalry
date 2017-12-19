@@ -10,16 +10,20 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Mech mechImIn = null;
 	private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
 	private int mechOnlyMask;
 	private int groundOnlyMask;
+
+    public bool isFacingRight = true;
 
 	// Use this for initialization
 	void Start () {
 		mechOnlyMask = LayerMask.GetMask("Mech");
 		groundOnlyMask = LayerMask.GetMask("Ground");
 		rb = GetComponent<Rigidbody2D>();
-	}
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
 	void EnteringOrLeavingMech() {
 		GetComponent<BoxCollider2D>().enabled = (mechImIn == null);
@@ -33,7 +37,16 @@ public class PlayerMovement : MonoBehaviour {
 			transform.position = mechImIn.transform.position;
 		} else {
 			transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
-			if(Input.GetAxisRaw("Vertical") > 0.0f) {
+
+            if (Input.GetAxisRaw("Horizontal") > 0.0f && !isFacingRight) {
+                isFacingRight = true;
+                spriteRenderer.flipX = false;
+            } else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
+                isFacingRight = false;
+                spriteRenderer.flipX = true;
+            }
+
+            if (Input.GetAxisRaw("Vertical") > 0.0f) {
 				transform.position += Vector3.up * Time.deltaTime * jetPackPower;
 				rb.gravityScale = 0.0f;
 				rb.velocity = Vector2.zero;
