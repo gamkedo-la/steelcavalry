@@ -26,7 +26,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void EnteringOrLeavingMech() {
-		GetComponent<BoxCollider2D>().enabled = (mechImIn == null);
+		bool notInMech = (mechImIn == null);
+		GetComponent<BoxCollider2D>().enabled = notInMech;
+		spriteRenderer.enabled = notInMech;
 		rb.velocity = Vector2.zero;
 	}
 
