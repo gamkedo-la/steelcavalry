@@ -1071,6 +1071,7 @@ MonoBehaviour:
   mechSpeed: 2
   jumpPower: 4000
   isOnGround: 0
+  model: {fileID: 167455644}
 --- !u!1 &1712877761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1106,7 @@ MonoBehaviour:
   mechSpeed: 2
   jumpPower: 2500
   isOnGround: 0
+  model: {fileID: 0}
 --- !u!61 &1712877763
 BoxCollider2D:
   m_ObjectHideFlags: 0

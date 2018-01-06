@@ -7,6 +7,7 @@ public class Mech : MonoBehaviour {
  	public float jumpPower = 10.0f;
 	public bool isOnGround;
 	private Rigidbody2D mechRB;
+	public Transform model;
 
 	// Use this for initialization
 	void Start () {

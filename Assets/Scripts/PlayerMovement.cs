@@ -25,7 +25,13 @@ public class PlayerMovement : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-	void EnteringOrLeavingMech() {
+	void EnteringOrLeavingMech(Mech nextMech) {
+		if(mechImIn != null && mechImIn.model != null) {
+			mechImIn.model.rotation = Quaternion.LookRotation(Vector3.forward);
+		}
+
+		mechImIn = nextMech;
+
 		bool notInMech = (mechImIn == null);
 		GetComponent<BoxCollider2D>().enabled = notInMech;
 		spriteRenderer.enabled = notInMech;
@@ -34,19 +40,26 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetAxisRaw("Horizontal") > 0.0f && !isFacingRight) {
+			isFacingRight = true;
+		} else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
+			isFacingRight = false;
+		}
+
 		if(mechImIn) {
+			if(mechImIn.model != null) {
+				if(isFacingRight) {
+					mechImIn.model.rotation = Quaternion.LookRotation(Vector3.right);
+				} else {
+					mechImIn.model.rotation = Quaternion.LookRotation(Vector3.left);
+				}
+			}
 			mechImIn.MechUpdate();
 			transform.position = mechImIn.transform.position;
 		} else {
 			transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
 
-            if (Input.GetAxisRaw("Horizontal") > 0.0f && !isFacingRight) {
-                isFacingRight = true;
-                spriteRenderer.flipX = false;
-            } else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
-                isFacingRight = false;
-                spriteRenderer.flipX = true;
-            }
+			spriteRenderer.flipX = !isFacingRight;
 
             if (Input.GetAxisRaw("Vertical") > 0.0f) {
 				transform.position += Vector3.up * Time.deltaTime * jetPackPower;
@@ -60,9 +73,8 @@ public class PlayerMovement : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space)) {
 
 			if(mechImIn) {
-				mechImIn = null;
 				transform.position += Vector3.up * exitMechDistancePopUp;
-				EnteringOrLeavingMech();
+				EnteringOrLeavingMech(null);
 			} else { // entering mech
 				Collider2D[] nearbyMechs = Physics2D.OverlapCircleAll(transform.position,
 													mechNearEnoughToUseDistance,
@@ -80,9 +92,11 @@ public class PlayerMovement : MonoBehaviour {
 				if(nearestMechCollider) {
 					Mech mScript = nearestMechCollider.GetComponent<Mech>();
 					if(mScript) {
-						mechImIn = mScript;
+						EnteringOrLeavingMech(mScript);
+					} else {
+						Debug.Log("Mech script not found on nearest collider, check mechOnlyMask");
 					}
-					EnteringOrLeavingMech();
+
 				} // if nearestMechCollider
 			} // else (entering mech)
 		} // input to get in mech
