@@ -19,6 +19,14 @@ public class PlayerMovement : MonoBehaviour {
 	private float targetCamZoomSize, defaultCamZoomSize;
 	private Camera mainCam;
 
+	public ParticleSystem psScriptSmoke;
+	private ParticleSystem.EmissionModule jetpackSmoke;
+	private ParticleSystem.MinMaxCurve emissionWhenFiringJetpackSmoke;
+
+	public ParticleSystem psScriptThrust;
+	private ParticleSystem.EmissionModule jetpackThrust;
+	private ParticleSystem.MinMaxCurve emissionWhenFiringJetpackThrust;
+
 	// Use this for initialization
 	void Start () {
 		mechOnlyMask = LayerMask.GetMask("Mech");
@@ -26,6 +34,14 @@ public class PlayerMovement : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
 		targetCamZoomSize = defaultCamZoomSize = mainCam.orthographicSize;
+
+		jetpackSmoke = psScriptSmoke.emission;
+		emissionWhenFiringJetpackSmoke = jetpackSmoke.rateOverTime;
+		jetpackSmoke.rateOverTime = 0;
+
+		jetpackThrust = psScriptThrust.emission;
+		emissionWhenFiringJetpackThrust = jetpackThrust.rateOverTime;
+		jetpackThrust.rateOverTime = 0;
     }
 
 	void EnteringOrLeavingMech(Mech nextMech) {
@@ -44,6 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 			targetCamZoomSize = defaultCamZoomSize;
 		} else {
 			targetCamZoomSize = Mathf.Max(defaultCamZoomSize, mechImIn.transform.lossyScale.y);
+			jetpackThrust.rateOverTime = jetpackSmoke.rateOverTime = 0;
 		}
 	}
 
@@ -72,10 +89,13 @@ public class PlayerMovement : MonoBehaviour {
 			spriteRenderer.flipX = !isFacingRight;
 
             if (Input.GetAxisRaw("Vertical") > 0.0f) {
+				jetpackSmoke.rateOverTime = emissionWhenFiringJetpackSmoke;
+				jetpackThrust.rateOverTime = emissionWhenFiringJetpackThrust;
 				transform.position += Vector3.up * Time.deltaTime * jetPackPower;
 				rb.gravityScale = 0.0f;
 				rb.velocity = Vector2.zero;
 			} else {
+				jetpackThrust.rateOverTime = jetpackSmoke.rateOverTime = 0;
 				rb.gravityScale = 1.0f;
 			}
 		}
