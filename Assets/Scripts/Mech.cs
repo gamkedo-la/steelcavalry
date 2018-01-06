@@ -9,13 +9,12 @@ public class Mech : MonoBehaviour {
 	private Rigidbody2D mechRB;
 	public Transform model;
 
-	public Transform mainProjectileSource = null;
+	public Transform[] mainProjectileSources;
 	public GameObject mainProjectilePrefab = null;
 
 	// Use this for initialization
 	void Start () {
 		mechRB = GetComponent<Rigidbody2D>();
-		
 	}
 	
 	// Update is called once per frame
@@ -29,19 +28,22 @@ public class Mech : MonoBehaviour {
 
 		if(mainProjectilePrefab != null) {
 			if(Input.GetMouseButton(0)) {
-				if(mainProjectileSource == null) {
-					Debug.LogError("missing mainProjectileSource but have mainProjectilePrefab");
+				if(mainProjectileSources.Length == 0) {
+					Debug.LogError("missing mainProjectileSources but have mainProjectilePrefab");
 					return;
 				}
-				GameObject shotGO = GameObject.Instantiate(mainProjectilePrefab, mainProjectileSource.position, Quaternion.identity);
-				Vector2 pos2D = new Vector2(mainProjectileSource.position.x,mainProjectileSource.position.y);
-				Vector2 aimAt = Camera.main.ScreenToWorldPoint( new Vector2(Input.mousePosition.x, Input.mousePosition.y) );
-				Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>();
-				Vector2 movementDirection = (aimAt - pos2D).normalized;
-				movementDirection += Random.insideUnitCircle * 0.1f; // randomize
-				shotRB.velocity = movementDirection * 20.0f;
-				shotGO.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(shotRB.velocity.y,shotRB.velocity.x) * Mathf.Rad2Deg,
-					Vector3.forward);
+				for(int i = 0; i < mainProjectileSources.Length; i++) {
+					GameObject shotGO = GameObject.Instantiate(mainProjectilePrefab, mainProjectileSources[i].position, Quaternion.identity);
+					Vector2 pos2D = new Vector2(mainProjectileSources[i].position.x, mainProjectileSources[i].position.y);
+					Vector2 aimAt = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+					Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>();
+					Vector2 movementDirection = (aimAt - pos2D).normalized;
+					movementDirection += Random.insideUnitCircle * 0.1f; // randomize
+					shotRB.velocity = movementDirection * 20.0f;
+					shotGO.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(shotRB.velocity.y, shotRB.velocity.x) * Mathf.Rad2Deg,
+						Vector3.forward);
+					shotGO.transform.SetParent(LitterContainer.instanceTransform);
+				}
 				//shotGO.transform.RotateAround(transform.up, 90.0f);
 			}
 		}

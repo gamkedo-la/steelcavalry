@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198321522210528094}
   - component: {fileID: 199113857235452326}
   - component: {fileID: 114745174189452366}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GreenLaserSmash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

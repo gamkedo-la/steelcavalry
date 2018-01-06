@@ -14,9 +14,15 @@ public class CamFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector3 onCameraPos = mainCam.WorldToViewportPoint(transform.position);
+		Vector3 pointToGetOnCamera = transform.position;
+		Vector2 mousePt = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		float percTowardMouse = 0.65f;
+		pointToGetOnCamera.x = pointToGetOnCamera.x * (1.0f - percTowardMouse) + mousePt.x * percTowardMouse;
+		pointToGetOnCamera.y = pointToGetOnCamera.y * (1.0f - percTowardMouse) + mousePt.y * percTowardMouse;
+
+		Vector3 onCameraPos = mainCam.WorldToViewportPoint(pointToGetOnCamera);
+
 		float diffToMove;
-		Debug.Log(onCameraPos);
 		if(onCameraPos.x < cameraMarginSizePercX) {
 			diffToMove = cameraMarginSizePercX - onCameraPos.x;
 			mainCam.transform.position += diffToMove * cameraMarginChaseSpeed * Time.deltaTime * Vector3.left;

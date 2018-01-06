@@ -17,7 +17,7 @@ TagManager:
   - Ground
   - PlayerShot
   - Person
-  - 
+  - EffectsFG
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ShotsInForeground
+    uniqueID: 2456110537
     locked: 0

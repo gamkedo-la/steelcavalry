@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	public float humanSpeed = 0.8f;
 	public float mechNearEnoughToUseDistance = 1.0f;
-	public float exitMechDistancePopUp = 1.1f;
+	// public float exitMechDistancePopUp = 1.1f;
 	public float jetPackPower = 1.0f;
 
 	private Mech mechImIn = null;
@@ -13,16 +13,19 @@ public class PlayerMovement : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
 
 	private int mechOnlyMask;
-	private int groundOnlyMask;
 
     public bool isFacingRight = true;
+
+	private float targetCamZoomSize, defaultCamZoomSize;
+	private Camera mainCam;
 
 	// Use this for initialization
 	void Start () {
 		mechOnlyMask = LayerMask.GetMask("Mech");
-		groundOnlyMask = LayerMask.GetMask("Ground");
 		rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+		mainCam = Camera.main;
+		targetCamZoomSize = defaultCamZoomSize = mainCam.orthographicSize;
     }
 
 	void EnteringOrLeavingMech(Mech nextMech) {
@@ -33,9 +36,15 @@ public class PlayerMovement : MonoBehaviour {
 		mechImIn = nextMech;
 
 		bool notInMech = (mechImIn == null);
+
 		GetComponent<BoxCollider2D>().enabled = notInMech;
-		rb.gravityScale = (notInMech ? 1.0f : 0.0f);
 		spriteRenderer.enabled = notInMech;
+		rb.gravityScale = (notInMech ? 1.0f : 0.0f);
+		if(notInMech) {
+			targetCamZoomSize = defaultCamZoomSize;
+		} else {
+			targetCamZoomSize = Mathf.Max(defaultCamZoomSize, mechImIn.transform.lossyScale.y);
+		}
 	}
 
 	// Update is called once per frame
@@ -74,7 +83,7 @@ public class PlayerMovement : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space)) {
 
 			if(mechImIn) {
-				transform.position += Vector3.up * exitMechDistancePopUp;
+				transform.position += Vector3.up * mechImIn.transform.lossyScale.y * 0.5f;
 				EnteringOrLeavingMech(null);
 			} else { // entering mech
 				Collider2D[] nearbyMechs = Physics2D.OverlapCircleAll(transform.position,
@@ -103,5 +112,10 @@ public class PlayerMovement : MonoBehaviour {
 		} // input to get in mech
 	} // playerMovement function
 
+	void FixedUpdate() {
+		float camZoomK = 0.95f;
+		mainCam.orthographicSize = mainCam.orthographicSize * camZoomK +
+			targetCamZoomSize * (1.0f - camZoomK);
+	}
 
 } // class
