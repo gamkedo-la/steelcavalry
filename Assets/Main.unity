@@ -113,6 +113,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24412162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 24412163}
+  m_Layer: 8
+  m_Name: MainShotsComeFrom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24412163
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 24412162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1421956178}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &167455643
 Prefab:
   m_ObjectHideFlags: 0
@@ -184,7 +212,7 @@ GameObject:
   - component: {fileID: 219767440}
   - component: {fileID: 219767443}
   - component: {fileID: 219767444}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +979,7 @@ GameObject:
   - component: {fileID: 1421956179}
   - component: {fileID: 1421956180}
   m_Layer: 8
-  m_Name: Mech
+  m_Name: TallMech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,6 +1057,7 @@ Transform:
   m_LocalScale: {x: 0.9322956, y: 2.1372464, z: 1}
   m_Children:
   - {fileID: 167455644}
+  - {fileID: 24412163}
   m_Father: {fileID: 1386994394}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1072,6 +1101,9 @@ MonoBehaviour:
   jumpPower: 4000
   isOnGround: 0
   model: {fileID: 167455644}
+  mainProjectileSource: {fileID: 24412163}
+  mainProjectilePrefab: {fileID: 1873597457204154, guid: 23f6bd0b6a43c4505b0e938e7db13d30,
+    type: 2}
 --- !u!1 &1712877761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1118,7 @@ GameObject:
   - component: {fileID: 1712877763}
   - component: {fileID: 1712877762}
   m_Layer: 8
-  m_Name: Mech Other
+  m_Name: ShortMech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,6 +1139,8 @@ MonoBehaviour:
   jumpPower: 2500
   isOnGround: 0
   model: {fileID: 0}
+  mainProjectileSource: {fileID: 0}
+  mainProjectilePrefab: {fileID: 0}
 --- !u!61 &1712877763
 BoxCollider2D:
   m_ObjectHideFlags: 0

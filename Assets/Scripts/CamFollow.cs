@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour {
 	private Camera mainCam;
-	private float cameraMarginSizePerc = 0.3f;
-	private float cameraMarginSizePercY = 0.4f;
+	private float cameraMarginSizePercX = 0.3f;
+	private float cameraMarginSizePercY = 0.2f;
 	private float cameraMarginChaseSpeed = 50.0f;
 	// Use this for initialization
 	void Start () {
@@ -16,11 +16,12 @@ public class CamFollow : MonoBehaviour {
 	void FixedUpdate () {
 		Vector3 onCameraPos = mainCam.WorldToViewportPoint(transform.position);
 		float diffToMove;
-		if(onCameraPos.x < cameraMarginSizePerc) {
-			diffToMove = cameraMarginSizePerc - onCameraPos.x;
+		Debug.Log(onCameraPos);
+		if(onCameraPos.x < cameraMarginSizePercX) {
+			diffToMove = cameraMarginSizePercX - onCameraPos.x;
 			mainCam.transform.position += diffToMove * cameraMarginChaseSpeed * Time.deltaTime * Vector3.left;
 		}
-		float rightSide = 1.0f - cameraMarginSizePerc;
+		float rightSide = 1.0f - cameraMarginSizePercX;
 		if(onCameraPos.x > rightSide) {
 			diffToMove = onCameraPos.x - rightSide;
 			mainCam.transform.position += diffToMove * cameraMarginChaseSpeed * Time.deltaTime * Vector3.right;

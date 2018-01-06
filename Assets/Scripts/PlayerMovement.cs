@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		bool notInMech = (mechImIn == null);
 		GetComponent<BoxCollider2D>().enabled = notInMech;
+		rb.gravityScale = (notInMech ? 1.0f : 0.0f);
 		spriteRenderer.enabled = notInMech;
-		rb.velocity = Vector2.zero;
 	}
 
 	// Update is called once per frame
@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 			mechImIn.MechUpdate();
+			rb.velocity = Vector2.zero;
 			transform.position = mechImIn.transform.position;
 		} else {
 			transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
