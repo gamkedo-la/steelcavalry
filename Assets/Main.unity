@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 219767444}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +733,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -922156801
+  randomSeed: -1793273409
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4134,7 +4134,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2046994067
+  randomSeed: 853203838
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8105,7 +8105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 2
   jumpPower: 4000
-  isOnGround: 0
   model: {fileID: 167455644}
   mainProjectileSources:
   - {fileID: 24412163}
@@ -8164,7 +8163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 1
   jumpPower: 1500
-  isOnGround: 0
   model: {fileID: 0}
   mainProjectileSources:
   - {fileID: 1138008005}
@@ -8407,7 +8405,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 2
   jumpPower: 2500
-  isOnGround: 0
   model: {fileID: 0}
   mainProjectileSources: []
   mainProjectilePrefab: {fileID: 0}
@@ -8522,6 +8519,7 @@ GameObject:
   - component: {fileID: 1872461083}
   - component: {fileID: 1872461082}
   - component: {fileID: 1872461081}
+  - component: {fileID: 1872461086}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8599,6 +8597,17 @@ Transform:
   m_Father: {fileID: 808171231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872461086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872461080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8373cf9587b0fa4ebd2705558ec6ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2095723224
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -18,6 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	[SerializeField]
     private bool isFacingRight = true;
+
+	private bool fireWeapon;
+	public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 
 	public ParticleSystem psScriptSmoke;
 	private ParticleSystem.EmissionModule jetpackSmoke;
@@ -75,6 +79,9 @@ public class PlayerMovement : MonoBehaviour {
 			isFacingRight = true;
 		} else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
 			isFacingRight = false;
+		}
+		if (Input.GetMouseButton(0)){
+			OnFire(); //tells everyone listening that a shot has been fired
 		}
 
 		if(mechImIn) {
