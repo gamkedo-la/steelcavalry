@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mech : MonoBehaviour {
+
 	public float mechSpeed = 2.0f;
  	public float jumpPower = 10.0f;
-	private bool isOnGround;
-	private Rigidbody2D mechRB;
-	public Transform model;
 
+	private bool isOnGround;
 	private bool inUse = false;
 
 	public Transform[] mainProjectileSources;
 	public GameObject mainProjectilePrefab = null;
 
 	private GameObject player;
+	
+	private Rigidbody2D mechRB;
+	public Transform model;
 
 	// Use this for initialization
 	void Start () {
 		mechRB = GetComponent<Rigidbody2D>();
 		player = GameObject.FindWithTag("Player");
-
 	}
 	
 	public void wasEntered() {
