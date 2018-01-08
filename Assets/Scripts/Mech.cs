@@ -5,9 +5,11 @@ using UnityEngine;
 public class Mech : MonoBehaviour {
 	public float mechSpeed = 2.0f;
  	public float jumpPower = 10.0f;
-	public bool isOnGround;
+	private bool isOnGround;
 	private Rigidbody2D mechRB;
 	public Transform model;
+
+	private bool inUse = false;
 
 	public Transform[] mainProjectileSources;
 	public GameObject mainProjectilePrefab = null;
@@ -17,8 +19,19 @@ public class Mech : MonoBehaviour {
 		mechRB = GetComponent<Rigidbody2D>();
 	}
 	
+	public void wasEntered() {
+		inUse = true;
+	}
+
+	public void wasExited() {
+		inUse = false;
+	}
+
 	// Update is called once per frame
-	public void MechUpdate () {
+	public void Update () {
+
+		if (!inUse) return; //could be made into a function to do something else when idle
+
 		transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * mechSpeed;
 
 		if(Input.GetAxisRaw("Vertical") > 0.0f && isOnGround) {

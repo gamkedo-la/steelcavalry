@@ -11,13 +11,13 @@ public class PlayerMovement : MonoBehaviour {
 	private Mech mechImIn = null;
 	private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+	private Camera mainCam;
+	private MainCamera camScript;
 
 	private int mechOnlyMask;
 
-    public bool isFacingRight = true;
-
-	private float targetCamZoomSize, defaultCamZoomSize;
-	private Camera mainCam;
+	[SerializeField]
+    private bool isFacingRight = true;
 
 	public ParticleSystem psScriptSmoke;
 	private ParticleSystem.EmissionModule jetpackSmoke;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
-		targetCamZoomSize = defaultCamZoomSize = mainCam.orthographicSize;
+		camScript = mainCam.GetComponent<MainCamera>();
 
 		jetpackSmoke = psScriptSmoke.emission;
 		emissionWhenFiringJetpackSmoke = jetpackSmoke.rateOverTime;
@@ -49,7 +49,10 @@ public class PlayerMovement : MonoBehaviour {
 			mechImIn.model.rotation = Quaternion.LookRotation(Vector3.forward);
 		}
 
+		if (mechImIn) mechImIn.wasExited();
+		if (nextMech) nextMech.wasEntered();
 		mechImIn = nextMech;
+		
 
 		bool notInMech = (mechImIn == null);
 
@@ -57,9 +60,11 @@ public class PlayerMovement : MonoBehaviour {
 		spriteRenderer.enabled = notInMech;
 		rb.gravityScale = (notInMech ? 1.0f : 0.0f);
 		if(notInMech) {
-			targetCamZoomSize = defaultCamZoomSize;
+			camScript.MechZoom(); //empty for default
+			//targetCamZoomSize = defaultCamZoomSize;
 		} else {
-			targetCamZoomSize = Mathf.Max(defaultCamZoomSize, mechImIn.transform.lossyScale.y);
+			//float targetCamZoomSize = Mathf.Max(defaultCamZoomSize, mechImIn.transform.lossyScale.y);
+			camScript.MechZoom(mechImIn);
 			jetpackThrust.rateOverTime = jetpackSmoke.rateOverTime = 0;
 		}
 	}
@@ -80,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
 					mechImIn.model.rotation = Quaternion.LookRotation(Vector3.left);
 				}
 			}
-			mechImIn.MechUpdate();
+			//mechImIn.MechUpdate(); //now Mech has standard Update()
 			rb.velocity = Vector2.zero;
 			transform.position = mechImIn.transform.position;
 		} else {
@@ -131,11 +136,5 @@ public class PlayerMovement : MonoBehaviour {
 			} // else (entering mech)
 		} // input to get in mech
 	} // playerMovement function
-
-	void FixedUpdate() {
-		float camZoomK = 0.95f;
-		mainCam.orthographicSize = mainCam.orthographicSize * camZoomK +
-			targetCamZoomSize * (1.0f - camZoomK);
-	}
 
 } // class
