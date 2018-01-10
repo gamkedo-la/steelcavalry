@@ -309,9 +309,9 @@ MonoBehaviour:
   humanSpeed: 1
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
-  isFacingRight: 1
   psScriptSmoke: {fileID: 456076956}
   psScriptThrust: {fileID: 348586785}
+  _state: 0
 --- !u!61 &219767441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 219767439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53dbe38d9f7d4d9c878ca4e512a1d5c, type: 3}
   m_Name: 
@@ -8105,11 +8105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 2
   jumpPower: 4000
-  model: {fileID: 167455644}
   mainProjectileSources:
   - {fileID: 24412163}
   mainProjectilePrefab: {fileID: 1873597457204154, guid: 23f6bd0b6a43c4505b0e938e7db13d30,
     type: 2}
+  model: {fileID: 167455644}
 --- !u!1 &1450074049
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,7 +8163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 1
   jumpPower: 1500
-  model: {fileID: 0}
   mainProjectileSources:
   - {fileID: 1138008005}
   - {fileID: 1596757424}
@@ -8174,6 +8173,7 @@ MonoBehaviour:
   - {fileID: 1568718365}
   mainProjectilePrefab: {fileID: 1873597457204154, guid: 23f6bd0b6a43c4505b0e938e7db13d30,
     type: 2}
+  model: {fileID: 0}
 --- !u!61 &1450074052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8405,9 +8405,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechSpeed: 2
   jumpPower: 2500
-  model: {fileID: 0}
   mainProjectileSources: []
   mainProjectilePrefab: {fileID: 0}
+  model: {fileID: 0}
 --- !u!61 &1712877763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8608,6 +8608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8373cf9587b0fa4ebd2705558ec6ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPlayer: {fileID: 219767439}
 --- !u!1 &2095723224
 GameObject:
   m_ObjectHideFlags: 0
