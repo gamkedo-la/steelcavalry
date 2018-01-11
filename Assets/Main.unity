@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 219767440}
   - component: {fileID: 219767443}
   - component: {fileID: 219767444}
+  - component: {fileID: 219767446}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -309,8 +310,6 @@ MonoBehaviour:
   humanSpeed: 1
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
-  psScriptSmoke: {fileID: 456076956}
-  psScriptThrust: {fileID: 348586785}
   _state: 0
 --- !u!61 &219767441
 BoxCollider2D:
@@ -427,6 +426,19 @@ Transform:
   m_Father: {fileID: 1386994394}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219767446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219767439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  psScriptSmoke: {fileID: 456076956}
+  psScriptThrust: {fileID: 348586785}
 --- !u!1 &222956731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,7 +4146,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 853203838
+  randomSeed: 1588440420
   InitialModule:
     serializedVersion: 3
     enabled: 1

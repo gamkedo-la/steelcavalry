@@ -21,13 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 
-	public ParticleSystem psScriptSmoke;
-	private ParticleSystem.EmissionModule jetpackSmoke;
-	private ParticleSystem.MinMaxCurve emissionWhenFiringJetpackSmoke;
-
-	public ParticleSystem psScriptThrust;
-	private ParticleSystem.EmissionModule jetpackThrust;
-	private ParticleSystem.MinMaxCurve emissionWhenFiringJetpackThrust;
+	private Jetpack jetpack;
 
 	public enum PlayerState{
 		inMech,
@@ -45,13 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		_state = PlayerState.outOfMech; //default player state, switches between in and out of mech
 
-		jetpackSmoke = psScriptSmoke.emission;
-		emissionWhenFiringJetpackSmoke = jetpackSmoke.rateOverTime;
-		jetpackSmoke.rateOverTime = 0;
-
-		jetpackThrust = psScriptThrust.emission;
-		emissionWhenFiringJetpackThrust = jetpackThrust.rateOverTime;
-		jetpackThrust.rateOverTime = 0;
+		jetpack = GetComponent<Jetpack>();
     }
 
 	void EnterMech(Mech mech){
@@ -67,8 +55,8 @@ public class PlayerMovement : MonoBehaviour {
 		GetComponent<BoxCollider2D>().enabled = false;
 		spriteRenderer.enabled = false;
 		rb.gravityScale = 0;
-		jetpackThrust.rateOverTime = jetpackSmoke.rateOverTime = 0;
-		
+		jetpack.JetpackToggle(false);
+
 		camScript.MechZoom(mechImIn);
 
 		_state = PlayerState.inMech; //changes player state
@@ -132,13 +120,12 @@ public class PlayerMovement : MonoBehaviour {
 					spriteRenderer.flipX = !isFacingRight;
 
 					if (Input.GetAxisRaw("Vertical") > 0.0f) {
-						jetpackSmoke.rateOverTime = emissionWhenFiringJetpackSmoke;
-						jetpackThrust.rateOverTime = emissionWhenFiringJetpackThrust;
+						jetpack.JetpackToggle(true);
 						transform.position += Vector3.up * Time.deltaTime * jetPackPower;
 						rb.gravityScale = 0.0f;
 						rb.velocity = Vector2.zero;
 					} else {
-						jetpackThrust.rateOverTime = jetpackSmoke.rateOverTime = 0;
+						jetpack.JetpackToggle(false);
 						rb.gravityScale = 1.0f;
 					}
 				break;
