@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Mech : MonoBehaviour {
 
@@ -10,28 +11,46 @@ public class Mech : MonoBehaviour {
 	private bool isOnGround;
 	private bool inUse = false;
 
-	public Transform[] mainProjectileSources;
-	public GameObject mainProjectilePrefab = null;
+	public Gun gun;
 
 	private GameObject player;
-	
+
 	private Rigidbody2D mechRB;
 	public Transform model;
 
 	// Use this for initialization
 	void Start () {
+
+		//Assert.IsNotNull( gun );
+
 		mechRB = GetComponent<Rigidbody2D>();
 		player = GameObject.FindWithTag("Player");
 	}
-	
+
+	public void Side (bool isRight)
+	{
+		if ( gun != null )
+		{
+			gun.SetDir( isRight );
+		}
+	}
+
 	public void wasEntered() {
 		inUse = true;
-		player.GetComponent<PlayerMovement>().OnFire += HandleFire; //adds itself to the listeners of OnFire()
+		if ( gun != null )
+		{
+			player.GetComponent<PlayerMovement>( ).OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
+			gun.Active( true );
+		}
 	}
 
 	public void wasExited() {
 		inUse = false;
-		player.GetComponent<PlayerMovement>().OnFire -= HandleFire;
+		if ( gun != null )
+		{
+			player.GetComponent<PlayerMovement>( ).OnFire -= gun.HandleFire;
+			gun.Active( false );
+		}
 	}
 
 	// Update is called once per frame
@@ -54,25 +73,5 @@ public class Mech : MonoBehaviour {
 				return;
 			}
 		}
-	}
-	void HandleFire(){
-		if (mainProjectilePrefab == null) return;
-		if(mainProjectileSources.Length == 0) {
-			Debug.LogError("Missing mainProjectileSources but have mainProjectilePrefab");
-			return;
-		}
-		for(int i = 0; i < mainProjectileSources.Length; i++) {
-			GameObject shotGO = GameObject.Instantiate(mainProjectilePrefab, mainProjectileSources[i].position, Quaternion.identity);
-			Vector2 pos2D = new Vector2(mainProjectileSources[i].position.x, mainProjectileSources[i].position.y);
-			Vector2 aimAt = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-			Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>();
-			Vector2 movementDirection = (aimAt - pos2D).normalized;
-			movementDirection += Random.insideUnitCircle * 0.1f; // randomize
-			shotRB.velocity = movementDirection * 20.0f;
-			shotGO.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(shotRB.velocity.y, shotRB.velocity.x) * Mathf.Rad2Deg,
-				Vector3.forward);
-			shotGO.transform.SetParent(LitterContainer.instanceTransform);
-		}
-		//shotGO.transform.RotateAround(transform.up, 90.0f);
 	}
 }

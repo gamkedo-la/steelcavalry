@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -80,12 +80,18 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+
 		//Common to both in and out of mech; prob will be changed later
 		if (Input.GetAxisRaw("Horizontal") > 0.0f && !isFacingRight) {
-			isFacingRight = true;
+			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
+				isFacingRight = false;
+			else
+				isFacingRight = true;
 		} else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
-			isFacingRight = false;
+			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
+				isFacingRight = true;
+			else
+				isFacingRight = false;
 		}
 		if (Input.GetMouseButton(0)){
 			OnFire(); //tells everyone listening that a shot has been fired
@@ -98,9 +104,11 @@ public class PlayerMovement : MonoBehaviour {
 				if(mechImIn && mechImIn.model != null) {
 					if(isFacingRight) {
 						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.right);
-					} else {
+						mechImIn.Side( true );
+				} else {
 						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.left);
-					}
+						mechImIn.Side( false );
+				}
 				}
 
 				transform.position = mechImIn.transform.position;
@@ -131,7 +139,7 @@ public class PlayerMovement : MonoBehaviour {
 				break;
 
 			default: return;
-			
+
 		}
 	} // end of Update
 
