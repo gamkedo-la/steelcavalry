@@ -42,21 +42,14 @@ public class Gun : MonoBehaviour
 
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * 20.0f;
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
-
-		/*
-		GameObject shotGO = Instantiate( projectile, spawnPoint.position, Quaternion.identity );
-		Vector2 pos2D = new Vector2( spawnPoint.position.x, spawnPoint.position.y );
-		Vector2 aimAt = Camera.main.ScreenToWorldPoint( new Vector2( Input.mousePosition.x, Input.mousePosition.y ) );
-		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
-		Vector2 movementDirection = ( aimAt - pos2D ).normalized;
-		movementDirection += Random.insideUnitCircle * 0.1f;
-		shotRB.velocity = movementDirection * 20.0f;
-		shotGO.transform.rotation = Quaternion.AngleAxis( Mathf.Atan2( shotRB.velocity.y, shotRB.velocity.x ) * Mathf.Rad2Deg, Vector3.forward );
-		shotGO.transform.SetParent( LitterContainer.instanceTransform );*/
 	}
 
 	private void LookAtCursor( )
 	{
+		if ( !( Camera.main.ScreenToWorldPoint( Input.mousePosition ).x < transform.position.x && !isRight ) &&
+			 !( Camera.main.ScreenToWorldPoint( Input.mousePosition ).x > transform.position.x && isRight ) )
+			return;
+
 		Vector3 diff = Camera.main.ScreenToWorldPoint( Input.mousePosition ) - transform.position;
 		diff.Normalize( );
 

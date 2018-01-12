@@ -12,6 +12,7 @@ public class Mech : MonoBehaviour {
 	private bool inUse = false;
 
 	public Gun gun;
+	public MissileLauncher missiles;
 
 	private GameObject player;
 
@@ -40,7 +41,9 @@ public class Mech : MonoBehaviour {
 		if ( gun != null )
 		{
 			player.GetComponent<PlayerMovement>( ).OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
+			player.GetComponent<PlayerMovement>( ).OnAltFire += missiles.HandleFire;
 			gun.Active( true );
+			missiles.Active( true );
 		}
 	}
 
@@ -49,7 +52,9 @@ public class Mech : MonoBehaviour {
 		if ( gun != null )
 		{
 			player.GetComponent<PlayerMovement>( ).OnFire -= gun.HandleFire;
+			player.GetComponent<PlayerMovement>( ).OnAltFire -= missiles.HandleFire;
 			gun.Active( false );
+			missiles.Active( false );
 		}
 	}
 

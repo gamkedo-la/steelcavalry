@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PlayerMissle
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - PlayerShot
   - Person
   - EffectsFG
-  - 
+  - PlayerMissile
   - 
   - 
   - 
