@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire = delegate {} ; //firing is now an event that can heard by other scripts
+	public event Action OnAltFire2 = delegate {} ; //firing is now an event that can heard by other scripts
 
 	private Jetpack jetpack;
 
@@ -100,6 +101,10 @@ public class PlayerMovement : MonoBehaviour {
 		if ( Input.GetMouseButton( 1 ) )
 		{
 			OnAltFire( ); //tells everyone listening that a shot has been fired
+		}
+		if ( Input.GetMouseButtonDown( 2 ) )
+		{
+			OnAltFire2( ); //tells everyone listening that a shot has been fired
 		}
 
 		switch (_state){

@@ -13,6 +13,7 @@ public class Mech : MonoBehaviour {
 
 	public Gun gun;
 	public MissileLauncher missiles;
+	public CanisterLauncher canisters;
 
 	private GameObject player;
 
@@ -33,6 +34,7 @@ public class Mech : MonoBehaviour {
 		if ( gun != null )
 		{
 			gun.SetDir( isRight );
+			canisters.SetDir( isRight );
 		}
 	}
 
@@ -42,8 +44,10 @@ public class Mech : MonoBehaviour {
 		{
 			player.GetComponent<PlayerMovement>( ).OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
 			player.GetComponent<PlayerMovement>( ).OnAltFire += missiles.HandleFire;
+			player.GetComponent<PlayerMovement>( ).OnAltFire2 += canisters.HandleFire;
 			gun.Active( true );
 			missiles.Active( true );
+			canisters.Active( true );
 		}
 	}
 
@@ -53,8 +57,10 @@ public class Mech : MonoBehaviour {
 		{
 			player.GetComponent<PlayerMovement>( ).OnFire -= gun.HandleFire;
 			player.GetComponent<PlayerMovement>( ).OnAltFire -= missiles.HandleFire;
+			player.GetComponent<PlayerMovement>( ).OnAltFire2 -= canisters.HandleFire;
 			gun.Active( false );
 			missiles.Active( false );
+			canisters.Active( false );
 		}
 	}
 
