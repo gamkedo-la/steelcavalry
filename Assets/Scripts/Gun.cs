@@ -5,6 +5,7 @@ public class Gun : MonoBehaviour
 {
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private float force = 20;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
@@ -38,9 +39,10 @@ public class Gun : MonoBehaviour
 	public void HandleFire( )
 	{
 		GameObject shotGO = Instantiate( projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
-		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 
-		shotRB.velocity = shotGO.transform.rotation * Vector2.right * 20.0f;
+		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
+		shotRB.velocity = shotGO.transform.rotation * Vector2.right * force;
+
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
 	}
 

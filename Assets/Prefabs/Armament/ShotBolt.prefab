@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114879613950008458}
   m_Layer: 10
   m_Name: ShotBolt
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
