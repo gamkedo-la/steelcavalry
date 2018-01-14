@@ -115,10 +115,10 @@ public class PlayerMovement : MonoBehaviour {
 					if(isFacingRight) {
 						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.right);
 						mechImIn.Side( true );
-				} else {
+					} else {
 						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.left);
 						mechImIn.Side( false );
-				}
+					}
 				}
 
 				transform.position = mechImIn.transform.position;
@@ -133,25 +133,31 @@ public class PlayerMovement : MonoBehaviour {
 					Mech nearestMech = FindNearbyMech();
 					if (nearestMech) EnterMech(nearestMech);
 				}
-					transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
 
-					spriteRenderer.flipX = !isFacingRight;
+				transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
 
-					if (Input.GetAxisRaw("Vertical") > 0.0f) {
-						jetpack.JetpackToggle(true);
-						transform.position += Vector3.up * Time.deltaTime * jetPackPower;
-						rb.gravityScale = 0.0f;
-						rb.velocity = Vector2.zero;
-					} else {
-						jetpack.JetpackToggle(false);
-						rb.gravityScale = 1.0f;
-					}
+				spriteRenderer.flipX = !isFacingRight;
+
+				if (Input.GetAxisRaw("Vertical") > 0.0f) {
+					jetpack.JetpackToggle(true);
+					transform.position += Vector3.up * Time.deltaTime * jetPackPower;
+					rb.gravityScale = 0.0f;
+					rb.velocity = Vector2.zero;
+				} else {
+					jetpack.JetpackToggle(false);
+					rb.gravityScale = 1.0f;
+				}
 				break;
 
 			default: return;
 
 		}
 	} // end of Update
+
+	public string getNameOfMechPlayerIsIn() {
+		if(!mechImIn) return "";
+		return mechImIn.name;
+	}
 
 	//returns nearest mech in range or null if there are none
 	Mech FindNearbyMech(){
@@ -180,4 +186,5 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else return null; //no mech in range
 	}
+
 } // class

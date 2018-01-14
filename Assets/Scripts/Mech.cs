@@ -7,6 +7,8 @@ public class Mech : MonoBehaviour {
 
 	public float mechSpeed = 2.0f;
  	public float jumpPower = 10.0f;
+ 	public float damageTaken = 0.0f;
+ 	public float maxDamage = 100.0f;
 
 	private bool isOnGround;
 	private bool inUse = false;
@@ -78,6 +80,8 @@ public class Mech : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
+		Debug.Log("Collided with: " + bumpFacts.collider.gameObject.name);
+
 		for(int i = 0; i < bumpFacts.contacts.Length; i++) {
 			if(bumpFacts.contacts[i].normal.y >= 0.9f) {
 				isOnGround = true;
