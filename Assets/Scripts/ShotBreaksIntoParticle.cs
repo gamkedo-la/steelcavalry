@@ -7,6 +7,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour {
 	private GameObject player;
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
+	private float damagePerShot = 10.0f;
 
 	void Start() {
 		player = GameObject.FindWithTag("Player");
@@ -21,6 +22,12 @@ public class ShotBreaksIntoParticle : MonoBehaviour {
 
 		// If the shot is from the player, ignore it
 		if(nameOfMechPlayerIsIn == nameOfObjectHit) return;
+
+		// Try to find a Mech script on the hit object
+		Mech mechInstance = bumpFacts.collider.GetComponent<Mech>();
+		if (mechInstance) {
+			mechInstance.TakeDamage(damagePerShot);
+		}
 
 		GameObject pfxGO = GameObject.Instantiate(pfx, transform.position, transform.rotation);
 		pfxGO.transform.SetParent(LitterContainer.instanceTransform);

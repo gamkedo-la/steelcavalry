@@ -6,6 +6,7 @@ public class HomingMissile : MonoBehaviour
 	[SerializeField] private GameObject explosion = null;
 	[SerializeField] private float speed = 5;
 	[SerializeField] private float rotatingSpeed= 200;
+	private float damagePerMissile = 20.0f;
 
 	private Transform target;
 	private Rigidbody2D rb;
@@ -42,6 +43,13 @@ public class HomingMissile : MonoBehaviour
 
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
+
+		// Try to find a Mech script on the hit object
+		Mech mechInstance = collision.collider.GetComponent<Mech>();
+		if (mechInstance) {
+			mechInstance.TakeDamage(damagePerMissile);
+		}
+
 		if ( collision.contacts.Length > 0 )
 			DoDestruction( collision.contacts[0].point );
 		else

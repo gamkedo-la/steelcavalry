@@ -80,13 +80,19 @@ public class Mech : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
-		Debug.Log("Collided with: " + bumpFacts.collider.gameObject.name);
-
 		for(int i = 0; i < bumpFacts.contacts.Length; i++) {
 			if(bumpFacts.contacts[i].normal.y >= 0.9f) {
 				isOnGround = true;
 				return;
 			}
+		}
+	}
+
+	public void TakeDamage(float damageAmount) {
+		if (!inUse) damageAmount *= 1.25f;
+		damageTaken += damageAmount;
+		if(damageTaken >= maxDamage) {
+			Destroy(gameObject);
 		}
 	}
 }
