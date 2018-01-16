@@ -25,6 +25,17 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Jetpack jetpack;
 
+	// public input flags for keyboard/gamepad *or* AI
+	public bool useKeyboardInput = true; // default for player 1, false for bots
+	public bool useGamepadInput = false; // unimplemented
+	public bool inputUp = false;
+	public bool inputDown = false;
+	public bool inputLeft = false;
+	public bool inputRight = false;
+	public bool inputFire = false;
+	public bool inputAltFire = false;
+	public bool inputAltFire2 = false;
+
 	public enum PlayerState{
 		inMech,
 		outOfMech
@@ -80,29 +91,44 @@ public class PlayerMovement : MonoBehaviour {
 		_state = PlayerState.outOfMech;
 	}
 
+	// putting all input response here lets us turn it off for "dumb players" ie AI
+	void handleInput() {
+
+		if (useKeyboardInput) {
+			inputRight = Input.GetAxisRaw ("Horizontal") > 0.0f;
+			inputLeft = Input.GetAxisRaw ("Horizontal") < 0.0f;
+			inputFire = Input.GetMouseButton(0);
+			inputAltFire = Input.GetMouseButton(1);
+			inputAltFire2 = Input.GetMouseButton(2);
+		}
+
+	}
+
 	// Update is called once per frame
 	void Update () {
 
+		handleInput();
+
 		//Common to both in and out of mech; prob will be changed later
-		if (Input.GetAxisRaw("Horizontal") > 0.0f && !isFacingRight) {
+		if (inputRight && !isFacingRight) {
 			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
 				isFacingRight = false;
 			else
 				isFacingRight = true;
-		} else if(Input.GetAxisRaw("Horizontal") < 0.0f && isFacingRight) {
+		} else if(inputLeft && isFacingRight) {
 			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
 				isFacingRight = true;
 			else
 				isFacingRight = false;
 		}
-		if (Input.GetMouseButton(0)){
+		if (inputFire){
 			OnFire(); //tells everyone listening that a shot has been fired
 		}
-		if ( Input.GetMouseButton( 1 ) )
+		if (inputAltFire)
 		{
 			OnAltFire( ); //tells everyone listening that a shot has been fired
 		}
-		if ( Input.GetMouseButtonDown( 2 ) )
+		if (inputAltFire2)
 		{
 			OnAltFire2( ); //tells everyone listening that a shot has been fired
 		}
