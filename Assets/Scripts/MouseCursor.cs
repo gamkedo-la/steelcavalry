@@ -14,6 +14,8 @@ public class MouseCursor : MonoBehaviour
 
 	[Header( "Other" )]
 	[SerializeField] private bool showHardwareCursor = false;
+	[SerializeField] private float normalSubPos = 0.12f;
+	[SerializeField] private float hitSubPos = 0.16f;
 
 	private List<GameObject> missiles;
 	private bool noMissilesInFlight = true;
@@ -43,6 +45,20 @@ public class MouseCursor : MonoBehaviour
 	public void AddMissile( GameObject missile )
 	{
 		missiles.Add( missile );
+	}
+
+	public void OnHitEvent( float strength )
+	{
+		float time = strength / 10f;
+
+		DoHitAnimation( false );
+		CancelInvoke( "ReturnToNormal" );
+		Invoke( "ReturnToNormal", time );
+	}
+
+	private void ReturnToNormal( )
+	{
+		DoHitAnimation( true );
 	}
 
 	private void SetNewCursorPosition( )
@@ -94,5 +110,20 @@ public class MouseCursor : MonoBehaviour
 			noMissilesInFlight = true;
 		else
 			noMissilesInFlight = false;
+	}
+
+	private void DoHitAnimation( bool normal)
+	{
+		float newPos = normal ? normalSubPos : hitSubPos;
+
+		foreach ( var sprite in sprites )
+		{
+			Vector2 spriteSubPos = sprite.gameObject.transform.localPosition;
+
+			spriteSubPos.x = spriteSubPos.x > 0 ? newPos : -newPos;
+			spriteSubPos.y = spriteSubPos.y > 0 ? newPos : -newPos;
+
+			sprite.gameObject.transform.localPosition = spriteSubPos;
+		}
 	}
 }

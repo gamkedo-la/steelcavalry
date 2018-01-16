@@ -4,9 +4,10 @@ using UnityEngine.Assertions;
 public class HomingMissile : MonoBehaviour
 {
 	[SerializeField] private GameObject explosion = null;
-	[SerializeField] private float speed = 5;
-	[SerializeField] private float rotatingSpeed= 200;
-	private float damagePerMissile = 20.0f;
+	[SerializeField] private GameEventFloat didDamageEvent = null;
+	[SerializeField] private float speed = 5f;
+	[SerializeField] private float rotatingSpeed= 200f;
+	[SerializeField] private float damagePerMissile = 20f;
 
 	private Transform target;
 	private Rigidbody2D rb;
@@ -17,6 +18,7 @@ public class HomingMissile : MonoBehaviour
 
 		Assert.IsNotNull( rb );
 		Assert.IsNotNull( explosion );
+		Assert.IsNotNull( didDamageEvent );
 	}
 
 	void FixedUpdate( )
@@ -43,10 +45,11 @@ public class HomingMissile : MonoBehaviour
 
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
-
 		// Try to find a Mech script on the hit object
 		Mech mechInstance = collision.collider.GetComponent<Mech>();
-		if (mechInstance) {
+		if (mechInstance)
+		{
+			didDamageEvent.Raise( 0.5f );
 			mechInstance.TakeDamage(damagePerMissile);
 		}
 

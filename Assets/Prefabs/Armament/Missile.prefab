@@ -190,8 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1887082426687786, guid: 7e06b56373d628a488915345ca0d4511, type: 2}
+  didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   speed: 5
   rotatingSpeed: 200
+  damagePerMissile: 1
 --- !u!198 &198630773329356312
 ParticleSystem:
   m_ObjectHideFlags: 1
