@@ -11,10 +11,12 @@ using UnityEngine;
 public class AI : MonoBehaviour {
 
 	public float minTimePerThink = 0.5f;
-	public float maxTimePerThink = 1.0f;
+	public float maxTimePerThink = 2.0f;
 	public float chanceItMoves = 0.5f;
 	public float chanceItFires = 0.3f;
 	public float chanceItEnters = 0.2f;
+
+	public GameObject seekTarget;
 
 	PlayerMovement myMovement;
 
@@ -59,6 +61,7 @@ public class AI : MonoBehaviour {
 				} // other values: do nothing
 			}
 
+			// fixme: we also need to choose where to aim: not the mouse cursor!
 			if (Random.value < chanceItFires) {
 				randy = Random.value; // fire?
 				if (randy < 0.333f) {
@@ -72,6 +75,23 @@ public class AI : MonoBehaviour {
 
 			if (Random.value < chanceItEnters) {		
 				myMovement.inputEnter = true;
+			}
+
+			// simple "hack"
+			// if we're seeking something,
+			// and happen to have decided to move horizontally
+			// be sure to choose moving towards it
+			// fixme: could be fear-dependent etc
+			if (seekTarget) {
+				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
+					if (seekTarget.transform.position.x < this.transform.position.x) { // is the target left of me?
+						myMovement.inputLeft = true;
+						myMovement.inputRight = false;
+					} else { // target is to the right of me
+						myMovement.inputLeft = false;
+						myMovement.inputRight = true;
+					}
+				}
 			}
 
 			yield return new WaitForSeconds(minTimePerThink + Random.value * (maxTimePerThink - minTimePerThink) );
