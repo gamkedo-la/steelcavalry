@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool inputFire = false;
 	public bool inputAltFire = false;
 	public bool inputAltFire2 = false;
+	public bool inputEnter = false;
 
 	public enum PlayerState{
 		inMech,
@@ -100,6 +101,8 @@ public class PlayerMovement : MonoBehaviour {
 			inputFire = Input.GetMouseButton(0);
 			inputAltFire = Input.GetMouseButton(1);
 			inputAltFire2 = Input.GetMouseButton(2);
+			inputEnter = Input.GetKeyDown(KeyCode.Space);
+			inputUp = Input.GetAxisRaw ("Vertical") > 0.0f;
 		}
 
 	}
@@ -111,12 +114,12 @@ public class PlayerMovement : MonoBehaviour {
 
 		//Common to both in and out of mech; prob will be changed later
 		if (inputRight && !isFacingRight) {
-			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
+			if ( _state == PlayerState.inMech && inputFire)
 				isFacingRight = false;
 			else
 				isFacingRight = true;
 		} else if(inputLeft && isFacingRight) {
-			if ( _state == PlayerState.inMech && Input.GetMouseButton( 0 ) )
+			if ( _state == PlayerState.inMech && inputFire)
 				isFacingRight = true;
 			else
 				isFacingRight = false;
@@ -149,22 +152,27 @@ public class PlayerMovement : MonoBehaviour {
 
 				transform.position = mechImIn.transform.position;
 				rb.velocity = Vector2.zero;
-				if (Input.GetKeyDown(KeyCode.Space)) ExitMech();
+				if (inputEnter) ExitMech();
 
 			break;
 
 			//Update method for outside mech
-			case PlayerState.outOfMech:
-				if (Input.GetKeyDown(KeyCode.Space)){
-					Mech nearestMech = FindNearbyMech();
-					if (nearestMech) EnterMech(nearestMech);
-				}
+		case PlayerState.outOfMech:
+			if (inputEnter) {
+				Mech nearestMech = FindNearbyMech ();
+				if (nearestMech)
+					EnterMech (nearestMech);
+			}
 
-				transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * humanSpeed;
+			float horizImpulse = 0f;
+			if (inputLeft) horizImpulse = -1f;
+			else if (inputRight) horizImpulse = 1f;
+
+			transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
 
 				spriteRenderer.flipX = !isFacingRight;
 
-				if (Input.GetAxisRaw("Vertical") > 0.0f) {
+				if (inputUp) {
 					jetpack.JetpackToggle(true);
 					transform.position += Vector3.up * Time.deltaTime * jetPackPower;
 					rb.gravityScale = 0.0f;
