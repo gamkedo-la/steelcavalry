@@ -8,7 +8,7 @@ public class CanisterLauncher : MonoBehaviour
 	[SerializeField] private float force = 20;
 
 	private bool isActive = false;
-	private bool isRight = false;
+	//private bool isRight = false;
 
 	void Start( )
 	{
@@ -24,7 +24,7 @@ public class CanisterLauncher : MonoBehaviour
 
 	public void SetDir( bool isRight )
 	{
-		this.isRight = isRight;
+		//this.isRight = isRight;
 	}
 
 	public void Active( bool isActive )

@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class MissileLauncher : MonoBehaviour
 {
+	[SerializeField] private MouseCursor cursor;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
 
@@ -10,6 +11,7 @@ public class MissileLauncher : MonoBehaviour
 
 	void Start( )
 	{
+		Assert.IsNotNull( cursor );
 		Assert.IsNotNull( projectile );
 		Assert.IsNotNull( spawnPoint );
 	}
@@ -27,8 +29,9 @@ public class MissileLauncher : MonoBehaviour
 
 	public void HandleFire( )
 	{
-		GameObject shotGO = Instantiate( projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
+		GameObject missile = Instantiate( projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
 
-		shotGO.transform.SetParent( LitterContainer.instanceTransform );
+		cursor.AddMissile( missile );
+		missile.transform.SetParent( LitterContainer.instanceTransform );
 	}
 }
