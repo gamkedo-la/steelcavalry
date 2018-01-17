@@ -32432,7 +32432,7 @@ GameObject:
   - component: {fileID: 1247760518}
   - component: {fileID: 1247760524}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: Enemy (intense)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32602,10 +32602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 2.5
-  chanceItMoves: 0.5
-  chanceItFires: 0.3
+  minTimePerThink: 0.1
+  maxTimePerThink: 0.5
+  chanceItMoves: 1
+  chanceItFires: 1
   chanceItEnters: 0
   seekTarget: {fileID: 219767439}
 --- !u!114 &1297227010 stripped
@@ -33135,8 +33135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 2.5
+  minTimePerThink: 0.2
+  maxTimePerThink: 1.5
   chanceItMoves: 0.5
   chanceItFires: 0.3
   chanceItEnters: 0
@@ -33407,7 +33407,7 @@ GameObject:
   - component: {fileID: 1646231343}
   - component: {fileID: 1646231342}
   m_Layer: 11
-  m_Name: Enemy (1)
+  m_Name: Enemy (lazy)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37474,8 +37474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 2.5
+  minTimePerThink: 0.2
+  maxTimePerThink: 1.5
   chanceItMoves: 0.5
   chanceItFires: 0.3
   chanceItEnters: 0

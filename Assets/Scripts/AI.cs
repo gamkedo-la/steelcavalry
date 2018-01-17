@@ -84,6 +84,7 @@ public class AI : MonoBehaviour {
 			// fixme: could be fear-dependent etc
 			if (seekTarget) {
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
+					
 					if (seekTarget.transform.position.x < this.transform.position.x) { // is the target left of me?
 						myMovement.inputLeft = true;
 						myMovement.inputRight = false;
@@ -91,6 +92,12 @@ public class AI : MonoBehaviour {
 						myMovement.inputLeft = false;
 						myMovement.inputRight = true;
 					}
+
+					// let's try gaining altitude when required as well (but now the movement is barely random at all)
+					if (seekTarget.transform.position.y > this.transform.position.y) { // is the target above me?
+						myMovement.inputUp = true;
+					}
+
 				}
 			}
 
