@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59be906baa3364e4e82ca4e1f13fa5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   speed: 30
+  damage: 20
 --- !u!114 &114932240477850176
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 61275039451291874}
   - component: {fileID: 114092479930113712}
   m_Layer: 13
-  m_Name: Missile
+  m_Name: Homing Missile
   m_TagString: PlayerMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   speed: 5
   rotatingSpeed: 200
-  damagePerMissile: 1
+  damagePerMissile: 10
 --- !u!198 &198630773329356312
 ParticleSystem:
   m_ObjectHideFlags: 1

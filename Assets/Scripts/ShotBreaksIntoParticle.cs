@@ -1,15 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class ShotBreaksIntoParticle : MonoBehaviour {
-	public GameObject pfx;
+public class ShotBreaksIntoParticle : MonoBehaviour
+{
+	[SerializeField] private GameEventFloat didDamageEvent = null;
+	[SerializeField] private GameObject pfx;
+	[SerializeField] private float damagePerShot = 10.0f;
+
 	private GameObject player;
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
-	private float damagePerShot = 10.0f;
 
-	void Start() {
+	void Start()
+	{
+		Assert.IsNotNull( didDamageEvent );
+
 		player = GameObject.FindWithTag("Player");
 	}
 
@@ -25,11 +30,13 @@ public class ShotBreaksIntoParticle : MonoBehaviour {
 
 		// Try to find a Mech script on the hit object
 		Mech mechInstance = bumpFacts.collider.GetComponent<Mech>();
-		if (mechInstance) {
+		if (mechInstance)
+		{
+			didDamageEvent.Raise( 0.1f );
 			mechInstance.TakeDamage(damagePerShot);
 		}
 
-		GameObject pfxGO = GameObject.Instantiate(pfx, transform.position, transform.rotation);
+		GameObject pfxGO = Instantiate(pfx, transform.position, transform.rotation);
 		pfxGO.transform.SetParent(LitterContainer.instanceTransform);
 		Destroy(gameObject);
 	}
