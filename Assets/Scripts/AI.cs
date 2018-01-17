@@ -15,6 +15,8 @@ public class AI : MonoBehaviour {
 	public float chanceItMoves = 0.5f;
 	public float chanceItFires = 0.3f;
 	public float chanceItEnters = 0.2f;
+	public float distanceTolerance = 0.5f; // close enough in world units
+	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
 	public GameObject seekTarget;
 
@@ -28,7 +30,11 @@ public class AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		// debug spam
+		if (seekTarget)
+			Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
+
 	}
 
 	IEnumerator aiThink() {
@@ -73,7 +79,7 @@ public class AI : MonoBehaviour {
 				}
 			}
 
-			if (Random.value < chanceItEnters) {		
+			if (Random.value < chanceItEnters) { // maybe hop in or out of a mech!	
 				myMovement.inputEnter = true;
 			}
 
@@ -85,16 +91,19 @@ public class AI : MonoBehaviour {
 			if (seekTarget) {
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
 					
-					if (seekTarget.transform.position.x < this.transform.position.x) { // is the target left of me?
+					if (seekTarget.transform.position.x < this.transform.position.x-distanceTolerance) { // is the target left of me?
 						myMovement.inputLeft = true;
 						myMovement.inputRight = false;
-					} else { // target is to the right of me
+					} else if (seekTarget.transform.position.x > this.transform.position.x+distanceTolerance) { // target is to the right of me
 						myMovement.inputLeft = false;
 						myMovement.inputRight = true;
 					}
+					else // it is nearby
+					{
+					}
 
 					// let's try gaining altitude when required as well (but now the movement is barely random at all)
-					if (seekTarget.transform.position.y > this.transform.position.y) { // is the target above me?
+					if ((seekTarget.transform.position.y+unitsAboveTarget) > this.transform.position.y) { // is the target above me?
 						myMovement.inputUp = true;
 					}
 
