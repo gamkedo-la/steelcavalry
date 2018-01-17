@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Mech : MonoBehaviour {
-
+public class Mech : MonoBehaviour
+{
+	[SerializeField] private GameObject[] bodyParts = null;
 	public float mechSpeed = 2.0f;
  	public float jumpPower = 10.0f;
  	public float damageTaken = 0.0f;
@@ -88,11 +87,27 @@ public class Mech : MonoBehaviour {
 		}
 	}
 
-	public void TakeDamage(float damageAmount) {
+	public void TakeDamage(float damageAmount)
+	{
 		if (!inUse) damageAmount *= 1.25f;
+
 		damageTaken += damageAmount;
-		if(damageTaken >= maxDamage) {
+		if(damageTaken >= maxDamage)
+		{
+			MakeDestructionEffect( );
 			Destroy(gameObject);
+		}
+	}
+
+	private void MakeDestructionEffect()
+	{
+		if ( bodyParts == null || bodyParts.Length == 0 ) return;
+
+		foreach ( var part in bodyParts )
+		{
+			part.GetComponent<CircleCollider2D>( ).enabled = true;
+			part.AddComponent<Rigidbody2D>( );
+			part.transform.SetParent( null );
 		}
 	}
 }
