@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 00aba8d7c297cba4fbfc6944b582b7fd
+timeCreated: 1516304780
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: arm_up_L
+    100002: arm_up_R
+    100004: blade_L
+    100006: blade_R
+    100008: body
+    100010: //RootNode
+    100012: foot_L
+    100014: foot_R
+    100016: leg_low_L
+    100018: leg_low_R
+    100020: pelvis
+    100022: thrusters
+    100024: UpLeg_L
+    100026: UpLeg_R
+    400000: arm_up_L
+    400002: arm_up_R
+    400004: blade_L
+    400006: blade_R
+    400008: body
+    400010: //RootNode
+    400012: foot_L
+    400014: foot_R
+    400016: leg_low_L
+    400018: leg_low_R
+    400020: pelvis
+    400022: thrusters
+    400024: UpLeg_L
+    400026: UpLeg_R
+    2300000: arm_up_L
+    2300002: arm_up_R
+    2300004: blade_L
+    2300006: blade_R
+    2300008: body
+    2300010: foot_L
+    2300012: foot_R
+    2300014: leg_low_L
+    2300016: leg_low_R
+    2300018: pelvis
+    2300020: thrusters
+    2300022: UpLeg_L
+    2300024: UpLeg_R
+    3300000: arm_up_L
+    3300002: arm_up_R
+    3300004: blade_L
+    3300006: blade_R
+    3300008: body
+    3300010: foot_L
+    3300012: foot_R
+    3300014: leg_low_L
+    3300016: leg_low_R
+    3300018: pelvis
+    3300020: thrusters
+    3300022: UpLeg_L
+    3300024: UpLeg_R
+    4300000: pelvis
+    4300002: thrusters
+    4300004: UpLeg_L
+    4300006: foot_R
+    4300008: leg_low_R
+    4300010: UpLeg_R
+    4300012: arm_up_R
+    4300014: blade_R
+    4300016: arm_up_L
+    4300018: blade_L
+    4300020: foot_L
+    4300022: leg_low_L
+    4300024: body
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: be76a7e8e5886ec4ba5291006b0fc822, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
