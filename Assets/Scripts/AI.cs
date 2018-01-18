@@ -44,7 +44,8 @@ public class AI : MonoBehaviour {
 			seekTarget = seekTargetInMech;
 
 		// debug lines
-		Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
+		if (seekTarget) // might be null
+			Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
 
 	}
 
