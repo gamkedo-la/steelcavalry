@@ -30029,8 +30029,8 @@ MonoBehaviour:
   minTimePerThink: 0.2
   maxTimePerThink: 1.5
   chanceItMoves: 1
-  chanceItFires: 0.3
-  chanceItEnters: 0.1
+  chanceItFires: 0.5
+  chanceItEnters: 0.2
   chanceItExits: 0
   distanceTolerance: 0.5
   unitsAboveTarget: 1.5

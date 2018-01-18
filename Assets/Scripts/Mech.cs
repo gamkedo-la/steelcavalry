@@ -16,7 +16,8 @@ public class Mech : MonoBehaviour
 	public MissileLauncher missiles;
 	public CanisterLauncher canisters;
 
-	private GameObject player;
+	private GameObject driver; // either the player or an enemy ai player
+	private PlayerMovement driverMovement;
 
 	private Rigidbody2D mechRB;
 	public Transform model;
@@ -27,7 +28,7 @@ public class Mech : MonoBehaviour
 		//Assert.IsNotNull( gun );
 
 		mechRB = GetComponent<Rigidbody2D>();
-		player = GameObject.FindWithTag("Player");
+		//driver = GameObject.FindWithTag("Player"); // this may not be who is really driving
 	}
 
 	public void Side (bool isRight)
@@ -39,13 +40,17 @@ public class Mech : MonoBehaviour
 		}
 	}
 
-	public void wasEntered() {
+	public void wasEntered(GameObject newDriver) {
+
+		driver = newDriver;
+		driverMovement = driver.GetComponent<PlayerMovement>();
+
 		inUse = true;
 		if ( gun != null )
 		{
-			player.GetComponent<PlayerMovement>( ).OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
-			player.GetComponent<PlayerMovement>( ).OnAltFire += missiles.HandleFire;
-			player.GetComponent<PlayerMovement>( ).OnAltFire2 += canisters.HandleFire;
+			driverMovement.OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
+			driverMovement.OnAltFire += missiles.HandleFire;
+			driverMovement.OnAltFire2 += canisters.HandleFire;
 			gun.Active( true );
 			missiles.Active( true );
 			canisters.Active( true );
@@ -56,9 +61,9 @@ public class Mech : MonoBehaviour
 		inUse = false;
 		if ( gun != null )
 		{
-			player.GetComponent<PlayerMovement>( ).OnFire -= gun.HandleFire;
-			player.GetComponent<PlayerMovement>( ).OnAltFire -= missiles.HandleFire;
-			player.GetComponent<PlayerMovement>( ).OnAltFire2 -= canisters.HandleFire;
+			driverMovement.OnFire -= gun.HandleFire;
+			driverMovement.OnAltFire -= missiles.HandleFire;
+			driverMovement.OnAltFire2 -= canisters.HandleFire;
 			gun.Active( false );
 			missiles.Active( false );
 			canisters.Active( false );
@@ -69,10 +74,15 @@ public class Mech : MonoBehaviour
 	public void Update () {
 
 		if (!inUse) return; //could be made into a function to do something else when idle
+		if (!driverMovement) return;
 
-		transform.position += Vector3.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime * mechSpeed;
+		if (driverMovement.inputRight)
+			transform.position += Vector3.right * Time.deltaTime * mechSpeed;
 
-		if(Input.GetAxisRaw("Vertical") > 0.0f && isOnGround) {
+		if (driverMovement.inputLeft)
+			transform.position += Vector3.left * Time.deltaTime * mechSpeed;
+
+		if (driverMovement.inputUp && isOnGround) {
 			mechRB.AddForce(Vector2.up * Input.GetAxisRaw("Vertical") * jumpPower);
 			isOnGround = false;
 		}

@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 			Debug.Log("Entering mech with no model... :/");
 			//return;
 		}
-		mech.wasEntered();
+		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
 		mechImIn = mech;
 
 		//Disables human character
