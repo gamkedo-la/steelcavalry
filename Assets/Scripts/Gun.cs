@@ -38,6 +38,8 @@ public class Gun : MonoBehaviour
 
 	public void HandleFire( )
 	{
+		if ( spawnPoint == null ) return;
+
 		GameObject shotGO = Instantiate( projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );

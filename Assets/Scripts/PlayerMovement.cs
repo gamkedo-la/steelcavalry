@@ -150,6 +150,8 @@ public class PlayerMovement : MonoBehaviour {
 					}
 				}
 
+				if ( mechImIn == null ) return;
+
 				transform.position = mechImIn.transform.position;
 				rb.velocity = Vector2.zero;
 				if (inputEnter) ExitMech();

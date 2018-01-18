@@ -12,7 +12,6 @@ public class CanisterGranade : MonoBehaviour
 
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
-		Debug.Log( collision.gameObject.name );
 		if ( !collision.gameObject.CompareTag( "PlayerProjectile" ) &&
 			 !collision.gameObject.CompareTag( "PlayerMissile" ) &&
 			 !collision.gameObject.CompareTag( "Explosion" ) )

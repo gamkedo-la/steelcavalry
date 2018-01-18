@@ -29,6 +29,8 @@ public class MissileLauncher : MonoBehaviour
 
 	public void HandleFire( )
 	{
+		if ( spawnPoint == null ) return;
+
 		GameObject missile = Instantiate( projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
 
 		cursor.AddMissile( missile );

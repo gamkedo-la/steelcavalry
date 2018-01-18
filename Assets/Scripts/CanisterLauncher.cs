@@ -34,6 +34,8 @@ public class CanisterLauncher : MonoBehaviour
 
 	public void HandleFire( )
 	{
+		if ( spawnPoint == null ) return;
+
 		GameObject shotGO = Instantiate
 		(
 			projectile,
