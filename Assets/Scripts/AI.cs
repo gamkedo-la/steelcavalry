@@ -19,7 +19,9 @@ public class AI : MonoBehaviour {
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
-	public GameObject seekTarget;
+	public GameObject seekTargetOutside;
+	public GameObject seekTargetInMech;
+	private GameObject seekTarget;
 
 	PlayerMovement myMovement;
 
@@ -32,9 +34,17 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		// debug spam
-		if (seekTarget)
-			Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
+		if (!myMovement)
+			return;
+		
+		if (myMovement._state == PlayerMovement.PlayerState.outOfMech)
+			seekTarget = seekTargetOutside;
+
+		if (myMovement._state == PlayerMovement.PlayerState.inMech)
+			seekTarget = seekTargetInMech;
+
+		// debug lines
+		Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
 
 	}
 
