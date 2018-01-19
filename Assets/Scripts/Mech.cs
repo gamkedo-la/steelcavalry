@@ -22,6 +22,8 @@ public class Mech : MonoBehaviour
 	private Rigidbody2D mechRB;
 	public Transform model;
 
+	private bool destroying = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -105,13 +107,14 @@ public class Mech : MonoBehaviour
 		if(damageTaken >= maxDamage)
 		{
 			MakeDestructionEffect( );
+			destroying = true;
 			Destroy(gameObject);
 		}
 	}
 
 	private void MakeDestructionEffect()
 	{
-		if ( bodyParts == null || bodyParts.Length == 0 ) return;
+		if ( bodyParts == null || bodyParts.Length == 0 || destroying ) return;
 
 		foreach ( var part in bodyParts )
 		{

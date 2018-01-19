@@ -26,7 +26,7 @@ public class HomingMissile : MonoBehaviour
 		Vector2 targetPos = Vector2.zero;
 		if (target == null)
 		{
-			targetPos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+			targetPos = Utilities.GetMouseWorldPosition( Input.mousePosition );
 		}
 
 		if (Vector2.Distance(targetPos, transform.position) <= 0.1f)

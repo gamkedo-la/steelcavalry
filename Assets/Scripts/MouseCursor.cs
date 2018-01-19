@@ -64,7 +64,7 @@ public class MouseCursor : MonoBehaviour
 	private void SetNewCursorPosition( )
 	{
 		Cursor.visible = showHardwareCursor;
-		transform.position = (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition );
+		transform.position = Utilities.GetMouseWorldPosition( Input.mousePosition );
 	}
 
 	private void ChangeToDefaultColor( )

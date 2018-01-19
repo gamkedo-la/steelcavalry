@@ -50,11 +50,11 @@ public class Gun : MonoBehaviour
 
 	private void LookAtCursor( )
 	{
-		if ( !( Camera.main.ScreenToWorldPoint( Input.mousePosition ).x < transform.position.x && !isRight ) &&
-			 !( Camera.main.ScreenToWorldPoint( Input.mousePosition ).x > transform.position.x && isRight ) )
+		if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < transform.position.x && !isRight ) &&
+			 !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > transform.position.x && isRight ) )
 			return;
 
-		Vector3 diff = Camera.main.ScreenToWorldPoint( Input.mousePosition ) - transform.position;
+		Vector3 diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - transform.position;
 		diff.Normalize( );
 
 		xAngle = -1 * Mathf.Atan2( diff.y, diff.x ) * Mathf.Rad2Deg;

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +24,7 @@ public class HorizMove : MonoBehaviour {
 			xMax = transform.position.x + range;
 		}
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		CheckAndFlip();
@@ -36,8 +36,7 @@ public class HorizMove : MonoBehaviour {
 		(transform.position.x < xMin && !facingRight)){
 
 			facingRight = !facingRight; //flip it!
-			Debug.Log("Flipped!");
-		
+			//Debug.Log("Flipped!");
 		}
 	}
 	//Change direction if we see hit wall

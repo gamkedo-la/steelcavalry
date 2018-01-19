@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +11,11 @@ public class CamFollow : MonoBehaviour {
 	void Start () {
 		mainCam = Camera.main;
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		Vector3 pointToGetOnCamera = transform.position;
-		Vector2 mousePt = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		Vector2 mousePt = Utilities.GetMouseWorldPosition(Input.mousePosition);
 		float percTowardMouse = 0.65f;
 		pointToGetOnCamera.x = pointToGetOnCamera.x * (1.0f - percTowardMouse) + mousePt.x * percTowardMouse;
 		pointToGetOnCamera.y = pointToGetOnCamera.y * (1.0f - percTowardMouse) + mousePt.y * percTowardMouse;

@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
 	void EnterMech(Mech mech){
 		if (mech.model == null){
 			//Debug.Log("Attempt to enter mech with no model. Exiting...");
-			Debug.Log("Entering mech with no model... :/");
+			//Debug.Log("Entering mech with no model... :/");
 			//return;
 		}
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
@@ -77,7 +77,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	}
 
-	void ExitMech(){
+	void ExitMech()
+	{
+		if ( mechImIn == null ) return;
+
 		transform.position += Vector3.up * mechImIn.transform.lossyScale.y * 0.5f;
 		mechImIn.wasExited();
 		mechImIn = null;
