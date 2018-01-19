@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	// public input flags for keyboard/gamepad *or* AI
 	public bool useKeyboardInput = true; // default for player 1, false for bots
-	public bool useGamepadInput = false; // unimplemented
+	public bool useGamepadInput = false; // optional gamepad support for players 2..n
+	public int playerNumber = 1; // easy local multiplayer woo hoo used by gamepad stuff
+
+	// flags set by either the AI, keyboard, or gamepad
 	public bool inputUp = false;
 	public bool inputDown = false;
 	public bool inputLeft = false;
@@ -106,6 +109,54 @@ public class PlayerMovement : MonoBehaviour {
 			inputAltFire2 = Input.GetMouseButton(2);
 			inputEnter = Input.GetKeyDown(KeyCode.Space);
 			inputUp = Input.GetAxisRaw ("Vertical") > 0.0f;
+			// fixme: no down key used in the game?
+		}
+
+		if (useGamepadInput) {
+
+			//A Button joystick button 0
+			//B Button joystick button 1
+			//X Button joystick button 2
+			//Y Button joystick button 3
+			//L Button joystick button 4
+			//R Button joystick button 5
+			//Back joystick button 6
+			//Start joystick button 7
+			//Left Analog pressed joystick button 8
+			//Right Analog pressed joystick button 9
+			//Left/Right on D-Pad Joystick Axis, Axis 6
+			//Up/Down on D-Pad Joystick Axis, Axis 7
+			//Left Trigger and Right Trigger both correspond to joystick axis, axis 3
+			//D-pad up: joystick button 5
+			//D-pad down: joystick button 6
+			//D-pad left: joystick button 7
+			//D-pad right: joystick button 8
+
+			/*
+			// not working
+			inputFire = Input.GetKey ("joystick " + gamepadNumber + " button 0");
+			inputAltFire = Input.GetKey ("joystick " + gamepadNumber + " button 1");
+			inputAltFire2 = Input.GetKey ("joystick " + gamepadNumber + " button 2");
+			inputEnter = Input.GetKey ("joystick " + gamepadNumber + " button 3");
+			inputLeft = Input.GetAxisRaw ("joystick " + gamepadNumber + " axis 1") < -0.1f;
+			inputRight = Input.GetAxisRaw ("joystick " + gamepadNumber + " axis 1") > 0.1f;
+			inputUp = Input.GetAxisRaw ("joystick " + gamepadNumber + " axis 2") < -0.1f;
+			inputDown = Input.GetAxisRaw ("joystick " + gamepadNumber + " axis 2") > 0.1f;
+			*/
+
+			// todo: d-pad and right thumbstick aiming etc
+
+			// need to manually put stuff like "gamepad1updown" in the unity input manager
+			inputUp = Input.GetAxis("player"+playerNumber+"updown") < -0.5f;
+			inputDown = Input.GetAxis("player"+playerNumber+"updown") > 0.5f;
+			inputLeft = Input.GetAxis("player"+playerNumber+"leftright") < -0.5f;
+			inputRight = Input.GetAxis("player"+playerNumber+"leftright") > 0.5f;
+
+			// debug spam
+			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
+			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxisRaw("player"+playerNumber+"updown"));
+
+
 		}
 
 	}
