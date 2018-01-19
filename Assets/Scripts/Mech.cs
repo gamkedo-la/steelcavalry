@@ -10,7 +10,7 @@ public class Mech : MonoBehaviour
  	public float maxDamage = 100.0f;
 
 	private bool isOnGround;
-	private bool inUse = false;
+	public bool inUse = false;
 
 	public Gun gun;
 	public MissileLauncher missiles;
@@ -23,6 +23,7 @@ public class Mech : MonoBehaviour
 	public Transform model;
 
 	private bool destroying = false;
+	public bool isFacingRight;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,7 @@ public class Mech : MonoBehaviour
 
 	public void Side (bool isRight)
 	{
+		isFacingRight = isRight;
 		if ( gun != null )
 		{
 			gun.SetDir( isRight );
