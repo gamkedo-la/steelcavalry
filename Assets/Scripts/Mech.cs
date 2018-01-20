@@ -13,6 +13,7 @@ public class Mech : MonoBehaviour
 	public bool inUse = false;
 
 	public Gun gun;
+	public Laser3d laser;
 	public MissileLauncher missiles;
 	public CanisterLauncher canisters;
 
@@ -37,9 +38,15 @@ public class Mech : MonoBehaviour
 	public void Side (bool isRight)
 	{
 		isFacingRight = isRight;
-		if ( gun != null )
+		if ( gun != null && gun.enabled )
 		{
 			gun.SetDir( isRight );
+			canisters.SetDir( isRight );
+		}
+
+		if ( laser != null && laser.enabled )
+		{
+			laser.SetDir( isRight );
 			canisters.SetDir( isRight );
 		}
 	}
@@ -50,7 +57,7 @@ public class Mech : MonoBehaviour
 		driverMovement = driver.GetComponent<PlayerMovement>();
 
 		inUse = true;
-		if ( gun != null )
+		if ( gun != null && gun.enabled )
 		{
 			driverMovement.OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
 			driverMovement.OnAltFire += missiles.HandleFire;
@@ -59,16 +66,36 @@ public class Mech : MonoBehaviour
 			missiles.Active( true );
 			canisters.Active( true );
 		}
+
+		if ( laser != null && laser.enabled )
+		{
+			driverMovement.OnFire += laser.HandleFire; //adds itself to the listeners of OnFire()
+			driverMovement.OnAltFire += missiles.HandleFire;
+			driverMovement.OnAltFire2 += canisters.HandleFire;
+			laser.Active( true );
+			missiles.Active( true );
+			canisters.Active( true );
+		}
 	}
 
 	public void wasExited() {
 		inUse = false;
-		if ( gun != null )
+		if ( gun != null && gun.enabled )
 		{
 			driverMovement.OnFire -= gun.HandleFire;
 			driverMovement.OnAltFire -= missiles.HandleFire;
 			driverMovement.OnAltFire2 -= canisters.HandleFire;
 			gun.Active( false );
+			missiles.Active( false );
+			canisters.Active( false );
+		}
+
+		if ( laser != null && laser.enabled )
+		{
+			driverMovement.OnFire -= laser.HandleFire;
+			driverMovement.OnAltFire -= missiles.HandleFire;
+			driverMovement.OnAltFire2 -= canisters.HandleFire;
+			laser.Active( false );
 			missiles.Active( false );
 			canisters.Active( false );
 		}
