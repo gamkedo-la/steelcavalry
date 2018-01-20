@@ -17,7 +17,7 @@ public class Mech : MonoBehaviour
 	public MissileLauncher missiles;
 	public CanisterLauncher canisters;
 
-	private GameObject driver; // either the player or an enemy ai player
+	public GameObject driver; // either the player or an enemy ai player
 	private PlayerMovement driverMovement;
 
 	private Rigidbody2D mechRB;

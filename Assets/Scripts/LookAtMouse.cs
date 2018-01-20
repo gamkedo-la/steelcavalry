@@ -8,23 +8,31 @@ public class LookAtMouse : MonoBehaviour {
 	public Mech mech;
 
 	private Vector3 originalAngles;
+	private GameObject player;
+	private string playerTag = "Player";
 
 	// Use this for initialization
 	void Start () {
 		originalAngles = transform.rotation.eulerAngles;
+		player = GameObject.FindWithTag(playerTag);
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (!mech.inUse) return;
-		Vector3 mousePosition = Utilities.GetMouseWorldPosition(Input.mousePosition);
-		bool mouseIsBehindMech = (
-			!(mousePosition.x < transform.position.x && !mech.isFacingRight) &&
-			!(mousePosition.x > transform.position.x && mech.isFacingRight)
-		);
-		if (mouseIsBehindMech) return;
+		
+		Vector3 targetPosition = Utilities.GetMouseWorldPosition(Input.mousePosition);
+		if (mech.driver != player) {
+			targetPosition = player.transform.position;
+		}
 
-		Vector3 positionDifference = mousePosition - transform.position;
+		bool targetIsBehindMech = (
+			!(targetPosition.x < transform.position.x && !mech.isFacingRight) &&
+			!(targetPosition.x > transform.position.x && mech.isFacingRight)
+		);
+		if (targetIsBehindMech) return;
+
+		Vector3 positionDifference = targetPosition - transform.position;
 		positionDifference.Normalize();
 
 		float zCorrection = 0;
