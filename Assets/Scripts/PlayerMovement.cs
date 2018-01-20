@@ -152,10 +152,10 @@ public class PlayerMovement : MonoBehaviour {
 			inputLeft = Input.GetAxis("player"+playerNumber+"leftright") < -0.5f;
 			inputRight = Input.GetAxis("player"+playerNumber+"leftright") > 0.5f;
 
-			inputFire = Input.GetAxis("player"+playerNumber+"fire1") > 0.5f;
-			inputAltFire = Input.GetAxis("player"+playerNumber+"fire2") > 0.5f;
-			inputAltFire2 = Input.GetAxis("player"+playerNumber+"fire3") > 0.5f;
-			inputEnter = Input.GetAxis("player"+playerNumber+"jump") > 0.5f;
+			inputFire = Input.GetButton("player"+playerNumber+"fire1");
+			inputAltFire = Input.GetButton("player"+playerNumber+"fire2");
+			inputAltFire2 = Input.GetButton("player"+playerNumber+"fire3");
+			inputEnter = Input.GetButton("player"+playerNumber+"jump");
 				
 			// debug spam
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
