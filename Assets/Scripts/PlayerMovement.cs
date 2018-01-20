@@ -102,14 +102,14 @@ public class PlayerMovement : MonoBehaviour {
 	void handleInput() {
 
 		if (useKeyboardInput) {
+			inputUp = Input.GetAxisRaw ("Vertical") > 0.0f;
+			inputDown = Input.GetAxisRaw ("Vertical") < 0.0f;
 			inputRight = Input.GetAxisRaw ("Horizontal") > 0.0f;
 			inputLeft = Input.GetAxisRaw ("Horizontal") < 0.0f;
 			inputFire = Input.GetMouseButton(0);
 			inputAltFire = Input.GetMouseButton(1);
 			inputAltFire2 = Input.GetMouseButton(2);
 			inputEnter = Input.GetKeyDown(KeyCode.Space);
-			inputUp = Input.GetAxisRaw ("Vertical") > 0.0f;
-			// fixme: no down key used in the game?
 		}
 
 		if (useGamepadInput) {
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour {
 			//D-pad right: joystick button 8
 
 			/*
-			// not working
+			// can't reference inputs by string - MUST click it together in unity input editor
 			inputFire = Input.GetKey ("joystick " + gamepadNumber + " button 0");
 			inputAltFire = Input.GetKey ("joystick " + gamepadNumber + " button 1");
 			inputAltFire2 = Input.GetKey ("joystick " + gamepadNumber + " button 2");
