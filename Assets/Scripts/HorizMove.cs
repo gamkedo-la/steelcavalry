@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HorizMove : MonoBehaviour {
 
-	public float xMin, xMax; //leave blank for auto-generated based on range
+	private float xMin, xMax; //leave blank for auto-generated based on range
 	public float range;
 
 	public float moveSpeed;
@@ -15,14 +15,10 @@ public class HorizMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (xMin == 0 && xMax == 0){
-
-			//we use range instead
 			if (range == 0) Debug.Log("Your HorizMove script isn't doing anything! :O");
 
 			xMin = transform.position.x - range;
 			xMax = transform.position.x + range;
-		}
 	}
 
 	// Update is called once per frame
@@ -39,11 +35,12 @@ public class HorizMove : MonoBehaviour {
 			//Debug.Log("Flipped!");
 		}
 	}
-	//Change direction if we see hit wall
+	//Change direction if we hit wall
 	void OnCollisionEnter2D(Collision2D bumpFacts){
 		for(int i = 0; i < bumpFacts.contacts.Length; i++) {
 			if(Mathf.Abs(bumpFacts.contacts[i].normal.x) >= 0.9f) {
 				facingRight = !facingRight;
+				//Debug.Log("Flip");
 				return;
 			}
 		}
