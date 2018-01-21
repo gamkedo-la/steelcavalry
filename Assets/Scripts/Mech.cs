@@ -12,7 +12,7 @@ public class Mech : MonoBehaviour
 	private bool isOnGround;
 	public bool inUse = false;
 
-	public Gun gun;
+    public Gun gun;
 	public Laser3d laser;
 	public MissileLauncher missiles;
 	public CanisterLauncher canisters;
@@ -26,8 +26,16 @@ public class Mech : MonoBehaviour
 	private bool destroying = false;
 	public bool isFacingRight;
 
-	// Use this for initialization
-	void Start () {
+    [Header("Golden Goose Mech")]
+    // limit the mech to a platform
+    public GoldenLedgeCheck goldenLedgeCheck;
+    public bool isGoldenGoose;
+    // Rocket Rotation
+    public GameObject rocketPivot;
+    public float gGRocketRotateSpeed = 1;
+
+    // Use this for initialization
+    void Start () {
 
 		//Assert.IsNotNull( gun );
 
@@ -104,19 +112,37 @@ public class Mech : MonoBehaviour
 	// Update is called once per frame
 	public void Update () {
 
-		if (!inUse) return; //could be made into a function to do something else when idle
-		if (!driverMovement) return;
+        // Branch controls for regular/Golden Goose Mech
+        if (!isGoldenGoose) {
+            if (!inUse) return; //could be made into a function to do something else when idle
+            if (!driverMovement) return;
 
-		if (driverMovement.inputRight)
-			transform.position += Vector3.right * Time.deltaTime * mechSpeed;
+            if (driverMovement.inputRight)
+                transform.position += Vector3.right * Time.deltaTime * mechSpeed;
 
-		if (driverMovement.inputLeft)
-			transform.position += Vector3.left * Time.deltaTime * mechSpeed;
+            if (driverMovement.inputLeft)
+                transform.position += Vector3.left * Time.deltaTime * mechSpeed;
 
-		if (driverMovement.inputUp && isOnGround) {
-			mechRB.AddForce(Vector2.up * Input.GetAxisRaw("Vertical") * jumpPower);
-			isOnGround = false;
+            if (driverMovement.inputUp && isOnGround)
+            {
+                mechRB.AddForce(Vector2.up * Input.GetAxisRaw("Vertical") * jumpPower);
+                isOnGround = false;
+            }       
 		}
+        else {
+            if (!inUse) return; //could be made into a function to do something else when idle
+            if (!driverMovement) return;
+
+            if (driverMovement.inputRight && isOnGround && goldenLedgeCheck.isGroundRight)
+                transform.position += Vector3.right * Time.deltaTime * mechSpeed;
+
+            if (driverMovement.inputLeft && isOnGround && goldenLedgeCheck.isGroundLeft)
+                transform.position += Vector3.left * Time.deltaTime * mechSpeed;
+            if (driverMovement.inputUp && isOnGround)
+                rocketPivot.transform.Rotate(Vector3.left * Time.deltaTime * gGRocketRotateSpeed);
+            if (driverMovement.inputDown && isOnGround)
+                rocketPivot.transform.Rotate(Vector3.right * Time.deltaTime * gGRocketRotateSpeed);
+        }
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {

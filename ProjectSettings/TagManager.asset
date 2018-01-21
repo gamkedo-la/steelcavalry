@@ -8,6 +8,7 @@ TagManager:
   - PlayerProjectile
   - Explosion
   - PlayerMissile
+  - Ground
   layers:
   - Default
   - TransparentFX
