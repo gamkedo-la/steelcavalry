@@ -139,10 +139,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4605027380150436}
   - component: {fileID: 95419569607346194}
-  - component: {fileID: 50817718432560026}
   - component: {fileID: 58489982328786752}
+  - component: {fileID: 114026627115833564}
   m_Layer: 0
-  m_Name: mine
+  m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,26 +546,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023228447997462}
   m_Mesh: {fileID: 4300006, guid: a2e0f5ce0ee4c954784c62e172018bec, type: 3}
---- !u!50 &50817718432560026
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997367504237022}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &58489982328786752
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -598,3 +578,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114026627115833564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997367504237022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce4dd10eda89914aa6634d260ab9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerMine: 10
