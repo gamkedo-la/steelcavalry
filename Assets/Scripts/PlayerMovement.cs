@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		mechOnlyMask = LayerMask.GetMask("Mech");
+		mechOnlyMask = LayerMask.GetMask("Mechs");
 		rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
@@ -156,7 +157,7 @@ public class PlayerMovement : MonoBehaviour {
 			inputAltFire = Input.GetButton("player"+playerNumber+"fire2");
 			inputAltFire2 = Input.GetButton("player"+playerNumber+"fire3");
 			inputEnter = Input.GetButton("player"+playerNumber+"jump");
-				
+
 			// debug spam
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxisRaw("player"+playerNumber+"updown"));
@@ -259,6 +260,9 @@ public class PlayerMovement : MonoBehaviour {
 		Collider2D[] nearbyMechs = Physics2D.OverlapCircleAll(transform.position,
 		mechNearEnoughToUseDistance,
 		mechOnlyMask);
+
+		nearbyMechs = nearbyMechs.Select( m => m ).Where( m => m.gameObject.CompareTag( "Mech" ) ).ToArray( );
+
 		float nearestMechDist = 9000.0f;
 		Collider2D nearestMechCollider = null;
 		for(int i = 0; i < nearbyMechs.Length; i++) {

@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 24412163}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MainShotsComeFrom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,6 +332,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -527,7 +528,7 @@ GameObject:
   - component: {fileID: 124053895}
   - component: {fileID: 124053894}
   - component: {fileID: 124053893}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,6 +704,62 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc9efb3ee55dc2b459f096ed5b5375bd, type: 3}
   m_IsPrefabParent: 0
@@ -739,7 +796,7 @@ GameObject:
   - component: {fileID: 208913455}
   - component: {fileID: 208913457}
   - component: {fileID: 208913456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterThrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,11 +1383,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -2046,6 +2103,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3443,6 +3541,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -3487,12 +3586,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -4144,7 +4245,7 @@ GameObject:
   - component: {fileID: 219767443}
   - component: {fileID: 219767444}
   - component: {fileID: 219767446}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4290,7 +4391,7 @@ Transform:
   - {fileID: 456076954}
   - {fileID: 348586783}
   m_Father: {fileID: 1386994394}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &219767446
 MonoBehaviour:
@@ -4409,7 +4510,7 @@ GameObject:
   - component: {fileID: 225883468}
   - component: {fileID: 225883467}
   - component: {fileID: 225883466}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4505,7 +4606,7 @@ GameObject:
   - component: {fileID: 241407188}
   - component: {fileID: 241407190}
   - component: {fileID: 241407189}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterThrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5092,11 +5193,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -5812,6 +5913,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7209,6 +7351,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -7253,12 +7396,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -8006,7 +8151,7 @@ GameObject:
   - component: {fileID: 348586783}
   - component: {fileID: 348586785}
   - component: {fileID: 348586784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterThrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8593,11 +8738,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -9313,6 +9458,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -10710,6 +10896,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -10754,12 +10941,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -11464,7 +11653,7 @@ GameObject:
   - component: {fileID: 456076954}
   - component: {fileID: 456076956}
   - component: {fileID: 456076955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12051,11 +12240,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -12771,6 +12960,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14168,6 +14398,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -14212,12 +14443,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -14865,7 +15098,7 @@ GameObject:
   - component: {fileID: 480469894}
   - component: {fileID: 480469896}
   - component: {fileID: 480469895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15452,11 +15685,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -16172,6 +16405,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -17569,6 +17843,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -17613,12 +17888,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -18264,7 +18541,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 497090025}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MainShotsComeFrom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18342,7 +18619,7 @@ GameObject:
   - component: {fileID: 533285104}
   - component: {fileID: 533285103}
   - component: {fileID: 533285102}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18471,7 +18748,7 @@ GameObject:
   - component: {fileID: 657285804}
   - component: {fileID: 657285803}
   - component: {fileID: 657285802}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18608,6 +18885,94 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.44171664
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d02ae5e40a14b6d488d77808316bf50b, type: 3}
   m_IsPrefabParent: 0
@@ -18622,7 +18987,7 @@ GameObject:
   - component: {fileID: 696122695}
   - component: {fileID: 696122694}
   - component: {fileID: 696122693}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18726,9 +19091,9 @@ GameObject:
   - component: {fileID: 736740200}
   - component: {fileID: 736740199}
   - component: {fileID: 736740198}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Ostrich
-  m_TagString: Untagged
+  m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18800,6 +19165,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 1721194214}
   canisters: {fileID: 1178732257}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -18807,6 +19173,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &736740200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18914,7 +19281,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 807067684}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spawm Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18985,9 +19352,9 @@ GameObject:
   - component: {fileID: 839446292}
   - component: {fileID: 839446291}
   - component: {fileID: 839446290}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: CassowaryIII
-  m_TagString: Untagged
+  m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19042,6 +19409,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 80767191}
   canisters: {fileID: 13529144}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -19049,6 +19417,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &839446292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19145,7 +19514,7 @@ GameObject:
   - component: {fileID: 883514721}
   - component: {fileID: 883514723}
   - component: {fileID: 883514722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19732,11 +20101,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -20452,6 +20821,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -21849,6 +22259,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -21893,12 +22304,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -22545,7 +22958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899268535}
   - component: {fileID: 899268536}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22612,7 +23025,7 @@ GameObject:
   - component: {fileID: 941278646}
   - component: {fileID: 941278648}
   - component: {fileID: 941278647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterThrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23199,11 +23612,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -23919,6 +24332,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -25316,6 +25770,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -25360,12 +25815,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -26011,7 +26468,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 944173292}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26044,7 +26501,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1024482751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26131,7 +26588,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1138008005}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26162,7 +26619,7 @@ GameObject:
   - component: {fileID: 1138467516}
   - component: {fileID: 1138467514}
   - component: {fileID: 1138467515}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26258,7 +26715,7 @@ GameObject:
   - component: {fileID: 1155582110}
   - component: {fileID: 1155582111}
   - component: {fileID: 1155582112}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26427,7 +26884,7 @@ GameObject:
   - component: {fileID: 1181111087}
   - component: {fileID: 1181111089}
   - component: {fileID: 1181111088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JetpackEmiterSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27014,11 +27471,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -27734,6 +28191,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -29131,6 +29629,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -29175,12 +29674,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -29854,7 +30355,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1231636059}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29889,7 +30390,7 @@ GameObject:
   - component: {fileID: 1247760519}
   - component: {fileID: 1247760518}
   - component: {fileID: 1247760524}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Enemy (intense)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30088,7 +30589,7 @@ GameObject:
   - component: {fileID: 1323795820}
   - component: {fileID: 1323795819}
   - component: {fileID: 1323795818}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30241,8 +30742,8 @@ Transform:
   - {fileID: 1450074050}
   - {fileID: 736740197}
   - {fileID: 1421956178}
-  - {fileID: 219767445}
   - {fileID: 1712877767}
+  - {fileID: 219767445}
   - {fileID: 1247760517}
   - {fileID: 1646231341}
   - {fileID: 1536108733}
@@ -30260,7 +30761,7 @@ GameObject:
   - component: {fileID: 1388257793}
   - component: {fileID: 1388257792}
   - component: {fileID: 1388257791}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: huge ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30379,9 +30880,9 @@ GameObject:
   - component: {fileID: 1421956179}
   - component: {fileID: 1421956180}
   - component: {fileID: 1421956181}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: TallMech
-  m_TagString: Untagged
+  m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30508,6 +31009,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 2016515887}
   canisters: {fileID: 255734728}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 167455644}
   isFacingRight: 0
@@ -30515,6 +31017,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!114 &1421956181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30581,9 +31084,9 @@ GameObject:
   - component: {fileID: 1450074053}
   - component: {fileID: 1450074052}
   - component: {fileID: 1450074051}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: ColossusMech
-  m_TagString: Untagged
+  m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30629,6 +31132,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 0}
   canisters: {fileID: 0}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -30636,6 +31140,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &1450074052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30779,7 +31284,7 @@ GameObject:
   - component: {fileID: 1536108736}
   - component: {fileID: 1536108735}
   - component: {fileID: 1536108734}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Enemy Ostrich Pilot Chases Player
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30988,7 +31493,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1568718365}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31035,7 +31540,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1596757424}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31082,7 +31587,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1626261922}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31110,7 +31615,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1628421484}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunSpot (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31138,7 +31643,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1630077909}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Laser Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31192,7 +31697,7 @@ GameObject:
   - component: {fileID: 1646231344}
   - component: {fileID: 1646231343}
   - component: {fileID: 1646231342}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Enemy (lazy)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31448,6 +31953,62 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00aba8d7c297cba4fbfc6944b582b7fd, type: 3}
   m_IsPrefabParent: 0
@@ -31464,9 +32025,9 @@ GameObject:
   - component: {fileID: 1712877764}
   - component: {fileID: 1712877763}
   - component: {fileID: 1712877762}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: ShortMech
-  m_TagString: Untagged
+  m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31492,6 +32053,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 0}
   canisters: {fileID: 0}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -31499,6 +32061,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &1712877763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31596,7 +32159,7 @@ Transform:
   m_LocalScale: {x: 1.2658933, y: 1.2244195, z: 1}
   m_Children: []
   m_Father: {fileID: 1386994394}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1721194209
 GameObject:
@@ -31781,6 +32344,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -31820,7 +32384,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1951951103}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spawm Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31998,7 +32562,7 @@ GameObject:
   - component: {fileID: 2070292941}
   - component: {fileID: 2070292940}
   - component: {fileID: 2070292939}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32082,7 +32646,7 @@ GameObject:
   - component: {fileID: 2095723228}
   - component: {fileID: 2095723227}
   - component: {fileID: 2095723226}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ground (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32177,7 +32741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109898780}
   - component: {fileID: 2109898781}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ostrich Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

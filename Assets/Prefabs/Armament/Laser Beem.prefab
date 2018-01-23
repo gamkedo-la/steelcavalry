@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4745956997110940}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Laser Beem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33613799777296148}
   - component: {fileID: 65725760023447544}
   - component: {fileID: 23180751426284330}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Beem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4960833879785908}
   - component: {fileID: 33935175409147200}
   - component: {fileID: 23132509475770418}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4295594934546746}
   - component: {fileID: 33880687169669090}
   - component: {fileID: 23982381167072690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4661617930340676}
   - component: {fileID: 33043664909743656}
   - component: {fileID: 23431214708448354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4152972519858844}
   - component: {fileID: 33624200655324220}
   - component: {fileID: 23542758835146622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4661711753757170}
   - component: {fileID: 33928600128226840}
   - component: {fileID: 23472681215521380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4633325495207494}
   - component: {fileID: 33509192322567886}
   - component: {fileID: 23156484656472198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4074244803803244}
   - component: {fileID: 33245299709803564}
   - component: {fileID: 23597411717117392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cone_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 95419569607346194}
   - component: {fileID: 58489982328786752}
   - component: {fileID: 114026627115833564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

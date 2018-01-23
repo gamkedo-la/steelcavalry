@@ -9,6 +9,7 @@ TagManager:
   - Explosion
   - PlayerMissile
   - Ground
+  - Mech
   layers:
   - Default
   - TransparentFX
@@ -18,12 +19,12 @@ TagManager:
   - UI
   - 
   - 
-  - Mech
-  - Ground
-  - PlayerShot
-  - Person
-  - EffectsFG
-  - PlayerMissile
+  - Collidable
+  - CollidableProjectiles
+  - Projectiles
+  - Mechs
+  - 
+  - 
   - 
   - 
   - 

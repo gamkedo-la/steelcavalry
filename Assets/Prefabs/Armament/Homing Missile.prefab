@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174916933203814}
   - component: {fileID: 212193925962725622}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Main Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4580914036605130}
   - component: {fileID: 212056620112631110}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Warhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4828138027980906}
   - component: {fileID: 198630773329356312}
   - component: {fileID: 199207220662901398}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 50938153685972910}
   - component: {fileID: 61275039451291874}
   - component: {fileID: 114092479930113712}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Homing Missile
   m_TagString: PlayerMissile
   m_Icon: {fileID: 0}

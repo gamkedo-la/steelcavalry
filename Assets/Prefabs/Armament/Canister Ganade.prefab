@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4380097120762876}
   - component: {fileID: 212422995087644250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stripes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 50263318053614520}
   - component: {fileID: 70333964041676618}
   - component: {fileID: 114937423576366856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canister Ganade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4037870485155282}
   - component: {fileID: 212477650486042876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326522538561442}
   - component: {fileID: 212050796210612022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stripes (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032879676408324}
   - component: {fileID: 212725676324056382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stripes (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4224331345625216}
   - component: {fileID: 212284895499909400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stripes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4011371143161018}
   - component: {fileID: 198930768921694036}
   - component: {fileID: 199422028829061150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
