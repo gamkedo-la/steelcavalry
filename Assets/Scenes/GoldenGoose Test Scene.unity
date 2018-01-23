@@ -18965,6 +18965,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 1721194214}
   canisters: {fileID: 1178732257}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -18972,6 +18973,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &736740200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19297,6 +19299,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 80767191}
   canisters: {fileID: 13529144}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -19304,6 +19307,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &839446292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30817,13 +30821,15 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 0}
   canisters: {fileID: 0}
+  pod: {fileID: 1502329799}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
   goldenLedgeCheck: {fileID: 2077951665}
   isGoldenGoose: 1
   rocketPivot: {fileID: 1502329797}
-  gGRocketRotateSpeed: 1
+  gGRocketRotateSpeed: 25
+  podLaunched: 0
 --- !u!61 &1407864249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31076,6 +31082,7 @@ MonoBehaviour:
   laser: {fileID: 1155582112}
   missiles: {fileID: 2016515887}
   canisters: {fileID: 255734728}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 167455644}
   isFacingRight: 0
@@ -31083,6 +31090,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!114 &1421956181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31155,6 +31163,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 0}
   canisters: {fileID: 0}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -31162,6 +31171,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &1450074052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31256,8 +31266,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1502329798}
+  - component: {fileID: 1502329800}
+  - component: {fileID: 1502329799}
+  - component: {fileID: 1502329801}
   m_Layer: 0
-  m_Name: RocketPivot
+  m_Name: PodPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31277,6 +31290,54 @@ Transform:
   m_Father: {fileID: 1603020423}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502329799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502329797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a7d9e3a77e82747973e25a54fcf483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMech: {fileID: 1407864248}
+  launchPower: 10
+--- !u!50 &1502329800
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502329797}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &1502329801
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502329797}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0}
+  m_Size: {x: 1, y: 0.75}
+  m_Direction: 1
 --- !u!1001 &1520194676
 Prefab:
   m_ObjectHideFlags: 0
@@ -32081,6 +32142,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   missiles: {fileID: 0}
   canisters: {fileID: 0}
+  pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 0}
   isFacingRight: 0
@@ -32088,6 +32150,7 @@ MonoBehaviour:
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
+  podLaunched: 0
 --- !u!61 &1712877763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32387,7 +32450,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1838272701}
   - component: {fileID: 1838272704}
-  - component: {fileID: 1838272703}
   - component: {fileID: 1838272702}
   m_Layer: 0
   m_Name: Sphere
@@ -32445,19 +32507,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1838272703
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 135791905969756050, guid: abeddf44cfad7254c81cef066f335aaf,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1838272700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1838272704
 MeshFilter:
   m_ObjectHideFlags: 0
