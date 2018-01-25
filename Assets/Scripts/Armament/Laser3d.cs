@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Laser3d : MonoBehaviour
+public class Laser3d : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint = null;
 	[SerializeField] private Transform laserBeem = null;
@@ -28,17 +28,14 @@ public class Laser3d : MonoBehaviour
 		beem = Instantiate( laserBeem, spawnPoint.position, Quaternion.identity, spawnPoint );
 	}
 
-	void Update( )
+	void FixedUpdate( )
 	{
+		beem.gameObject.SetActive( false );
+
 		if ( !isActive )
 			return;
 
 		LookAtCursor( );
-	}
-
-	private void FixedUpdate( )
-	{
-		beem.gameObject.SetActive( false );
 	}
 
 	public void Active( bool isActive )
@@ -51,7 +48,7 @@ public class Laser3d : MonoBehaviour
 		this.isRight = isRight;
 	}
 
-	public void HandleFire( )
+	public void TryToFire( )
 	{
 		if ( spawnPoint == null )
 			return;

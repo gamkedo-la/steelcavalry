@@ -30,15 +30,12 @@ public class MouseCursor : MonoBehaviour
 		missiles = new List<GameObject>( );
 	}
 
-	void Update( )
+	void FixedUpdate( )
 	{
 		SetNewCursorPosition( );
 		ChangeToDefaultColor( );
 		BlinkToIndicateMissiles( );
-	}
 
-	void FixedUpdate( )
-	{
 		CheckForMissiles( );
 	}
 

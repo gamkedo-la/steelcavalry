@@ -12,11 +12,8 @@ public class Mech : MonoBehaviour
 	private bool isOnGround;
 	public bool inUse = false;
 
-    public Gun gun;
-	public Laser3d laser;
-	public MissileLauncher missiles;
-	public CanisterLauncher canisters;
-    public PodLauncher pod;
+	public WeaponManager weaponManager;
+	public PodLauncher pod;
 
 	public GameObject driver; // either the player or an enemy ai player
 	private PlayerMovement driverMovement;
@@ -49,19 +46,12 @@ public class Mech : MonoBehaviour
 	public void Side (bool isRight)
 	{
 		isFacingRight = isRight;
-		if ( gun != null && gun.enabled )
+		if ( weaponManager != null )
 		{
-			gun.SetDir( isRight );
-			canisters.SetDir( isRight );
+			weaponManager.SetDir( isRight );
 		}
 
-		if ( laser != null && laser.enabled )
-		{
-			laser.SetDir( isRight );
-			canisters.SetDir( isRight );
-		}
-
-        if (pod != null && laser.enabled) {
+        if (pod != null) {
             pod.SetDir(isRight);
         }
     }
@@ -72,24 +62,12 @@ public class Mech : MonoBehaviour
 		driverMovement = driver.GetComponent<PlayerMovement>();
 
 		inUse = true;
-		if ( gun != null && gun.enabled )
+		if ( weaponManager != null )
 		{
-			driverMovement.OnFire += gun.HandleFire; //adds itself to the listeners of OnFire()
-			driverMovement.OnAltFire += missiles.HandleFire;
-			driverMovement.OnAltFire2 += canisters.HandleFire;
-			gun.Active( true );
-			missiles.Active( true );
-			canisters.Active( true );
-		}
-
-		if ( laser != null && laser.enabled )
-		{
-			driverMovement.OnFire += laser.HandleFire; //adds itself to the listeners of OnFire()
-			driverMovement.OnAltFire += missiles.HandleFire;
-			driverMovement.OnAltFire2 += canisters.HandleFire;
-			laser.Active( true );
-			missiles.Active( true );
-			canisters.Active( true );
+			weaponManager.IsActive( true );
+			driverMovement.OnFire += weaponManager.FirePrimary;
+			driverMovement.OnAltFire += weaponManager.FireSecondary;
+			driverMovement.OnAltFire2 += weaponManager.FireTertiary;
 		}
 
         if (pod != null && pod.enabled)
@@ -107,24 +85,12 @@ public class Mech : MonoBehaviour
 
 	public void wasExited() {
 		inUse = false;
-		if ( gun != null && gun.enabled )
+		if ( weaponManager != null )
 		{
-			driverMovement.OnFire -= gun.HandleFire;
-			driverMovement.OnAltFire -= missiles.HandleFire;
-			driverMovement.OnAltFire2 -= canisters.HandleFire;
-			gun.Active( false );
-			missiles.Active( false );
-			canisters.Active( false );
-		}
-
-		if ( laser != null && laser.enabled )
-		{
-			driverMovement.OnFire -= laser.HandleFire;
-			driverMovement.OnAltFire -= missiles.HandleFire;
-			driverMovement.OnAltFire2 -= canisters.HandleFire;
-			laser.Active( false );
-			missiles.Active( false );
-			canisters.Active( false );
+			driverMovement.OnFire -= weaponManager.FirePrimary;
+			driverMovement.OnAltFire -= weaponManager.FireSecondary;
+			driverMovement.OnAltFire2 -= weaponManager.FireTertiary;
+			weaponManager.IsActive( false );
 		}
 	}
 
@@ -146,7 +112,7 @@ public class Mech : MonoBehaviour
             {
                 mechRB.AddForce(Vector2.up * Input.GetAxisRaw("Vertical") * jumpPower);
                 isOnGround = false;
-            }       
+            }
 		}
         else {
             if (!inUse) return; //could be made into a function to do something else when idle

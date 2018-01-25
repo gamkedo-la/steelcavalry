@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class CanisterLauncher : MonoBehaviour
+public class CanisterLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
 	[SerializeField] private float force = 20;
 
 	private bool isActive = false;
-	//private bool isRight = false;
 
 	void Start( )
 	{
@@ -22,17 +21,14 @@ public class CanisterLauncher : MonoBehaviour
 			return;
 	}
 
-	public void SetDir( bool isRight )
-	{
-		//this.isRight = isRight;
-	}
+	public void SetDir( bool isRight ) { }
 
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
 	}
 
-	public void HandleFire( )
+	public void TryToFire( )
 	{
 		if ( spawnPoint == null ) return;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class MissileLauncher : MonoBehaviour
+public class MissileLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private MouseCursor cursor;
 	[SerializeField] private Transform spawnPoint;
@@ -27,7 +27,7 @@ public class MissileLauncher : MonoBehaviour
 		this.isActive = isActive;
 	}
 
-	public void HandleFire( )
+	public void TryToFire( )
 	{
 		if ( spawnPoint == null ) return;
 
@@ -36,4 +36,6 @@ public class MissileLauncher : MonoBehaviour
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );
 	}
+
+	public void SetDir( bool isRight ) { }
 }

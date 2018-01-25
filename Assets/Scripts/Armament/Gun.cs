@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
 		Assert.IsNotNull( spawnPoint );
 	}
 
-	void Update( )
+	void FixedUpdate( )
 	{
 		if ( !isActive ) return;
 
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
 		this.isRight = isRight;
 	}
 
-	public void HandleFire( )
+	public void TryToFire( )
 	{
 		if ( spawnPoint == null ) return;
 
