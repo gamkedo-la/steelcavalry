@@ -13,7 +13,7 @@ public class CamFollow : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void LateUpdate () {
 		Vector3 pointToGetOnCamera = transform.position;
 		Vector2 mousePt = Utilities.GetMouseWorldPosition(Input.mousePosition);
 		float percTowardMouse = 0.65f;
