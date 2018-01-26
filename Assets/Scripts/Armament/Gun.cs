@@ -5,9 +5,15 @@ public class Gun : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float force = 20;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
+
+	public WeaponType Type
+	{
+		get { return type; }
+	}
 
 	private bool isActive = false;
 	private bool isRight = false;
@@ -29,6 +35,11 @@ public class Gun : MonoBehaviour, IWeapon
 	public void Active(bool isActive)
 	{
 		this.isActive = isActive;
+	}
+
+	public GameObject GetGameObject( )
+	{
+		return gameObject;
 	}
 
 	public void SetDir( bool isRight )

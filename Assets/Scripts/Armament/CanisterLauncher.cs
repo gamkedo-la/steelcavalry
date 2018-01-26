@@ -5,7 +5,13 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponType type = WeaponType.Thrower;
 	[SerializeField] private float force = 20;
+
+	public WeaponType Type
+	{
+		get { return type; }
+	}
 
 	private bool isActive = false;
 
@@ -26,6 +32,11 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
+	}
+
+	public GameObject GetGameObject( )
+	{
+		return gameObject;
 	}
 
 	public void TryToFire( )

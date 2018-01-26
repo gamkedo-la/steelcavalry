@@ -6,6 +6,12 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private MouseCursor cursor;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponType type = WeaponType.Launcher;
+
+	public WeaponType Type
+	{
+		get { return type; }
+	}
 
 	private bool isActive = false;
 
@@ -25,6 +31,11 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
+	}
+
+	public GameObject GetGameObject( )
+	{
+		return gameObject;
 	}
 
 	public void TryToFire( )

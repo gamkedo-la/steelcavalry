@@ -67,4 +67,9 @@ public class WeaponManager : MonoBehaviour
 	{
 		thrower.TryToFire( );
 	}
+
+	public void GiveWeapon( GameObject weapon )
+	{
+		Debug.Log( "I've received a weapon" );
+	}
 }

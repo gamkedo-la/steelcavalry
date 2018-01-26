@@ -6,6 +6,7 @@ public class Laser3d : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint = null;
 	[SerializeField] private Transform laserBeem = null;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
+	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
 	[SerializeField] private float laserScaleCorrection = 1f;
 	[SerializeField] private float laserMoveCorrection = 1f;
@@ -13,6 +14,11 @@ public class Laser3d : MonoBehaviour, IWeapon
 	[SerializeField] private float damagePerSecond = 2f;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
+
+	public WeaponType Type
+	{
+		get { return type; }
+	}
 
 	private bool isActive = false;
 	private bool isRight = false;
@@ -41,6 +47,11 @@ public class Laser3d : MonoBehaviour, IWeapon
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
+	}
+
+	public GameObject GetGameObject( )
+	{
+		return gameObject;
 	}
 
 	public void SetDir( bool isRight )
