@@ -33,6 +33,11 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		this.isActive = isActive;
 	}
 
+	public void SetCursor( MouseCursor cursor )
+	{
+		this.cursor = cursor;
+	}
+
 	public GameObject GetGameObject( )
 	{
 		return gameObject;

@@ -32,6 +32,7 @@ public class Laser3d : MonoBehaviour, IWeapon
 		Assert.IsNotNull( didDamageEvent );
 
 		beem = Instantiate( laserBeem, spawnPoint.position, Quaternion.identity, spawnPoint );
+		beem.localRotation = Quaternion.identity;
 	}
 
 	void FixedUpdate( )

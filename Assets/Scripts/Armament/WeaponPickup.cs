@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -42,13 +43,36 @@ public class WeaponPickup : MonoBehaviour
 			return;
 		}
 
-		GameObject weapon = CreateWeapon( );
+		IWeapon weapon = CreateWeapon( );
 		manager.GiveWeapon( weapon );
 	}
 
-	private GameObject CreateWeapon( )
+	private IWeapon CreateWeapon( )
 	{
-		GameObject weapon = null;
+		IWeapon weapon = null;
+		IWeapon[] ws;
+
+		switch ( typeToGive )
+		{
+			case WeaponType.Turret:
+				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Turret ).ToArray();
+				weapon = ws[Random.Range( 0, ws.Length )];
+			break;
+
+			case WeaponType.Launcher:
+				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Launcher ).ToArray( );
+				weapon = ws[Random.Range( 0, ws.Length )];
+			break;
+
+			case WeaponType.Thrower:
+				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Thrower ).ToArray( );
+				weapon = ws[Random.Range( 0, ws.Length )];
+			break;
+
+			case WeaponType.Any:
+				weapon = weapons[Random.Range( 0, weapons.Count )];
+			break;
+		}
 
 		return weapon;
 	}

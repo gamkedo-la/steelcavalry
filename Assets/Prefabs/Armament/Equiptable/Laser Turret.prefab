@@ -197,6 +197,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4677305069045634}
   laserBeem: {fileID: 4745956997110940, guid: bb571cee18827014a806dc744aa94906, type: 2}
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
+  type: 0
   maxLaserSize: 20
   laserScaleCorrection: 44.2
   laserMoveCorrection: 1.11

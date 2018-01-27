@@ -7,11 +7,14 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField] Transform launcherMountPoint = null;
 	[SerializeField] Transform throwerMountPoint = null;
 
+	[SerializeField] private MouseCursor cursor;
+
 	[SerializeField] IWeapon turret = null;
 	[SerializeField] IWeapon launcher = null;
 	[SerializeField] IWeapon thrower = null;
 
 	private bool isActive = false;
+	private bool isRight = false;
 
 	void Start ()
 	{
@@ -21,18 +24,16 @@ public class WeaponManager : MonoBehaviour
 		Assert.IsNotNull( launcherMountPoint );
 		Assert.IsNotNull( throwerMountPoint );
 
-		turret = turretMountPoint.GetChild(0).GetComponent<IWeapon>( );
-		launcher = launcherMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
-		thrower = throwerMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
+		Assert.IsNotNull( cursor );
 
-		Assert.IsNotNull( turret );
-		Assert.IsNotNull( launcher );
-		Assert.IsNotNull( thrower );
-	}
+		if ( turretMountPoint.transform.childCount > 0 )
+			turret = turretMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
 
-	void Update ()
-	{
+		if ( launcherMountPoint.transform.childCount > 0 )
+			launcher = launcherMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
 
+		if ( throwerMountPoint.transform.childCount > 0 )
+			thrower = throwerMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
 	}
 
 	public void IsActive( bool active )
@@ -41,35 +42,123 @@ public class WeaponManager : MonoBehaviour
 
 		isActive = active;
 
-		turret.Active( isActive );
-		launcher.Active( isActive );
-		thrower.Active( isActive );
+		if ( turret != null )
+			turret.Active( isActive );
+
+		if ( launcher != null )
+			launcher.Active( isActive );
+
+		if ( thrower != null )
+			thrower.Active( isActive );
 	}
 
-	public void SetDir( bool isRight )
+	public void SetDir( bool right )
 	{
-		turret.SetDir( isRight );
-		launcher.SetDir( isRight );
-		thrower.SetDir( isRight );
+		isRight = right;
+
+		if ( turret != null )
+			turret.SetDir( isRight );
+
+		if ( launcher != null )
+			launcher.SetDir( isRight );
+
+		if ( thrower != null )
+			thrower.SetDir( isRight );
 	}
 
 	public void FirePrimary()
 	{
-		turret.TryToFire( );
+		if ( turret != null )
+			turret.TryToFire( );
 	}
 
 	public void FireSecondary( )
 	{
-		launcher.TryToFire( );
+		if ( launcher != null )
+			launcher.TryToFire( );
 	}
 
 	public void FireTertiary( )
 	{
-		thrower.TryToFire( );
+		if ( thrower != null )
+			thrower.TryToFire( );
 	}
 
-	public void GiveWeapon( GameObject weapon )
+	public void GiveWeapon( IWeapon weapon )
 	{
-		Debug.Log( "I've received a weapon" );
+		Debug.Log( "I've received " + weapon.Type.ToString() );
+		GameObject g;
+
+		switch ( weapon.Type )
+		{
+			case WeaponType.Turret:
+			{
+				if ( turret != null )
+				{
+					Destroy( turret.GetGameObject( ) );
+				}
+
+				g = Instantiate( weapon.GetGameObject( ), turretMountPoint.position, Quaternion.identity, turretMountPoint );
+				g.transform.localPosition = Vector3.zero;
+				g.transform.localRotation = Quaternion.Euler
+				(
+					0,
+					0,
+					isRight ? 0 : 180
+				);
+
+				turret = g.GetComponent<IWeapon>( );
+
+				SetDir( isRight );
+				IsActive( isActive );
+			}
+			break;
+
+			case WeaponType.Launcher:
+			{
+				if ( launcher != null )
+				{
+					Destroy( launcher.GetGameObject( ) );
+				}
+
+				g = Instantiate( weapon.GetGameObject( ), launcherMountPoint.position, Quaternion.identity, launcherMountPoint );
+				g.transform.localPosition = Vector3.zero;
+				g.transform.localRotation = Quaternion.Euler
+				(
+					g.transform.localRotation.eulerAngles.x,
+					0,
+					g.transform.localRotation.eulerAngles.z
+				);
+
+				launcher = g.GetComponent<IWeapon>( );
+				g.GetComponent<MissileLauncher>( ).SetCursor( cursor );
+
+				SetDir( isRight );
+				IsActive( isActive );
+			}
+			break;
+
+			case WeaponType.Thrower:
+			{
+				if ( thrower != null )
+				{
+					Destroy( thrower.GetGameObject( ) );
+				}
+
+				g = Instantiate( weapon.GetGameObject( ), throwerMountPoint.position, Quaternion.identity, throwerMountPoint );
+				g.transform.localPosition = Vector3.zero;
+				g.transform.localRotation = Quaternion.Euler ( 0, 0, 0 );
+
+				thrower = g.GetComponent<IWeapon>( );
+
+				SetDir( isRight );
+				IsActive( isActive );
+			}
+			break;
+
+			default:
+				Debug.LogError( "Ups, " + name + " received a weapon of type " + weapon.Type + " and dos not know what to do with it" );
+			break;
+		}
 	}
 }
