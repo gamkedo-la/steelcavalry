@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4506451220065992}
-  projectile: {fileID: 1873597457204154, guid: 23f6bd0b6a43c4505b0e938e7db13d30, type: 2}
-  force: 20
+  parameters: {fileID: 11400000, guid: ec97aa704c824ed409afa91b5ef5d846, type: 2}
+  type: 0
   minAngle: -60
   maxAngle: 60

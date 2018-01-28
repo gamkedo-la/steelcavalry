@@ -28,4 +28,9 @@ public class ExplosionEnlarger : MonoBehaviour
 			mechInstance.TakeDamage( damage );
 		}
 	}
+
+	public void SetDamage( float damage )
+	{
+		this.damage = damage;
+	}
 }

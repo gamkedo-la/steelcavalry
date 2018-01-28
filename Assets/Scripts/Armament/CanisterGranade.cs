@@ -5,6 +5,8 @@ public class CanisterGranade : MonoBehaviour
 {
 	[SerializeField] private GameObject explosion = null;
 
+	private float explosionDamage = 10f;
+
 	void Start( )
 	{
 		Assert.IsNotNull( explosion );
@@ -23,8 +25,14 @@ public class CanisterGranade : MonoBehaviour
 	private void DoDestruction( Vector2 point )
 	{
 		var exp = Instantiate( explosion, point, Quaternion.identity );
+		exp.GetComponent<ExplosionEnlarger>( ).SetDamage( explosionDamage );
 
 		Destroy( exp, 2f );
 		Destroy( gameObject );
+	}
+
+	public void SetDamage( float damage )
+	{
+		explosionDamage = damage;
 	}
 }

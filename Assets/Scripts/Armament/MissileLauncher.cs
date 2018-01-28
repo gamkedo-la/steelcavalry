@@ -5,8 +5,12 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private MouseCursor cursor;
 	[SerializeField] private Transform spawnPoint;
-	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Launcher;
+
+	private float timeToNextShot = 0;
+	private float realoadTimeLeft = 0;
+	private int currentMagSize = 0;
 
 	public WeaponType Type
 	{
@@ -17,15 +21,21 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
-		Assert.IsNotNull( cursor );
-		Assert.IsNotNull( projectile );
+		Assert.IsNotNull( parameters );
+		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
+		Assert.IsNotNull( cursor );
+
+		currentMagSize = (int)parameters.MagSize;
 	}
 
 	void Update( )
 	{
 		if ( !isActive )
 			return;
+
+		realoadTimeLeft -= Time.deltaTime;
+		timeToNextShot -= Time.deltaTime;
 	}
 
 	public void Active( bool isActive )
@@ -47,10 +57,23 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	{
 		if ( spawnPoint == null ) return;
 
-		GameObject missile = Instantiate( projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
+		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
+			return;
+
+		GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
+		missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );
+
+		timeToNextShot = parameters.DelayBetweenShots;
+		currentMagSize--;
+
+		if ( currentMagSize <= 0 )
+		{
+			currentMagSize = (int)parameters.MagSize;
+			realoadTimeLeft = parameters.RealoadTime;
+		}
 	}
 
 	public void SetDir( bool isRight ) { }

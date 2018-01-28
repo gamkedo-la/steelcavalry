@@ -4,9 +4,12 @@ using UnityEngine.Assertions;
 public class CanisterLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
-	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Thrower;
-	[SerializeField] private float force = 20;
+
+	private float timeToNextShot = 0;
+	private float realoadTimeLeft = 0;
+	private int currentMagSize = 0;
 
 	public WeaponType Type
 	{
@@ -17,14 +20,20 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
-		Assert.IsNotNull( projectile );
+		Assert.IsNotNull( parameters );
+		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
+
+		currentMagSize = (int)parameters.MagSize;
 	}
 
 	void Update( )
 	{
 		if ( !isActive )
 			return;
+
+		realoadTimeLeft -= Time.deltaTime;
+		timeToNextShot -= Time.deltaTime;
 	}
 
 	public void SetDir( bool isRight ) { }
@@ -43,9 +52,12 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	{
 		if ( spawnPoint == null ) return;
 
+		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
+			return;
+
 		GameObject shotGO = Instantiate
 		(
-			projectile,
+			parameters.Projectile,
 			spawnPoint.position,
 			Quaternion.Euler
 			(
@@ -56,9 +68,19 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 		);
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
-		shotRB.velocity = shotGO.transform.rotation * Vector2.left * force;
+		shotRB.velocity = shotGO.transform.rotation * Vector2.left * parameters.Force;
+		shotGO.GetComponent<CanisterGranade>( ).SetDamage( parameters.GetDamage( ) );
 
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
+
+		timeToNextShot = parameters.DelayBetweenShots;
+		currentMagSize--;
+
+		if ( currentMagSize <= 0 )
+		{
+			currentMagSize = (int)parameters.MagSize;
+			realoadTimeLeft = parameters.RealoadTime;
+		}
 	}
 }
 

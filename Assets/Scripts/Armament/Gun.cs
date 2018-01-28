@@ -4,9 +4,8 @@ using UnityEngine.Assertions;
 public class Gun : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
-	[SerializeField] private GameObject projectile = null;
+	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Turret;
-	[SerializeField] private float force = 20;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
@@ -19,10 +18,25 @@ public class Gun : MonoBehaviour, IWeapon
 	private bool isRight = false;
 	private float xAngle;
 
+	private float timeToNextShot = 0;
+	private float realoadTimeLeft = 0;
+	private int currentMagSize = 0;
+
 	void Start( )
 	{
-		Assert.IsNotNull( projectile );
+		Assert.IsNotNull( parameters );
+		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
+
+		currentMagSize = (int)parameters.MagSize;
+	}
+
+	void Update( )
+	{
+		if ( !isActive ) return;
+
+		realoadTimeLeft -= Time.deltaTime;
+		timeToNextShot -= Time.deltaTime;
 	}
 
 	void FixedUpdate( )
@@ -49,14 +63,28 @@ public class Gun : MonoBehaviour, IWeapon
 
 	public void TryToFire( )
 	{
-		if ( spawnPoint == null ) return;
+		if ( spawnPoint == null )
+			return;
 
-		GameObject shotGO = Instantiate( projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
+		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
+			return;
+
+		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
-		shotRB.velocity = shotGO.transform.rotation * Vector2.right * force;
+		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;
+		shotGO.GetComponent<ShotBreaksIntoParticle>( ).SetDamage( parameters.GetDamage( ) );
 
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
+
+		timeToNextShot = parameters.DelayBetweenShots;
+		currentMagSize--;
+
+		if ( currentMagSize <= 0 )
+		{
+			currentMagSize = (int)parameters.MagSize;
+			realoadTimeLeft = parameters.RealoadTime;
+		}
 	}
 
 	private void LookAtCursor( )

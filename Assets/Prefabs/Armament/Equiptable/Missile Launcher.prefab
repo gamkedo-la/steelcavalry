@@ -138,4 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
   spawnPoint: {fileID: 4642212881448758}
-  projectile: {fileID: 1794838503539024, guid: dea20ff766ba6364f8c00bb6b818ecd3, type: 2}
+  parameters: {fileID: 11400000, guid: 929d04db69f81ce40882e2dfa0db1073, type: 2}
+  type: 1

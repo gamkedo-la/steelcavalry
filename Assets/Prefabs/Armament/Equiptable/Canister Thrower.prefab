@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4586933281212118}
-  projectile: {fileID: 1031627253704480, guid: 0988d83f6890b2744a5b19159d05075a, type: 2}
-  force: 30
+  parameters: {fileID: 11400000, guid: 2f513e9f433f10e4391f2ccd705284b5, type: 2}
+  type: 2

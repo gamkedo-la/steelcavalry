@@ -71,4 +71,9 @@ public class HomingMissile : MonoBehaviour
 	{
 		this.target = target;
 	}
+
+	public void SetDamage( float damage )
+	{
+		damagePerMissile = damage;
+	}
 }

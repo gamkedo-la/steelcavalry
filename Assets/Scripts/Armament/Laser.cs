@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Laser3d : MonoBehaviour, IWeapon
+public class Laser : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint = null;
-	[SerializeField] private Transform laserBeem = null;
+	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
 	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
 	[SerializeField] private float laserScaleCorrection = 1f;
 	[SerializeField] private float laserMoveCorrection = 1f;
-
-	[SerializeField] private float damagePerSecond = 2f;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
@@ -23,16 +21,30 @@ public class Laser3d : MonoBehaviour, IWeapon
 	private bool isActive = false;
 	private bool isRight = false;
 	private float xAngle;
-	private Transform beem;
+	private GameObject beem;
+
+	private float realoadTimeLeft = 0;
+	private float shootingTimeleft = 0;
 
 	void Start( )
 	{
 		Assert.IsNotNull( spawnPoint );
-		Assert.IsNotNull( laserBeem );
+		Assert.IsNotNull( parameters );
+		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( didDamageEvent );
 
-		beem = Instantiate( laserBeem, spawnPoint.position, Quaternion.identity, spawnPoint );
-		beem.localRotation = Quaternion.identity;
+		beem = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.identity, spawnPoint );
+		beem.transform.localRotation = Quaternion.identity;
+
+		shootingTimeleft = parameters.MagSize;
+	}
+
+	void Update( )
+	{
+		if ( !isActive )
+			return;
+
+		realoadTimeLeft -= Time.deltaTime;
 	}
 
 	void FixedUpdate( )
@@ -65,7 +77,18 @@ public class Laser3d : MonoBehaviour, IWeapon
 		if ( spawnPoint == null )
 			return;
 
+		if ( realoadTimeLeft > 0 )
+			return;
+
 		ShootLaser( );
+
+		shootingTimeleft -= Time.deltaTime;
+
+		if ( shootingTimeleft <= 0 )
+		{
+			shootingTimeleft = parameters.MagSize;
+			realoadTimeLeft = parameters.RealoadTime;
+		}
 	}
 
 	private void LookAtCursor( )
@@ -111,8 +134,8 @@ public class Laser3d : MonoBehaviour, IWeapon
 		if ( hit.collider != null )
 		{
 			currentLaserSize = Vector2.Distance( spawnPoint.position, hit.point );
-			beem.localScale = new Vector3( beem.localScale.x, beem.localScale.y, currentLaserSize * laserScaleCorrection );
-			beem.localPosition = new Vector3( beem.localPosition.x, beem.localPosition.y, currentLaserSize * laserMoveCorrection );
+			beem.transform.localScale = new Vector3( beem.transform.localScale.x, beem.transform.localScale.y, currentLaserSize * laserScaleCorrection );
+			beem.transform.localPosition = new Vector3( beem.transform.localPosition.x, beem.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
 
 			//Debug.DrawLine( spawnPoint.position, hit.point, Color.red );
 
@@ -120,15 +143,15 @@ public class Laser3d : MonoBehaviour, IWeapon
 			if ( mechInstance )
 			{
 				didDamageEvent.Raise( 0.1f );
-				mechInstance.TakeDamage( damagePerSecond * Time.deltaTime );
+				mechInstance.TakeDamage( parameters.GetDamage( ) * Time.deltaTime );
 			}
 		}
 		else
 		{
 			// Shooting in the air :(
 			currentLaserSize = maxLaserSize;
-			beem.localScale = new Vector3( beem.localScale.x, beem.localScale.y, currentLaserSize * laserScaleCorrection );
-			beem.localPosition = new Vector3( beem.localPosition.x, beem.localPosition.y, currentLaserSize * laserMoveCorrection );
+			beem.transform.localScale = new Vector3( beem.transform.localScale.x, beem.transform.localScale.y, currentLaserSize * laserScaleCorrection );
+			beem.transform.localPosition = new Vector3( beem.transform.localPosition.x, beem.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
 		}
 	}
 }

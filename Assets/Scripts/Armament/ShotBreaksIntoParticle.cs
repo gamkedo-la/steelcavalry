@@ -40,4 +40,9 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 		pfxGO.transform.SetParent(LitterContainer.instanceTransform);
 		Destroy(gameObject);
 	}
+
+	public void SetDamage( float damage )
+	{
+		damagePerShot = damage;
+	}
 }
