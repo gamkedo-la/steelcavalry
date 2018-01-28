@@ -21,6 +21,7 @@ public class Mine : MonoBehaviour
     public void Update()
     {
 		// TODO: Are Mines static? Maybe they float around!
+        this.transform.position = new Vector3(this.transform.position.x, (float)Utilities.floatEffect(this.transform.position.y,100), this.transform.position.z);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

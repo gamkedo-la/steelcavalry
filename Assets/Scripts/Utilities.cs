@@ -42,4 +42,12 @@ public static class Utilities
 		float scale = ( newEnd - newStart ) / ( originalEnd - originalStart );
 		return ( newStart + ( ( value - originalStart ) * scale ) );
 	}
+
+	///
+	public static double floatEffect(float originalStart, double weight)
+	{
+		double returnDouble = 0;
+		returnDouble = originalStart + Mathf.Sin(Time.time) / weight;
+		return returnDouble;
+	}
 }
