@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion = null;
 
-	public float damagePerMine = 10f;
+    public float explosionDestroyDelay = 2f;
+    public float damagePerMine = 10f;
 
     // Use this for initialization
     public void Start()
@@ -30,10 +32,13 @@ public class Mine : MonoBehaviour
 			//TODO: Add DoDestruction implementation 
 			Debug.Log("hit a mech");
 			mechInstance.TakeDamage(damagePerMine);
-			//TODO: Add explosion effect
-			Destroy(gameObject);
+            ExplodeAndDestroy();
         }
+    }
 
-
+    private void ExplodeAndDestroy() {
+        var newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(newExplosion, explosionDestroyDelay);
+        Destroy(gameObject);
     }
 }
