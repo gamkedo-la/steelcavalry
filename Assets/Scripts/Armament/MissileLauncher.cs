@@ -38,6 +38,11 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		timeToNextShot -= Time.deltaTime;
 	}
 
+	public void IsPlayerDriving( bool playerDriver )
+	{
+
+	}
+
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;

@@ -4,6 +4,7 @@ using UnityEngine.Assertions;
 public class Gun : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
+	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float minAngle = -60f;
@@ -16,6 +17,7 @@ public class Gun : MonoBehaviour, IWeapon
 
 	private bool isActive = false;
 	private bool isRight = false;
+	private bool isPlayerDriver = false;
 	private float xAngle;
 
 	private float timeToNextShot = 0;
@@ -27,6 +29,7 @@ public class Gun : MonoBehaviour, IWeapon
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
+		Assert.IsNotNull( weaponSlotEvents );
 
 		currentMagSize = (int)parameters.MagSize;
 	}
@@ -46,9 +49,23 @@ public class Gun : MonoBehaviour, IWeapon
 		LookAtCursor( );
 	}
 
+	public void IsPlayerDriving( bool playerDriver )
+	{
+		isPlayerDriver = playerDriver;
+	}
+
 	public void Active(bool isActive)
 	{
 		this.isActive = isActive;
+
+		if (isActive)
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn );
+		}
+		else
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOff );
+		}
 	}
 
 	public GameObject GetGameObject( )

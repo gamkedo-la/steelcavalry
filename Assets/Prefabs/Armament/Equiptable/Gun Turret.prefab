@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4506451220065992}
+  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   parameters: {fileID: 11400000, guid: ec97aa704c824ed409afa91b5ef5d846, type: 2}
   type: 0
   minAngle: -60

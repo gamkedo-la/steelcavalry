@@ -57,6 +57,11 @@ public class Laser : MonoBehaviour, IWeapon
 		LookAtCursor( );
 	}
 
+	public void IsPlayerDriving( bool playerDriver )
+	{
+		//isPlayerDriver = playerDriver;
+	}
+
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;

@@ -56,14 +56,15 @@ public class Mech : MonoBehaviour
         }
     }
 
-	public void wasEntered(GameObject newDriver) {
-
+	public void wasEntered(GameObject newDriver)
+	{
 		driver = newDriver;
 		driverMovement = driver.GetComponent<PlayerMovement>();
 
 		inUse = true;
 		if ( weaponManager != null )
 		{
+			weaponManager.IsPlayerDriving( newDriver.CompareTag("Player") );
 			weaponManager.IsActive( true );
 			driverMovement.OnFire += weaponManager.FirePrimary;
 			driverMovement.OnAltFire += weaponManager.FireSecondary;

@@ -36,6 +36,11 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 		timeToNextShot -= Time.deltaTime;
 	}
 
+	public void IsPlayerDriving( bool playerDriver )
+	{
+
+	}
+
 	public void SetDir( bool isRight ) { }
 
 	public void Active( bool isActive )

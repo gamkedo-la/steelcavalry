@@ -15,6 +15,7 @@ public class WeaponManager : MonoBehaviour
 
 	private bool isActive = false;
 	private bool isRight = false;
+	private bool isPlayerDriver = false;
 
 	void Start ()
 	{
@@ -34,6 +35,22 @@ public class WeaponManager : MonoBehaviour
 
 		if ( throwerMountPoint.transform.childCount > 0 )
 			thrower = throwerMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
+	}
+
+	public void IsPlayerDriving( bool playerDriver )
+	{
+		Debug.Log( name + " weapons are used by human player: " + playerDriver );
+
+		isPlayerDriver = playerDriver;
+
+		if ( turret != null )
+			turret.IsPlayerDriving( isPlayerDriver );
+
+		if ( launcher != null )
+			launcher.IsPlayerDriving( isPlayerDriver );
+
+		if ( thrower != null )
+			thrower.IsPlayerDriving( isPlayerDriver );
 	}
 
 	public void IsActive( bool active )
