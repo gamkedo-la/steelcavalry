@@ -40,6 +40,11 @@ public class Gun : MonoBehaviour, IWeapon
 
 		realoadTimeLeft -= Time.deltaTime;
 		timeToNextShot -= Time.deltaTime;
+
+		if ( isPlayerDriver && realoadTimeLeft >= 0 )
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn, 1f - ( realoadTimeLeft / parameters.RealoadTime ) );
+		}
 	}
 
 	void FixedUpdate( )
@@ -57,6 +62,9 @@ public class Gun : MonoBehaviour, IWeapon
 	public void Active(bool isActive)
 	{
 		this.isActive = isActive;
+
+		if ( !isPlayerDriver )
+			return;
 
 		if (isActive)
 		{
@@ -96,6 +104,11 @@ public class Gun : MonoBehaviour, IWeapon
 
 		timeToNextShot = parameters.DelayBetweenShots;
 		currentMagSize--;
+
+		if ( isPlayerDriver )
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn, currentMagSize / parameters.MagSize );
+		}
 
 		if ( currentMagSize <= 0 )
 		{

@@ -13,6 +13,8 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField] IWeapon launcher = null;
 	[SerializeField] IWeapon thrower = null;
 
+	[SerializeField] private GameEventUI weaponSlotEvents = null;
+
 	private bool isActive = false;
 	private bool isRight = false;
 	private bool isPlayerDriver = false;
@@ -26,6 +28,7 @@ public class WeaponManager : MonoBehaviour
 		Assert.IsNotNull( throwerMountPoint );
 
 		Assert.IsNotNull( cursor );
+		Assert.IsNotNull( weaponSlotEvents );
 
 		if ( turretMountPoint.transform.childCount > 0 )
 			turret = turretMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
@@ -51,6 +54,9 @@ public class WeaponManager : MonoBehaviour
 
 		if ( thrower != null )
 			thrower.IsPlayerDriving( isPlayerDriver );
+
+		if ( isPlayerDriver )
+			weaponSlotEvents.Raise( UIEvent.ThusterOn );
 	}
 
 	public void IsActive( bool active )
@@ -126,6 +132,7 @@ public class WeaponManager : MonoBehaviour
 
 				turret = g.GetComponent<IWeapon>( );
 
+				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
 				IsActive( isActive );
 			}
@@ -150,6 +157,7 @@ public class WeaponManager : MonoBehaviour
 				launcher = g.GetComponent<IWeapon>( );
 				g.GetComponent<MissileLauncher>( ).SetCursor( cursor );
 
+				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
 				IsActive( isActive );
 			}
@@ -168,6 +176,7 @@ public class WeaponManager : MonoBehaviour
 
 				thrower = g.GetComponent<IWeapon>( );
 
+				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
 				IsActive( isActive );
 			}

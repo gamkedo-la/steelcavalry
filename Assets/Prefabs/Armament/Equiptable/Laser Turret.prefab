@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4677305069045634}
   parameters: {fileID: 11400000, guid: 847e0aca6ed52974c88b6ecc7787a9b6, type: 2}
+  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   type: 0
   maxLaserSize: 20

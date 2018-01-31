@@ -16,7 +16,7 @@ public enum UIEvent
 }
 
 [System.Serializable] // So it shows in the inspector
-public class UnityEventUI : UnityEvent<UIEvent> { } // We inherit from UnityEvent so we can pass a float
+public class UnityEventUI : UnityEvent<UIEvent, float> { } // We inherit from UnityEvent so we can pass a float
 
 public class GameEventListenerUI : MonoBehaviour
 {
@@ -40,8 +40,8 @@ public class GameEventListenerUI : MonoBehaviour
 	}
 
 	// This is called by UnityEventFloat when the event is fired
-	public void OnEventRaised ( UIEvent parameter )
+	public void OnEventRaised ( UIEvent parameter, float percentFull )
 	{
-		response.Invoke( parameter );
+		response.Invoke( parameter, percentFull );
 	}
 }

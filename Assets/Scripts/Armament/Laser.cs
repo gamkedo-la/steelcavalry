@@ -5,6 +5,7 @@ public class Laser : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint = null;
 	[SerializeField] private WeaponParameters parameters = null;
+	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
 	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
@@ -20,6 +21,7 @@ public class Laser : MonoBehaviour, IWeapon
 
 	private bool isActive = false;
 	private bool isRight = false;
+	private bool isPlayerDriver = false;
 	private float xAngle;
 	private GameObject beem;
 
@@ -32,6 +34,7 @@ public class Laser : MonoBehaviour, IWeapon
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( didDamageEvent );
+		Assert.IsNotNull( weaponSlotEvents );
 
 		beem = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.identity, spawnPoint );
 		beem.transform.localRotation = Quaternion.identity;
@@ -45,6 +48,11 @@ public class Laser : MonoBehaviour, IWeapon
 			return;
 
 		realoadTimeLeft -= Time.deltaTime;
+
+		if ( isPlayerDriver && realoadTimeLeft >= 0 )
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn, 1f - ( realoadTimeLeft / parameters.RealoadTime ) );
+		}
 	}
 
 	void FixedUpdate( )
@@ -59,12 +67,24 @@ public class Laser : MonoBehaviour, IWeapon
 
 	public void IsPlayerDriving( bool playerDriver )
 	{
-		//isPlayerDriver = playerDriver;
+		isPlayerDriver = playerDriver;
 	}
 
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
+
+		if ( !isPlayerDriver )
+			return;
+
+		if ( isActive )
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn );
+		}
+		else
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOff );
+		}
 	}
 
 	public GameObject GetGameObject( )
@@ -88,6 +108,11 @@ public class Laser : MonoBehaviour, IWeapon
 		ShootLaser( );
 
 		shootingTimeleft -= Time.deltaTime;
+
+		if ( isPlayerDriver )
+		{
+			weaponSlotEvents.Raise( UIEvent.TurretOn, shootingTimeleft / parameters.MagSize );
+		}
 
 		if ( shootingTimeleft <= 0 )
 		{

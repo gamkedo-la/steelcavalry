@@ -1,14 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 public class PodLauncher : MonoBehaviour {
 
     public Mech myMech;
-    
     public float launchPower;
 
     private bool isActive = false;
-    private bool isRight;
+    //private bool isRight;
 
     // Use this for initialization
     void Start() {
@@ -24,13 +23,13 @@ public class PodLauncher : MonoBehaviour {
     {
         // if (spawnPoint == null)
         //   return;
-       
+
         LaunchPod();
     }
 
     public void SetDir(bool isRight)
     {
-        this.isRight = isRight;
+        //this.isRight = isRight;
     }
 
     public void Active(bool isActive)
@@ -39,7 +38,7 @@ public class PodLauncher : MonoBehaviour {
     }
 
     protected void LaunchPod() {
-        
+
         if (!isActive)
             return;
         // IF pod hasn't been launched yet...
@@ -52,7 +51,7 @@ public class PodLauncher : MonoBehaviour {
         //Fire the pod and disable movement
         podRb.AddRelativeForce(Vector2.right * launchPower, ForceMode2D.Impulse);
         myMech.podLaunched = true;
-       
+
         //myMech.pods.rigidbody2
 
     }

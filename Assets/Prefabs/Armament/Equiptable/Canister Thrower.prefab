@@ -137,5 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4586933281212118}
+  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   parameters: {fileID: 11400000, guid: 2f513e9f433f10e4391f2ccd705284b5, type: 2}
   type: 2

@@ -300,7 +300,8 @@ MonoBehaviour:
   respondToEventOn: 4
   respondToEventOff: 5
   group: {fileID: 70845608}
-  disableState: 0.2
+  background: {fileID: 2070650020}
+  disableState: 1
 --- !u!114 &70845610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,10 +612,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2177392209cc74e4aa649101b2450914, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -7925,10 +7926,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2177392209cc74e4aa649101b2450914, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -18855,7 +18856,8 @@ MonoBehaviour:
   respondToEventOn: 2
   respondToEventOff: 3
   group: {fileID: 668547520}
-  disableState: 0.2
+  background: {fileID: 192071771}
+  disableState: 0
 --- !u!114 &668547522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26696,10 +26698,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2177392209cc74e4aa649101b2450914, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -30885,6 +30887,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1555103426}
   throwerMountPoint: {fileID: 1831106550}
   cursor: {fileID: 1297227010}
+  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!50 &1421956176
 Rigidbody2D:
   serializedVersion: 4
@@ -32029,7 +32032,8 @@ MonoBehaviour:
   respondToEventOn: 6
   respondToEventOff: 7
   group: {fileID: 1687625530}
-  disableState: 0.2
+  background: {fileID: 249771310}
+  disableState: 0
 --- !u!114 &1687625532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32444,7 +32448,8 @@ MonoBehaviour:
   respondToEventOn: 0
   respondToEventOff: 1
   group: {fileID: 1782831448}
-  disableState: 0.2
+  background: {fileID: 1108747038}
+  disableState: 0
 --- !u!114 &1782831450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32826,10 +32831,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2177392209cc74e4aa649101b2450914, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

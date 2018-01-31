@@ -4,12 +4,9 @@ using UnityEngine.Assertions;
 public class CanisterLauncher : MonoBehaviour, IWeapon
 {
 	[SerializeField] private Transform spawnPoint;
+	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Thrower;
-
-	private float timeToNextShot = 0;
-	private float realoadTimeLeft = 0;
-	private int currentMagSize = 0;
 
 	public WeaponType Type
 	{
@@ -17,12 +14,17 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	}
 
 	private bool isActive = false;
+	private bool isPlayerDriver = false;
+	private float timeToNextShot = 0;
+	private float realoadTimeLeft = 0;
+	private int currentMagSize = 0;
 
 	void Start( )
 	{
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
+		Assert.IsNotNull( weaponSlotEvents );
 
 		currentMagSize = (int)parameters.MagSize;
 	}
@@ -34,11 +36,16 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 
 		realoadTimeLeft -= Time.deltaTime;
 		timeToNextShot -= Time.deltaTime;
+
+		if ( isPlayerDriver && realoadTimeLeft >= 0 )
+		{
+			weaponSlotEvents.Raise( UIEvent.ThrowerOn, 1f - ( realoadTimeLeft / parameters.RealoadTime ) );
+		}
 	}
 
 	public void IsPlayerDriving( bool playerDriver )
 	{
-
+		isPlayerDriver = playerDriver;
 	}
 
 	public void SetDir( bool isRight ) { }
@@ -46,6 +53,18 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
+
+		if ( !isPlayerDriver )
+			return;
+
+		if ( isActive )
+		{
+			weaponSlotEvents.Raise( UIEvent.ThrowerOn );
+		}
+		else
+		{
+			weaponSlotEvents.Raise( UIEvent.ThrowerOff );
+		}
 	}
 
 	public GameObject GetGameObject( )
@@ -80,6 +99,11 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 
 		timeToNextShot = parameters.DelayBetweenShots;
 		currentMagSize--;
+
+		if ( isPlayerDriver )
+		{
+			weaponSlotEvents.Raise( UIEvent.ThrowerOn, currentMagSize / parameters.MagSize );
+		}
 
 		if ( currentMagSize <= 0 )
 		{
