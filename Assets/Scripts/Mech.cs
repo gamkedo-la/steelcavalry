@@ -4,6 +4,8 @@ using UnityEngine.Assertions;
 public class Mech : MonoBehaviour
 {
 	[SerializeField] private GameObject[] bodyParts = null;
+	[SerializeField] private MechUI ui = null;
+	[SerializeField] private string mechName = "The Bot";
 	public float mechSpeed = 2.0f;
  	public float jumpPower = 10.0f;
  	public float damageTaken = 0.0f;
@@ -37,7 +39,8 @@ public class Mech : MonoBehaviour
     // Use this for initialization
     void Start () {
 
-		//Assert.IsNotNull( gun );
+		Assert.IsNotNull( ui );
+		ui.SetName( mechName );
 
 		mechRB = GetComponent<Rigidbody2D>();
 		//driver = GameObject.FindWithTag("Player"); // this may not be who is really driving
@@ -145,10 +148,15 @@ public class Mech : MonoBehaviour
 		if (!inUse) damageAmount *= 1.25f;
 
 		damageTaken += damageAmount;
+		damageTaken = damageTaken > maxDamage ? maxDamage : damageTaken;
+
+		ui.SetHP( 1f - damageTaken / maxDamage );
+
 		if(damageTaken >= maxDamage)
 		{
 			MakeDestructionEffect( );
 			destroying = true;
+			Destroy( ui.gameObject );
 			Destroy(gameObject);
 		}
 	}
