@@ -68,6 +68,7 @@ public class Mech : MonoBehaviour
 		if ( weaponManager != null )
 		{
 			weaponManager.IsPlayerDriving( newDriver.CompareTag("Player") );
+			ui.IsPlayerDriving( newDriver.CompareTag( "Player" ) );
 			weaponManager.IsActive( true );
 			driverMovement.OnFire += weaponManager.FirePrimary;
 			driverMovement.OnAltFire += weaponManager.FireSecondary;
@@ -95,6 +96,8 @@ public class Mech : MonoBehaviour
 			driverMovement.OnAltFire -= weaponManager.FireSecondary;
 			driverMovement.OnAltFire2 -= weaponManager.FireTertiary;
 			weaponManager.IsActive( false );
+			weaponManager.IsPlayerDriving( false );
+			ui.IsPlayerDriving( false );
 		}
 	}
 
