@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour {
 			inputLeft = Input.GetAxisRaw ("Horizontal") < 0.0f;
 			inputFire = Input.GetMouseButton(0);
 			inputAltFire = Input.GetMouseButton(1);
-			inputAltFire2 = Input.GetMouseButton(2);
+			inputAltFire2 = Input.GetKeyDown(KeyCode.Q);
 			inputEnter = Input.GetKeyDown(KeyCode.Space);
 		}
 
