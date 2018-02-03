@@ -381,6 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8373cf9587b0fa4ebd2705558ec6ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outMechCamZoomSize: 20
+  inMechCamZoomSize: 60
+  zoomSpeed: 3
+  followSpeed: 3
   myPlayer: {fileID: 0}
 --- !u!124 &124114516928304534
 Behaviour:
