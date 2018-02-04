@@ -6,8 +6,12 @@ public class Mine : MonoBehaviour
 {
     [SerializeField] private GameObject explosion = null;
 
+    public bool deployed = false;    
+    public bool floatLR = false;
+    public bool floatUD = false;
     public float explosionDestroyDelay = 2f;
     public float damagePerMine = 10f;
+    public double floatWeight = 100;
 
     // Use this for initialization
     public void Start()
@@ -20,8 +24,18 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-		// TODO: Are Mines static? Maybe they float around!
-        this.transform.position = new Vector3(this.transform.position.x, (float)Utilities.floatEffect(this.transform.position.y,100), this.transform.position.z);
+		if(floatLR && floatUD)
+        {
+            this.transform.position = new Vector3((float)Utilities.floatEffect(this.transform.position.x,floatWeight), (float)Utilities.floatEffect(this.transform.position.y,floatWeight), this.transform.position.z);
+        }
+        else if(floatUD)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, (float)Utilities.floatEffect(this.transform.position.y,floatWeight), this.transform.position.z);
+        }
+        else if(floatLR)
+        {
+            this.transform.position = new Vector3((float)Utilities.floatEffect(this.transform.position.x,floatWeight), this.transform.position.y, this.transform.position.z);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
