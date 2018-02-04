@@ -6,7 +6,8 @@ public class Mech : MonoBehaviour
 	[SerializeField] private GameObject[] bodyParts = null;
 	[SerializeField] private MechUI ui = null;
 	[SerializeField] private string mechName = "The Bot";
-	public float mechSpeed = 2.0f;
+	public float mechMoveSpeed = 2.0f;
+    public float mechRotateSpeed = 5.0f;
  	public float jumpPower = 10.0f;
  	public float damageTaken = 0.0f;
  	public float maxDamage = 100.0f;
@@ -110,10 +111,10 @@ public class Mech : MonoBehaviour
             if (!driverMovement) return;
 
             if (driverMovement.inputRight)
-                transform.position += Vector3.right * Time.deltaTime * mechSpeed;
+                transform.position += Vector3.right * Time.deltaTime * mechMoveSpeed;
 
             if (driverMovement.inputLeft)
-                transform.position += Vector3.left * Time.deltaTime * mechSpeed;
+                transform.position += Vector3.left * Time.deltaTime * mechMoveSpeed;
 
             if (driverMovement.inputUp && isOnGround)
             {
@@ -127,9 +128,9 @@ public class Mech : MonoBehaviour
             if (podLaunched) return;
 
             if (driverMovement.inputRight && isOnGround && goldenLedgeCheck.isGroundRight)
-                transform.position += Vector3.right * Time.deltaTime * mechSpeed;
+                transform.position += Vector3.right * Time.deltaTime * mechMoveSpeed;
             if (driverMovement.inputLeft && isOnGround && goldenLedgeCheck.isGroundLeft)
-                transform.position += Vector3.left * Time.deltaTime * mechSpeed;
+                transform.position += Vector3.left * Time.deltaTime * mechMoveSpeed;
             if (driverMovement.inputUp && isOnGround)
                 rocketPivot.transform.Rotate(Vector3.forward * Time.deltaTime * gGRocketRotateSpeed);
             if (driverMovement.inputDown && isOnGround)

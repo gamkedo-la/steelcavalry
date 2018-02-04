@@ -201,14 +201,18 @@ public class PlayerMovement : MonoBehaviour {
 			// Update method for when inside mech
 			case PlayerState.inMech:
 				if(mechImIn && mechImIn.model != null) {
-					if(isFacingRight) {
-						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.right);
-						mechImIn.Side( true );
-					} else {
-						mechImIn.model.rotation = Quaternion.LookRotation(Vector3.left);
-						mechImIn.Side( false );
+                    Quaternion facingDirection;
+
+                    if (isFacingRight) {
+                        facingDirection = Quaternion.LookRotation(Vector3.right);
+                        mechImIn.Side( true );
 					}
-				}
+                    else {
+                        facingDirection = Quaternion.LookRotation(Vector3.left);
+                        mechImIn.Side( false );
+					}
+                    mechImIn.model.rotation = Quaternion.Slerp(mechImIn.model.rotation, facingDirection, mechImIn.mechRotateSpeed * Time.deltaTime);
+                }
 
 				if ( mechImIn != null )
 					transform.position = mechImIn.transform.position;
