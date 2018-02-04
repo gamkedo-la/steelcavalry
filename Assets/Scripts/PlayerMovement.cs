@@ -20,11 +20,15 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool isFacingRight = true;
 
-	public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
+    public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire2 = delegate {} ; //firing is now an event that can heard by other scripts
-
+    
 	private Jetpack jetpack;
+
+    public Transform weaponFiringPoint;
+    public WeaponManager weaponManager;
+    public GameObject weaponEquipped;
 
 	// public input flags for keyboard/gamepad *or* AI
 	public bool useKeyboardInput = true; // default for player 1, false for bots
@@ -58,6 +62,11 @@ public class PlayerMovement : MonoBehaviour {
 		_state = PlayerState.outOfMech; //default player state, switches between in and out of mech
 
 		jetpack = GetComponent<Jetpack>();
+
+        IWeapon weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
+        weaponManager.GiveWeapon(weapon);
+
+        EnableWeapons(true);
     }
 
 	void EnterMech(Mech mech){
@@ -77,7 +86,9 @@ public class PlayerMovement : MonoBehaviour {
 
 		camScript.MechZoom(mechImIn);
 
-		_state = PlayerState.inMech; //changes player state
+        EnableWeapons(false);
+
+        _state = PlayerState.inMech; //changes player state
 
 	}
 
@@ -96,7 +107,9 @@ public class PlayerMovement : MonoBehaviour {
 
 		camScript.MechZoom(); //default cam size
 
-		_state = PlayerState.outOfMech;
+        EnableWeapons(true);
+
+        _state = PlayerState.outOfMech;
 	}
 
 	// putting all input response here lets us turn it off for "dumb players" ie AI
@@ -167,8 +180,27 @@ public class PlayerMovement : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
-	void Update () {
+    void EnableWeapons(bool enabled) {
+        if (weaponManager != null) {
+            if (enabled) {
+                weaponManager.IsPlayerDriving(true);
+                weaponManager.IsActive(true);
+                OnFire += weaponManager.FirePrimary;
+                OnAltFire += weaponManager.FireSecondary;
+                OnAltFire2 += weaponManager.FireTertiary;
+            }
+            else {
+                OnFire -= weaponManager.FirePrimary;
+                OnAltFire -= weaponManager.FireSecondary;
+                OnAltFire2 -= weaponManager.FireTertiary;
+                weaponManager.IsActive(false);
+                weaponManager.IsPlayerDriving(false);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
 		handleInput();
 
@@ -184,7 +216,19 @@ public class PlayerMovement : MonoBehaviour {
 			else
 				isFacingRight = false;
 		}
-		if (inputFire){
+
+        if (weaponManager != null) {
+            weaponManager.SetDir(isFacingRight);
+        }
+
+        if (isFacingRight) {
+            weaponFiringPoint.transform.localPosition = new Vector3(0.092f, 0.0337f, 0);
+        }
+        else if (!isFacingRight) {
+            weaponFiringPoint.transform.localPosition = new Vector3(-0.092f, 0.0337f, 0);
+        }
+
+        if (inputFire){
 			OnFire(); //tells everyone listening that a shot has been fired
 		}
 		if (inputAltFire)
