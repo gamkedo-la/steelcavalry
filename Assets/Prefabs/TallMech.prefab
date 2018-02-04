@@ -1353,10 +1353,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyParts: []
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  explosionEffect: {fileID: 1055769676350754, guid: 6b343e149082df74bad99c34bb109f48,
-    type: 2}
   ui: {fileID: 114297980941571494}
   mechName: TallMech
+  expForceMin: 300
+  expForceMax: 500
   mechMoveSpeed: 2
   mechRotateSpeed: 5
   jumpPower: 4000

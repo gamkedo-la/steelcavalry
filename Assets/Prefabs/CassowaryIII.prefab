@@ -1402,10 +1402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyParts: []
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  explosionEffect: {fileID: 1055769676350754, guid: 6b343e149082df74bad99c34bb109f48,
-    type: 2}
   ui: {fileID: 114204297203652044}
   mechName: CassowaryIII
+  expForceMin: 300
+  expForceMax: 500
   mechMoveSpeed: 2
   mechRotateSpeed: 5
   jumpPower: 4000
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   weaponManager: {fileID: 0}
   pod: {fileID: 0}
   driver: {fileID: 0}
-  model: {fileID: 0}
+  model: {fileID: 4042170345686212}
   isFacingRight: 0
   goldenLedgeCheck: {fileID: 0}
   isGoldenGoose: 0
