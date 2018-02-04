@@ -4,8 +4,11 @@ using UnityEngine.Assertions;
 public class Mech : MonoBehaviour
 {
 	[SerializeField] private GameObject[] bodyParts = null;
+	[SerializeField] private GameObject explosion = null;
 	[SerializeField] private MechUI ui = null;
 	[SerializeField] private string mechName = "The Bot";
+	[SerializeField] private float expForceMin = 300f;
+	[SerializeField] private float expForceMax = 500f;
 	public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
  	public float jumpPower = 10.0f;
@@ -41,6 +44,7 @@ public class Mech : MonoBehaviour
     void Start () {
 
 		Assert.IsNotNull( ui );
+		Assert.IsNotNull( explosion );
 		ui.SetName( mechName );
 
 		mechRB = GetComponent<Rigidbody2D>();
@@ -158,10 +162,11 @@ public class Mech : MonoBehaviour
 
 		if(damageTaken >= maxDamage)
 		{
-			MakeDestructionEffect( );
-			destroying = true;
-			Destroy( ui.gameObject );
-			Destroy(gameObject);
+			var exp = Instantiate( explosion, transform.position, Quaternion.identity );
+			Destroy( exp, 3f );
+
+			const float delay = 0.1f;
+			Invoke( "MakeDestructionEffect", delay);
 		}
 	}
 
@@ -169,11 +174,17 @@ public class Mech : MonoBehaviour
 	{
 		if ( bodyParts == null || bodyParts.Length == 0 || destroying ) return;
 
+		destroying = true;
+
 		foreach ( var part in bodyParts )
 		{
 			part.GetComponent<CircleCollider2D>( ).enabled = true;
 			part.AddComponent<Rigidbody2D>( );
+			part.GetComponent<Rigidbody2D>( ).AddForce( Quaternion.Euler( 0, 0, Random.Range( 0, 360 ) ) * Vector2.left * Random.Range( expForceMin, expForceMax ) );
 			part.transform.SetParent( null );
 		}
+
+		Destroy( ui.gameObject );
+		Destroy( gameObject );
 	}
 }

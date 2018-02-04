@@ -2341,9 +2341,13 @@ MonoBehaviour:
   - {fileID: 1730721142491234}
   - {fileID: 1225193703633888}
   - {fileID: 1372406524038528}
+  explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
+  explosionEffect: {fileID: 1055769676350754, guid: 6b343e149082df74bad99c34bb109f48,
+    type: 2}
   ui: {fileID: 114570427814008144}
   mechName: Ostrich The Bot
-  mechSpeed: 2
+  mechMoveSpeed: 2
+  mechRotateSpeed: 5
   jumpPower: 7500
   damageTaken: 0
   maxDamage: 100
