@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainCamera : MonoBehaviour {
-    public float outMechCamZoomSize = 20;
+    public float outMechCamZoomSize = 45;
     public float inMechCamZoomSize = 60;
     public float zoomSpeed = 3;
     public float followSpeed = 3;
