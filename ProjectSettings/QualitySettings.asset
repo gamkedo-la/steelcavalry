@@ -146,20 +146,4 @@ QualitySettings:
     asyncUploadBufferSize: 4
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
-  m_PerPlatformDefaultQuality:
-    Android: 1
-    Nintendo 3DS: 4
-    Nintendo Switch: 4
-    PS4: 4
-    PSM: 4
-    PSP2: 1
-    Samsung TV: 1
-    Standalone: 4
-    Tizen: 1
-    Web: 4
-    WebGL: 2
-    WiiU: 4
-    Windows Store Apps: 4
-    XboxOne: 4
-    iPhone: 1
-    tvOS: 1
+  m_PerPlatformDefaultQuality: {}
