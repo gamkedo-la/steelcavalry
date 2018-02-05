@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour, IWeapon
 		this.isRight = isRight;
 	}
 
-	public void TryToFire( )
+	public void TryToFire()
 	{
 		if ( spawnPoint == null )
 			return;
