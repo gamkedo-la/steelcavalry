@@ -183,7 +183,10 @@ public class PlayerMovement : MonoBehaviour {
     void EnableWeapons(bool enabled) {
         if (weaponManager != null) {
             if (enabled) {
-                weaponManager.IsPlayerDriving(true);
+                if (gameObject.tag == "Player") {
+                    weaponManager.IsPlayerDriving(true);
+                }
+
                 weaponManager.IsActive(true);
                 OnFire += weaponManager.FirePrimary;
                 OnAltFire += weaponManager.FireSecondary;
@@ -194,7 +197,10 @@ public class PlayerMovement : MonoBehaviour {
                 OnAltFire -= weaponManager.FireSecondary;
                 OnAltFire2 -= weaponManager.FireTertiary;
                 weaponManager.IsActive(false);
-                weaponManager.IsPlayerDriving(false);
+
+                if (gameObject.tag == "Player") {
+                    weaponManager.IsPlayerDriving(true);
+                }
             }
         }
     }
