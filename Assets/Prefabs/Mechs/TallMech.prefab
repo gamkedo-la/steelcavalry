@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4018394473664844}
   m_Layer: 0
-  m_Name: roboWarrior-fbx
+  m_Name: Robo Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ Transform:
   - {fileID: 4732231016369464}
   - {fileID: 4719533953641454}
   m_Father: {fileID: 4352619853347004}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4024285205666542
 Transform:
@@ -613,8 +613,8 @@ Transform:
   m_LocalPosition: {x: -1.34, y: 0.01, z: 0}
   m_LocalScale: {x: 0.9322956, y: 2.1372464, z: 1}
   m_Children:
-  - {fileID: 4018394473664844}
   - {fileID: 224888805132249944}
+  - {fileID: 4018394473664844}
   - {fileID: 4804425660749010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1905,7 +1905,7 @@ RectTransform:
   - {fileID: 224674757953103942}
   - {fileID: 224511666051616778}
   m_Father: {fileID: 4352619853347004}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

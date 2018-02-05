@@ -1,55 +1,86 @@
 fileFormatVersion: 2
-guid: a2e0f5ce0ee4c954784c62e172018bec
-timeCreated: 1516150860
+guid: 1a7cff63454ac0b489f561f298b5c5bd
+timeCreated: 1517850261
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cone
-    100002: Cone_001
-    100004: Cone_002
-    100006: Cone_003
-    100008: Cone_004
-    100010: Cone_005
-    100012: Icosphere
-    100014: //RootNode
-    400000: Cone
-    400002: Cone_001
-    400004: Cone_002
-    400006: Cone_003
-    400008: Cone_004
-    400010: Cone_005
-    400012: Icosphere
-    400014: //RootNode
-    2300000: Cone
-    2300002: Cone_001
-    2300004: Cone_002
-    2300006: Cone_003
-    2300008: Cone_004
-    2300010: Cone_005
-    2300012: Icosphere
-    3300000: Cone
-    3300002: Cone_001
-    3300004: Cone_002
-    3300006: Cone_003
-    3300008: Cone_004
-    3300010: Cone_005
-    3300012: Icosphere
-    4300000: Cone_005
-    4300002: Cone_004
-    4300004: Cone_003
-    4300006: Cone_002
-    4300008: Cone_001
-    4300010: Cone
-    4300012: Icosphere
-    7400000: Default Take
-    9500000: //RootNode
+    100000: arm_up.L
+    100002: arm_up.R
+    100004: blade.L
+    100006: blade.R
+    100008: body
+    100010: //RootNode
+    100012: foot.L
+    100014: foot.R
+    100016: Lamp
+    100018: leg_low.L
+    100020: leg_low.R
+    100022: pelvis
+    100024: thrusters
+    100026: UpLeg.L
+    100028: UpLeg.R
+    400000: arm_up.L
+    400002: arm_up.R
+    400004: blade.L
+    400006: blade.R
+    400008: body
+    400010: //RootNode
+    400012: foot.L
+    400014: foot.R
+    400016: Lamp
+    400018: leg_low.L
+    400020: leg_low.R
+    400022: pelvis
+    400024: thrusters
+    400026: UpLeg.L
+    400028: UpLeg.R
+    2300000: arm_up.L
+    2300002: arm_up.R
+    2300004: blade.L
+    2300006: blade.R
+    2300008: body
+    2300010: foot.L
+    2300012: foot.R
+    2300014: leg_low.L
+    2300016: leg_low.R
+    2300018: pelvis
+    2300020: thrusters
+    2300022: UpLeg.L
+    2300024: UpLeg.R
+    3300000: arm_up.L
+    3300002: arm_up.R
+    3300004: blade.L
+    3300006: blade.R
+    3300008: body
+    3300010: foot.L
+    3300012: foot.R
+    3300014: leg_low.L
+    3300016: leg_low.R
+    3300018: pelvis
+    3300020: thrusters
+    3300022: UpLeg.L
+    3300024: UpLeg.R
+    4300000: pelvis
+    4300002: thrusters
+    4300004: UpLeg.L
+    4300006: foot.R
+    4300008: leg_low.R
+    4300010: UpLeg.R
+    4300012: arm_up.R
+    4300014: blade.R
+    4300016: arm_up.L
+    4300018: blade.L
+    4300020: foot.L
+    4300022: leg_low.L
+    4300024: body
+    10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: unnamed
-    second: {fileID: 2100000, guid: be76a7e8e5886ec4ba5291006b0fc822, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 797670811c090144abf2dd4f3798bb19, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -121,7 +152,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
