@@ -552,6 +552,10 @@ MonoBehaviour:
   pixelsPerUnit: 100
   expForceMin: 3
   expForceMax: 5
+  disintegrateDelay: 5
+  disintegrateDelayDeltaMin: 0
+  disintegrateDelayDeltaMax: 0.5
+  disintegrateDecayTime: 3
 --- !u!4 &366540813
 Transform:
   m_ObjectHideFlags: 0
@@ -737,6 +741,10 @@ MonoBehaviour:
   pixelsPerUnit: 100
   expForceMin: 3
   expForceMax: 5
+  disintegrateDelay: 5
+  disintegrateDelayDeltaMin: 0
+  disintegrateDelayDeltaMax: 0.5
+  disintegrateDecayTime: 3
 --- !u!4 &390062513
 Transform:
   m_ObjectHideFlags: 0
@@ -4760,6 +4768,10 @@ MonoBehaviour:
   pixelsPerUnit: 100
   expForceMin: 3
   expForceMax: 5
+  disintegrateDelay: 5
+  disintegrateDelayDeltaMin: 0
+  disintegrateDelayDeltaMax: 0.5
+  disintegrateDecayTime: 3
 --- !u!4 &848917567
 Transform:
   m_ObjectHideFlags: 0

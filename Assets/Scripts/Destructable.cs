@@ -8,6 +8,10 @@ public class Destructable : MonoBehaviour
 	[SerializeField] private float pixelsPerUnit = 100f;
 	[SerializeField] private float expForceMin = 3f;
 	[SerializeField] private float expForceMax = 5f;
+	[SerializeField] private float disintegrateDelay = 5f;
+	[SerializeField] private float disintegrateDelayDeltaMin = 0.1f;
+	[SerializeField] private float disintegrateDelayDeltaMax = 0.3f;
+	[SerializeField] private float disintegrateDecayTime = 1f;
 
 	private GameObject spritesRoot;
 
@@ -45,6 +49,11 @@ public class Destructable : MonoBehaviour
 
 				GameObject newPiece = new GameObject( );
 				newPiece.layer = 8;
+
+				DisolveInToBackground d = newPiece.AddComponent<DisolveInToBackground>( );
+				d.Delay = disintegrateDelay;
+				d.DelayDelta = Random.Range( disintegrateDelayDeltaMin, disintegrateDelayDeltaMax );
+				d.DecayTime = disintegrateDecayTime;
 
 				SpriteRenderer sr = newPiece.AddComponent<SpriteRenderer>( );
 				sr.sprite = spr;
