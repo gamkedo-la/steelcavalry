@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DisolveInToBackground : MonoBehaviour
+public class DissolveIntoBackground : MonoBehaviour
 {
 	public float Delay = 3f;
 	public float DelayDelta = 0.3f;

@@ -50,7 +50,7 @@ public class Destructable : MonoBehaviour
 				GameObject newPiece = new GameObject( );
 				newPiece.layer = 8;
 
-				DisolveInToBackground d = newPiece.AddComponent<DisolveInToBackground>( );
+				DissolveIntoBackground d = newPiece.AddComponent<DissolveIntoBackground>( );
 				d.Delay = disintegrateDelay;
 				d.DelayDelta = Random.Range( disintegrateDelayDeltaMin, disintegrateDelayDeltaMax );
 				d.DecayTime = disintegrateDecayTime;
