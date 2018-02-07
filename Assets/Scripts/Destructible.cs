@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Destructable : MonoBehaviour
+public class Destructible : MonoBehaviour
 {
 	[SerializeField] private PhysicsMaterial2D mat;
 	[SerializeField] private int partsInRow = 10;
