@@ -51,9 +51,9 @@ public class Destructable : MonoBehaviour
 				newPiece.layer = 8;
 
 				DissolveIntoBackground d = newPiece.AddComponent<DissolveIntoBackground>( );
-				d.Delay = disintegrateDelay;
-				d.DelayDelta = Random.Range( disintegrateDelayDeltaMin, disintegrateDelayDeltaMax );
-				d.DecayTime = disintegrateDecayTime;
+				d.delay = disintegrateDelay;
+				d.delayDelta = Random.Range( disintegrateDelayDeltaMin, disintegrateDelayDeltaMax );
+				d.decayTime = disintegrateDecayTime;
 
 				SpriteRenderer sr = newPiece.AddComponent<SpriteRenderer>( );
 				sr.sprite = spr;
