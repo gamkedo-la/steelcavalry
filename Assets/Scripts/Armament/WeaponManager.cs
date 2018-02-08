@@ -21,7 +21,7 @@ public class WeaponManager : MonoBehaviour
 
 	void Start ()
 	{
-		Debug.Log( name + " weapons are attached" );
+		//Debug.Log( name + " weapons are attached" );
 
 		Assert.IsNotNull( turretMountPoint );
 		Assert.IsNotNull( launcherMountPoint );
@@ -42,7 +42,7 @@ public class WeaponManager : MonoBehaviour
 
 	public void IsPlayerDriving( bool playerDriver )
 	{
-		Debug.Log( name + " weapons are used by human player: " + playerDriver );
+		//Debug.Log( name + " weapons are used by human player: " + playerDriver );
 
 		isPlayerDriver = playerDriver;
 
@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour
 
 	public void IsActive( bool active )
 	{
-		Debug.Log( name + " weapons are active: " + active );
+		//Debug.Log( name + " weapons are active: " + active );
 
 		isActive = active;
 
@@ -109,7 +109,7 @@ public class WeaponManager : MonoBehaviour
 
 	public void GiveWeapon( IWeapon weapon )
 	{
-		Debug.Log( "I've received " + weapon.Type.ToString() );
+		//Debug.Log( "I've received " + weapon.Type.ToString() );
 		GameObject g;
 
 		switch ( weapon.Type )

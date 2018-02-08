@@ -21,17 +21,7 @@ public class Destructible : MonoBehaviour
 		spritesRoot = GameObject.Find( "Pieces" );
 	}
 
-	private void OnCollisionEnter2D( Collision2D collision )
-	{
-		if ( !collision.gameObject.CompareTag( "PlayerProjectile" ) &&
-			 !collision.gameObject.CompareTag( "PlayerMissile" ) &&
-			 !collision.gameObject.CompareTag( "Explosion" ) )
-			return;
-
-		DoDestruction( );
-	}
-
-	void DoDestruction( )
+	public void DoDestruction( )
 	{
 		Texture2D source = GetComponent<SpriteRenderer>( ).sprite.texture;
 

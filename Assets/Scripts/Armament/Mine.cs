@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class Mine : MonoBehaviour
 {
     [SerializeField] private GameObject explosion = null;
 
-    public bool deployed = false;    
+    public bool deployed = false;
     public bool floatLR = false;
     public bool floatUD = false;
     public float explosionDestroyDelay = 2f;
@@ -41,12 +41,11 @@ public class Mine : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Try to find a Mech script on the hit object
-        Mech mechInstance = collision.collider.GetComponent<Mech>();
-        if (mechInstance)
+        HP hp = collision.collider.GetComponent<HP>();
+        if (hp)
         {
-			//TODO: Add DoDestruction implementation 
-			Debug.Log("hit a mech");
-			mechInstance.TakeDamage(damagePerMine);
+			//TODO: Add DoDestruction implementation
+			hp.TakeDamage(damagePerMine);
             ExplodeAndDestroy();
         }
     }

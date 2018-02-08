@@ -21,11 +21,11 @@ public class ExplosionEnlarger : MonoBehaviour
 	void OnCollisionEnter2D( Collision2D bumpFacts )
 	{
 		// Try to find a Mech script on the hit object
-		Mech mechInstance = bumpFacts.collider.GetComponent<Mech>( );
-		if ( mechInstance )
+		HP hp = bumpFacts.collider.GetComponent<HP>( );
+		if ( hp )
 		{
 			didDamageEvent.Raise( 1f );
-			mechInstance.TakeDamage( damage );
+			hp.TakeDamage( damage );
 		}
 	}
 

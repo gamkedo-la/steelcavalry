@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Laser Beam
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1167779868393162, guid: bb571cee18827014a806dc744aa94906, type: 2}
-  DamageMin: 1
-  DamageMax: 2
+  DamageMin: 3
+  DamageMax: 4
   Force: 20
   MagSize: 5
   DelayBetweenShots: 0.1

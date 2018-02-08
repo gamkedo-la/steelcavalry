@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections;
 using UnityEngine;
 
 //Being an enemy implies that you cannot be boarded/controlled by player in any way.
@@ -7,9 +5,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public int maxHealth;
-	[SerializeField]
-	private int currentHealth;
+	//public int maxHealth;
+	//[SerializeField] private int currentHealth;
 
 	public Targeting targeting; //the component that handles player detection/field of view
 	private Vector2 aimingAt; //updated when currently firing
@@ -21,9 +18,9 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currentHealth = maxHealth;
+		//currentHealth = maxHealth;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (targeting.currentTarget){

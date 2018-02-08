@@ -29,11 +29,11 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 		if(nameOfMechPlayerIsIn == nameOfObjectHit) return;
 
 		// Try to find a Mech script on the hit object
-		Mech mechInstance = bumpFacts.collider.GetComponent<Mech>();
-		if (mechInstance)
+		HP hp = bumpFacts.collider.GetComponent<HP>();
+		if (hp)
 		{
 			didDamageEvent.Raise( 0.1f );
-			mechInstance.TakeDamage(damagePerShot);
+			hp.TakeDamage(damagePerShot);
 		}
 
 		GameObject pfxGO = Instantiate(pfx, transform.position, transform.rotation);

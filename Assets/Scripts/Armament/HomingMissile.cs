@@ -46,11 +46,11 @@ public class HomingMissile : MonoBehaviour
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
 		// Try to find a Mech script on the hit object
-		Mech mechInstance = collision.collider.GetComponent<Mech>();
-		if (mechInstance)
+		HP hp = collision.collider.GetComponent<HP>();
+		if (hp)
 		{
 			didDamageEvent.Raise( 0.5f );
-			mechInstance.TakeDamage(damagePerMissile);
+			hp.TakeDamage(damagePerMissile);
 		}
 
 		if ( collision.contacts.Length > 0 )

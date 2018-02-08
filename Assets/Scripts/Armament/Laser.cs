@@ -169,11 +169,11 @@ public class Laser : MonoBehaviour, IWeapon
 
 			//Debug.DrawLine( spawnPoint.position, hit.point, Color.red );
 
-			Mech mechInstance = hit.collider.GetComponent<Mech>( );
-			if ( mechInstance )
+			HP hp = hit.collider.GetComponent<HP>( );
+			if ( hp )
 			{
 				didDamageEvent.Raise( 0.1f );
-				mechInstance.TakeDamage( parameters.GetDamage( ) * Time.deltaTime );
+				hp.TakeDamage( parameters.GetDamage( ) * Time.deltaTime );
 			}
 		}
 		else

@@ -5,6 +5,7 @@ public class Mech : MonoBehaviour
 {
 	[SerializeField] private GameObject[] bodyParts = null;
 	[SerializeField] private GameObject explosion = null;
+	[SerializeField] private HP hp = null;
 	[SerializeField] private MechUI ui = null;
 	[SerializeField] private string mechName = "The Bot";
 	[SerializeField] private float expForceMin = 300f;
@@ -40,7 +41,7 @@ public class Mech : MonoBehaviour
     // Rocket Pod Launching
     public bool podLaunched = false;
 
-    // Use this for initialization
+
     void Start () {
 
 		Assert.IsNotNull( ui );
@@ -48,7 +49,6 @@ public class Mech : MonoBehaviour
 		ui.SetName( mechName );
 
 		mechRB = GetComponent<Rigidbody2D>();
-		//driver = GameObject.FindWithTag("Player"); // this may not be who is really driving
 	}
 
 	public void Side (bool isRight)
@@ -70,6 +70,7 @@ public class Mech : MonoBehaviour
 		driverMovement = driver.GetComponent<PlayerMovement>();
 
 		inUse = true;
+		hp.UseMultiplier( !inUse );
 		if ( weaponManager != null )
 		{
 			weaponManager.IsPlayerDriving( newDriver.CompareTag("Player") );
@@ -82,12 +83,6 @@ public class Mech : MonoBehaviour
 
         if (pod != null && pod.enabled)
         {
-            /*driverMovement.OnFire += laser.HandleFire; //adds itself to the listeners of OnFire()
-            driverMovement.OnAltFire += missiles.HandleFire;
-            driverMovement.OnAltFire2 += canisters.HandleFire;
-            laser.Active(true);
-            missiles.Active(true);
-            canisters.Active(true);*/
             driverMovement.OnFire += pod.HandleFire; //adds itself to the listeners of OnFire()
             pod.Active(true);
         }
@@ -95,6 +90,7 @@ public class Mech : MonoBehaviour
 
 	public void wasExited() {
 		inUse = false;
+		hp.UseMultiplier( !inUse );
 		if ( weaponManager != null )
 		{
 			driverMovement.OnFire -= weaponManager.FirePrimary;
@@ -151,23 +147,13 @@ public class Mech : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(float damageAmount)
+	public void DestroyMech()
 	{
-		if (!inUse) damageAmount *= 1.25f;
+		var exp = Instantiate( explosion, transform.position, Quaternion.identity );
+		Destroy( exp, 3f );
 
-		damageTaken += damageAmount;
-		damageTaken = damageTaken > maxDamage ? maxDamage : damageTaken;
-
-		ui.SetHP( 1f - damageTaken / maxDamage );
-
-		if(damageTaken >= maxDamage)
-		{
-			var exp = Instantiate( explosion, transform.position, Quaternion.identity );
-			Destroy( exp, 3f );
-
-			const float delay = 0.1f;
-			Invoke( "MakeDestructionEffect", delay);
-		}
+		const float delay = 0.1f;
+		Invoke( "MakeDestructionEffect", delay);
 	}
 
 	private void MakeDestructionEffect()
