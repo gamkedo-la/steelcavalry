@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4597912262109810}
   - component: {fileID: 33922035725686084}
   - component: {fileID: 23871934909886038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg_low.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4415730605540010}
   - component: {fileID: 33396137697011900}
   - component: {fileID: 23114829481136394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4421749871973576}
   - component: {fileID: 33109758066639952}
   - component: {fileID: 23725003523206816}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thrusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4124640840165212}
   - component: {fileID: 33632820090925928}
   - component: {fileID: 23202700275108806}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4797950432042384}
   - component: {fileID: 108550294424056530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4747252232964110}
   - component: {fileID: 33701535422138420}
   - component: {fileID: 23983587922968056}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 4037251394662250}
   - component: {fileID: 33740792638966042}
   - component: {fileID: 23852770036941080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_up.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4946803957954926}
   - component: {fileID: 33592316136536602}
   - component: {fileID: 23784968459526730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 4576037313714840}
   - component: {fileID: 33002555403601780}
   - component: {fileID: 23556587953955714}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 4712466909132782}
   - component: {fileID: 33771501140945888}
   - component: {fileID: 23027352221476532}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg_low.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4987276018410664}
   - component: {fileID: 33498215280320140}
   - component: {fileID: 23602651363873748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: blade.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 4747028477112682}
   - component: {fileID: 33897035847759644}
   - component: {fileID: 23349263278423074}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_up.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4463337002536796}
   - component: {fileID: 33420262083549530}
   - component: {fileID: 23942542011864046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4372445457550226}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cassowary III
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 4222476996748980}
   - component: {fileID: 33205449823233220}
   - component: {fileID: 23660037363377118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: blade.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

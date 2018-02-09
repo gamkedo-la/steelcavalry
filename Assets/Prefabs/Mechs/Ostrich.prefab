@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4031353440054630}
   - component: {fileID: 33996001384364116}
   - component: {fileID: 23541717227704206}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4503439007184844}
   - component: {fileID: 33224499855159424}
   - component: {fileID: 23029710456353196}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4370675125209086}
   - component: {fileID: 33041238162767220}
   - component: {fileID: 23817177866679832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Glass Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4830305227833478}
   - component: {fileID: 33021775096596368}
   - component: {fileID: 23296156120195904}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4883637691668610}
   - component: {fileID: 33781165322314374}
   - component: {fileID: 23345591994046370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4538059613484682}
   - component: {fileID: 33417665334952226}
   - component: {fileID: 23110567246938638}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Foot.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4062262376271378}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: The Ostrich IV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4158228854506334}
   - component: {fileID: 33762543133201644}
   - component: {fileID: 23039004022298434}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Upper Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4032080894187608}
   - component: {fileID: 33250969811775772}
   - component: {fileID: 23982046513477902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4112576479349956}
   - component: {fileID: 33566999492817334}
   - component: {fileID: 23971868151054804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4834366105184490}
   - component: {fileID: 33737652381138968}
   - component: {fileID: 23291379452391100}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4902830174128396}
   - component: {fileID: 33916058131190106}
   - component: {fileID: 23473993117096768}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 4800146666517222}
   - component: {fileID: 33109398498985386}
   - component: {fileID: 23046516851768932}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gun.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4787845407509122}
   - component: {fileID: 33311802487343314}
   - component: {fileID: 23762482315943674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4971233463459542}
   - component: {fileID: 33968150494231842}
   - component: {fileID: 23999672752541482}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ankle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 4618212933902838}
   - component: {fileID: 33529632878610396}
   - component: {fileID: 23714335135971662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 4979961479723998}
   - component: {fileID: 33743263821984292}
   - component: {fileID: 23593414268024170}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 4122476372105124}
   - component: {fileID: 33798386057889166}
   - component: {fileID: 23278711803872578}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ankle.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 4335193683933048}
   - component: {fileID: 33449074606447842}
   - component: {fileID: 23234900409133374}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 4018954256181332}
   - component: {fileID: 33102792431609130}
   - component: {fileID: 23977013528296820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 4763498737043342}
   - component: {fileID: 33826995215816568}
   - component: {fileID: 23999935239365896}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Upper Leg.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 4639365179725622}
   - component: {fileID: 33327734018845076}
   - component: {fileID: 23799177548343078}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,9 +616,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155287928906072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05822754, y: -1.33102, z: 0}
-  m_LocalScale: {x: 0.44171596, y: 0.44171664, z: 0.44171664}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -0.1, y: -1.333, z: 0}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
   - {fileID: 4971233463459542}
   - {fileID: 4122476372105124}
@@ -643,7 +643,7 @@ Transform:
   - {fileID: 4763498737043342}
   m_Father: {fileID: 4210744720910714}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!4 &4112576479349956
 Transform:
   m_ObjectHideFlags: 1
