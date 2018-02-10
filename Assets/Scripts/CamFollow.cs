@@ -6,7 +6,7 @@ public class CamFollow : MonoBehaviour {
 	private Camera mainCam;
 	private float cameraMarginSizePercX = 0.3f;
 	private float cameraMarginSizePercY = 0.2f;
-	private float cameraMarginChaseSpeed = 50.0f;
+	private float cameraMarginChaseSpeed = 5.0f;
 	// Use this for initialization
 	void Start () {
 		mainCam = Camera.main;
