@@ -739,6 +739,7 @@ MonoBehaviour:
   hp: {fileID: 0}
   ui: {fileID: 114495533642091344}
   mechName: ColossusMech
+  mechType: 5
   expForceMin: 300
   expForceMax: 500
   mechMoveSpeed: 2

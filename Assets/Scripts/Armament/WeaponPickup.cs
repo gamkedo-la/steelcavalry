@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 public class WeaponPickup : MonoBehaviour
 {
 	[SerializeField] private GameObject[] objectsToPickUp = null;
-	[SerializeField] private WeaponType typeToGive = WeaponType.Any;
+	[SerializeField] private EquipType typeToGive = EquipType.Any;
 
 	private List<IWeapon> weapons = new List<IWeapon>();
 
@@ -54,22 +54,22 @@ public class WeaponPickup : MonoBehaviour
 
 		switch ( typeToGive )
 		{
-			case WeaponType.Turret:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Turret ).ToArray();
+			case EquipType.Turret:
+				ws = weapons.Select( w => w ).Where( w => w.Type == EquipType.Turret ).ToArray();
 				weapon = ws[Random.Range( 0, ws.Length )];
 			break;
 
-			case WeaponType.Launcher:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Launcher ).ToArray( );
+			case EquipType.Launcher:
+				ws = weapons.Select( w => w ).Where( w => w.Type == EquipType.Launcher ).ToArray( );
 				weapon = ws[Random.Range( 0, ws.Length )];
 			break;
 
-			case WeaponType.Thrower:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Thrower ).ToArray( );
+			case EquipType.Thrower:
+				ws = weapons.Select( w => w ).Where( w => w.Type == EquipType.Thrower ).ToArray( );
 				weapon = ws[Random.Range( 0, ws.Length )];
 			break;
 
-			case WeaponType.Any:
+			case EquipType.Any:
 				weapon = weapons[Random.Range( 0, weapons.Count )];
 			break;
 		}

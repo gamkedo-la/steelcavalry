@@ -7,9 +7,9 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
-	[SerializeField] private WeaponType type = WeaponType.Launcher;
+	[SerializeField] private EquipType type = EquipType.Launcher;
 
-	public WeaponType Type
+	public EquipType Type
 	{
 		get { return type; }
 	}

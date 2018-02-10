@@ -6,9 +6,9 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
-	[SerializeField] private WeaponType type = WeaponType.Thrower;
+	[SerializeField] private EquipType type = EquipType.Thrower;
 
-	public WeaponType Type
+	public EquipType Type
 	{
 		get { return type; }
 	}

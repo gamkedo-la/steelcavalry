@@ -1,14 +1,6 @@
-public enum WeaponType
-{
-	Turret,
-	Launcher,
-	Thrower,
-	Any,
-}
-
 public interface IWeapon
 {
-	WeaponType Type { get; }
+	EquipType Type { get; }
 
 	void Active( bool isActive );
 	void SetDir( bool isRight );

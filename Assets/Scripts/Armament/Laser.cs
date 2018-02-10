@@ -7,14 +7,14 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
-	[SerializeField] private WeaponType type = WeaponType.Turret;
+	[SerializeField] private EquipType type = EquipType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
 	[SerializeField] private float laserScaleCorrection = 1f;
 	[SerializeField] private float laserMoveCorrection = 1f;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
-	public WeaponType Type
+	public EquipType Type
 	{
 		get { return type; }
 	}

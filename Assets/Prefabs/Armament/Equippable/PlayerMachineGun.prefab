@@ -112,6 +112,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 4506451220065992}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   parameters: {fileID: 11400000, guid: ca382751eb5cd5148b9c2b398f348f9e, type: 2}
-  type: 0
+  type: 3
   minAngle: -10
   maxAngle: 10
