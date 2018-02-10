@@ -645,7 +645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyParts: []
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  hp: {fileID: 0}
   ui: {fileID: 114810022348156290}
   mechName: ShortMech
   expForceMin: 300
@@ -656,7 +655,6 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   inUse: 0
-  weaponManager: {fileID: 0}
   pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 4794320185615438}

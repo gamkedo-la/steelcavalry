@@ -374,11 +374,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4106557507254586}
   - component: {fileID: 33240331960695346}
-  - component: {fileID: 23321978386231482}
   - component: {fileID: 50436420411302476}
   - component: {fileID: 61160922627671168}
   - component: {fileID: 114276996509338874}
-  - component: {fileID: 114814953190708766}
+  - component: {fileID: 114749031747715878}
   - component: {fileID: 114859656700689406}
   m_Layer: 11
   m_Name: CassowaryIII
@@ -797,40 +796,6 @@ MeshRenderer:
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!23 &23321978386231482
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1771659641486946}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6fd21ffd39c0d43f7904499ab14bd813, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -1451,7 +1416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyParts: []
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  hp: {fileID: 0}
   ui: {fileID: 114204297203652044}
   mechName: CassowaryIII
   expForceMin: 300
@@ -1462,7 +1426,6 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   inUse: 0
-  weaponManager: {fileID: 0}
   pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 4372445457550226}
@@ -1590,17 +1553,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114814953190708766
+--- !u!114 &114749031747715878
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771659641486946}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53dbe38d9f7d4d9c878ca4e512a1d5c, type: 3}
+  m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretMountPoint: {fileID: 4372445457550226}
+  launcherMountPoint: {fileID: 4372445457550226}
+  throwerMountPoint: {fileID: 4372445457550226}
+  cursor: {fileID: 0}
+  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &114859656700689406
 MonoBehaviour:
   m_ObjectHideFlags: 1
