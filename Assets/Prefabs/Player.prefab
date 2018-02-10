@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 61574500808051420}
   - component: {fileID: 114862581015595836}
   - component: {fileID: 212412325307289190}
-  - component: {fileID: 114530083566241388}
   - component: {fileID: 114958679589157676}
   - component: {fileID: 114184448616804772}
   m_Layer: 8
@@ -115,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161870192225308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2121, y: 1.084, z: 0}
+  m_LocalPosition: {x: -1.35, y: 1.084, z: 0}
   m_LocalScale: {x: 1.4443611, y: 1.528887, z: 1}
   m_Children:
   - {fileID: 4367499713811524}
@@ -198,17 +197,6 @@ MonoBehaviour:
   throwerMountPoint: {fileID: 4367499713811524}
   cursor: {fileID: 0}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
---- !u!114 &114530083566241388
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1161870192225308}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53dbe38d9f7d4d9c878ca4e512a1d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114862581015595836
 MonoBehaviour:
   m_ObjectHideFlags: 1

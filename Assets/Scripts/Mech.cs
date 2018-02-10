@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[RequireComponent(typeof(WeaponManager), typeof(HP))]
 public class Mech : MonoBehaviour
 {
 	[SerializeField] private GameObject[] bodyParts = null;
 	[SerializeField] private GameObject explosion = null;
-	[SerializeField] private HP hp = null;
 	[SerializeField] private MechUI ui = null;
 	[SerializeField] private string mechName = "The Bot";
 	[SerializeField] private float expForceMin = 300f;
 	[SerializeField] private float expForceMax = 500f;
+
+    private HP hp = null;
+
 	public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
  	public float jumpPower = 10.0f;
@@ -19,7 +22,7 @@ public class Mech : MonoBehaviour
 	private bool isOnGround;
 	public bool inUse = false;
 
-	public WeaponManager weaponManager;
+	private WeaponManager weaponManager;
 	public PodLauncher pod;
 
 	public GameObject driver; // either the player or an enemy ai player
@@ -48,6 +51,8 @@ public class Mech : MonoBehaviour
 		Assert.IsNotNull( explosion );
 		ui.SetName( mechName );
 
+        hp = GetComponent<HP>();
+        weaponManager = GetComponent<WeaponManager>();
 		mechRB = GetComponent<Rigidbody2D>();
 	}
 

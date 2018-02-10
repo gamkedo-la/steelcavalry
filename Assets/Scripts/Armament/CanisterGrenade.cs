@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class CanisterGranade : MonoBehaviour
+public class CanisterGrenade : MonoBehaviour
 {
 	[SerializeField] private GameObject explosion = null;
 
