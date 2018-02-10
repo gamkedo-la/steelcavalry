@@ -6,11 +6,11 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
-	[SerializeField] private EquipType type = EquipType.Turret;
+	[SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
-	public EquipType Type
+	public WeaponType Type
 	{
 		get { return type; }
 	}

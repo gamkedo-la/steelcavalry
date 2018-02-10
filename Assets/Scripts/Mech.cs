@@ -8,7 +8,6 @@ public class Mech : MonoBehaviour
 	[SerializeField] private HP hp = null;
 	[SerializeField] private MechUI ui = null;
 	[SerializeField] private string mechName = "The Bot";
-    [SerializeField] private MechType mechType = MechType.Any;
 	[SerializeField] private float expForceMin = 300f;
 	[SerializeField] private float expForceMax = 500f;
 	public float mechMoveSpeed = 2.0f;

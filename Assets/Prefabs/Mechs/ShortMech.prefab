@@ -648,7 +648,6 @@ MonoBehaviour:
   hp: {fileID: 0}
   ui: {fileID: 114810022348156290}
   mechName: ShortMech
-  mechType: 4
   expForceMin: 300
   expForceMax: 500
   mechMoveSpeed: 2

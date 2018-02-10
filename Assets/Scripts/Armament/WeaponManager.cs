@@ -114,7 +114,7 @@ public class WeaponManager : MonoBehaviour
 
 		switch ( weapon.Type )
 		{
-			case EquipType.Turret:
+			case WeaponType.Turret:
 			{
 				if ( turret != null )
 				{
@@ -138,7 +138,7 @@ public class WeaponManager : MonoBehaviour
 			}
 			break;
 
-			case EquipType.Launcher:
+			case WeaponType.Launcher:
 			{
 				if ( launcher != null )
 				{
@@ -163,7 +163,7 @@ public class WeaponManager : MonoBehaviour
 			}
 			break;
 
-			case EquipType.Thrower:
+			case WeaponType.Thrower:
 			{
 				if ( thrower != null )
 				{

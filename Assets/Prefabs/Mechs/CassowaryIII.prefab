@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 61160922627671168}
   - component: {fileID: 114276996509338874}
   - component: {fileID: 114814953190708766}
-  - component: {fileID: 114617011747783022}
   - component: {fileID: 114859656700689406}
   m_Layer: 11
   m_Name: CassowaryIII
@@ -1452,10 +1451,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyParts: []
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  hp: {fileID: 114859656700689406}
+  hp: {fileID: 0}
   ui: {fileID: 114204297203652044}
   mechName: CassowaryIII
-  mechType: 2
   expForceMin: 300
   expForceMax: 500
   mechMoveSpeed: 2
@@ -1464,7 +1462,7 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   inUse: 0
-  weaponManager: {fileID: 114617011747783022}
+  weaponManager: {fileID: 0}
   pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 4372445457550226}
@@ -1565,22 +1563,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &114617011747783022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1771659641486946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretMountPoint: {fileID: 4372445457550226}
-  launcherMountPoint: {fileID: 4372445457550226}
-  throwerMountPoint: {fileID: 4372445457550226}
-  cursor: {fileID: 0}
-  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &114702184668393200
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -512,7 +512,6 @@ GameObject:
   - component: {fileID: 61619340895615006}
   - component: {fileID: 114450318377407044}
   - component: {fileID: 114205213293792590}
-  - component: {fileID: 114449954001077224}
   - component: {fileID: 114534354882542394}
   m_Layer: 11
   m_Name: Ostrich
@@ -1956,22 +1955,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114449954001077224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873332035167752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretMountPoint: {fileID: 4062262376271378}
-  launcherMountPoint: {fileID: 4062262376271378}
-  throwerMountPoint: {fileID: 4062262376271378}
-  cursor: {fileID: 0}
-  weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &114450318377407044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2006,10 +1989,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
-  hp: {fileID: 114534354882542394}
+  hp: {fileID: 0}
   ui: {fileID: 114570427814008144}
   mechName: Ostrich The Bot
-  mechType: 3
   expForceMin: 300
   expForceMax: 500
   mechMoveSpeed: 2
@@ -2018,10 +2000,10 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   inUse: 0
-  weaponManager: {fileID: 114449954001077224}
+  weaponManager: {fileID: 0}
   pod: {fileID: 0}
   driver: {fileID: 0}
-  model: {fileID: 4062262376271378}
+  model: {fileID: 0}
   isFacingRight: 0
   goldenLedgeCheck: {fileID: 0}
   isGoldenGoose: 0
