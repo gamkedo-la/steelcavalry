@@ -1449,7 +1449,7 @@ MonoBehaviour:
   mechName: CassowaryIII
   expForceMin: 300
   expForceMax: 500
-  mechMoveSpeed: 2
+  mechMoveSpeed: 40
   mechRotateSpeed: 5
   jumpPower: 4000
   damageTaken: 0
@@ -1464,6 +1464,8 @@ MonoBehaviour:
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
   podLaunched: 0
+  mechCanShield: 0
+  shieldCooldown: 0
 --- !u!114 &114298458486537010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1816,7 +1818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.41, y: -0.99}
+  m_AnchoredPosition: {x: 0.7354834, y: -0.86}
   m_SizeDelta: {x: 0.673, y: 2.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224013693742534858
@@ -1834,7 +1836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.41, y: -0.99}
+  m_AnchoredPosition: {x: 0.73548317, y: -0.8600001}
   m_SizeDelta: {x: 0.673, y: 2.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224025726269212074
@@ -1852,7 +1854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.41, y: -0.99}
+  m_AnchoredPosition: {x: -1.19, y: -0.88}
   m_SizeDelta: {x: 0.673, y: 2.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224115398839913408
@@ -1870,7 +1872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchoredPosition: {x: 0, y: -0.00000017881393}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224154661114382820
@@ -1970,7 +1972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.41, y: -0.9899999}
+  m_AnchoredPosition: {x: -1.19, y: -0.88000005}
   m_SizeDelta: {x: 0.673, y: 2.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224876077623832714
