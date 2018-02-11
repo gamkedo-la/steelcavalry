@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+	[SerializeField] private PlayerHealthUI playerHealthUI = null;
+
 	public float humanSpeed = 0.8f;
 	public float mechNearEnoughToUseDistance = 1.0f;
 	// public float exitMechDistancePopUp = 1.1f;
@@ -88,8 +90,9 @@ public class PlayerMovement : MonoBehaviour {
 
         EnableWeapons(false);
 
-        _state = PlayerState.inMech; //changes player state
+        playerHealthUI.SetHealthVisibility(false);
 
+        _state = PlayerState.inMech; //changes player state
 	}
 
 	void ExitMech()
@@ -108,6 +111,8 @@ public class PlayerMovement : MonoBehaviour {
 		camScript.MechZoom(); //default cam size
 
         EnableWeapons(true);
+
+        playerHealthUI.SetHealthVisibility(true);
 
         _state = PlayerState.outOfMech;
 	}
