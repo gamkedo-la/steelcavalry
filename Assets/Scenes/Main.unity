@@ -4416,6 +4416,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114862581015595836, guid: ed0c26709e6c6c3428a7153191e31612,
+        type: 2}
+      propertyPath: playerHealthUI
+      value: 
+      objectReference: {fileID: 2016587531}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
   m_IsPrefabParent: 0
