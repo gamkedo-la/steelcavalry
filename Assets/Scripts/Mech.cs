@@ -10,8 +10,12 @@ public class Mech : MonoBehaviour
 	[SerializeField] private string mechName = "The Bot";
 	[SerializeField] private float expForceMin = 300f;
 	[SerializeField] private float expForceMax = 500f;
+	[SerializeField] private float thrusterFuelMax = 100f;
+	[SerializeField] private float thrusterFuelRegen = 20f;
+	[SerializeField] private float thrusterCost = 20f;
+	[SerializeField] private float thrusterPower = 20f;
 
-    private HP hp = null;
+	private HP hp = null;
 
 	public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
@@ -19,7 +23,11 @@ public class Mech : MonoBehaviour
  	public float damageTaken = 0.0f;
  	public float maxDamage = 100.0f;
 
+	private float thrusterFuelCurrent = 100f;
+	private float firstThrustCost = 0.15f;
 	private bool isOnGround;
+	private bool isFlying = false;
+	private bool canFly = true;
 	public bool inUse = false;
 
 	private WeaponManager weaponManager;
@@ -61,6 +69,8 @@ public class Mech : MonoBehaviour
         hp = GetComponent<HP>();
         weaponManager = GetComponent<WeaponManager>();
 		mechRB = GetComponent<Rigidbody2D>();
+
+		thrusterFuelCurrent = thrusterFuelMax;
 	}
 
 	public void Side (bool isRight)
@@ -115,7 +125,7 @@ public class Mech : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	public void Update ()
+	public void LateUpdate ()
     {
 
         // BRANCH controls for Regular/Golden Goose Mech
@@ -130,12 +140,37 @@ public class Mech : MonoBehaviour
             if (driverMovement.inputLeft)
                 mechRB.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRB.velocity.y);
 
-            if (driverMovement.inputUp && isOnGround)
+            if (driverMovement.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost )
             {
-                mechRB.AddForce(Vector2.up * Input.GetAxisRaw("Vertical") * jumpPower);
-                isOnGround = false;
+                mechRB.AddForce(Vector2.up * jumpPower);
+				thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
+
+				isOnGround = false;
+				isFlying = true;
+				canFly = true;
             }
-        }
+
+			if ( driverMovement.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime )
+			{
+				mechRB.AddForce( Vector2.up * thrusterPower * Time.deltaTime );
+				thrusterFuelCurrent -= thrusterCost * Time.deltaTime;
+				ui.SetFuel( thrusterFuelCurrent / thrusterFuelMax );
+			}
+			else
+			{
+				thrusterFuelCurrent += Time.deltaTime * thrusterFuelRegen;
+				thrusterFuelCurrent = thrusterFuelCurrent > thrusterFuelMax ? thrusterFuelMax : thrusterFuelCurrent;
+				ui.SetFuel( thrusterFuelCurrent / thrusterFuelMax );
+
+				canFly = false;
+			}
+
+			if ( !driverMovement.inputUp )
+			{
+				isFlying = false;
+			}
+
+		}
         else
         {
             if (!inUse) return; //could be made into a function to do something else when idle

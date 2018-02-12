@@ -45,6 +45,11 @@ public class MechUI : MonoBehaviour
 		playerHpBar.fillAmount = value;
 	}
 
+	public void SetFuel( float value )
+	{
+		playerThrustersBar.fillAmount = value;
+	}
+
 	public void SetName( string value )
 	{
 		nameText.text = value;
