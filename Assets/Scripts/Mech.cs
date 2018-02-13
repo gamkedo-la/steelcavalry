@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponManager), typeof(HP))]
 public class Mech : MonoBehaviour
@@ -59,8 +60,10 @@ public class Mech : MonoBehaviour
     public GameObject shieldGO;
     private GameObject shieldInstance;
 
+	public UnityEvent ThrustersOn;
+	public UnityEvent ThrustersOff;
 
-    void Start () {
+	void Start () {
 
 		Assert.IsNotNull( ui );
 		Assert.IsNotNull( explosion );
@@ -148,6 +151,8 @@ public class Mech : MonoBehaviour
 				isOnGround = false;
 				isFlying = true;
 				canFly = true;
+
+				ThrustersOn.Invoke( );
             }
 
 			if ( driverMovement.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime )
@@ -161,6 +166,9 @@ public class Mech : MonoBehaviour
 				thrusterFuelCurrent += Time.deltaTime * thrusterFuelRegen;
 				thrusterFuelCurrent = thrusterFuelCurrent > thrusterFuelMax ? thrusterFuelMax : thrusterFuelCurrent;
 				ui.SetFuel( thrusterFuelCurrent / thrusterFuelMax );
+
+				if (canFly)
+					ThrustersOff.Invoke( );
 
 				canFly = false;
 			}
