@@ -20,10 +20,9 @@ public class BackAndForth : MonoBehaviour {
 	private bool facingRight = true;
 	private bool facingUp = true;
 
-	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 
-			if (range == 0) Debug.Log("Your HorizMove script isn't doing anything! :O");
+			if (range == 0) Debug.Log("Your BackAndForth script isn't doing anything! :O");
 
 			xStart = transform.position.x;
 			yStart = transform.position.y;
@@ -38,7 +37,6 @@ public class BackAndForth : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
 	void FixedUpdate () {
 
 		CheckAndFlip();
