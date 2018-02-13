@@ -289,20 +289,22 @@ public class PlayerMovement : MonoBehaviour {
 			if (inputLeft) horizImpulse = -1f;
 			else if (inputRight) horizImpulse = 1f;
 
-			transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
+			//transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
+            rb.velocity = new Vector2(horizImpulse * Time.deltaTime * humanSpeed, rb.velocity.y);
 
-				spriteRenderer.flipX = !isFacingRight;
+			spriteRenderer.flipX = !isFacingRight;
 
-				if (inputUp) {
-					jetpack.JetpackToggle(true);
-					transform.position += Vector3.up * Time.deltaTime * jetPackPower;
-					rb.gravityScale = 0.0f;
-					rb.velocity = Vector2.zero;
-				} else {
-					jetpack.JetpackToggle(false);
-					rb.gravityScale = 1.0f;
-				}
-				break;
+			if (inputUp) {
+				jetpack.JetpackToggle(true);
+				//transform.position += Vector3.up * Time.deltaTime * jetPackPower;
+                rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
+                rb.gravityScale = 1.0f;
+				//rb.velocity = Vector2.zero;
+			} else {
+				jetpack.JetpackToggle(false);
+				rb.gravityScale = 1.0f;
+			}
+			break;
 
 			default: return;
 
