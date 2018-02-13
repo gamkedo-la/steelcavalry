@@ -231,7 +231,6 @@ public class Mech : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && canShield && mechCanShield) //Temporal test imput
         {
-            Debug.Log("SHIEEEEEEELD");
             shieldInstance = Instantiate(shieldGO, transform.position, Quaternion.identity);
             shieldInstance.transform.parent = transform;
             canShield = false;
@@ -247,6 +246,6 @@ public class Mech : MonoBehaviour
 
     private void DisableShieldObject()
     {
-        shieldInstance.GetComponent<Animator>().SetTrigger("CloseShield");
+        shieldInstance.GetComponentInChildren<Animator>().SetTrigger("CloseShield");
     }
 }
