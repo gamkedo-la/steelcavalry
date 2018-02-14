@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4893571227726898}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4747215850348844}
   - component: {fileID: 212941346921299384}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4269298060517962}
   - component: {fileID: 212893352943520024}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808352674512840}
   - component: {fileID: 212434357269203076}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4857601935575322}
   - component: {fileID: 212340017408000658}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4902463708226326}
   - component: {fileID: 114190179292884360}
   - component: {fileID: 114383878637072392}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Mouse Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

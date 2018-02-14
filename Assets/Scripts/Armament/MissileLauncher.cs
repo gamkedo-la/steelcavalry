@@ -22,6 +22,8 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+        cursor = UIResourceManager.MouseCursor;
+
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );

@@ -566,11 +566,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661011412097470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd56c9a221794b5b9978a9751bfafa0, type: 3}
+  m_Script: {fileID: 11500000, guid: c6401571748e44e90933743bc3ffc86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 0}
-  thisCam: {fileID: 0}
+  didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
+  pfx: {fileID: 0}
+  damagePerShot: 10
 --- !u!114 &114474139845212828
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class MouseCursor : MonoBehaviour
-{
+{    
 	[Header( "Objects" )]
 	[SerializeField] private SpriteRenderer[] sprites = null;
 

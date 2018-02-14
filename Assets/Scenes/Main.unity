@@ -190,7 +190,7 @@ Transform:
 Light:
   m_PrefabParentObject: {fileID: 108239178271293982, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
     type: 2}
-  m_PrefabInternal: {fileID: 389836531}
+  m_PrefabInternal: {fileID: 1843966279}
 --- !u!1 &225883464
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,58 +540,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1594e5a3085cc8d489e7d047309003e6, type: 3}
-  m_IsPrefabParent: 0
---- !u!1001 &389836531
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.4048122
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.017149761
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.7089844
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114963105427037444, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
-        type: 2}
-      propertyPath: myPlayer
-      value: 
-      objectReference: {fileID: 219767439}
-    - target: {fileID: 114961754392386506, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
-        type: 2}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 219767439}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &396727903
 GameObject:
@@ -4291,7 +4239,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
   m_IsPrefabParent: 0
@@ -4828,7 +4776,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39b3191b72d53284ab1223c84dec3f29, type: 2}
   m_IsPrefabParent: 0
@@ -8682,7 +8630,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58ef9687b5b355f4698478a091c39b67, type: 2}
   m_IsPrefabParent: 0
@@ -12328,10 +12276,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1949846457369640, guid: 83ef0f9fdbbc41740af46a4517db3bc7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114425333069045756, guid: 83ef0f9fdbbc41740af46a4517db3bc7,
+        type: 2}
+      propertyPath: mouseCursor
+      value: 
+      objectReference: {fileID: 1297227010}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ef0f9fdbbc41740af46a4517db3bc7, type: 2}
   m_IsPrefabParent: 0
@@ -15830,9 +15779,9 @@ GameObject:
   - component: {fileID: 1247760517}
   - component: {fileID: 1247760523}
   - component: {fileID: 1247760522}
-  - component: {fileID: 1247760521}
-  - component: {fileID: 1247760520}
   - component: {fileID: 1247760518}
+  - component: {fileID: 1247760520}
+  - component: {fileID: 1247760521}
   - component: {fileID: 1247760525}
   - component: {fileID: 1247760524}
   m_Layer: 11
@@ -15866,11 +15815,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247760516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
+  m_Script: {fileID: 11500000, guid: a206d6d3cdae23044a729b760199c6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  psScriptSmoke: {fileID: 1181111089}
-  psScriptThrust: {fileID: 941278648}
+  playerHealthUI: {fileID: 0}
+  humanSpeed: 0.8
+  mechNearEnoughToUseDistance: 1
+  jetPackPower: 1
+  weaponFiringPoint: {fileID: 0}
+  weaponManager: {fileID: 0}
+  weaponEquipped: {fileID: 0}
+  useKeyboardInput: 1
+  useGamepadInput: 0
+  playerNumber: 1
+  inputUp: 0
+  inputDown: 0
+  inputLeft: 0
+  inputRight: 0
+  inputFire: 0
+  inputAltFire: 0
+  inputAltFire2: 0
+  inputEnter: 0
+  _state: 0
 --- !u!212 &1247760520
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15923,37 +15889,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247760516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
+  m_Script: {fileID: 11500000, guid: f7c4043777e66e449b0bf01aea9e48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthUI: {fileID: 0}
-  humanSpeed: 1
-  mechNearEnoughToUseDistance: 1
-  jetPackPower: 1
-  mechImIn: {fileID: 0}
-  rb: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  mainCam: {fileID: 0}
-  camScript: {fileID: 0}
-  mechOnlyMask: 0
-  isFacingRight: 1
-  jetpack: {fileID: 0}
-  weaponFiringPoint: {fileID: 1187520963}
-  weaponManager: {fileID: 1247760525}
-  weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
-    type: 2}
-  useKeyboardInput: 0
-  useGamepadInput: 0
-  playerNumber: 1
-  inputUp: 0
-  inputDown: 0
-  inputLeft: 0
-  inputRight: 0
-  inputFire: 0
-  inputAltFire: 0
-  inputAltFire2: 0
-  inputEnter: 0
-  _state: 1
+  psScriptSmoke: {fileID: 0}
+  psScriptThrust: {fileID: 0}
 --- !u!61 &1247760522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16034,7 +15974,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1187520963}
   launcherMountPoint: {fileID: 1187520963}
   throwerMountPoint: {fileID: 1187520963}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!1001 &1256915977
 Prefab:
@@ -16726,7 +16665,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1573468500}
   launcherMountPoint: {fileID: 1573468500}
   throwerMountPoint: {fileID: 1573468500}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &1460532782
 MonoBehaviour:
@@ -20498,7 +20436,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     - target: {fileID: 114634545497274714, guid: c925b42d325b0d543b4a84409460af96,
         type: 2}
       propertyPath: m_Enabled
@@ -20580,7 +20518,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     - target: {fileID: 224921205442444182, guid: e6ace03521d98b249bcedeea4dd29a8b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -24439,6 +24377,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1820809217}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1843966279
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.4048122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.017149761
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.7089844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424418604570384, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963105427037444, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
+        type: 2}
+      propertyPath: myPlayer
+      value: 
+      objectReference: {fileID: 219767439}
+    - target: {fileID: 114961754392386506, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
+        type: 2}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 219767439}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1868759644
 Prefab:
   m_ObjectHideFlags: 0
@@ -28196,7 +28186,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1613563214}
   launcherMountPoint: {fileID: 1613563214}
   throwerMountPoint: {fileID: 1613563214}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &1993925010
 MonoBehaviour:
@@ -28387,7 +28376,7 @@ Prefab:
         type: 2}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1297227010}
+      objectReference: {fileID: 0}
     - target: {fileID: 1771659641486946, guid: 4437ed7207d77c948bd50557051cbee2, type: 2}
       propertyPath: m_Name
       value: Cassowary III

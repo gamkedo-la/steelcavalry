@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 223317156358340494}
   - component: {fileID: 114697706880506920}
   - component: {fileID: 114150483761230790}
+  - component: {fileID: 114425333069045756}
   m_Layer: 5
   m_Name: Main UI
   m_TagString: Untagged
@@ -633,6 +634,18 @@ MonoBehaviour:
   group: {fileID: 225380538457914838}
   background: {fileID: 114629803877283290}
   disableState: 1
+--- !u!114 &114425333069045756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809896828369090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c84113f594f8343b4a8c69a69bb1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursor: {fileID: 0}
 --- !u!114 &114549243815559816
 MonoBehaviour:
   m_ObjectHideFlags: 1
