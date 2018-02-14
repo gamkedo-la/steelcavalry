@@ -1609,7 +1609,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 10
-  m_LinearDrag: 0
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -1771,8 +1771,8 @@ MonoBehaviour:
   thrusterFuelRegen: 50
   thrusterCost: 50
   thrusterPower: 8000
-  mechMoveSpeed: 40
-  mechRotateSpeed: 5
+  mechMoveSpeed: 200
+  mechRotateSpeed: 10
   jumpPower: 1000
   damageTaken: 0
   maxDamage: 100
@@ -2018,7 +2018,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 4599858425805098}
   launcherMountPoint: {fileID: 4054639506104146}
   throwerMountPoint: {fileID: 4772358723191724}
-  cursor: {fileID: 0}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &114419862748446210
 MonoBehaviour:
@@ -2122,7 +2121,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653553017370304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a01150cc647a7041a42475ee522e648, type: 3}
   m_Name: 
