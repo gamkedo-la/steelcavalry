@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Jetpack), typeof(WeaponManager), typeof(HP))]
 public class Player : MonoBehaviour {
 	[SerializeField] private PlayerHealthUI playerHealthUI = null;
 
