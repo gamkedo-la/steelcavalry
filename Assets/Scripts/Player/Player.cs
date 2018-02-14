@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
 	[SerializeField] private PlayerHealthUI playerHealthUI = null;
 
 	public float humanSpeed = 0.8f;

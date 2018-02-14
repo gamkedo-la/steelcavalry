@@ -35,7 +35,7 @@ public class Mech : MonoBehaviour
 	public PodLauncher pod;
 
 	public GameObject driver; // either the player or an enemy ai player
-	private PlayerMovement driverMovement;
+	private Player driverMovement;
 
 	private Rigidbody2D mechRB;
 	public Transform model;
@@ -92,7 +92,7 @@ public class Mech : MonoBehaviour
 	public void wasEntered(GameObject newDriver)
 	{
 		driver = newDriver;
-		driverMovement = driver.GetComponent<PlayerMovement>();
+		driverMovement = driver.GetComponent<Player>();
 
 		inUse = true;
 		hp.UseMultiplier( !inUse );

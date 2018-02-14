@@ -6,7 +6,7 @@ using UnityEngine;
 // it only interfaces with the game the same way the player does:
 // input booleans! up down left right and the fire buttons
 
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(Player))]
 
 public class AI : MonoBehaviour {
 
@@ -23,11 +23,11 @@ public class AI : MonoBehaviour {
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
-	PlayerMovement myMovement;
+	Player myMovement;
 
 	// Use this for initialization
 	void Start () {
-		myMovement = GetComponent<PlayerMovement>();
+		myMovement = GetComponent<Player>();
 		StartCoroutine("aiThink");
 	}
 	
@@ -37,10 +37,10 @@ public class AI : MonoBehaviour {
 		if (!myMovement)
 			return;
 		
-		if (myMovement._state == PlayerMovement.PlayerState.outOfMech)
+		if (myMovement._state == Player.PlayerState.outOfMech)
 			seekTarget = seekTargetOutside;
 
-		if (myMovement._state == PlayerMovement.PlayerState.inMech)
+		if (myMovement._state == Player.PlayerState.inMech)
 			seekTarget = seekTargetInMech;
 
 		// debug lines
@@ -92,11 +92,11 @@ public class AI : MonoBehaviour {
 				}
 			}
 
-			if (myMovement._state == PlayerMovement.PlayerState.outOfMech) {
+			if (myMovement._state == Player.PlayerState.outOfMech) {
 				myMovement.inputEnter = (Random.value < chanceItEnters); // maybe hop into a mech
 			}
 
-			if (myMovement._state == PlayerMovement.PlayerState.inMech) {
+			if (myMovement._state == Player.PlayerState.inMech) {
 				myMovement.inputEnter = (Random.value < chanceItExits); // rarely exit the mech we're in
 			}
 
