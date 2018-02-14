@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtTarget : MonoBehaviour {
+public class MechLookAtTarget : MonoBehaviour {
 	private float minAngle = -10;
 	private float maxAngle = 10;
 	public Mech mech;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MatchMainCamZoom : MonoBehaviour
+public class UICamera : MonoBehaviour
 {
 	Camera mainCam;
 	Camera thisCam;

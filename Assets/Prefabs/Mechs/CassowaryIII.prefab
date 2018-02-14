@@ -1449,6 +1449,10 @@ MonoBehaviour:
   mechName: CassowaryIII
   expForceMin: 300
   expForceMax: 500
+  thrusterFuelMax: 100
+  thrusterFuelRegen: 20
+  thrusterCost: 20
+  thrusterPower: 20
   mechMoveSpeed: 40
   mechRotateSpeed: 5
   jumpPower: 4000
@@ -1466,6 +1470,18 @@ MonoBehaviour:
   podLaunched: 0
   mechCanShield: 0
   shieldCooldown: 0
+  shieldDuration: 0
+  shieldGO: {fileID: 0}
+  ThrustersOn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ThrustersOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114298458486537010
 MonoBehaviour:
   m_ObjectHideFlags: 1
