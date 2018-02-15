@@ -10,6 +10,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
+[Header("Emotional State")]
+	[Tooltip("Fluctuating values based on game events")]
 	[Range(0.0f, 1.0f)]
 	public float confidence = 0.0f;
 	[Range(0.0f, 1.0f)]
@@ -19,6 +21,7 @@ public class AI : MonoBehaviour {
 	[Range(0.0f, 1.0f)]
 	public float fear = 0.0f;
 
+[Header("Personality Modifiers")]
 	[Range(0.0f, 1.0f)]
 	public float chanceItMoves = 0.75f;
 	[Range(0.0f, 1.0f)]
@@ -27,12 +30,38 @@ public class AI : MonoBehaviour {
 	public float chanceItEnters = 0.2f;
 	[Range(0.0f, 1.0f)]
 	public float chanceItExits = 0.01f;
+	[Range(0.0f, 1.0f)]
+	public float emotionalInstability = 0.002f;
+	[Range(0.0f, 1.0f)]
+	public float boredomInstabilityBoost = 0.25f;
 
+[Header("Recouperation Over Time")]
+	[Range(-1.0f, 1.0f)]
+	public float confidencePerSec = 0.1f;
+	[Range(-1.0f, 1.0f)]
+	public float boredomPerSec = 0.25f;
+	[Range(-1.0f, 1.0f)]
+	public float angerPerSec = -0.1f;
+	[Range(-1.0f, 1.0f)]
+	public float fearPerSec = -0.1f;
+
+[Header("Emotional Reactions")]
+	[Range(-1.0f, 1.0f)]
+	public float confidenceWhenHit = -0.5f;
+	[Range(-1.0f, 1.0f)]
+	public float boredomWhenHit = -1.0f;
+	[Range(-1.0f, 1.0f)]
+	public float angerWhenHit = 0.1f;
+	[Range(-1.0f, 1.0f)]
+	public float fearWhenHit = 0.3f;
+
+[Header("Times and Distances")]
 	public float minTimePerThink = 0.5f; // in seconds
 	public float maxTimePerThink = 1.5f;
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
+[Header("Target GameObjects")]
 	public GameObject seekTargetOutside;
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
@@ -44,7 +73,16 @@ public class AI : MonoBehaviour {
 		myMovement = GetComponent<Player>();
 		StartCoroutine("aiThink");
 	}
-	
+
+	float wobble(float timestamp, float offset)
+	{
+		float amount = (Mathf.PerlinNoise(timestamp+offset,timestamp+offset)*2f-0.5f) // take a timed random wobble from -1 to +1
+			* emotionalInstability // how much we should change per second
+			* (1f + (boredom * boredomInstabilityBoost)); // and affect emotions a bit (or a lot of we're bored)
+		//Debug.Log("wobble="+amount);
+		return amount;
+	}
+
 	// Update is called once per frame
 	void Update () {
 
@@ -60,6 +98,24 @@ public class AI : MonoBehaviour {
 		// debug lines
 		if (seekTarget) // might be null
 			Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
+
+		// recouperation over time
+		confidence += confidencePerSec * Time.deltaTime;
+		boredom += boredomPerSec * Time.deltaTime;
+		anger += angerPerSec * Time.deltaTime;
+		fear += fearPerSec * Time.deltaTime;
+
+		// emotional instability
+		confidence += wobble(Time.time,0f);
+		boredom += wobble(Time.time,0.2f);
+		anger += wobble(Time.time,0.333f);
+		fear += wobble(Time.time,42f);
+
+		// keep in a range
+		confidence = Mathf.Clamp(confidence,0f,1f);
+		boredom = Mathf.Clamp(boredom,0f,1f);
+		anger = Mathf.Clamp(anger,0f,1f);
+		fear = Mathf.Clamp(fear,0f,1f);
 
 	}
 
