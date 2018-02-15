@@ -25,7 +25,7 @@ public class CanisterGrenade : MonoBehaviour
 	private void DoDestruction( Vector2 point )
 	{
 		var exp = Instantiate( explosion, point, Quaternion.identity );
-		exp.GetComponent<ExplosionEnlarger>( ).SetDamage( explosionDamage );
+		// exp.GetComponent<ExplosionEnlarger>( ).SetDamage( explosionDamage );
 
 		Destroy( exp, 2f );
 		Destroy( gameObject );
