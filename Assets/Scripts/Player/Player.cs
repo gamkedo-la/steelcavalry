@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire2 = delegate {} ; //firing is now an event that can heard by other scripts
-    
+
 	private Jetpack jetpack;
 
     public Transform weaponFiringPoint;
@@ -48,6 +48,8 @@ public class Player : MonoBehaviour {
 	public bool inputAltFire = false;
 	public bool inputAltFire2 = false;
 	public bool inputEnter = false;
+
+	private float oldGravityScale;
 
 	public enum PlayerState{
 		inMech,
@@ -85,6 +87,7 @@ public class Player : MonoBehaviour {
 		//Disables human character
 		GetComponent<BoxCollider2D>().enabled = false;
 		spriteRenderer.enabled = false;
+		oldGravityScale = rb.gravityScale;
 		rb.gravityScale = 0;
 		jetpack.JetpackToggle(false);
 
@@ -108,7 +111,7 @@ public class Player : MonoBehaviour {
 		//Enable human character
 		GetComponent<BoxCollider2D>().enabled = true;
 		spriteRenderer.enabled = true;
-		rb.gravityScale = 1.0f;
+		rb.gravityScale = oldGravityScale;
 
 		camScript.MechZoom(); //default cam size
 
@@ -292,7 +295,8 @@ public class Player : MonoBehaviour {
 			else if (inputRight) horizImpulse = 1f;
 
 			//transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
-            rb.velocity = new Vector2(horizImpulse * Time.deltaTime * humanSpeed, rb.velocity.y);
+			if ( horizImpulse != 0 )
+				rb.velocity = new Vector2(horizImpulse * Time.deltaTime * humanSpeed, rb.velocity.y);
 
 			spriteRenderer.flipX = !isFacingRight;
 
@@ -300,11 +304,11 @@ public class Player : MonoBehaviour {
 				jetpack.JetpackToggle(true);
 				//transform.position += Vector3.up * Time.deltaTime * jetPackPower;
                 rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
-                rb.gravityScale = 1.0f;
+                //rb.gravityScale = 1.0f;
 				//rb.velocity = Vector2.zero;
 			} else {
 				jetpack.JetpackToggle(false);
-				rb.gravityScale = 1.0f;
+				//rb.gravityScale = 1.0f;
 			}
 			break;
 

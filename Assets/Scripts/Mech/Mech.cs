@@ -15,6 +15,7 @@ public class Mech : MonoBehaviour
 	[SerializeField] private float thrusterFuelRegen = 20f;
 	[SerializeField] private float thrusterCost = 20f;
 	[SerializeField] private float thrusterPower = 20f;
+	[SerializeField] private float firstThrustCost = 0.25f;
 
 	private HP hp = null;
 
@@ -25,7 +26,6 @@ public class Mech : MonoBehaviour
  	public float maxDamage = 100.0f;
 
 	private float thrusterFuelCurrent = 100f;
-	private float firstThrustCost = 0.15f;
 	private bool isOnGround;
 	private bool isFlying = false;
 	private bool canFly = true;
