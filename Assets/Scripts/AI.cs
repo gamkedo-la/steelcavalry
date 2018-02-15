@@ -10,12 +10,26 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-	public float minTimePerThink = 0.5f;
-	public float maxTimePerThink = 1.5f;
+	[Range(0.0f, 1.0f)]
+	public float confidence = 0.0f;
+	[Range(0.0f, 1.0f)]
+	public float boredom = 0.0f;
+	[Range(0.0f, 1.0f)]
+	public float anger = 0.0f;
+	[Range(0.0f, 1.0f)]
+	public float fear = 0.0f;
+
+	[Range(0.0f, 1.0f)]
 	public float chanceItMoves = 0.75f;
+	[Range(0.0f, 1.0f)]
 	public float chanceItFires = 0.3f;
+	[Range(0.0f, 1.0f)]
 	public float chanceItEnters = 0.2f;
+	[Range(0.0f, 1.0f)]
 	public float chanceItExits = 0.01f;
+
+	public float minTimePerThink = 0.5f; // in seconds
+	public float maxTimePerThink = 1.5f;
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 

@@ -449,12 +449,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 1.5
+  confidence: 0.687
+  boredom: 0
+  anger: 0.124
+  fear: 0.336
   chanceItMoves: 0.75
   chanceItFires: 0.3
   chanceItEnters: 0.2
   chanceItExits: 0.01
+  minTimePerThink: 0.5
+  maxTimePerThink: 1.5
   distanceTolerance: 0.5
   unitsAboveTarget: 1
   seekTargetOutside: {fileID: 219767439}
