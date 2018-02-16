@@ -4016,15 +4016,15 @@ MonoBehaviour:
   anger: 0.124
   fear: 0.336
   chanceItMoves: 0.75
-  chanceItFires: 0.3
+  chanceItFires: 0.7
   chanceItEnters: 0.2
   chanceItExits: 0.01
   emotionalInstability: 0.003
-  boredomInstabilityBoost: 0.5
+  boredomInstabilityBoost: 0.4
   confidencePerSec: 0.01
   boredomPerSec: 0.04
   angerPerSec: -0.1
-  fearPerSec: -0.1
+  fearPerSec: -0.25
   confidenceWhenHit: -0.5
   boredomWhenHit: -1
   angerWhenHit: 0.1
@@ -4047,13 +4047,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa52527de6cecd40a7b918542466e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 10
   onHPChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 697998617}
-        m_MethodName: SetHP
-        m_Mode: 0
+      - m_Target: {fileID: 1127740842}
+        m_MethodName: aiGotHurtEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4061,7 +4061,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
     m_TypeName: HPChanged, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onDeath:
     m_PersistentCalls:
@@ -8481,7 +8481,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4352619853347004, guid: c925b42d325b0d543b4a84409460af96, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.46
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 4352619853347004, guid: c925b42d325b0d543b4a84409460af96, type: 2}
       propertyPath: m_LocalPosition.y

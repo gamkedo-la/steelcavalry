@@ -66,7 +66,7 @@ public class AI : MonoBehaviour {
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
-	Player myMovement;
+	private Player myMovement; // so we can access the input boolean flags
 
 	// Use this for initialization
 	void Start () {
@@ -194,10 +194,25 @@ public class AI : MonoBehaviour {
 						myMovement.inputUp = true;
 					}
 
+					// are we really scared? then run away instead
+					if (fear > 0.5) {
+						Debug.Log("Too scared! Running away from target!");
+						myMovement.inputLeft = !myMovement.inputLeft;
+						myMovement.inputRight = !myMovement.inputRight;
+					}
+
 				}
 			}
 
 			yield return new WaitForSeconds(minTimePerThink + Random.value * (maxTimePerThink - minTimePerThink) );
 		}
+	}
+
+	public void aiGotHurtEvent()
+	{
+		Debug.Log("AI got hurt! Fear and confidence are affected! HP:");
+		fear += fearWhenHit; // terror
+		confidence += confidenceWhenHit; // wavering
+		boredom = 0f; // instant reset: it you get hurt, you get focussed
 	}
 }
