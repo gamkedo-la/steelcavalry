@@ -74,6 +74,31 @@ public class AI : MonoBehaviour {
 		StartCoroutine("aiThink");
 	}
 
+
+
+
+
+	public bool hasLineOfSightTo(GameObject fromThis,GameObject toThis)	{
+
+		bool result = false;
+
+		// FIXME TODO UNIMPLEMENTED
+		// CAST A RAY FROM one transform.position to another and see if we made it all the way
+		// be sure to consider layers / collision maxtrix flags, self collisions, and null gameobjects
+		// good luck!
+
+		return result;
+
+	}
+
+
+
+
+
+
+
+
+
 	float wobble(float timestamp, float offset)
 	{
 		float amount = (Mathf.PerlinNoise(timestamp+offset,timestamp+offset)*2f-0.5f) // take a timed random wobble from -1 to +1
@@ -176,6 +201,9 @@ public class AI : MonoBehaviour {
 			// be sure to choose moving towards it
 			// fixme: could be fear-dependent etc
 			if (seekTarget) {
+
+				bool canSeeTarget = hasLineOfSightTo(transform.gameObject,seekTarget); // TODO: unimplemented
+
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
 					
 					if (seekTarget.transform.position.x < this.transform.position.x-distanceTolerance) { // is the target left of me?
