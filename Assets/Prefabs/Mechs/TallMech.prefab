@@ -1771,13 +1771,13 @@ MonoBehaviour:
   thrusterFuelRegen: 40
   thrusterCost: 40
   thrusterPower: 15000
-  firstThrustCost: 0.25
+  firstThrustCost: 0.28
+  inUse: 0
   mechMoveSpeed: 200
   mechRotateSpeed: 10
   jumpPower: 4000
   damageTaken: 0
   maxDamage: 100
-  inUse: 0
   pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 4018394473664844}

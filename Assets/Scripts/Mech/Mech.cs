@@ -17,31 +17,28 @@ public class Mech : MonoBehaviour
 	[SerializeField] private float thrusterPower = 20f;
 	[SerializeField] private float firstThrustCost = 0.25f;
 
-	private HP hp = null;
 
+	public bool inUse = false;
 	public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
  	public float jumpPower = 10.0f;
  	public float damageTaken = 0.0f;
  	public float maxDamage = 100.0f;
 
+	public PodLauncher pod;
+	public GameObject driver; // either the player or an enemy ai player
+	public Transform model;
+	public bool isFacingRight;
+
 	private float thrusterFuelCurrent = 100f;
 	private bool isOnGround;
 	private bool isFlying = false;
 	private bool canFly = true;
-	public bool inUse = false;
-
+	private HP hp = null;
 	private WeaponManager weaponManager;
-	public PodLauncher pod;
-
-	public GameObject driver; // either the player or an enemy ai player
 	private Player driverMovement;
-
 	private Rigidbody2D mechRB;
-	public Transform model;
-
 	private bool destroying = false;
-	public bool isFacingRight;
 
     [Header("Golden Goose Mech")]
     // limit the mech to a platform

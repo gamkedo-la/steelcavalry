@@ -16126,12 +16126,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.1
-  maxTimePerThink: 0.5
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 1
   chanceItFires: 1
   chanceItEnters: 0
   chanceItExits: 0.01
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.1
+  maxTimePerThink: 0.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
   seekTargetOutside: {fileID: 0}
@@ -16817,12 +16831,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.2
-  maxTimePerThink: 0.75
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 1
   chanceItFires: 0.25
   chanceItEnters: 0.5
   chanceItExits: 0.005
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.2
+  maxTimePerThink: 0.75
   distanceTolerance: 0.5
   unitsAboveTarget: 1.5
   seekTargetOutside: {fileID: 736740196}
@@ -28430,12 +28458,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 2.5
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 0.5
   chanceItFires: 0.3
   chanceItEnters: 0
   chanceItExits: 0.01
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.5
+  maxTimePerThink: 2.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
   seekTargetOutside: {fileID: 0}
