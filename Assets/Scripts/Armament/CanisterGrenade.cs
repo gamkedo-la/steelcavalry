@@ -3,13 +3,13 @@ using UnityEngine.Assertions;
 
 public class CanisterGrenade : MonoBehaviour
 {
-	[SerializeField] private GameObject explosion = null;
+	[SerializeField] private GameObject explosionPrefab = null;
 
 	private float explosionDamage = 10f;
 
 	void Start( )
 	{
-		Assert.IsNotNull( explosion );
+		Assert.IsNotNull( explosionPrefab );
 	}
 
 	private void OnCollisionEnter2D( Collision2D collision )
@@ -24,11 +24,13 @@ public class CanisterGrenade : MonoBehaviour
 
 	private void DoDestruction( Vector2 point )
 	{
-		var exp = Instantiate( explosion, point, Quaternion.identity );
-		// exp.GetComponent<ExplosionEnlarger>( ).SetDamage( explosionDamage );
+		var explosion = Instantiate(explosionPrefab, point, Quaternion.identity);
+		var explosionWave = explosion.gameObject.transform.GetChild(0);
+		var explosionEnlarger = explosionWave.GetComponent<ExplosionEnlarger>();
+		explosionEnlarger.SetDamage(explosionDamage);
 
-		Destroy( exp, 2f );
-		Destroy( gameObject );
+		Destroy(explosion, 2f);
+		Destroy(gameObject);
 	}
 
 	public void SetDamage( float damage )
