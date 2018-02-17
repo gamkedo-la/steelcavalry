@@ -61,10 +61,12 @@ public class AI : MonoBehaviour {
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
-[Header("Vision Cone")]
-    public float visionConeLength = 10.0f;
-    public float visionConeMaxRotation = 60.0f;
-    public float visionConeAngularVelocty = 5.0f;
+[Header("Vision Scanner")]
+    public float scannerRadius = 5.0f;
+    public float scannerMaxRotation = 60.0f;
+    public float scannerAngularVelocity = 5.0f;
+    public LayerMask visibleToMe;    
+    private GameObject scanner;
     private GameObject pointInArc;
 
 [Header("Target GameObjects")]    
@@ -72,27 +74,47 @@ public class AI : MonoBehaviour {
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
-	private Player myMovement; // so we can access the input boolean flags
-    private GameObject visionCone;
+	private Player myMovement; // so we can access the input boolean flags    
 
     // Use this for initialization
     void Start () {
 		myMovement = GetComponent<Player>();
 		StartCoroutine("aiThink");
 
-        // Vision Cone, this rotates
-        visionCone = new GameObject("Vision Cone");
+        // Vision Scanner, this rotates
+        scanner = new GameObject("Vision Scanner");
         Transform thisTransform = this.gameObject.transform;
-        visionCone.transform.position = thisTransform.position;
-        visionCone.transform.parent = thisTransform;        
+        scanner.transform.position = thisTransform.position;
+        scanner.transform.parent = thisTransform;        
 
-        // A point in the arc of the vision cone, parented under Vision Cone to rotate along the arc
+        // A point in the arc of the vision scanner, parented under Vision Scanner to rotate along the arc
         pointInArc = new GameObject("Point in Arc");
-        Transform visionConeTransform = visionCone.gameObject.transform;        
+        Transform visionConeTransform = scanner.gameObject.transform;        
         float leftOrRight = myMovement.isFacingRight ? 1 : -1;
-        pointInArc.transform.position = new Vector3(visionConeTransform.position.x + leftOrRight * visionConeLength, 
-                                                    visionCone.transform.position.y);        
+        pointInArc.transform.position = new Vector3(visionConeTransform.position.x + leftOrRight * scannerRadius, 
+                                                    scanner.transform.position.y);        
         pointInArc.transform.parent = visionConeTransform;        
+    }
+
+    public RaycastHit2D[] GetScannedGameObjects() {
+        Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;        
+
+        RaycastHit2D[] results = new RaycastHit2D[4];
+
+        int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
+                                             rayDirection, 
+                                             results,
+                                             scannerRadius,
+                                             visibleToMe);
+        //// i starts at 1 to ignore self
+        //for (int i = 1; i < hit; i++) {
+        //    if (results[i].collider != null) {
+        //        if (results[i].collider.tag == "Player")
+        //            Debug.Log("Ah ha!");
+        //    }        
+        //}
+
+        return results;
     }
 
 	public bool hasLineOfSightTo(GameObject fromThis,GameObject toThis)	{
@@ -127,10 +149,10 @@ public class AI : MonoBehaviour {
         PIALocalPosition.x = myMovement.isFacingRight ? Mathf.Abs(PIALocalPosition.x) : -Mathf.Abs(PIALocalPosition.x);        
         pointInArc.transform.localPosition = new Vector3(PIALocalPosition.x, PIALocalPosition.y);        
         
-        // rotate the vision cone
-        visionCone.transform.rotation = Quaternion.Euler(0f, 0f, visionConeMaxRotation * Mathf.Sin(Time.time * visionConeAngularVelocty));
-
-        Debug.DrawLine(transform.position, pointInArc.transform.position, Color.red);
+        // rotate the vision scanner
+        scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerAngularVelocity));
+                
+        Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
 
 		if (myMovement._state == Player.PlayerState.outOfMech)
 			seekTarget = seekTargetOutside;

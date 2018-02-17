@@ -4033,9 +4033,12 @@ MonoBehaviour:
   maxTimePerThink: 1.5
   distanceTolerance: 0.5
   unitsAboveTarget: 1
-  visionConeLength: 10
-  visionConeMaxRotation: 60
-  visionConeAngularVelocty: 5
+  scannerRadius: 5
+  scannerMaxRotation: 60
+  scannerAngularVelocity: 5
+  visibleToMe:
+    serializedVersion: 2
+    m_Bits: 256
   seekTargetOutside: {fileID: 219767439}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1127740843
