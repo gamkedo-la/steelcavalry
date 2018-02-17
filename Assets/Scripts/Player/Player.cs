@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 
 	private int mechOnlyMask;
 
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
 	public event Action OnAltFire = delegate {} ; //firing is now an event that can heard by other scripts

@@ -4033,6 +4033,9 @@ MonoBehaviour:
   maxTimePerThink: 1.5
   distanceTolerance: 0.5
   unitsAboveTarget: 1
+  visionConeLength: 10
+  visionConeMaxRotation: 60
+  visionConeAngularVelocty: 5
   seekTargetOutside: {fileID: 219767439}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1127740843
@@ -4170,6 +4173,7 @@ MonoBehaviour:
   humanSpeed: 100
   mechNearEnoughToUseDistance: 1
   jetPackPower: 100
+  isFacingRight: 1
   weaponFiringPoint: {fileID: 394788670}
   weaponManager: {fileID: 1127740844}
   weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,

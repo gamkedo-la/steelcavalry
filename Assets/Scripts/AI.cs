@@ -61,22 +61,39 @@ public class AI : MonoBehaviour {
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
-[Header("Target GameObjects")]
-	public GameObject seekTargetOutside;
+[Header("Vision Cone")]
+    public float visionConeLength = 10.0f;
+    public float visionConeMaxRotation = 60.0f;
+    public float visionConeAngularVelocty = 5.0f;
+    private GameObject pointInArc;
+
+[Header("Target GameObjects")]    
+    public GameObject seekTargetOutside;
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
 	private Player myMovement; // so we can access the input boolean flags
+    private GameObject visionCone;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		myMovement = GetComponent<Player>();
 		StartCoroutine("aiThink");
-	}
 
+        // Vision Cone, this rotates
+        visionCone = new GameObject("Vision Cone");
+        Transform thisTransform = this.gameObject.transform;
+        visionCone.transform.position = thisTransform.position;
+        visionCone.transform.parent = thisTransform;        
 
-
-
+        // A point in the arc of the vision cone, parented under Vision Cone to rotate along the arc
+        pointInArc = new GameObject("Point in Arc");
+        Transform visionConeTransform = visionCone.gameObject.transform;        
+        float leftOrRight = myMovement.isFacingRight ? 1 : -1;
+        pointInArc.transform.position = new Vector3(visionConeTransform.position.x + leftOrRight * visionConeLength, 
+                                                    visionCone.transform.position.y);        
+        pointInArc.transform.parent = visionConeTransform;        
+    }
 
 	public bool hasLineOfSightTo(GameObject fromThis,GameObject toThis)	{
 
@@ -88,16 +105,7 @@ public class AI : MonoBehaviour {
 		// good luck!
 
 		return result;
-
 	}
-
-
-
-
-
-
-
-
 
 	float wobble(float timestamp, float offset)
 	{
@@ -113,7 +121,17 @@ public class AI : MonoBehaviour {
 
 		if (!myMovement)
 			return;
-		
+
+        // set the position of the point in arc depending on the facing direction
+        Vector3 PIALocalPosition = pointInArc.transform.localPosition;
+        PIALocalPosition.x = myMovement.isFacingRight ? Mathf.Abs(PIALocalPosition.x) : -Mathf.Abs(PIALocalPosition.x);        
+        pointInArc.transform.localPosition = new Vector3(PIALocalPosition.x, PIALocalPosition.y);        
+        
+        // rotate the vision cone
+        visionCone.transform.rotation = Quaternion.Euler(0f, 0f, visionConeMaxRotation * Mathf.Sin(Time.time * visionConeAngularVelocty));
+
+        Debug.DrawLine(transform.position, pointInArc.transform.position, Color.red);
+
 		if (myMovement._state == Player.PlayerState.outOfMech)
 			seekTarget = seekTargetOutside;
 
@@ -121,8 +139,8 @@ public class AI : MonoBehaviour {
 			seekTarget = seekTargetInMech;
 
 		// debug lines
-		if (seekTarget) // might be null
-			Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
+		//if (seekTarget) // might be null
+		//	Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
 
 		// recouperation over time
 		confidence += confidencePerSec * Time.deltaTime;
@@ -141,8 +159,7 @@ public class AI : MonoBehaviour {
 		boredom = Mathf.Clamp(boredom,0f,1f);
 		anger = Mathf.Clamp(anger,0f,1f);
 		fear = Mathf.Clamp(fear,0f,1f);
-
-	}
+    }
 
 	IEnumerator aiThink() {
 
