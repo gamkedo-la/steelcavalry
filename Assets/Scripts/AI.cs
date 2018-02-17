@@ -65,6 +65,7 @@ public class AI : MonoBehaviour {
     public float scannerRadius = 5.0f;
     public float scannerMaxRotation = 60.0f;
     public float scannerAngularVelocity = 10.0f;
+    public int scanCount = 5;
     public LayerMask visibleToMe;    
     private GameObject scanner;
     private GameObject pointInArc;
@@ -90,29 +91,28 @@ public class AI : MonoBehaviour {
 
         // A point in the arc of the vision scanner, parented under Vision Scanner to rotate along the arc
         pointInArc = new GameObject("Point in Arc");
-        Transform visionConeTransform = scanner.gameObject.transform;        
+        Transform scannerTransform = scanner.gameObject.transform;        
         float leftOrRight = myMovement.isFacingRight ? 1 : -1;
-        pointInArc.transform.position = new Vector3(visionConeTransform.position.x + leftOrRight * scannerRadius, 
+        pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerRadius, 
                                                     scanner.transform.position.y);        
-        pointInArc.transform.parent = visionConeTransform;        
+        pointInArc.transform.parent = scannerTransform;        
     }
 
     public RaycastHit2D[] GetScannedGameObjects() {
-        Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;        
+        Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;
 
-        RaycastHit2D[] results = new RaycastHit2D[4];
+        RaycastHit2D[] results = new RaycastHit2D[scanCount];
 
         int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
-                                             rayDirection, 
-                                             results,
-                                             scannerRadius,
-                                             visibleToMe);
-        // i starts at 1 to ignore self
-        for (int i = 1; i < hit; i++) {
-            if (results[i].collider != null) {
-                if (results[i].collider.tag == "Player") {
-                    Debug.Log(gameObject.name + " is looking at " + results[i].collider.name + "!");
-                }
+                                            rayDirection,
+                                            results,
+                                            scannerRadius,
+                                            visibleToMe);
+
+        for (int i = 1; i < hit; i++) {  // i starts at 1 to ignore self
+            Collider2D resultCollider = results[i].collider;
+            if (resultCollider != null) {                
+                Debug.Log(gameObject.name + " is looking at " + resultCollider.name + "!");                
             }
         }
 
@@ -124,12 +124,11 @@ public class AI : MonoBehaviour {
 
         RaycastHit2D[] visible = seenByMe;
 
-        for (int i = 1; i < visible.Length; i++) {
-            if (visible[i].collider != null) {
-                if (visible[i].collider.gameObject == toThis) {
-                    Debug.Log("Ah ha!! " + gameObject.name + " is going to do something to " + visible[i].collider.name + "!");
-                    return true;
-                }
+        for (int i = 1; i < visible.Length; i++) {  // i starts at 1 to ignore self
+            Collider2D visibleCollider = visible[i].collider;
+            if (visibleCollider != null && visibleCollider.gameObject == toThis) {                
+                Debug.Log("Ah ha!! " + gameObject.name + " is going to do something to " + visibleCollider.name + "!");
+                return true;               
             }
         }
 

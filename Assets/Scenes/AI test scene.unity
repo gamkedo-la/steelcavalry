@@ -4035,10 +4035,11 @@ MonoBehaviour:
   unitsAboveTarget: 1
   scannerRadius: 5
   scannerMaxRotation: 60
-  scannerAngularVelocity: 5
+  scannerAngularVelocity: 10
+  scanCount: 5
   visibleToMe:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   seekTargetOutside: {fileID: 219767439}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1127740843
