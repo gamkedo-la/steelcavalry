@@ -1772,6 +1772,7 @@ MonoBehaviour:
   thrusterCost: 40
   thrusterPower: 15000
   firstThrustCost: 0.28
+  drag: 0
   inUse: 0
   mechMoveSpeed: 200
   mechRotateSpeed: 10

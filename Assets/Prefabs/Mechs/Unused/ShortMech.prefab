@@ -394,7 +394,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 4748464868005058}
   launcherMountPoint: {fileID: 4748464868005058}
   throwerMountPoint: {fileID: 4748464868005058}
-  cursor: {fileID: 0}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &114377110272374744
 MonoBehaviour:
@@ -678,12 +677,18 @@ MonoBehaviour:
   mechName: ShortMech
   expForceMin: 300
   expForceMax: 500
+  thrusterFuelMax: 100
+  thrusterFuelRegen: 20
+  thrusterCost: 20
+  thrusterPower: 20
+  firstThrustCost: 0.25
+  drag: 0.25
+  inUse: 0
   mechMoveSpeed: 2
   mechRotateSpeed: 5
   jumpPower: 2500
   damageTaken: 0
   maxDamage: 100
-  inUse: 0
   pod: {fileID: 0}
   driver: {fileID: 0}
   model: {fileID: 4794320185615438}
@@ -693,6 +698,20 @@ MonoBehaviour:
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
   podLaunched: 0
+  mechCanShield: 0
+  shieldCooldown: 0
+  shieldDuration: 0
+  shieldGO: {fileID: 0}
+  ThrustersOn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ThrustersOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114982772255403526
 MonoBehaviour:
   m_ObjectHideFlags: 1

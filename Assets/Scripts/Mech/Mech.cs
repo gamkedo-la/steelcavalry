@@ -16,6 +16,7 @@ public class Mech : MonoBehaviour
 	[SerializeField] private float thrusterCost = 20f;
 	[SerializeField] private float thrusterPower = 20f;
 	[SerializeField] private float firstThrustCost = 0.25f;
+	[SerializeField] private float drag = 0f;
 
 
 	public bool inUse = false;
@@ -193,6 +194,8 @@ public class Mech : MonoBehaviour
         }
 
         HandleAbilities();
+
+		mechRB.drag = drag * Mathf.Pow( mechRB.velocity.magnitude, 2 );
     }
 
     void OnCollisionEnter2D(Collision2D bumpFacts) {
