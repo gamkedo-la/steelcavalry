@@ -4033,10 +4033,10 @@ MonoBehaviour:
   maxTimePerThink: 1.5
   distanceTolerance: 0.5
   unitsAboveTarget: 1
-  scannerRadius: 5
+  scannerLength: 5
   scannerMaxRotation: 60
-  scannerAngularVelocity: 10
-  scanCount: 5
+  scannerRotateSpeed: 15
+  scannedCount: 5
   visibleToMe:
     serializedVersion: 2
     m_Bits: 2304
