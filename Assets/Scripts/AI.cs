@@ -62,10 +62,10 @@ public class AI : MonoBehaviour {
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
 
 [Header("Vision Scanner")]
-    public float scannerRadius = 5.0f;
+    public float scannerLength = 5.0f;
     public float scannerMaxRotation = 60.0f;
-    public float scannerAngularVelocity = 10.0f;
-    public int scanCount = 5;
+    public float scannerRotateSpeed = 10.0f;
+    public int scannedCount = 5;
     public LayerMask visibleToMe;    
     private GameObject scanner;
     private GameObject pointInArc;
@@ -93,7 +93,7 @@ public class AI : MonoBehaviour {
         pointInArc = new GameObject("Point in Arc");
         Transform scannerTransform = scanner.gameObject.transform;        
         float leftOrRight = myMovement.isFacingRight ? 1 : -1;
-        pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerRadius, 
+        pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerLength, 
                                                     scanner.transform.position.y);        
         pointInArc.transform.parent = scannerTransform;        
     }
@@ -101,21 +101,21 @@ public class AI : MonoBehaviour {
     public RaycastHit2D[] GetScannedGameObjects() {
         Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;
 
-        RaycastHit2D[] results = new RaycastHit2D[scanCount];
+        RaycastHit2D[] results = new RaycastHit2D[scannedCount];
 
         int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
                                             rayDirection,
                                             results,
-                                            scannerRadius,
+                                            scannerLength,
                                             visibleToMe);
 
         for (int i = 1; i < hit; i++) {  // i starts at 1 to ignore self
             Collider2D resultCollider = results[i].collider;
             if (resultCollider != null) {                
-                Debug.Log(gameObject.name + " is looking at " + resultCollider.name + "!");                
+                Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");                
             }
         }
-
+        
         return results;
     }
 
@@ -156,7 +156,7 @@ public class AI : MonoBehaviour {
         pointInArc.transform.localPosition = new Vector3(PIALocalPosition.x, PIALocalPosition.y);        
         
         // rotate the vision scanner
-        scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerAngularVelocity));
+        scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
 
         seenByMe = GetScannedGameObjects();
         Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
