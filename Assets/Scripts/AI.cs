@@ -64,10 +64,11 @@ public class AI : MonoBehaviour {
 [Header("Vision Scanner")]
     public float scannerRadius = 5.0f;
     public float scannerMaxRotation = 60.0f;
-    public float scannerAngularVelocity = 5.0f;
+    public float scannerAngularVelocity = 10.0f;
     public LayerMask visibleToMe;    
     private GameObject scanner;
     private GameObject pointInArc;
+    private RaycastHit2D[] seenByMe;
 
 [Header("Target GameObjects")]    
     public GameObject seekTargetOutside;
@@ -106,27 +107,33 @@ public class AI : MonoBehaviour {
                                              results,
                                              scannerRadius,
                                              visibleToMe);
-        //// i starts at 1 to ignore self
-        //for (int i = 1; i < hit; i++) {
-        //    if (results[i].collider != null) {
-        //        if (results[i].collider.tag == "Player")
-        //            Debug.Log("Ah ha!");
-        //    }        
-        //}
+        // i starts at 1 to ignore self
+        for (int i = 1; i < hit; i++) {
+            if (results[i].collider != null) {
+                if (results[i].collider.tag == "Player") {
+                    Debug.Log(gameObject.name + " is looking at " + results[i].collider.name + "!");
+                }
+            }
+        }
 
         return results;
     }
 
-	public bool hasLineOfSightTo(GameObject fromThis,GameObject toThis)	{
-
+    public bool hasLineOfSightTo(GameObject toThis)	{
 		bool result = false;
 
-		// FIXME TODO UNIMPLEMENTED
-		// CAST A RAY FROM one transform.position to another and see if we made it all the way
-		// be sure to consider layers / collision maxtrix flags, self collisions, and null gameobjects
-		// good luck!
+        RaycastHit2D[] visible = seenByMe;
 
-		return result;
+        for (int i = 1; i < visible.Length; i++) {
+            if (visible[i].collider != null) {
+                if (visible[i].collider.gameObject == toThis) {
+                    Debug.Log("Ah ha!! " + gameObject.name + " is going to do something to " + visible[i].collider.name + "!");
+                    return true;
+                }
+            }
+        }
+
+        return result;
 	}
 
 	float wobble(float timestamp, float offset)
@@ -151,7 +158,8 @@ public class AI : MonoBehaviour {
         
         // rotate the vision scanner
         scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerAngularVelocity));
-                
+
+        seenByMe = GetScannedGameObjects();
         Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
 
 		if (myMovement._state == Player.PlayerState.outOfMech)
@@ -159,10 +167,6 @@ public class AI : MonoBehaviour {
 
 		if (myMovement._state == Player.PlayerState.inMech)
 			seekTarget = seekTargetInMech;
-
-		// debug lines
-		//if (seekTarget) // might be null
-		//	Debug.DrawLine(this.transform.position, new Vector3(seekTarget.transform.position.x,seekTarget.transform.position.y+unitsAboveTarget,seekTarget.transform.position.z), Color.red);
 
 		// recouperation over time
 		confidence += confidencePerSec * Time.deltaTime;
@@ -241,7 +245,7 @@ public class AI : MonoBehaviour {
 			// fixme: could be fear-dependent etc
 			if (seekTarget) {
 
-				bool canSeeTarget = hasLineOfSightTo(transform.gameObject,seekTarget); // TODO: unimplemented
+				bool canSeeTarget = hasLineOfSightTo(seekTarget); // TODO: unimplemented
 
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
 					
