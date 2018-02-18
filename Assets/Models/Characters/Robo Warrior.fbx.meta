@@ -19,6 +19,33 @@ ModelImporter:
     100022: Cube.011
     100024: //RootNode
     100026: Sphere
+    100028: Armature
+    100030: BoneFoot.L
+    100032: BoneFoot.L_end
+    100034: BoneFoot.R
+    100036: BoneFoot.R_end
+    100038: BoneForearm.L
+    100040: BoneForearm.R
+    100042: BoneHand.L
+    100044: BoneHand.L_end
+    100046: BoneHand.R
+    100048: BoneHand.R_end
+    100050: BoneHead
+    100052: BoneHead_end
+    100054: BoneHip.L
+    100056: BoneHip.R
+    100058: BoneHipCenter
+    100060: BoneLowerLeg.L
+    100062: BoneLowerLeg.R
+    100064: BoneShoulder.L
+    100066: BoneShoulder.R
+    100068: BoneTorso
+    100070: BoneUpperArm.L
+    100072: BoneUpperArm.R
+    100074: BoneUpperLeg.L
+    100076: BoneUpperLeg.R
+    100078: Cube.012
+    100080: Cube.013
     400000: Cube
     400002: Cube.001
     400004: Cube.002
@@ -33,6 +60,33 @@ ModelImporter:
     400022: Cube.011
     400024: //RootNode
     400026: Sphere
+    400028: Armature
+    400030: BoneFoot.L
+    400032: BoneFoot.L_end
+    400034: BoneFoot.R
+    400036: BoneFoot.R_end
+    400038: BoneForearm.L
+    400040: BoneForearm.R
+    400042: BoneHand.L
+    400044: BoneHand.L_end
+    400046: BoneHand.R
+    400048: BoneHand.R_end
+    400050: BoneHead
+    400052: BoneHead_end
+    400054: BoneHip.L
+    400056: BoneHip.R
+    400058: BoneHipCenter
+    400060: BoneLowerLeg.L
+    400062: BoneLowerLeg.R
+    400064: BoneShoulder.L
+    400066: BoneShoulder.R
+    400068: BoneTorso
+    400070: BoneUpperArm.L
+    400072: BoneUpperArm.R
+    400074: BoneUpperLeg.L
+    400076: BoneUpperLeg.R
+    400078: Cube.012
+    400080: Cube.013
     2300000: Cube
     2300002: Cube.001
     2300004: Cube.002
@@ -46,6 +100,8 @@ ModelImporter:
     2300020: Cube.010
     2300022: Cube.011
     2300024: Sphere
+    2300026: Cube.012
+    2300028: Cube.013
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
@@ -59,6 +115,8 @@ ModelImporter:
     3300020: Cube.010
     3300022: Cube.011
     3300024: Sphere
+    3300026: Cube.012
+    3300028: Cube.013
     4300000: Cube.011
     4300002: Cube.010
     4300004: Cube.009
@@ -72,12 +130,19 @@ ModelImporter:
     4300020: Cube.001
     4300022: Sphere
     4300024: Cube
+    4300026: Cube.013
+    4300028: Cube.012
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 977cfc37f36d2db46a067ee5f969eacb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: fd318b1578d544a97a50f5bdd719bc49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
