@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4766306493242048}
   - component: {fileID: 20998328387198472}
   - component: {fileID: 114961754392386506}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Minimap Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294960078
+    m_Bits: 4294959566
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 333aae722debbd8419a9efa771438884, type: 2}
   m_TargetDisplay: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246170841991184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd56c9a221794b5b9978a9751bfafa0, type: 3}
+  m_Script: {fileID: 11500000, guid: 22648f04a6a781545a2171702aa819e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114255462866634596
@@ -566,9 +566,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661011412097470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd56c9a221794b5b9978a9751bfafa0, type: 3}
+  m_Script: {fileID: 11500000, guid: c6401571748e44e90933743bc3ffc86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
+  pfx: {fileID: 0}
+  damagePerShot: 10
 --- !u!114 &114474139845212828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -613,7 +616,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994434234835106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8373cf9587b0fa4ebd2705558ec6ae7, type: 3}
+  m_Script: {fileID: 11500000, guid: e371741b106a7c14a8031fc5548801de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outMechCamZoomSize: 45

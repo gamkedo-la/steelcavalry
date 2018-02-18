@@ -7,7 +7,6 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField] Transform launcherMountPoint = null;
 	[SerializeField] Transform throwerMountPoint = null;
 
-	[SerializeField] private MouseCursor cursor;
 
 	[SerializeField] IWeapon turret = null;
 	[SerializeField] IWeapon launcher = null;
@@ -15,13 +14,17 @@ public class WeaponManager : MonoBehaviour
 
 	[SerializeField] private GameEventUI weaponSlotEvents = null;
 
-	private bool isActive = false;
+	private MouseCursor cursor;
+
+    private bool isActive = false;
 	private bool isRight = false;
 	private bool isPlayerDriver = false;
 
 	void Start ()
 	{
-		//Debug.Log( name + " weapons are attached" );
+        //Debug.Log( name + " weapons are attached" );
+
+        cursor = UIResourceManager.MouseCursor;
 
 		Assert.IsNotNull( turretMountPoint );
 		Assert.IsNotNull( launcherMountPoint );

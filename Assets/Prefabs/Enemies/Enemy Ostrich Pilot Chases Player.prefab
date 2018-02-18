@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 61344836741993550}
   - component: {fileID: 114001870524218448}
   - component: {fileID: 212318452966209782}
-  - component: {fileID: 114861490350741860}
   - component: {fileID: 114942655571507362}
   - component: {fileID: 114168762210021470}
   - component: {fileID: 114465539367125470}
@@ -194,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealthUI: {fileID: 0}
   humanSpeed: 1
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
@@ -250,17 +250,6 @@ MonoBehaviour:
   unitsAboveTarget: 1.5
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
---- !u!114 &114861490350741860
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499441886538362}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53dbe38d9f7d4d9c878ca4e512a1d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114942655571507362
 MonoBehaviour:
   m_ObjectHideFlags: 1
