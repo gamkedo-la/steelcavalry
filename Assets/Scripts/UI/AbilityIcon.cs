@@ -9,6 +9,7 @@ public class AbilityIcon : MonoBehaviour
 	[SerializeField] private CanvasGroup group;
 	[SerializeField] private Image background;
 	[SerializeField] private float disableState = 0.4f;
+	private Image icon;
 
 	void Start ()
 	{
@@ -16,6 +17,8 @@ public class AbilityIcon : MonoBehaviour
 		Assert.IsNotNull( background );
 
 		group.alpha = disableState;
+
+		icon = transform.Find("Icon").GetComponent<Image>();
 	}
 
 	void Update ()
@@ -36,5 +39,11 @@ public class AbilityIcon : MonoBehaviour
 			group.alpha = disableState;
 			background.fillAmount = percentFull;
 		}
+	}
+
+	public void SetIcon(string iconName) {
+		string path = "Sprites/" + iconName;
+		Sprite spriteToUse = Resources.Load<Sprite>(path);
+		icon.sprite = spriteToUse;
 	}
 }

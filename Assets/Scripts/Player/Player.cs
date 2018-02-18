@@ -51,6 +51,9 @@ public class Player : MonoBehaviour {
 
 	private float oldGravityScale;
 
+	private AbilityIcon firstIcon;
+	private AbilityIcon secondIcon;
+
 	public enum PlayerState{
 		inMech,
 		outOfMech
@@ -59,6 +62,9 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		firstIcon = GameObject.Find("Main UI/Icon Turret").GetComponent<AbilityIcon>();
+		secondIcon = GameObject.Find("Main UI/Icon Thrusters").GetComponent<AbilityIcon>();
+
 		mechOnlyMask = LayerMask.GetMask("Mechs");
 		rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -98,6 +104,9 @@ public class Player : MonoBehaviour {
         playerHealthUI.SetHealthVisibility(false);
 
         _state = PlayerState.inMech; //changes player state
+
+        firstIcon.SetIcon("turretIcon");
+        secondIcon.SetIcon("exitIcon");
 	}
 
 	void ExitMech()
@@ -120,6 +129,9 @@ public class Player : MonoBehaviour {
         playerHealthUI.SetHealthVisibility(true);
 
         _state = PlayerState.outOfMech;
+
+        firstIcon.SetIcon("pilotGunIcon");
+        secondIcon.SetIcon("enterIcon");
 	}
 
 	// putting all input response here lets us turn it off for "dumb players" ie AI
