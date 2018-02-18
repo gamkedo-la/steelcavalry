@@ -2651,7 +2651,7 @@ MonoBehaviour:
   maxDamage: 100
   pod: {fileID: 0}
   driver: {fileID: 0}
-  model: {fileID: 0}
+  model: {fileID: 4731546750047520}
   isFacingRight: 0
   goldenLedgeCheck: {fileID: 0}
   isGoldenGoose: 0
