@@ -84,7 +84,7 @@ public class Player : MonoBehaviour {
 	void EnterMech(Mech mech){
 		if (mech.model == null){
 			//Debug.Log("Attempt to enter mech with no model. Exiting...");
-			//Debug.Log("Entering mech with no model... :/");
+			Debug.Log("Entering mech with no model... :/");
 			//return;
 		}
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving

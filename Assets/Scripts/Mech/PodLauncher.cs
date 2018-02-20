@@ -7,7 +7,7 @@ public class PodLauncher : MonoBehaviour {
     public float launchPower;
 
     private bool isActive = false;
-    //private bool isRight;
+    private bool isRight;
 
     // Use this for initialization
     void Start() {
@@ -49,7 +49,10 @@ public class PodLauncher : MonoBehaviour {
         // Activate pod RB
         podRb.simulated = true;
         //Fire the pod and disable movement
-        podRb.AddRelativeForce(Vector2.right * launchPower, ForceMode2D.Impulse);
+        if(isRight)
+            podRb.AddRelativeForce(Vector2.right * launchPower, ForceMode2D.Impulse);
+        else
+            podRb.AddRelativeForce(Vector2.left * launchPower, ForceMode2D.Impulse);
         myMech.podLaunched = true;
 
         //myMech.pods.rigidbody2
