@@ -59,6 +59,8 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 		isPlayerDriver = playerDriver;
 	}
 
+	public void SwapModel( string mechName ) { }
+
 	public void Active(bool isActive)
 	{
 		this.isActive = isActive;

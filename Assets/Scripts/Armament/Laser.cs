@@ -13,6 +13,7 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private float laserMoveCorrection = 1f;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
+	[SerializeField] private GameObject[] models;
 
 	public WeaponType Type
 	{
@@ -68,6 +69,16 @@ public class Laser : MonoBehaviour, IWeapon
 	public void IsPlayerDriving( bool playerDriver )
 	{
 		isPlayerDriver = playerDriver;
+	}
+
+	public void SwapModel( string mechName )
+	{
+		Debug.Log( mechName );
+		if (mechName == "Ostrich The Bot" )
+		{
+			models[0].SetActive( false );
+			models[1].SetActive( true );
+		}
 	}
 
 	public void Active( bool isActive )

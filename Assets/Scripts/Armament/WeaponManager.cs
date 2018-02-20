@@ -78,6 +78,18 @@ public class WeaponManager : MonoBehaviour
 			thrower.Active( isActive );
 	}
 
+	public void SwapModel( string mechName )
+	{
+		if ( turret != null )
+			turret.SwapModel( mechName );
+
+		if ( launcher != null )
+			launcher.SwapModel( mechName );
+
+		if ( thrower != null )
+			thrower.SwapModel( mechName );
+	}
+
 	public void SetDir( bool right )
 	{
 		isRight = right;
@@ -138,6 +150,9 @@ public class WeaponManager : MonoBehaviour
 				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
 				IsActive( isActive );
+
+				var mech = GetComponent<Mech>( );
+				if ( mech ) SwapModel( mech.GetName( ) );
 			}
 			break;
 

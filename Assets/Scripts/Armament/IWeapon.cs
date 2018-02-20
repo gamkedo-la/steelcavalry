@@ -14,6 +14,7 @@ public interface IWeapon
 	void SetDir( bool isRight );
 	void IsPlayerDriving( bool playerDriver );
 	void TryToFire( );
+	void SwapModel( string mechName );
 
 	UnityEngine.GameObject GetGameObject( );
 }

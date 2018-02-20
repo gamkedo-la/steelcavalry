@@ -207,6 +207,11 @@ public class Mech : MonoBehaviour
 		}
 	}
 
+	public string GetName()
+	{
+		return mechName;
+	}
+
 	public void DestroyMech()
 	{
 		var exp = Instantiate( explosion, transform.position, Quaternion.identity );

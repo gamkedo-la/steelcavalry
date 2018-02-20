@@ -48,6 +48,8 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 		isPlayerDriver = playerDriver;
 	}
 
+	public void SwapModel( string mechName ) { }
+
 	public void SetDir( bool isRight ) { }
 
 	public void Active( bool isActive )
