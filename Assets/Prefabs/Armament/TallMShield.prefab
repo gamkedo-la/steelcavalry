@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296978653442720}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TallMShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 95279754632702240}
   - component: {fileID: 114750674354852250}
   - component: {fileID: 60262507090357776}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MechShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}

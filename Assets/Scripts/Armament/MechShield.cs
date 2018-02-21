@@ -10,10 +10,16 @@ public class MechShield : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerProjectile"))
+		//Debug.Log("!!!!!!!!!!!!!!!!  " + other.gameObject.name + " " + other.gameObject.tag + " " + Time.time);
+		if (other.CompareTag("PlayerProjectile"))
         {
-            //TODO: Add some kind of effect
-            Destroy(other.gameObject);
+			//TODO: Add some kind of effect
+			Destroy(other.gameObject);
         }
+		else if (other.CompareTag("PlayerMissile"))
+		{
+			//TODO: Add some kind of effect
+			Destroy(other.gameObject);
+		}
     }
 }

@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1213,11 +1214,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -1933,47 +1934,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3371,7 +3331,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -3416,14 +3375,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -4353,11 +4310,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.35
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.084
+      value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5497,11 +5454,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -6217,47 +6174,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7655,7 +7571,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -7700,14 +7615,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -9585,11 +9498,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -10305,47 +10218,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11743,7 +11615,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -11788,14 +11659,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -13184,11 +13053,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -13904,47 +13773,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -15342,7 +15170,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -15387,14 +15214,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -16197,8 +16022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  psScriptSmoke: {fileID: 1181111089}
-  psScriptThrust: {fileID: 941278648}
 --- !u!114 &1247760519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16265,26 +16088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthUI: {fileID: 0}
-  humanSpeed: 1
-  mechNearEnoughToUseDistance: 1
-  jetPackPower: 1
-  weaponFiringPoint: {fileID: 1187520963}
-  weaponManager: {fileID: 1247760525}
-  weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
-    type: 2}
-  useKeyboardInput: 0
-  useGamepadInput: 0
-  playerNumber: 1
-  inputUp: 0
-  inputDown: 0
-  inputLeft: 0
-  inputRight: 0
-  inputFire: 0
-  inputAltFire: 0
-  inputAltFire2: 0
-  inputEnter: 0
-  _state: 1
 --- !u!61 &1247760522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16341,14 +16144,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.1
-  maxTimePerThink: 0.5
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 1
   chanceItFires: 1
   chanceItEnters: 0
   chanceItExits: 0.01
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.1
+  maxTimePerThink: 0.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
+  scannerLength: 5
+  scannerMaxRotation: 60
+  scannerRotateSpeed: 10
+  scannedCount: 5
+  visibleToMe:
+    serializedVersion: 2
+    m_Bits: 0
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
 --- !u!114 &1247760525
@@ -16365,8 +16189,36 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1187520963}
   launcherMountPoint: {fileID: 1187520963}
   throwerMountPoint: {fileID: 1187520963}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+--- !u!1 &1248003112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1533841771}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1248003113}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248003113
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1533841771}
+  m_GameObject: {fileID: 1248003112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1421956178}
+  m_Father: {fileID: 1386994394}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1256915977
 Prefab:
   m_ObjectHideFlags: 0
@@ -16803,7 +16655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 219767445}
-  - {fileID: 1421956178}
+  - {fileID: 1248003113}
   - {fileID: 1712877767}
   - {fileID: 1450074050}
   - {fileID: 839446289}
@@ -16912,11 +16764,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1388257789}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1421956178 stripped
+--- !u!4 &1421956178
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4352619853347004, guid: c925b42d325b0d543b4a84409460af96,
     type: 2}
   m_PrefabInternal: {fileID: 1533841771}
+  m_GameObject: {fileID: 1637575390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248003113}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1434311050
 Prefab:
   m_ObjectHideFlags: 0
@@ -17035,14 +16896,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.2
-  maxTimePerThink: 0.75
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 1
   chanceItFires: 0.25
   chanceItEnters: 0.5
   chanceItExits: 0.005
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.2
+  maxTimePerThink: 0.75
   distanceTolerance: 0.5
   unitsAboveTarget: 1.5
+  scannerLength: 5
+  scannerMaxRotation: 60
+  scannerRotateSpeed: 10
+  scannedCount: 5
+  visibleToMe:
+    serializedVersion: 2
+    m_Bits: 0
   seekTargetOutside: {fileID: 736740196}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1460532781
@@ -17059,7 +16941,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1573468500}
   launcherMountPoint: {fileID: 1573468500}
   throwerMountPoint: {fileID: 1573468500}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &1460532782
 MonoBehaviour:
@@ -17072,8 +16953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  psScriptSmoke: {fileID: 1203668331}
-  psScriptThrust: {fileID: 1975200097}
 --- !u!114 &1460532783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17140,26 +17019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthUI: {fileID: 0}
-  humanSpeed: 1
-  mechNearEnoughToUseDistance: 1
-  jetPackPower: 1
-  weaponFiringPoint: {fileID: 1573468500}
-  weaponManager: {fileID: 1460532781}
-  weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
-    type: 2}
-  useKeyboardInput: 0
-  useGamepadInput: 0
-  playerNumber: 1
-  inputUp: 0
-  inputDown: 0
-  inputLeft: 0
-  inputRight: 0
-  inputFire: 0
-  inputAltFire: 0
-  inputAltFire2: 0
-  inputEnter: 0
-  _state: 1
 --- !u!61 &1460532786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17802,11 +17661,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 50, y: 20, z: 1}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -18522,47 +18381,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -19960,7 +19778,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -20005,14 +19822,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -21116,6 +20931,21 @@ Transform:
   m_Father: {fileID: 1993925007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1637575390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1533841771}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1421956178}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1651615978
 Prefab:
   m_ObjectHideFlags: 0
@@ -21841,11 +21671,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -22561,47 +22391,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -23999,7 +23788,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -24044,14 +23832,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -25820,11 +25606,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.1, y: 0.3, z: 0.2}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -26540,47 +26326,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -27978,7 +27723,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -28023,14 +27767,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -28718,14 +28460,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimePerThink: 0.5
-  maxTimePerThink: 2.5
+  confidence: 0
+  boredom: 0
+  anger: 0
+  fear: 0
   chanceItMoves: 0.5
   chanceItFires: 0.3
   chanceItEnters: 0
   chanceItExits: 0.01
+  emotionalInstability: 0.002
+  boredomInstabilityBoost: 0.25
+  confidencePerSec: 0.1
+  boredomPerSec: 0.25
+  angerPerSec: -0.1
+  fearPerSec: -0.1
+  confidenceWhenHit: -0.5
+  boredomWhenHit: -1
+  angerWhenHit: 0.1
+  fearWhenHit: 0.3
+  minTimePerThink: 0.5
+  maxTimePerThink: 2.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
+  scannerLength: 5
+  scannerMaxRotation: 60
+  scannerRotateSpeed: 10
+  scannedCount: 5
+  visibleToMe:
+    serializedVersion: 2
+    m_Bits: 0
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
 --- !u!114 &1993925009
@@ -28742,7 +28505,6 @@ MonoBehaviour:
   turretMountPoint: {fileID: 1613563214}
   launcherMountPoint: {fileID: 1613563214}
   throwerMountPoint: {fileID: 1613563214}
-  cursor: {fileID: 1297227010}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
 --- !u!114 &1993925010
 MonoBehaviour:
@@ -28755,8 +28517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  psScriptSmoke: {fileID: 416422937}
-  psScriptThrust: {fileID: 1692372831}
 --- !u!114 &1993925011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28823,26 +28583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthUI: {fileID: 0}
-  humanSpeed: 1
-  mechNearEnoughToUseDistance: 1
-  jetPackPower: 1
-  weaponFiringPoint: {fileID: 1613563214}
-  weaponManager: {fileID: 1993925009}
-  weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
-    type: 2}
-  useKeyboardInput: 0
-  useGamepadInput: 0
-  playerNumber: 1
-  inputUp: 0
-  inputDown: 0
-  inputLeft: 0
-  inputRight: 0
-  inputFire: 0
-  inputAltFire: 0
-  inputAltFire2: 0
-  inputEnter: 0
-  _state: 1
 --- !u!61 &1993925014
 BoxCollider2D:
   m_ObjectHideFlags: 0
