@@ -49,6 +49,11 @@ public class Player : MonoBehaviour {
 	public bool inputAltFire2 = false;
 	public bool inputEnter = false;
 
+	public bool isOnGround = false;
+	public bool isUnderMech = false;
+
+	private string mechTag = "Mech";
+
 	private float oldGravityScale;
 
 	private AbilityIcon firstIcon;
@@ -313,6 +318,7 @@ public class Player : MonoBehaviour {
 			spriteRenderer.flipX = !isFacingRight;
 
 			if (inputUp) {
+				isOnGround = false;
 				jetpack.JetpackToggle(true);
 				//transform.position += Vector3.up * Time.deltaTime * jetPackPower;
                 rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
@@ -332,6 +338,15 @@ public class Player : MonoBehaviour {
 	public string getNameOfMechPlayerIsIn() {
 		if(!mechImIn) return "";
 		return mechImIn.name;
+	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		for(int i = 0; i < other.contacts.Length; i++) {
+			if(other.contacts[i].normal.y >= 0.9f) {
+				isOnGround = true;
+				return;
+			}
+		}
 	}
 
 	//returns nearest mech in range or null if there are none

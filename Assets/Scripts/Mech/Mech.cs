@@ -198,13 +198,30 @@ public class Mech : MonoBehaviour
 		mechRB.drag = drag * Mathf.Pow( mechRB.velocity.magnitude, 2 );
     }
 
-    void OnCollisionEnter2D(Collision2D bumpFacts) {
+    void OnCollisionEnter2D(Collision2D bumpFacts) {		
+		Player player = CheckForCollisionWithPlayer(bumpFacts);
+
 		for(int i = 0; i < bumpFacts.contacts.Length; i++) {
 			if(bumpFacts.contacts[i].normal.y >= 0.9f) {
+				
+				// crush the human beneath the weight of a mech
+				if(player != null && player.isOnGround) {
+					Destroy(bumpFacts.gameObject);
+				}
+
 				isOnGround = true;
 				return;
 			}
 		}
+	}
+
+	private Player CheckForCollisionWithPlayer(Collision2D other) {
+		string playerTag = "Player";
+		bool collidedWithPlayer = other.gameObject.tag == playerTag;
+		if(collidedWithPlayer) {
+			return other.collider.GetComponent<Player>();
+		}
+		return null;
 	}
 
 	public string GetName()
