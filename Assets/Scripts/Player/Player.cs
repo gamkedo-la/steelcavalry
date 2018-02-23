@@ -50,9 +50,6 @@ public class Player : MonoBehaviour {
 	public bool inputEnter = false;
 
 	public bool isOnGround = false;
-	public bool isUnderMech = false;
-
-	private string mechTag = "Mech";
 
 	private float oldGravityScale;
 
