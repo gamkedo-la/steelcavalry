@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MechShield : MonoBehaviour {
-    void OnDisable()
+	public GameObject pfx;
+
+	void OnDisable()
     {
         Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-		//Debug.Log("!!!!!!!!!!!!!!!!  " + other.gameObject.name + " " + other.gameObject.tag + " " + Time.time);
-		if (other.CompareTag("PlayerProjectile"))
+		if (other.CompareTag("PlayerProjectile") && transform.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().playerNumber
+			!= other.gameObject.GetComponent<ShotBreaksIntoParticle>().playerNumber)
         {
-			//TODO: Add some kind of effect
+			GameObject pfxGO = Instantiate(pfx, other.transform.position, transform.rotation);
+			pfxGO.transform.SetParent(LitterContainer.instanceTransform);
 			Destroy(other.gameObject);
         }
-		else if (other.CompareTag("PlayerMissile"))
+		else if (other.CompareTag("PlayerMissile") && transform.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().playerNumber
+			!= other.gameObject.GetComponent<HomingMissile>().playerNumber)
 		{
-			//TODO: Add some kind of effect
+			other.GetComponent<HomingMissile>().DoDestruction(other.transform.position);
 			Destroy(other.gameObject);
 		}
     }

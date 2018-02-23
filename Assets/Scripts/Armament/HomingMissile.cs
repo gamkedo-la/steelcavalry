@@ -12,6 +12,9 @@ public class HomingMissile : MonoBehaviour
 	private Transform target;
 	private Rigidbody2D rb;
 
+	[HideInInspector]
+	public int playerNumber;
+
 	void Start( )
 	{
 		rb = GetComponent<Rigidbody2D>( );
@@ -59,7 +62,7 @@ public class HomingMissile : MonoBehaviour
 			DoDestruction( transform.position );
 	}
 
-	private void DoDestruction( Vector2 point )
+	public void DoDestruction( Vector2 point )
 	{
 		var exp = Instantiate( explosion, point, Quaternion.identity );
 

@@ -105,6 +105,7 @@ public class Gun : MonoBehaviour, IWeapon
 			return;
 
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
+		shotGO.GetComponent<ShotBreaksIntoParticle>().playerNumber = transform.parent.parent.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().playerNumber;
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;

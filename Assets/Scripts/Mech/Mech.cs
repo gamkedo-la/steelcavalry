@@ -53,9 +53,10 @@ public class Mech : MonoBehaviour
 
     [Header("Mech Abilities")]
     public bool mechCanShield;
-    public float shieldCooldown, shieldDuration;
+    public float shieldWait, shieldDuration, shieldCost;
     private bool canShield = true;
-    public GameObject shieldGO;
+	private bool shieldActive = false;
+	public GameObject shieldGO;
     private GameObject shieldInstance;
 
 	public UnityEvent ThrustersOn;
@@ -258,24 +259,46 @@ public class Mech : MonoBehaviour
 
 
     private void HandleAbilities()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canShield && mechCanShield) //Temporal test imput
-        {
-            shieldInstance = Instantiate(shieldGO, transform.position, Quaternion.identity);
-            shieldInstance.transform.parent = transform;
-            canShield = false;
-            Invoke("EnableShield", shieldCooldown);
-            Invoke("DisableShieldObject", shieldDuration);
-        }
-    }
+	{
+		HandleShield();
+	}
 
-    private void EnableShield()
+	private void HandleShield()
+	{
+		if (Input.GetKeyDown(KeyCode.LeftShift) && canShield && mechCanShield) //Temporal test imput
+		{
+			shieldInstance = Instantiate(shieldGO, transform.position, Quaternion.identity);
+			shieldInstance.transform.parent = transform;
+			canShield = false;
+			shieldActive = true;
+			//Invoke("EnableShield", shieldWait);
+			//Invoke("DisableShieldObject", shieldDuration);
+		}
+		else if (Input.GetKey(KeyCode.LeftShift) && !canShield)
+		{
+			thrusterFuelCurrent -= shieldCost * Time.deltaTime;
+			thrusterFuelCurrent = Mathf.Clamp(thrusterFuelCurrent, 0f, thrusterFuelMax);
+			ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
+			if (thrusterFuelCurrent <= 0f && shieldActive)
+			{
+				DisableShieldObject();
+			}
+		}
+		else if (Input.GetKeyUp(KeyCode.LeftShift) && shieldActive)
+		{
+			DisableShieldObject();
+		}
+	}
+
+	private void EnableShield()
     {
         canShield = true;
     }
 
     private void DisableShieldObject()
     {
-        shieldInstance.GetComponentInChildren<Animator>().SetTrigger("CloseShield");
+		shieldActive = false;
+		Invoke("EnableShield", shieldWait);
+		shieldInstance.GetComponentInChildren<Animator>().SetTrigger("CloseShield");
     }
 }

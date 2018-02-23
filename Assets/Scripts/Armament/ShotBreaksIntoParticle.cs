@@ -11,6 +11,9 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
 
+	[HideInInspector]
+	public int playerNumber;
+
 	void Start()
 	{
 		Assert.IsNotNull( didDamageEvent );
