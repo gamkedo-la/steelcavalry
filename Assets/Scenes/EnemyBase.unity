@@ -165,6 +165,7 @@ MonoBehaviour:
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   pfx: {fileID: 0}
   damagePerShot: 10
+  playerNumber: 0
 --- !u!20 &21971840
 Camera:
   m_ObjectHideFlags: 0
@@ -4178,6 +4179,37 @@ Prefab:
     - target: {fileID: 4437247720962406, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730307784779062, guid: 0e61ec1bff971f84a95e29078a3b94c2,
+        type: 2}
+      propertyPath: rotateSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184826373401792, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.15962273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184826373401792, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -18.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184826373401792, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9871781
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971661786174934, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730307784779062, guid: 0e61ec1bff971f84a95e29078a3b94c2,
+        type: 2}
+      propertyPath: reverseDir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730307784779062, guid: 0e61ec1bff971f84a95e29078a3b94c2,
+        type: 2}
+      propertyPath: approachDist
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
