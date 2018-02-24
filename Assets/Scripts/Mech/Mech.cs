@@ -25,11 +25,14 @@ public class Mech : MonoBehaviour
  	public float jumpPower = 10.0f;
  	public float damageTaken = 0.0f;
  	public float maxDamage = 100.0f;
+ 	public float minimumSecondsBetweenSteals = 2.0f;
+ 	public float lastStolenAt = 0.0f;
 
 	public PodLauncher pod;
 	public GameObject driver; // either the player or an enemy ai player
 	public Transform model;
 	public bool isFacingRight;
+	public bool canBeStolen = true;
 
 	private float thrusterFuelCurrent = 100f;
 	private bool isOnGround;
@@ -197,6 +200,24 @@ public class Mech : MonoBehaviour
         HandleAbilities();
 
 		mechRB.drag = drag * Mathf.Pow( mechRB.velocity.magnitude, 2 );
+
+		if(!canBeStolen) {
+			AttemptToToggleCanBeStolen();
+		}
+    }
+
+    void AttemptToToggleCanBeStolen() {
+    	float differenceInTime = Time.time - lastStolenAt;
+    	if (differenceInTime >= minimumSecondsBetweenSteals) {
+    		ToggleCanBeStolen();
+    	}
+    }
+
+    public void ToggleCanBeStolen() {
+    	canBeStolen = !!canBeStolen;
+    	if(canBeStolen) {
+    		lastStolenAt = Time.time;
+    	}
     }
 
     void OnCollisionEnter2D(Collision2D bumpFacts) {		

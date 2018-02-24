@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
 	public bool inputEnter = false;
 
 	public bool isOnGround = false;
+	private bool isAiPlayer = false;
 
 	private float oldGravityScale;
 
@@ -80,6 +81,8 @@ public class Player : MonoBehaviour {
         IWeapon weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
         weaponManager.GiveWeapon(weapon);
 
+        isAiPlayer = GetComponent<AI>() != null;
+
         EnableWeapons(true);
     }
 
@@ -89,6 +92,18 @@ public class Player : MonoBehaviour {
 			Debug.Log("Entering mech with no model... :/");
 			//return;
 		}
+
+		if (mech.driver && !mech.canBeStolen) return;
+		
+		// eject the previous pilot
+		if (mech.driver && 
+			mech.driver.GetInstanceID() != gameObject.GetInstanceID() &&
+			mech.canBeStolen
+		) {
+			mech.driver.GetComponent<Player>().ExitMech();
+			mech.ToggleCanBeStolen();
+		}
+
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
 		mechImIn = mech;
 
@@ -99,19 +114,20 @@ public class Player : MonoBehaviour {
 		rb.gravityScale = 0;
 		jetpack.JetpackToggle(false);
 
-		camScript.MechZoom(mechImIn);
-
         EnableWeapons(false);
 
         playerHealthUI.SetHealthVisibility(false);
 
         _state = PlayerState.inMech; //changes player state
 
-        firstIcon.SetIcon("turretIcon");
-        secondIcon.SetIcon("exitIcon");
+        if (!isAiPlayer) {
+			camScript.MechZoom(mechImIn);
+	        firstIcon.SetIcon("turretIcon");
+	        secondIcon.SetIcon("exitIcon");
+	    }
 	}
 
-	void ExitMech()
+	public void ExitMech()
 	{
 		if ( mechImIn == null ) return;
 
@@ -124,16 +140,17 @@ public class Player : MonoBehaviour {
 		spriteRenderer.enabled = true;
 		rb.gravityScale = oldGravityScale;
 
-		camScript.MechZoom(); //default cam size
-
         EnableWeapons(true);
 
         playerHealthUI.SetHealthVisibility(true);
 
         _state = PlayerState.outOfMech;
 
-        firstIcon.SetIcon("pilotGunIcon");
-        secondIcon.SetIcon("enterIcon");
+        if (!isAiPlayer) {
+			camScript.MechZoom(); //default cam size
+	        firstIcon.SetIcon("pilotGunIcon");
+	        secondIcon.SetIcon("enterIcon");
+	    }
 	}
 
 	// putting all input response here lets us turn it off for "dumb players" ie AI
@@ -207,7 +224,7 @@ public class Player : MonoBehaviour {
     void EnableWeapons(bool enabled) {
         if (weaponManager != null) {
             if (enabled) {
-                if (gameObject.tag == "Player") {
+                if (!isAiPlayer) {
                     weaponManager.IsPlayerDriving(true);
                 }
 
@@ -222,7 +239,7 @@ public class Player : MonoBehaviour {
                 OnAltFire2 -= weaponManager.FireTertiary;
                 weaponManager.IsActive(false);
 
-                if (gameObject.tag == "Player") {
+                if (!isAiPlayer) {
                     weaponManager.IsPlayerDriving(true);
                 }
             }
@@ -300,8 +317,9 @@ public class Player : MonoBehaviour {
 		case PlayerState.outOfMech:
 			if (inputEnter) {
 				Mech nearestMech = FindNearbyMech ();
-				if (nearestMech)
+				if (nearestMech) {
 					EnterMech (nearestMech);
+				}
 			}
 
 			float horizImpulse = 0f;
