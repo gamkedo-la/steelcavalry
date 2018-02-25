@@ -34,6 +34,8 @@ public class Mech : MonoBehaviour
 	public bool canBeStolen = true;
 	private bool isOnGround;
     private bool isOnSlope = false;
+    private float slopeAngle = 0f;    
+    private const float MAXCLIMBABLESLOPEANGLE = 85f;
 	private bool isFlying = false;
 	private bool canFly = true;
 	public bool isFacingRight;
@@ -135,21 +137,56 @@ public class Mech : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
-	public void LateUpdate ()
-    {
+    private float GetCollidedSlopeAngle(string tag) {
+        float angle = 0;
 
+        int feetRaycastDepth = 5;
+        float rayLength = 2.0f;
+        RaycastHit2D[] raycastHits = new RaycastHit2D[feetRaycastDepth];
+        Vector2 raycastDirection = isFacingRight ? Vector2.right : Vector2.left;
+        int rayCount = Physics2D.RaycastNonAlloc(mechFeet.transform.position, raycastDirection, raycastHits, rayLength);
+
+        for (int i = 0; i < rayCount; i++) {
+            if (raycastHits[i].collider.tag == tag) {
+                angle = Vector2.Angle(raycastHits[i].normal, Vector2.up);
+                break;
+            }
+        }
+
+        if (angle > 0 && angle < MAXCLIMBABLESLOPEANGLE) {
+            isOnSlope = true;
+        }
+        else {
+            isOnSlope = false;
+        }
+
+        return angle;
+    }
+
+    // Update is called once per frame
+    public void LateUpdate ()
+    {
         // BRANCH controls for Regular/Golden Goose Mech
         if (!isGoldenGoose)
         {
             if (!inUse) return; //could be made into a function to do something else when idle
             if (!driverMovement) return;
 
-            if (driverMovement.inputRight)
-                mechRigidbody.velocity = new Vector2(Time.deltaTime * mechMoveSpeed, mechRigidbody.velocity.y);
+            if (driverMovement.inputRight) {
+                mechRigidbody.velocity = new Vector2(Time.deltaTime * mechMoveSpeed, mechRigidbody.velocity.y);                
+            }
 
-            if (driverMovement.inputLeft)
-                mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);
+            if (driverMovement.inputLeft) {
+                mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);                
+            }
+
+            slopeAngle = GetCollidedSlopeAngle("Ground") * Mathf.Deg2Rad;            
+            float moveAmount = Mathf.Abs(mechRigidbody.velocity.x);
+
+            if (isOnSlope) {
+                Vector2 slopeVector = new Vector2(moveAmount * Mathf.Cos(slopeAngle) * Mathf.Sign(mechRigidbody.velocity.x), moveAmount * Mathf.Sin(slopeAngle));
+                mechRigidbody.velocity = slopeVector;
+            }
 
             if (driverMovement.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost )
             {
@@ -227,9 +264,6 @@ public class Mech : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        float collidedSlopeAngle = GetCollidedSlopeAngle(col.collider);
-        Debug.Log(collidedSlopeAngle);
-
         Player player = CheckForCollisionWithPlayer(col);
 
 		for(int i = 0; i < col.contacts.Length; i++) {
@@ -244,28 +278,7 @@ public class Mech : MonoBehaviour
 				return; // beware, this exits the whole method!
 			}
 		}
-	}
-
-    private float GetCollidedSlopeAngle(Collider2D collider) {
-        float angle = 0;
-
-        if (collider.tag == "Ground") {
-            int feetRaycastDepth = 5;
-            float rayLength = 5.0f;
-            RaycastHit2D[] raycastHits = new RaycastHit2D[feetRaycastDepth];
-            Vector2 raycastDirection = isFacingRight ? Vector2.right : Vector2.left;
-            int rayCount = Physics2D.RaycastNonAlloc(mechFeet.transform.position, raycastDirection, raycastHits, rayLength);
-            
-            for (int i = 0; i < rayCount; i++) {
-                if (raycastHits[i].collider.tag == collider.tag) {
-                    angle = Vector2.Angle(raycastHits[i].normal, Vector2.up);
-                    break;
-                }
-            }
-        }
-        
-        return angle;
-    }
+	} 
 
 	private Player CheckForCollisionWithPlayer(Collision2D other) {
 		string playerTag = "Player";
