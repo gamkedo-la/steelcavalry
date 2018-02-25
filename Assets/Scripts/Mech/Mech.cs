@@ -33,6 +33,7 @@ public class Mech : MonoBehaviour
  	public float maxDamage = 100.0f;
 	public bool canBeStolen = true;
 	private bool isOnGround;
+    private bool isOnSlope = false;
 	private bool isFlying = false;
 	private bool canFly = true;
 	public bool isFacingRight;
@@ -225,8 +226,11 @@ public class Mech : MonoBehaviour
     	}
     }
 
-    void OnCollisionEnter2D(Collision2D col) {		
-		Player player = CheckForCollisionWithPlayer(col);
+    void OnCollisionEnter2D(Collision2D col) {
+        float collidedSlopeAngle = GetCollidedSlopeAngle(col.collider);
+        Debug.Log(collidedSlopeAngle);
+
+        Player player = CheckForCollisionWithPlayer(col);
 
 		for(int i = 0; i < col.contacts.Length; i++) {
 			if(col.contacts[i].normal.y >= 0.9f) {
@@ -237,21 +241,31 @@ public class Mech : MonoBehaviour
 				}
 
 				isOnGround = true;
-				return;
+				return; // beware, this exits the whole method!
 			}
 		}
+	}
 
-        if (col.collider.tag == "Ground") {
+    private float GetCollidedSlopeAngle(Collider2D collider) {
+        float angle = 0;
+
+        if (collider.tag == "Ground") {
             int feetRaycastDepth = 5;
+            float rayLength = 5.0f;
             RaycastHit2D[] raycastHits = new RaycastHit2D[feetRaycastDepth];
             Vector2 raycastDirection = isFacingRight ? Vector2.right : Vector2.left;
-            int rayCount = Physics2D.RaycastNonAlloc(mechFeet.transform.position, raycastDirection, raycastHits);
-
+            int rayCount = Physics2D.RaycastNonAlloc(mechFeet.transform.position, raycastDirection, raycastHits, rayLength);
+            
             for (int i = 0; i < rayCount; i++) {
-                Debug.Log(raycastHits[i].normal);
+                if (raycastHits[i].collider.tag == collider.tag) {
+                    angle = Vector2.Angle(raycastHits[i].normal, Vector2.up);
+                    break;
+                }
             }
         }
-	}
+        
+        return angle;
+    }
 
 	private Player CheckForCollisionWithPlayer(Collision2D other) {
 		string playerTag = "Player";
