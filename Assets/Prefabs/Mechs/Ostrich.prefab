@@ -158,6 +158,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1208257721238880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4279728738795294}
+  m_Layer: 11
+  m_Name: Mech Feet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1210474057208066
 GameObject:
   m_ObjectHideFlags: 1
@@ -922,11 +937,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873332035167752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 0.2, z: 0}
+  m_LocalPosition: {x: 9.1, y: 4.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224903176226461142}
   - {fileID: 4049568044068722}
+  - {fileID: 4279728738795294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -970,6 +986,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4011371698568204}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4279728738795294
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208257721238880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.267, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210744720910714}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4295424872398506
 Transform:
@@ -2510,6 +2539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyParts: []
+  mechModel: {fileID: 4049568044068722}
+  mechFeet: {fileID: 4279728738795294}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114570427814008144}
   mechName: Ostrich The Bot
@@ -2521,24 +2552,27 @@ MonoBehaviour:
   thrusterPower: 26000
   firstThrustCost: 0.28
   drag: 0
-  inUse: 0
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  inUse: 0
   damageTaken: 0
   maxDamage: 100
+  canBeStolen: 1
+  isFacingRight: 1
   pod: {fileID: 0}
   driver: {fileID: 0}
-  model: {fileID: 4049568044068722}
-  isFacingRight: 1
+  minimumSecondsBetweenSteals: 2
+  lastStolenAt: 0
   goldenLedgeCheck: {fileID: 0}
   isGoldenGoose: 0
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
   podLaunched: 0
   mechCanShield: 0
-  shieldCooldown: 0
+  shieldWait: 0
   shieldDuration: 0
+  shieldCost: 0
   shieldGO: {fileID: 0}
   ThrustersOn:
     m_PersistentCalls:

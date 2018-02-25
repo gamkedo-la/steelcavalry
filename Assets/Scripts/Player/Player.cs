@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
     }
 
 	void EnterMech(Mech mech){
-		if (mech.model == null){
+		if (mech.mechModel == null){
 			//Debug.Log("Attempt to enter mech with no model. Exiting...");
 			Debug.Log("Entering mech with no model... :/");
 			//return;
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour {
 
 			// Update method for when inside mech
 			case PlayerState.inMech:
-				if(mechImIn && mechImIn.model != null) {
+				if(mechImIn && mechImIn.mechModel != null) {
                     Quaternion facingDirection;
 
                     if (isFacingRight) {
@@ -302,7 +302,7 @@ public class Player : MonoBehaviour {
                         facingDirection = Quaternion.LookRotation(Vector3.left);
                         mechImIn.Side( false );
 					}
-                    mechImIn.model.rotation = Quaternion.Slerp(mechImIn.model.rotation, facingDirection, mechImIn.mechRotateSpeed * Time.deltaTime);
+                    mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation, facingDirection, mechImIn.mechRotateSpeed * Time.deltaTime);
                 }
 
 				if ( mechImIn != null )
