@@ -26,7 +26,6 @@ public class Targeting : MonoBehaviour
     {
         backAndForth = GetComponentInParent<BackAndForth>();
         originalAngles = transform.rotation.eulerAngles;
-        //transform.localEulerAngles = new Vector3(0f, 180f, 0f);
     }
 
     void FixedUpdate()
@@ -56,10 +55,6 @@ public class Targeting : MonoBehaviour
                 targetDir = - targetDir;
             }
             Vector3 newDir = Vector3.RotateTowards(transform.parent.forward, targetDir, step, 1F);
-            Debug.Log("TargetDir: " + targetDir);
-            Debug.Log("NewDir: " + newDir);
-            Debug.DrawRay(transform.position, newDir, Color.red);
-            Debug.DrawRay(transform.position, targetDir, Color.green);
             transform.parent.rotation = Quaternion.LookRotation(newDir);
 
         }

@@ -4183,7 +4183,7 @@ Prefab:
     - target: {fileID: 114730307784779062, guid: 0e61ec1bff971f84a95e29078a3b94c2,
         type: 2}
       propertyPath: rotateSpeed
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4184826373401792, guid: 0e61ec1bff971f84a95e29078a3b94c2, type: 2}
       propertyPath: m_LocalRotation.y
