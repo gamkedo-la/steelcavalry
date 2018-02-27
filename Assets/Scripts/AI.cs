@@ -4,7 +4,7 @@ using UnityEngine;
 
 // This AI class is like a "dumb terminal" in a good way;
 // it only interfaces with the game the same way the player does:
-// input booleans! up down left right and the fire buttons
+// Player.cs input booleans! up down left right and the fire buttons
 
 [RequireComponent(typeof(Player))]
 
@@ -101,7 +101,7 @@ public class AI : MonoBehaviour {
     public RaycastHit2D[] GetScannedGameObjects() {
         Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;
 
-        RaycastHit2D[] results = new RaycastHit2D[scannedCount];
+		RaycastHit2D[] results = new RaycastHit2D[scannedCount]; // TODO: can we avoid this new() every frame?
 
         int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
                                             rayDirection,
@@ -150,15 +150,15 @@ public class AI : MonoBehaviour {
 		if (!myMovement)
 			return;
 
-        // set the position of the point in arc depending on the facing direction
+		// FIXME  - this is called too often - only call every few ms?
+		// set the position of the point in arc depending on the facing direction
         Vector3 PIALocalPosition = pointInArc.transform.localPosition;
         PIALocalPosition.x = myMovement.isFacingRight ? Mathf.Abs(PIALocalPosition.x) : -Mathf.Abs(PIALocalPosition.x);        
         pointInArc.transform.localPosition = new Vector3(PIALocalPosition.x, PIALocalPosition.y);        
-        
         // rotate the vision scanner
         scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
-
         seenByMe = GetScannedGameObjects();
+
         Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
 
 		if (myMovement._state == Player.PlayerState.outOfMech)

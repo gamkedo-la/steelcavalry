@@ -90,7 +90,9 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 		GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
 		missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
-		missile.GetComponent<HomingMissile>().playerNumber = transform.parent.parent.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().playerNumber;
+
+		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
+		missile.GetComponent<HomingMissile>().playerNumber = transform.parent.parent.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
 
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );
