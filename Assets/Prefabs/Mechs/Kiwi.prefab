@@ -68,7 +68,8 @@ GameObject:
   - component: {fileID: 4710248886719124}
   - component: {fileID: 33764864792649936}
   - component: {fileID: 23539928161680136}
-  m_Layer: 0
+  - component: {fileID: 58405305928944472}
+  m_Layer: 12
   m_Name: leg_lower_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +185,8 @@ GameObject:
   - component: {fileID: 4583635371864576}
   - component: {fileID: 33522407708654436}
   - component: {fileID: 23915804296195678}
-  m_Layer: 0
+  - component: {fileID: 58481092219042600}
+  m_Layer: 12
   m_Name: toes_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +203,8 @@ GameObject:
   - component: {fileID: 4199140401914792}
   - component: {fileID: 33105477197731342}
   - component: {fileID: 23058390000262474}
-  m_Layer: 0
+  - component: {fileID: 58832805955628612}
+  m_Layer: 12
   m_Name: leg_lower_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +252,8 @@ GameObject:
   - component: {fileID: 4530678706046378}
   - component: {fileID: 33298842469809556}
   - component: {fileID: 23963204817679978}
-  m_Layer: 0
+  - component: {fileID: 58168406888504544}
+  m_Layer: 12
   m_Name: foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915372899509396}
   - component: {fileID: 95809565032099790}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Kiwi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +368,8 @@ GameObject:
   - component: {fileID: 4279445902848482}
   - component: {fileID: 33147730992733804}
   - component: {fileID: 23317726475653326}
-  m_Layer: 0
+  - component: {fileID: 58132190701987962}
+  m_Layer: 12
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +418,8 @@ GameObject:
   - component: {fileID: 4464026827507274}
   - component: {fileID: 33469720619703028}
   - component: {fileID: 23240083908307010}
-  m_Layer: 0
+  - component: {fileID: 58741151942390552}
+  m_Layer: 12
   m_Name: leg_upper_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +469,7 @@ GameObject:
   - component: {fileID: 4917888306686838}
   - component: {fileID: 33846882955584972}
   - component: {fileID: 23861789251986914}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: missle_launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +486,8 @@ GameObject:
   - component: {fileID: 4685240751277686}
   - component: {fileID: 33797035356957528}
   - component: {fileID: 23967733610559748}
-  m_Layer: 0
+  - component: {fileID: 58288454036028414}
+  m_Layer: 12
   m_Name: leg_upper_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +538,8 @@ GameObject:
   - component: {fileID: 4472063689140330}
   - component: {fileID: 33352456067056966}
   - component: {fileID: 23341922216346510}
-  m_Layer: 0
+  - component: {fileID: 58182571432451886}
+  m_Layer: 12
   m_Name: toes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +573,8 @@ GameObject:
   - component: {fileID: 4122714667820266}
   - component: {fileID: 33786758055552352}
   - component: {fileID: 23165125138115132}
-  m_Layer: 0
+  - component: {fileID: 58422154401780012}
+  m_Layer: 12
   m_Name: pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +591,8 @@ GameObject:
   - component: {fileID: 4812923818173736}
   - component: {fileID: 33304720633035382}
   - component: {fileID: 23921910197298258}
-  m_Layer: 0
+  - component: {fileID: 58992531898028630}
+  m_Layer: 12
   m_Name: foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4207991329406624
 Transform:
@@ -744,7 +754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4292510757987260
 Transform:
@@ -783,7 +793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4472063689140330
 Transform:
@@ -837,7 +847,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4563447306569764
 Transform:
@@ -907,7 +917,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4702498548227360
 Transform:
@@ -933,7 +943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4712550343425248
 Transform:
@@ -959,7 +969,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4875720859616386
 Transform:
@@ -990,6 +1000,7 @@ Transform:
   - {fileID: 4184772221700312}
   - {fileID: 4502955154108298}
   - {fileID: 4622151438194168}
+  - {fileID: 4917888306686838}
   - {fileID: 4279445902848482}
   - {fileID: 4530678706046378}
   - {fileID: 4812923818173736}
@@ -997,7 +1008,6 @@ Transform:
   - {fileID: 4710248886719124}
   - {fileID: 4685240751277686}
   - {fileID: 4464026827507274}
-  - {fileID: 4917888306686838}
   - {fileID: 4122714667820266}
   - {fileID: 4472063689140330}
   - {fileID: 4583635371864576}
@@ -1015,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4915372899509396}
-  m_RootOrder: 13
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4999060487381030
 Transform:
@@ -1502,6 +1512,156 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58132190701987962
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691010228158236}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.6896255
+--- !u!58 &58168406888504544
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511820909613620}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12911917, y: -0.019876987}
+  serializedVersion: 2
+  m_Radius: 0.40464216
+--- !u!58 &58182571432451886
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864339844371586}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13780096, y: -0.06890048}
+  serializedVersion: 2
+  m_Radius: 3.6024594
+--- !u!58 &58288454036028414
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810418369998536}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028560767, y: -0.48945865}
+  serializedVersion: 2
+  m_Radius: 1.171909
+--- !u!58 &58405305928944472
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080442135159042}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -172.16306, y: -203.2016}
+  serializedVersion: 2
+  m_Radius: 1.1819016
+--- !u!58 &58422154401780012
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907926179531136}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00893074, y: -0.023292808}
+  serializedVersion: 2
+  m_Radius: 1.0344913
+--- !u!58 &58481092219042600
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381676845562546}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000021943526, y: 0.0000010971763}
+  serializedVersion: 2
+  m_Radius: 3.3285937
+--- !u!58 &58741151942390552
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1714313969656664}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.0231345, y: -0.24257112}
+  serializedVersion: 2
+  m_Radius: 1.171909
+--- !u!58 &58832805955628612
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414902303309884}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.6567752, y: 6.2242866}
+  serializedVersion: 2
+  m_Radius: 1.5728043
+--- !u!58 &58992531898028630
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977222367559530}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2, y: -172.08}
+  serializedVersion: 2
+  m_Radius: 0.40464216
 --- !u!61 &61235741518644264
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1829,7 +1989,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5419c0eb3244723b9a5b6f5c019996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyParts: []
+  bodyParts:
+  - {fileID: 1691010228158236}
+  - {fileID: 1511820909613620}
+  - {fileID: 1977222367559530}
+  - {fileID: 1414902303309884}
+  - {fileID: 1080442135159042}
+  - {fileID: 1810418369998536}
+  - {fileID: 1714313969656664}
+  - {fileID: 1907926179531136}
+  - {fileID: 1864339844371586}
+  - {fileID: 1381676845562546}
   mechModel: {fileID: 4999060487381030}
   mechFeet: {fileID: 4006207973259882}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
@@ -2634,11 +2804,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -3354,6 +3524,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4751,6 +4962,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -4795,12 +5007,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -5951,11 +6165,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -6671,6 +6885,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -8068,6 +8323,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -8112,12 +8368,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -9268,11 +9526,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -9988,6 +10246,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11385,6 +11684,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -11429,12 +11729,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
