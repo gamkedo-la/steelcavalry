@@ -427,23 +427,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4284569568000622, guid: 423232367e371c046b7b5cf63365ed52,
     type: 2}
   m_PrefabInternal: {fileID: 854714945}
---- !u!1 &349876239 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1246170841991184, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1843966279}
---- !u!114 &349876243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 349876239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 0358a3a5316562b47bda6dab32ebb7cd, type: 2}
 --- !u!1 &353812679
 GameObject:
   m_ObjectHideFlags: 0
@@ -16107,7 +16090,7 @@ MonoBehaviour:
   weaponEquipped: {fileID: 0}
   useKeyboardInput: 1
   useGamepadInput: 0
-  playerNumber: 1
+  gamepadNumber: 1
   inputUp: 0
   inputDown: 0
   inputLeft: 0
@@ -17034,9 +17017,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1460532778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
+  m_Script: {fileID: 11500000, guid: f7c4043777e66e449b0bf01aea9e48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  psScriptSmoke: {fileID: 0}
+  psScriptThrust: {fileID: 0}
 --- !u!212 &1460532784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17089,9 +17074,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1460532778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
+  m_Script: {fileID: 11500000, guid: a206d6d3cdae23044a729b760199c6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealthUI: {fileID: 0}
+  humanSpeed: 0.8
+  mechNearEnoughToUseDistance: 1
+  jetPackPower: 1
+  isFacingRight: 1
+  weaponFiringPoint: {fileID: 0}
+  weaponManager: {fileID: 0}
+  weaponEquipped: {fileID: 0}
+  useKeyboardInput: 1
+  useGamepadInput: 0
+  gamepadNumber: 1
+  inputUp: 0
+  inputDown: 0
+  inputLeft: 0
+  inputRight: 0
+  inputFire: 0
+  inputAltFire: 0
+  inputAltFire2: 0
+  inputEnter: 0
+  isOnGround: 0
+  _state: 0
 --- !u!61 &1460532786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24774,14 +24780,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114963105427037444, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
-        type: 2}
-      propertyPath: myPlayer
-      value: 
-      objectReference: {fileID: 219767439}
     - target: {fileID: 114961754392386506, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
         type: 2}
       propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 219767439}
+    - target: {fileID: 114963105427037444, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
+        type: 2}
+      propertyPath: myPlayer
       value: 
       objectReference: {fileID: 219767439}
     m_RemovedComponents: []
@@ -28618,9 +28624,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993925006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d04f4aae438a1469e2023785156474, type: 3}
+  m_Script: {fileID: 11500000, guid: f7c4043777e66e449b0bf01aea9e48a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  psScriptSmoke: {fileID: 0}
+  psScriptThrust: {fileID: 0}
 --- !u!212 &1993925012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28673,9 +28681,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993925006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a67850ce886a848eda93dd7779e6fc36, type: 3}
+  m_Script: {fileID: 11500000, guid: a206d6d3cdae23044a729b760199c6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealthUI: {fileID: 0}
+  humanSpeed: 0.8
+  mechNearEnoughToUseDistance: 1
+  jetPackPower: 1
+  isFacingRight: 1
+  weaponFiringPoint: {fileID: 0}
+  weaponManager: {fileID: 0}
+  weaponEquipped: {fileID: 0}
+  useKeyboardInput: 1
+  useGamepadInput: 0
+  gamepadNumber: 1
+  inputUp: 0
+  inputDown: 0
+  inputLeft: 0
+  inputRight: 0
+  inputFire: 0
+  inputAltFire: 0
+  inputAltFire2: 0
+  inputEnter: 0
+  isOnGround: 0
+  _state: 0
 --- !u!61 &1993925014
 BoxCollider2D:
   m_ObjectHideFlags: 0

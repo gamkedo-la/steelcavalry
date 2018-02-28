@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4848814893077820}
   - component: {fileID: 20537491092849150}
   - component: {fileID: 114144719316281996}
+  - component: {fileID: 114040472665048598}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -85,14 +86,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4769574400805732}
   - component: {fileID: 20514637477479986}
-  - component: {fileID: 114255462866634596}
   m_Layer: 0
   m_Name: Shot and Effects FG Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1716904137091388
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,13 +311,14 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294958047
+    m_Bits: 4294959071
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -353,6 +354,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -388,6 +390,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -423,6 +426,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -547,6 +551,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114040472665048598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246170841991184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 0358a3a5316562b47bda6dab32ebb7cd, type: 2}
 --- !u!114 &114144719316281996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,20 +574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22648f04a6a781545a2171702aa819e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114255462866634596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661011412097470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6401571748e44e90933743bc3ffc86b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
-  pfx: {fileID: 0}
-  damagePerShot: 10
 --- !u!114 &114474139845212828
 MonoBehaviour:
   m_ObjectHideFlags: 1
