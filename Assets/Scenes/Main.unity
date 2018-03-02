@@ -4399,6 +4399,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 635541604}
+  - component: {fileID: 635541605}
   - component: {fileID: 635541603}
   m_Layer: 0
   m_Name: Audio Manager
@@ -4420,10 +4421,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 219767445}
   emiters:
-  - audioEvent: 0
+  - ReadOnlyName: MechExplosion
+    audioEvent: 0
     soundFile: {fileID: 8300000, guid: 946c76b4aebefb540b4ba1a21ae6ecbe, type: 3}
     volume: 1
     priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: MechExplosion
+    audioEvent: 0
+    soundFile: {fileID: 8300000, guid: 64ddcaa83e2bf4a4e833286195f45302, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: DudeBoltShot
+    audioEvent: 2
+    soundFile: {fileID: 8300000, guid: 64ddcaa83e2bf4a4e833286195f45302, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: DudeBoltShot
+    audioEvent: 2
+    soundFile: {fileID: 8300000, guid: 0afb8991060ebd645a27d637f8d2a167, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
     volumeFalloff:
       serializedVersion: 2
       m_Curve:
@@ -4456,6 +4538,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635541605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635541602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085cb05eba8c82f46848412d999403ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 635541603}
+        m_MethodName: Play
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEventAudioEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &657285800
 GameObject:
   m_ObjectHideFlags: 0
