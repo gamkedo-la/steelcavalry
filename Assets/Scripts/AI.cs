@@ -65,11 +65,11 @@ public class AI : MonoBehaviour {
     public float scannerLength = 5.0f;
     public float scannerMaxRotation = 60.0f;
     public float scannerRotateSpeed = 10.0f;
-    public int scannedCount = 5;
     public LayerMask visibleToMe;    
     private GameObject scanner;
+    public int scannerIntervalms = 1000;
+    private RaycastHit2D[] scannedHits = new RaycastHit2D[5];
     private GameObject pointInArc;
-    private RaycastHit2D[] seenByMe;
 
 [Header("Target GameObjects")]    
     public GameObject seekTargetOutside;
@@ -81,7 +81,6 @@ public class AI : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		myMovement = GetComponent<Player>();
-		StartCoroutine("aiThink");
 
         // Vision Scanner, this rotates
         scanner = new GameObject("Vision Scanner");
@@ -95,48 +94,50 @@ public class AI : MonoBehaviour {
         float leftOrRight = myMovement.isFacingRight ? 1 : -1;
         pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerLength, 
                                                     scanner.transform.position.y);        
-        pointInArc.transform.parent = scannerTransform;        
+        pointInArc.transform.parent = scannerTransform;
+
+        // AI starts thinking
+        StartCoroutine("aiThink");
     }
 
     public RaycastHit2D[] GetScannedGameObjects() {
         Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;
 
-		RaycastHit2D[] results = new RaycastHit2D[scannedCount]; // TODO: can we avoid this new() every frame?
-
         int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
                                             rayDirection,
-                                            results,
+                                            scannedHits,
                                             scannerLength,
                                             visibleToMe);
 
         for (int i = 1; i < hit; i++) {  // i starts at 1 to ignore self
-            Collider2D resultCollider = results[i].collider;
+            Collider2D resultCollider = scannedHits[i].collider;
             if (resultCollider != null) {                
                 Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");                
             }
         }
         
-        return results;
+        return scannedHits;
     }
 
     public bool hasLineOfSightTo(GameObject toThis)	{
 		bool result = false;
 
-        RaycastHit2D[] visible = seenByMe;
+        RaycastHit2D[] visible = GetScannedGameObjects();
 
-        for (int i = 1; i < visible.Length; i++) {  // i starts at 1 to ignore self
-            Collider2D visibleCollider = visible[i].collider;
-            if (visibleCollider != null && visibleCollider.gameObject == toThis) {                
-                Debug.Log("Ah ha!! " + gameObject.name + " is going to do something to " + visibleCollider.name + "!");
-                return true;               
+        if (visible != null) {
+            for (int i = 1; i < visible.Length; i++) {  // i starts at 1 to ignore self
+                Collider2D visibleCollider = visible[i].collider;
+                if (visibleCollider != null && visibleCollider.gameObject == toThis) {
+                    Debug.Log("Ah ha!! " + gameObject.name + " is going to do something to " + visibleCollider.name + "!");
+                    return true;
+                }
             }
         }
 
         return result;
 	}
 
-	float wobble(float timestamp, float offset)
-	{
+	float wobble(float timestamp, float offset)	{
 		float amount = (Mathf.PerlinNoise(timestamp+offset,timestamp+offset)*2f-0.5f) // take a timed random wobble from -1 to +1
 			* emotionalInstability // how much we should change per second
 			* (1f + (boredom * boredomInstabilityBoost)); // and affect emotions a bit (or a lot of we're bored)
@@ -146,22 +147,21 @@ public class AI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 		if (!myMovement)
 			return;
-
-		// FIXME  - this is called too often - only call every few ms?
-		// set the position of the point in arc depending on the facing direction
-        Vector3 PIALocalPosition = pointInArc.transform.localPosition;
-        PIALocalPosition.x = myMovement.isFacingRight ? Mathf.Abs(PIALocalPosition.x) : -Mathf.Abs(PIALocalPosition.x);        
-        pointInArc.transform.localPosition = new Vector3(PIALocalPosition.x, PIALocalPosition.y);        
-        // rotate the vision scanner
-        scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
-        seenByMe = GetScannedGameObjects();
+        
+        if (Mathf.FloorToInt(Time.timeSinceLevelLoad * 1000f) % (scannerIntervalms + 100) >= scannerIntervalms) {
+            // set the position of the point in arc depending on the facing direction
+            Vector3 pointInArcLocalPos = pointInArc.transform.localPosition;
+            pointInArcLocalPos.x = (myMovement.isFacingRight ? 1 : -1) * Mathf.Abs(pointInArcLocalPos.x);
+            pointInArc.transform.localPosition = new Vector2(pointInArcLocalPos.x, pointInArcLocalPos.y);
+            // rotate the vision scanner
+            scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
+        }
 
         Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
 
-		if (myMovement._state == Player.PlayerState.outOfMech)
+        if (myMovement._state == Player.PlayerState.outOfMech)
 			seekTarget = seekTargetOutside;
 
 		if (myMovement._state == Player.PlayerState.inMech)
@@ -244,7 +244,7 @@ public class AI : MonoBehaviour {
 			// fixme: could be fear-dependent etc
 			if (seekTarget) {
 
-				bool canSeeTarget = hasLineOfSightTo(seekTarget); // TODO: unimplemented
+				bool canSeeTarget = hasLineOfSightTo(seekTarget);
 
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
 					
