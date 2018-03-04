@@ -68,7 +68,7 @@ public class AI : MonoBehaviour {
     public LayerMask visibleToMe;    
     private GameObject scanner;
     public int scannerIntervalms = 1000;
-    private RaycastHit2D[] scannedHits = new RaycastHit2D[5];
+    public int scannerDepth = 5;
     private GameObject pointInArc;
 
 [Header("Target GameObjects")]    
@@ -101,22 +101,46 @@ public class AI : MonoBehaviour {
     }
 
     public RaycastHit2D[] GetScannedGameObjects() {
-        Vector2 rayDirection = (pointInArc.transform.position - scanner.transform.position).normalized;
+        Vector3 rayDirection1 = (new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y - 2f) - 
+                                 scanner.transform.position)
+                                 .normalized;
+        Vector3 rayDirection2 = (new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y + 2f) -
+                                 scanner.transform.position)
+                                 .normalized;
 
-        int hit = Physics2D.RaycastNonAlloc(scanner.transform.position,
-                                            rayDirection,
-                                            scannedHits,
-                                            scannerLength,
-                                            visibleToMe);
+        RaycastHit2D[] scannedHits1 = new RaycastHit2D[scannerDepth];
+        RaycastHit2D[] scannedHits2 = new RaycastHit2D[scannerDepth];
 
-        for (int i = 1; i < hit; i++) {  // i starts at 1 to ignore self
-            Collider2D resultCollider = scannedHits[i].collider;
+        int hit1 = Physics2D.RaycastNonAlloc(scanner.transform.position,
+                                             rayDirection1,
+                                             scannedHits1,
+                                             scannerLength,
+                                             visibleToMe);
+        int hit2 = Physics2D.RaycastNonAlloc(scanner.transform.position,
+                                             rayDirection2,
+                                             scannedHits2,
+                                             scannerLength,
+                                             visibleToMe);
+
+        for (int i = 1; i < hit1; i++) {  // i starts at 1 to ignore self
+            Collider2D resultCollider = scannedHits1[i].collider;
             if (resultCollider != null) {                
                 Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");                
             }
         }
-        
-        return scannedHits;
+        for (int i = 1; i < hit2; i++) {  // i starts at 1 to ignore self
+            Collider2D resultCollider = scannedHits2[i].collider;
+            if (resultCollider != null) {
+                Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");
+            }
+        }
+
+        RaycastHit2D[] scannedHitsAll = new RaycastHit2D[scannedHits1.Length + scannedHits2.Length];
+        scannedHits1.CopyTo(scannedHitsAll, 0);
+        scannedHits2.CopyTo(scannedHitsAll, scannedHits1.Length);
+
+
+        return scannedHitsAll;
     }
 
     public bool hasLineOfSightTo(GameObject toThis)	{
@@ -158,8 +182,9 @@ public class AI : MonoBehaviour {
             // rotate the vision scanner
             scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
         }
-
-        Debug.DrawLine(scanner.transform.position, pointInArc.transform.position, Color.red);
+        
+        Debug.DrawLine(scanner.transform.position, new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y - 2f), Color.red);
+        Debug.DrawLine(scanner.transform.position, new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y + 2f), Color.red);
 
         if (myMovement._state == Player.PlayerState.outOfMech)
 			seekTarget = seekTargetOutside;
