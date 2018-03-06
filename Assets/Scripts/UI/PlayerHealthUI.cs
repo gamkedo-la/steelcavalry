@@ -9,9 +9,12 @@ public class PlayerHealthUI : MonoBehaviour {
 	[SerializeField] private Image playerHpBar = null;
 	[SerializeField] private Image playerThrustersBar = null;
 	[SerializeField] private GameObject healthUI = null;
+	[SerializeField] private int maxLives = 3;
+	private int lives;
 
 	private GameObject player;
 	private string playerTag = "Player";
+	private Vector3 spawnPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +22,9 @@ public class PlayerHealthUI : MonoBehaviour {
 		Assert.IsNotNull(playerThrustersBar);
 		Assert.IsNotNull(healthUI);
 		player = GameObject.FindWithTag(playerTag);
+
+		lives = maxLives;
+		spawnPoint = player.transform.position;
 	}
 	
 	void LateUpdate () {
@@ -35,6 +41,16 @@ public class PlayerHealthUI : MonoBehaviour {
 	}
 
 	public void DestroyPlayer() {
-		Destroy(player);
+		lives--;
+		if (lives < 1) {
+			Destroy(player);
+		} else {
+			RespawnPlayer();
+		}
+	}
+
+	private void RespawnPlayer() {
+		playerHpBar.fillAmount = 100f;
+		player.transform.position = spawnPoint;
 	}
 }
