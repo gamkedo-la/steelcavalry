@@ -874,7 +874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5419c0eb3244723b9a5b6f5c019996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioEvent: {fileID: 0}
   bodyParts: []
+  mechModel: {fileID: 0}
+  mechFeet: {fileID: 0}
   explosion: {fileID: 0}
   ui: {fileID: 114713018997930334}
   mechName: Golden G0053
@@ -886,24 +889,27 @@ MonoBehaviour:
   thrusterPower: 20
   firstThrustCost: 0.25
   drag: 0
-  inUse: 0
   mechMoveSpeed: 2
   mechRotateSpeed: 5
   jumpPower: 2500
+  inUse: 0
   damageTaken: 0
   maxDamage: 100
+  canBeStolen: 1
+  isFacingRight: 0
   pod: {fileID: 114265409940954450}
   driver: {fileID: 0}
-  model: {fileID: 4424598540729230}
-  isFacingRight: 0
+  minimumSecondsBetweenSteals: 2
+  lastStolenAt: 0
   goldenLedgeCheck: {fileID: 114095136288716524}
   isGoldenGoose: 1
   rocketPivot: {fileID: 1973500399329602}
   gGRocketRotateSpeed: 25
   podLaunched: 0
   mechCanShield: 0
-  shieldCooldown: 0
+  shieldWait: 0
   shieldDuration: 0
+  shieldCost: 0
   shieldGO: {fileID: 0}
   ThrustersOn:
     m_PersistentCalls:
