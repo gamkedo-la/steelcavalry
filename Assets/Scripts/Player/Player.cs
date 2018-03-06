@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Jetpack), typeof(WeaponManager), typeof(HP))]
 public class Player : MonoBehaviour {
 	[SerializeField] private PlayerHealthUI playerHealthUI = null;
-
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	public float humanSpeed = 0.8f;
 	public float mechNearEnoughToUseDistance = 1.0f;
 	// public float exitMechDistancePopUp = 1.1f;
@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
 	private Camera mainCam;
 	private MainCamera camScript;
+
+	private bool jetpackOn = false;
 
 	private int mechOnlyMask;
 
@@ -64,7 +66,10 @@ public class Player : MonoBehaviour {
 	public PlayerState _state;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		Assert.IsNotNull( audioEvent );
+
 		firstIcon = GameObject.Find("Main UI/Icon Turret").GetComponent<AbilityIcon>();
 		secondIcon = GameObject.Find("Main UI/Icon Thrusters").GetComponent<AbilityIcon>();
 
@@ -94,9 +99,9 @@ public class Player : MonoBehaviour {
 		}
 
 		if (mech.driver && !mech.canBeStolen) return;
-		
+
 		// eject the previous pilot
-		if (mech.driver && 
+		if (mech.driver &&
 			mech.driver.GetInstanceID() != gameObject.GetInstanceID() &&
 			mech.canBeStolen
 		) {
@@ -335,8 +340,16 @@ public class Player : MonoBehaviour {
 			if (inputUp) {
 				isOnGround = false;
 				jetpack.JetpackToggle(true);
+
+				if ( !jetpackOn )
+				{
+					jetpackOn = true;
+					audioEvent.Raise( AudioEvents.PlayerJetpack, transform.position );
+					Invoke( "JetpackSoundOff", 0.2f );
+				}
+
 				//transform.position += Vector3.up * Time.deltaTime * jetPackPower;
-                rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
+				rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
                 //rb.gravityScale = 1.0f;
 				//rb.velocity = Vector2.zero;
 			} else {
@@ -353,6 +366,11 @@ public class Player : MonoBehaviour {
 	public string getNameOfMechPlayerIsIn() {
 		if(!mechImIn) return "";
 		return mechImIn.name;
+	}
+
+	private void JetpackSoundOff()
+	{
+		jetpackOn = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {

@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class MissileLauncher : MonoBehaviour, IWeapon
 {
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private MouseCursor cursor;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
@@ -24,6 +25,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	{
         cursor = UIResourceManager.MouseCursor;
 
+		Assert.IsNotNull( audioEvent );
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
@@ -88,6 +90,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
 			return;
 
+		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
 		GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
 		missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 

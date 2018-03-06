@@ -217,8 +217,8 @@ MonoBehaviour:
     soundFile: {fileID: 8300000, guid: da8e1b444c6a0b24fab7204c86644c89, type: 3}
     volume: 1
     priority: 128
-    minPitch: 0.9
-    maxPitch: 1.1
+    minPitch: 1
+    maxPitch: 1.05
     volumeFalloff:
       serializedVersion: 2
       m_Curve:
@@ -318,7 +318,7 @@ MonoBehaviour:
     maxEventsAtOneTime: 5
   - ReadOnlyName: MechThrustter
     audioEvent: 8
-    soundFile: {fileID: 8300000, guid: f4a58dd24d464fb42a06ca2d3a9124d7, type: 3}
+    soundFile: {fileID: 8300000, guid: 458b1755e694a1741afc211bdf04df0c, type: 3}
     volume: 1
     priority: 128
     minPitch: 0.9
@@ -475,7 +475,7 @@ MonoBehaviour:
   - ReadOnlyName: RocketLaunch
     audioEvent: 13
     soundFile: {fileID: 8300000, guid: 1fd7010c9b9958741904be534430e187, type: 3}
-    volume: 1
+    volume: 0.5
     priority: 128
     minPitch: 0.9
     maxPitch: 1.1

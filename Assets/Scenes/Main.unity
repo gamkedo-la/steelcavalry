@@ -8871,6 +8871,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 841016085}
     m_Modifications:
+    - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
+        type: 2}
+      propertyPath: objectsToPickUp.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4284569568000622, guid: 423232367e371c046b7b5cf63365ed52, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.39
@@ -8922,6 +8927,29 @@ Prefab:
       propertyPath: m_Color.a
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
+        type: 2}
+      propertyPath: typeToGive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
+        type: 2}
+      propertyPath: objectsToPickUp.Array.data[1]
+      value: 
+      objectReference: {fileID: 1282935700071570, guid: b5921384a3394f5458f3963d88cbc0f7,
+        type: 2}
+    - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
+        type: 2}
+      propertyPath: objectsToPickUp.Array.data[2]
+      value: 
+      objectReference: {fileID: 1956260519700346, guid: 5e9279b6a6da8284bb095289a446d619,
+        type: 2}
+    - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
+        type: 2}
+      propertyPath: objectsToPickUp.Array.data[3]
+      value: 
+      objectReference: {fileID: 1956260519700346, guid: 5e9279b6a6da8284bb095289a446d619,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423232367e371c046b7b5cf63365ed52, type: 2}
   m_IsPrefabParent: 0
@@ -16128,6 +16156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 0}
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
@@ -17127,6 +17156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 0}
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
@@ -28735,6 +28765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 0}
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1

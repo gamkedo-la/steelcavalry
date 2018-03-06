@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class Gun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
@@ -31,6 +32,7 @@ public class Gun : MonoBehaviour, IWeapon
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
 		Assert.IsNotNull( weaponSlotEvents );
+		Assert.IsNotNull( audioEvent );
 
 		currentMagSize = (int)parameters.MagSize;
 	}
@@ -104,6 +106,7 @@ public class Gun : MonoBehaviour, IWeapon
 		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
 			return;
 
+		audioEvent.Raise( AudioEvents.Shot, transform.position );
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
 		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by

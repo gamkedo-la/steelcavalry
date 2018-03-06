@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponManager), typeof(HP))]
 public class Mech : MonoBehaviour
 {
-    [Header("Mech Body")]
+	[SerializeField] private GameEventAudioEvent audioEvent;
+	[Header("Mech Body")]
     [SerializeField] private GameObject[] bodyParts = null;
 	public Transform mechModel;
     public Transform mechFeet; // for raycast origin to get slope normal to walk up slopes
@@ -34,7 +35,7 @@ public class Mech : MonoBehaviour
 	public bool canBeStolen = true;
 	private bool isOnGround;
     private bool isOnSlope = false;
-    private float slopeAngle = 0f;    
+    private float slopeAngle = 0f;
     private const float MAXCLIMBABLESLOPEANGLE = 85f;
 	private bool isFlying = false;
 	private bool canFly = true;
@@ -70,6 +71,8 @@ public class Mech : MonoBehaviour
 	public GameObject shieldGO;
     private GameObject shieldInstance;
 
+	private bool thrustersOn = false;
+
 	public UnityEvent ThrustersOn;
 	public UnityEvent ThrustersOff;
 
@@ -77,6 +80,7 @@ public class Mech : MonoBehaviour
 
 		Assert.IsNotNull( ui );
 		Assert.IsNotNull( explosion );
+		Assert.IsNotNull( audioEvent );
 		ui.SetName( mechName );
 
         hp = GetComponent<HP>();
@@ -173,14 +177,14 @@ public class Mech : MonoBehaviour
             if (!driverMovement) return;
 
             if (driverMovement.inputRight) {
-                mechRigidbody.velocity = new Vector2(Time.deltaTime * mechMoveSpeed, mechRigidbody.velocity.y);                
+                mechRigidbody.velocity = new Vector2(Time.deltaTime * mechMoveSpeed, mechRigidbody.velocity.y);
             }
 
             if (driverMovement.inputLeft) {
-                mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);                
+                mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);
             }
 
-            slopeAngle = GetCollidedSlopeAngle("Ground") * Mathf.Deg2Rad;            
+            slopeAngle = GetCollidedSlopeAngle("Ground") * Mathf.Deg2Rad;
             float moveAmount = Mathf.Abs(mechRigidbody.velocity.x);
 
             if (isOnSlope) {
@@ -196,6 +200,13 @@ public class Mech : MonoBehaviour
 				isOnGround = false;
 				isFlying = true;
 				canFly = true;
+
+				if ( !thrustersOn )
+				{
+					thrustersOn = true;
+					audioEvent.Raise( AudioEvents.MechThrustter, transform.position );
+					Invoke( "ThrustersOffSound", 1.35f );
+				}
 
 				ThrustersOn.Invoke( );
             }
@@ -249,7 +260,12 @@ public class Mech : MonoBehaviour
 		}
     }
 
-    void AttemptToToggleCanBeStolen() {
+	private void ThrustersOffSound( )
+	{
+		thrustersOn = false;
+	}
+
+	void AttemptToToggleCanBeStolen() {
     	float differenceInTime = Time.time - lastStolenAt;
     	if (differenceInTime >= minimumSecondsBetweenSteals) {
     		ToggleCanBeStolen();
@@ -268,7 +284,7 @@ public class Mech : MonoBehaviour
 
 		for(int i = 0; i < col.contacts.Length; i++) {
 			if(col.contacts[i].normal.y >= 0.9f) {
-				
+
 				// crush the human beneath the weight of a mech
 				if(player != null && player.isOnGround) {
 					Destroy(col.gameObject);
@@ -278,7 +294,7 @@ public class Mech : MonoBehaviour
 				return; // beware, this exits the whole method!
 			}
 		}
-	} 
+	}
 
 	private Player CheckForCollisionWithPlayer(Collision2D other) {
 		string playerTag = "Player";
@@ -296,6 +312,7 @@ public class Mech : MonoBehaviour
 
 	public void DestroyMech()
 	{
+		audioEvent.Raise( AudioEvents.MechExplosion, transform.position );
 		var exp = Instantiate( explosion, transform.position, Quaternion.identity );
 		Destroy( exp, 3f );
 
