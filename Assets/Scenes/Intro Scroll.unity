@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 1072590470}
   - component: {fileID: 1072590472}
   - component: {fileID: 1072590471}
+  - component: {fileID: 1072590473}
   m_Layer: 5
   m_Name: Intro Text
   m_TagString: Untagged
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -441,17 +442,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mech initialized...
+  m_Text: 'Mech cortex initialized...
 
-    Core Heat Optimal...
+    Core temp in optimal range...
 
-    Overhead online...
+    Targeting computer online...
 
-    Shields ionized...
+    Ionized shield grid energized...
 
     Actuators actuating...
 
-    Firefly in range...'
+    Firefly class mech in range...'
 --- !u!222 &1072590472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -459,6 +460,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1072590469}
+--- !u!114 &1072590473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1072590469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0e1d21d17033849999de5e76142f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1257534426
 GameObject:
   m_ObjectHideFlags: 0
