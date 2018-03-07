@@ -10,6 +10,8 @@ public class PlayerHealthUI : MonoBehaviour {
 	[SerializeField] private Image playerThrustersBar = null;
 	[SerializeField] private GameObject healthUI = null;
 	[SerializeField] private int maxLives = 3;
+	[SerializeField] private Text livesText;
+	private bool isPlayer = false;
 	private int lives;
 
 	private GameObject player;
@@ -25,6 +27,13 @@ public class PlayerHealthUI : MonoBehaviour {
 
 		lives = maxLives;
 		spawnPoint = player.transform.position;
+
+		// it's the player and not an enemy ai
+		if(!player.GetComponent<AI>()) {
+			isPlayer = true;
+			livesText = GameObject.Find("Lives text").GetComponent<Text>();
+			SetLivesText();
+		}
 	}
 	
 	void LateUpdate () {
@@ -42,6 +51,7 @@ public class PlayerHealthUI : MonoBehaviour {
 
 	public void DestroyPlayer() {
 		lives--;
+		SetLivesText();
 		if (lives < 1) {
 			Destroy(player);
 		} else {
@@ -52,5 +62,11 @@ public class PlayerHealthUI : MonoBehaviour {
 	private void RespawnPlayer() {
 		playerHpBar.fillAmount = 100f;
 		player.transform.position = spawnPoint;
+	}
+
+	private void SetLivesText() {
+		if(livesText) {			
+			livesText.text = "x" + lives;
+		}
 	}
 }
