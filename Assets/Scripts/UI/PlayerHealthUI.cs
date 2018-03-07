@@ -21,7 +21,7 @@ public class PlayerHealthUI : MonoBehaviour {
 		Assert.IsNotNull(playerHpBar);
 		Assert.IsNotNull(playerThrustersBar);
 		Assert.IsNotNull(healthUI);
-		player = GameObject.FindWithTag(playerTag);
+		player = transform.parent.gameObject;
 
 		lives = maxLives;
 		spawnPoint = player.transform.position;

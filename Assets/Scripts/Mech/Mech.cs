@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
@@ -27,6 +27,7 @@ public class Mech : MonoBehaviour
 	public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
  	public float jumpPower = 10.0f;
+ 	public float crushDamage = 100f;
 
     [Header("Mech State")]
 	public bool inUse = false;
@@ -287,7 +288,12 @@ public class Mech : MonoBehaviour
 
 				// crush the human beneath the weight of a mech
 				if(player != null && player.isOnGround) {
-					Destroy(col.gameObject);
+					HP hp = col.collider.GetComponent<HP>();
+					if (hp) {
+						hp.TakeDamage(crushDamage);
+					} else {
+						Destroy(col.gameObject);
+					}
 				}
 
 				isOnGround = true;

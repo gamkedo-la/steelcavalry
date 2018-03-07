@@ -3771,6 +3771,7 @@ MonoBehaviour:
   playerHpBar: {fileID: 1930852761}
   playerThrustersBar: {fileID: 681625970}
   healthUI: {fileID: 1905394000}
+  maxLives: 3
 --- !u!114 &697998618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4041,10 +4042,11 @@ MonoBehaviour:
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 15
-  scannedCount: 5
   visibleToMe:
     serializedVersion: 2
     m_Bits: 2304
+  scannerIntervalms: 1000
+  scannerDepth: 5
   seekTargetOutside: {fileID: 219767439}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1127740843
@@ -4179,6 +4181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 697998617}
+  audioEvent: {fileID: 0}
   humanSpeed: 100
   mechNearEnoughToUseDistance: 1
   jetPackPower: 100
