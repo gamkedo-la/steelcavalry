@@ -248,7 +248,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161870192225308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.35, y: 1.084, z: 0}
+  m_LocalPosition: {x: 3.84, y: 3.31, z: 0}
   m_LocalScale: {x: 1.4443611, y: 1.528887, z: 1}
   m_Children:
   - {fileID: 4367499713811524}
@@ -346,6 +346,7 @@ MonoBehaviour:
   playerHpBar: {fileID: 114454019817936800}
   playerThrustersBar: {fileID: 114419743892248864}
   healthUI: {fileID: 1372749388773918}
+  maxLives: 3
 --- !u!114 &114419743892248864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -516,16 +517,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 114268464565400138}
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   humanSpeed: 100
   mechNearEnoughToUseDistance: 1
   jetPackPower: 100
+  isFacingRight: 1
   weaponFiringPoint: {fileID: 4367499713811524}
   weaponManager: {fileID: 114184448616804772}
   weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
     type: 2}
   useKeyboardInput: 1
   useGamepadInput: 0
-  playerNumber: 1
+  gamepadNumber: 1
   inputUp: 0
   inputDown: 0
   inputLeft: 0
@@ -534,6 +537,7 @@ MonoBehaviour:
   inputAltFire: 0
   inputAltFire2: 0
   inputEnter: 0
+  isOnGround: 0
   _state: 1
 --- !u!114 &114866021389114344
 MonoBehaviour:

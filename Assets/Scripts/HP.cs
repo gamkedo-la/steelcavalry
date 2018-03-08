@@ -20,16 +20,17 @@ public class HP : MonoBehaviour
 
 	public void TakeDamage( float damageAmount )
 	{
-		if ( useMultiplier )
+		if ( useMultiplier ) {
 			damageAmount *= 1.25f;
+		}
 
 		damageTaken += damageAmount;
 		damageTaken = damageTaken > maxHp ? maxHp : damageTaken;
 
 		onHPChanged.Invoke( 1f - damageTaken / maxHp );
 
-		if ( damageTaken >= maxHp )
-		{
+		if (damageTaken >= maxHp) {
+			damageTaken = 0; // reset to 0 on death
 			onDeath.Invoke( );
 		}
 	}

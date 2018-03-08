@@ -3,6 +3,8 @@ using UnityEngine.Assertions;
 
 public class Gun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private ParticleSystem muzzleFlesh;
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
@@ -27,10 +29,12 @@ public class Gun : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+		Assert.IsNotNull( muzzleFlesh );
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
 		Assert.IsNotNull( weaponSlotEvents );
+		Assert.IsNotNull( audioEvent );
 
 		currentMagSize = (int)parameters.MagSize;
 	}
@@ -104,8 +108,12 @@ public class Gun : MonoBehaviour, IWeapon
 		if ( realoadTimeLeft > 0 || timeToNextShot > 0 )
 			return;
 
+		audioEvent.Raise( AudioEvents.Shot, transform.position );
+		muzzleFlesh.Play( );
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
-		shotGO.GetComponent<ShotBreaksIntoParticle>().playerNumber = transform.parent.parent.parent.parent.GetComponent<Mech>().driver.GetComponent<Player>().playerNumber;
+
+		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
+		shotGO.GetComponent<ShotBreaksIntoParticle>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber;
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;

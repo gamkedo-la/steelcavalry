@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class PlayerMachineGun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
@@ -106,6 +107,8 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 
 		timeToNextShot = parameters.DelayBetweenShots;
 		currentMagSize--;
+
+		audioEvent.Raise( AudioEvents.DudeBoltShot, transform.position );
 
 		if ( isPlayerDriver )
 		{

@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class HomingMissile : MonoBehaviour
 {
+	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private GameObject explosion = null;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
 	[SerializeField] private float speed = 5f;
@@ -22,6 +23,7 @@ public class HomingMissile : MonoBehaviour
 		Assert.IsNotNull( rb );
 		Assert.IsNotNull( explosion );
 		Assert.IsNotNull( didDamageEvent );
+		Assert.IsNotNull( audioEvent );
 	}
 
 	void FixedUpdate( )
@@ -64,6 +66,8 @@ public class HomingMissile : MonoBehaviour
 
 	public void DoDestruction( Vector2 point )
 	{
+		audioEvent.Raise( AudioEvents.Explosion, transform.position );
+
 		var exp = Instantiate( explosion, point, Quaternion.identity );
 
 		Destroy( exp, 2f );
