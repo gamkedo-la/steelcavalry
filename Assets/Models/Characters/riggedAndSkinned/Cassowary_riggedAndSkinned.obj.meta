@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: ff699dc61fc456240a5a0208615a3a2e
-timeCreated: 1520511060
-=======
-guid: 03a55e8bdf1d44f448678a48787f7a14
-timeCreated: 1520519047
->>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -17,16 +10,13 @@ ModelImporter:
     2300000: initialShadingGroup_thrusters1
     3300000: initialShadingGroup_thrusters1
     4300000: initialShadingGroup_thrusters1
+    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: initialShadingGroup_thrusters1Mat
-<<<<<<< HEAD
     second: {fileID: 2100000, guid: b319a58635529524a99df72f36e6112b, type: 2}
-=======
-    second: {fileID: 2100000, guid: e45da4999d8e3304c9aa38130fa396d4, type: 2}
->>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
   materials:
     importMaterials: 1
     materialName: 0
@@ -98,7 +88,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
