@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class Laser : MonoBehaviour, IWeapon
 {
+	[SerializeField] private ParticleSystem muzzleFlesh;
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private AudioEvents audioEventType = AudioEvents.LaserTyp1;
 	[SerializeField] private Transform spawnPoint = null;
@@ -34,6 +35,7 @@ public class Laser : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+		Assert.IsNotNull( muzzleFlesh );
 		Assert.IsNotNull( audioEvent );
 		Assert.IsNotNull( spawnPoint );
 		Assert.IsNotNull( parameters );
@@ -182,6 +184,7 @@ public class Laser : MonoBehaviour, IWeapon
 		}
 
 		beem.gameObject.SetActive( true );
+		if (!muzzleFlesh.isPlaying) muzzleFlesh.Play( );
 
 		Vector2 laserDirection = spawnPoint.rotation * ( spawnPoint.right * -1 );
 		float currentLaserSize = maxLaserSize;

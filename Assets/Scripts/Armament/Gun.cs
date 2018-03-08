@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class Gun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private ParticleSystem muzzleFlesh;
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
@@ -28,6 +29,7 @@ public class Gun : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+		Assert.IsNotNull( muzzleFlesh );
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
@@ -107,6 +109,7 @@ public class Gun : MonoBehaviour, IWeapon
 			return;
 
 		audioEvent.Raise( AudioEvents.Shot, transform.position );
+		muzzleFlesh.Play( );
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
 		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
