@@ -31,8 +31,12 @@ public class PlayerHealthUI : MonoBehaviour {
 		// it's the player and not an enemy ai
 		if(!player.GetComponent<AI>()) {
 			isPlayer = true;
-			livesText = GameObject.Find("Lives text").GetComponent<Text>();
-			SetLivesText();
+			GameObject LivesTextObject = GameObject.Find("Lives text");
+
+			if (LivesTextObject) {				
+				livesText = LivesTextObject.GetComponent<Text>();
+				SetLivesText();
+			}
 		}
 	}
 	

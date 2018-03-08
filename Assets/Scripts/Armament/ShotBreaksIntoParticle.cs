@@ -18,7 +18,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	{
 		Assert.IsNotNull( didDamageEvent );
 
-		player = GameObject.FindWithTag("Player");
+		player = GameObject.Find("Player");
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
