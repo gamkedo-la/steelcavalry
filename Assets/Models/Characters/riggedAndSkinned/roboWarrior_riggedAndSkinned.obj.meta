@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4cfacbb1df3eb044e811014babfff55d
 timeCreated: 1520511059
+=======
+guid: c2250f48420c50f4da5ea076c2368cef
+timeCreated: 1520519049
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -22,12 +27,20 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CubeFBXASC046014Mat
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: 94bbc1c63036d734b9f5a3201e25b65d, type: 2}
+=======
+    second: {fileID: 2100000, guid: cab1f174966f6f54392d46a3ff9a4812, type: 2}
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: initialShadingGroup_CubeFBXASC046014Mat
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: f2652784a95d13145b92d2f1df959d25, type: 2}
+=======
+    second: {fileID: 2100000, guid: d643f2f60717ba748b3c9dd29af37dd6, type: 2}
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
   materials:
     importMaterials: 1
     materialName: 0

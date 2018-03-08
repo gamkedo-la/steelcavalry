@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 569a3aba8293741459e5820115e33aa8
 timeCreated: 1520511060
+=======
+guid: 2702c4dd45370af4a89256b1f650af6b
+timeCreated: 1520519048
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -22,12 +27,20 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: initialShadingGroup_ostrichMechMat
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: 8b91cd4b73aa8d34bb462ee0fb55ed11, type: 2}
+=======
+    second: {fileID: 2100000, guid: 0d09bd1ea4715d34ea4e97e8293359bf, type: 2}
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ostrichMechMat
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: b72baf311bbd3a344826e9f9e2e80664, type: 2}
+=======
+    second: {fileID: 2100000, guid: b2b93ad24dac98f4498cd6e265f43ab1, type: 2}
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d
   materials:
     importMaterials: 1
     materialName: 0

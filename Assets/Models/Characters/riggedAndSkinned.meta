@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Characters/riggedAndSkinned.meta
 guid: 310ec1a09ffba424db2b2f694d720ed1
 folderAsset: yes
 timeCreated: 1520511058
+=======
+guid: 607e514987ffd3a4b8fc6fc758b718ca
+folderAsset: yes
+timeCreated: 1520519036
+>>>>>>> 4c8ba6724504843c47bf9d8e05ad59bb78e0d99d:Assets/Models/Characters/riggedAndSkinned.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
