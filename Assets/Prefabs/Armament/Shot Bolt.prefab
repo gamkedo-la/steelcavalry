@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
   pfx: {fileID: 1439764449867656, guid: 4508bf5f351894690b5af895b196a8e7, type: 2}
-  damagePerShot: 1
+  damagePerShot: 5
   playerNumber: 0
 --- !u!114 &114879613950008458
 MonoBehaviour:
