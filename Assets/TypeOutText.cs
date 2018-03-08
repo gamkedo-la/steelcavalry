@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TypeOutText : MonoBehaviour {
+	public GameObject button;
+	private Text buttonText;
 	private Text displayText;
 	private string fullText;
 	// Use this for initialization
 	void Start () {
+		buttonText = button.GetComponent<Text> ();
 		displayText = GetComponent<Text> ();
 		fullText = displayText.text;
 		displayText.text = "";
@@ -16,12 +19,17 @@ public class TypeOutText : MonoBehaviour {
 	IEnumerator TypeLetter()
 	{
 		while (fullText.Length > 0) {
-			// TODO: cut one letter off the start of full text and stick that letter on the end of dislpayText.text
 			displayText.text = displayText.text + fullText[0];
 			fullText = fullText.Substring (1, fullText.Length - 1);
-			yield return new WaitForSeconds (0.1f);
+
+			if (fullText.Length == 1 && buttonText.text == "Skip") {
+				buttonText.text = "Start";
+			}
+
+			yield return new WaitForSeconds (0.05f);
 		}
 	}
+
 	// Update is called once per frame
 	void Update () {
 		
