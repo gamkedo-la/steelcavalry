@@ -19,7 +19,7 @@ public class TypeOutText : MonoBehaviour {
 	IEnumerator TypeLetter()
 	{
 		while (fullText.Length > 0) {
-			displayText.text = displayText.text + fullText[0];
+			displayText.text = displayText.text + fullText[0] + "_";
 			fullText = fullText.Substring (1, fullText.Length - 1);
 
 			if (fullText.Length == 1 && buttonText.text == "Skip") {
@@ -27,6 +27,8 @@ public class TypeOutText : MonoBehaviour {
 			}
 
 			yield return new WaitForSeconds (0.05f);
+
+			displayText.text = displayText.text.Substring (0, displayText.text.Length - 1);
 		}
 	}
 
