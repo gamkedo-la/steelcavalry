@@ -22,10 +22,14 @@ public class Targeting : MonoBehaviour
 
     private BackAndForth backAndForth; //kinda hacky, but I need to disable this when needed :/ 
 
+    private List<string> targetableTags = new List<string>();
+
     void Start()
     {
         backAndForth = GetComponentInParent<BackAndForth>();
         originalAngles = transform.rotation.eulerAngles;
+        targetableTags.Add("Player");
+        targetableTags.Add("Mech");
     }
 
     void FixedUpdate()
@@ -62,7 +66,7 @@ public class Targeting : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (targetableTags.Contains(other.gameObject.tag))
         {
             Debug.Log("Found the player!!!!");
             currentTarget = other.gameObject; //locked on the player
