@@ -4109,6 +4109,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1161870192225308, guid: ed0c26709e6c6c3428a7153191e31612,
     type: 2}
   m_PrefabInternal: {fileID: 611504092}
+--- !u!114 &219767444 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114862581015595836, guid: ed0c26709e6c6c3428a7153191e31612,
+    type: 2}
+  m_PrefabInternal: {fileID: 611504092}
+  m_Script: {fileID: 11500000, guid: a206d6d3cdae23044a729b760199c6c1, type: 3}
 --- !u!4 &219767445 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612,
@@ -4565,7 +4571,6 @@ GameObject:
   m_Component:
   - component: {fileID: 265207581}
   - component: {fileID: 265207582}
-  - component: {fileID: 265207583}
   m_Layer: 12
   m_Name: mechWithHand:lowMech
   m_TagString: Untagged
@@ -4656,21 +4661,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.046987265, y: -0.029518992, z: -0.0048437417}
     m_Extent: {x: 0.4009374, y: 0.17976397, z: 0.41969636}
   m_DirtyAABB: 0
---- !u!58 &265207583
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 265207580}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0054025967, y: 0.33211428}
-  serializedVersion: 2
-  m_Radius: 0.4323345
 --- !u!1 &266115914
 GameObject:
   m_ObjectHideFlags: 0
@@ -15602,11 +15592,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.26
+      value: 8.88
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.z
@@ -41442,6 +41432,7 @@ MonoBehaviour:
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
+  mechImIn: {fileID: 0}
   isFacingRight: 1
   weaponFiringPoint: {fileID: 0}
   weaponManager: {fileID: 0}
@@ -45164,6 +45155,7 @@ GameObject:
   - component: {fileID: 1274868931}
   - component: {fileID: 1274868930}
   - component: {fileID: 1274868929}
+  - component: {fileID: 1274868938}
   m_Layer: 11
   m_Name: wingedSpawn
   m_TagString: Mech
@@ -45477,6 +45469,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24198133, y: 0.4504342}
   m_EdgeRadius: 0
+--- !u!114 &1274868938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274868928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052a820297691164b825a3d48690bdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 219767444}
 --- !u!1001 &1290213695
 Prefab:
   m_ObjectHideFlags: 0
@@ -46245,6 +46249,7 @@ MonoBehaviour:
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
+  mechImIn: {fileID: 0}
   isFacingRight: 1
   weaponFiringPoint: {fileID: 0}
   weaponManager: {fileID: 0}
@@ -65018,6 +65023,7 @@ MonoBehaviour:
   humanSpeed: 0.8
   mechNearEnoughToUseDistance: 1
   jetPackPower: 1
+  mechImIn: {fileID: 0}
   isFacingRight: 1
   weaponFiringPoint: {fileID: 0}
   weaponManager: {fileID: 0}
