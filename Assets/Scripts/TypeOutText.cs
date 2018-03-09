@@ -8,17 +8,31 @@ public class TypeOutText : MonoBehaviour {
 	private Text buttonText;
 	private Text displayText;
 	private string fullText;
+
+	public AudioClip click;
+	public AudioClip consoleOn;
+	private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
 		buttonText = button.GetComponent<Text>();
 		displayText = GetComponent<Text>();
 		fullText = displayText.text;
 		displayText.text = ">_";
+		displayText.canvasRenderer.SetAlpha(0.0f);
+		audioSource = GetComponent<AudioSource>();
 		StartCoroutine (TypeLetter());
 	}
 	IEnumerator TypeLetter()
 	{
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (1.00f);
+
+		displayText.text = ">_";
+		displayText.CrossFadeAlpha(1.0f, 0.75f, false);
+		audioSource.PlayOneShot(consoleOn, 3.00f);
+
+		yield return new WaitForSeconds (1.00f);
+
 		displayText.text = ">";
 
 		while (fullText.Length > 0) {
@@ -33,10 +47,11 @@ public class TypeOutText : MonoBehaviour {
 				yield return new WaitForSeconds (0.40f);
 			} else if (fullText[0] == '.') {
 				yield return new WaitForSeconds(0.15f);
+				audioSource.PlayOneShot(click, 0.05f);
 			} else {
+				audioSource.PlayOneShot(click, 0.05f);
 				yield return new WaitForSeconds(0.05f);
 			}
-
 			displayText.text = displayText.text.Substring(0, displayText.text.Length - 1);
 		}
 	}
