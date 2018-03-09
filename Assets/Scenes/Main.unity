@@ -4565,6 +4565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265207581}
   - component: {fileID: 265207582}
+  - component: {fileID: 265207583}
   m_Layer: 12
   m_Name: mechWithHand:lowMech
   m_TagString: Untagged
@@ -4655,6 +4656,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.046987265, y: -0.029518992, z: -0.0048437417}
     m_Extent: {x: 0.4009374, y: 0.17976397, z: 0.41969636}
   m_DirtyAABB: 0
+--- !u!58 &265207583
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 265207580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0054025967, y: 0.33211428}
+  serializedVersion: 2
+  m_Radius: 0.4323345
 --- !u!1 &266115914
 GameObject:
   m_ObjectHideFlags: 0
@@ -15497,6 +15513,7 @@ GameObject:
   - component: {fileID: 575513597}
   - component: {fileID: 575513599}
   - component: {fileID: 575513598}
+  - component: {fileID: 575513600}
   m_Layer: 12
   m_Name: eyes
   m_TagString: Untagged
@@ -15561,6 +15578,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 575513596}
   m_Mesh: {fileID: 4300000, guid: 0d8a00b3fdd22af4e8e1f80eba3806f6, type: 3}
+--- !u!58 &575513600
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 575513596}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00082591036, y: 0.6549459}
+  serializedVersion: 2
+  m_Radius: 0.030253207
 --- !u!1001 &611504092
 Prefab:
   m_ObjectHideFlags: 0
@@ -45217,7 +45249,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
-  bodyParts: []
+  bodyParts:
+  - {fileID: 1634036907}
+  - {fileID: 1658080275}
+  - {fileID: 575513596}
+  bodyPartToVanish: {fileID: 265207581}
   mechModel: {fileID: 1274868935}
   mechFeet: {fileID: 1541743188}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
@@ -53316,6 +53352,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
+        type: 2}
+      propertyPath: thrusterFuelMax
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6ace03521d98b249bcedeea4dd29a8b, type: 2}
   m_IsPrefabParent: 0
@@ -56883,6 +56924,7 @@ GameObject:
   - component: {fileID: 1634036908}
   - component: {fileID: 1634036910}
   - component: {fileID: 1634036909}
+  - component: {fileID: 1634036911}
   m_Layer: 12
   m_Name: wings
   m_TagString: Untagged
@@ -56947,6 +56989,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1634036907}
   m_Mesh: {fileID: 4300000, guid: a3402adbf5041244f936be5ad490a12f, type: 3}
+--- !u!58 &1634036911
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634036907}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0022581972, y: 0.75}
+  serializedVersion: 2
+  m_Radius: 0.34493896
 --- !u!1 &1645029946
 GameObject:
   m_ObjectHideFlags: 0
@@ -57055,6 +57112,7 @@ GameObject:
   - component: {fileID: 1658080276}
   - component: {fileID: 1658080278}
   - component: {fileID: 1658080277}
+  - component: {fileID: 1658080279}
   m_Layer: 12
   m_Name: sword
   m_TagString: Untagged
@@ -57119,6 +57177,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1658080275}
   m_Mesh: {fileID: 4300000, guid: 1ece32068fbadad488ee6f9af64b3dbd, type: 3}
+--- !u!58 &1658080279
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1658080275}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01026344, y: 0.02234932}
+  serializedVersion: 2
+  m_Radius: 0.057908442
 --- !u!1 &1683446306
 GameObject:
   m_ObjectHideFlags: 0
