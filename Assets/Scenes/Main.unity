@@ -19176,13 +19176,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 650554328}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.99, y: 3.16, z: 0}
+  m_LocalRotation: {x: 0.0013934879, y: -0.00023111027, z: 0.99999774, w: -0.0016028992}
+  m_LocalPosition: {x: 8.91, y: 3.11, z: -0.04}
   m_LocalScale: {x: 1.9310796, y: 0.85441, z: 1}
   m_Children: []
   m_Father: {fileID: 808171231}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.026, y: 0.16000001, z: 180.18399}
 --- !u!61 &650554330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19206,7 +19206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.99999994}
+  m_Size: {x: 1.0000001, y: 1.0000002}
   m_EdgeRadius: 0
 --- !u!23 &650554331
 MeshRenderer:
@@ -45149,14 +45149,13 @@ GameObject:
   - component: {fileID: 1274868935}
   - component: {fileID: 1274868934}
   - component: {fileID: 1274868933}
-  - component: {fileID: 1274868932}
   - component: {fileID: 1274868937}
   - component: {fileID: 1274868936}
+  - component: {fileID: 1274868939}
   - component: {fileID: 1274868931}
   - component: {fileID: 1274868930}
   - component: {fileID: 1274868929}
   - component: {fileID: 1274868938}
-  - component: {fileID: 1274868939}
   m_Layer: 11
   m_Name: wingedSpawn
   m_TagString: Mech
@@ -45249,8 +45248,8 @@ MonoBehaviour:
   mechName: Winged Spawn
   expForceMin: 300
   expForceMax: 500
-  thrusterFuelMax: 100
-  thrusterFuelRegen: 40
+  thrusterFuelMax: 1000
+  thrusterFuelRegen: 1000
   thrusterCost: 40
   thrusterPower: 15500
   firstThrustCost: 0.28
@@ -45332,32 +45331,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!61 &1274868932
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 61565290117395938, guid: d643ac700fb36774c8f1561ca24872c7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1274868928}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: fc439d17d3701f445afb2e8c9caa142a, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.009124279, y: 0.36150023}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7165518, y: 0.7545385}
-  m_EdgeRadius: 0
 --- !u!50 &1274868933
 Rigidbody2D:
   serializedVersion: 4
@@ -45405,7 +45378,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274868928}
   m_LocalRotation: {x: 0.009508499, y: 0.99990666, z: -0.009792193, w: -0.0006623624}
-  m_LocalPosition: {x: 12.066, y: 2.73, z: 0.04900001}
+  m_LocalPosition: {x: 12.064, y: 2.638, z: 0.051}
   m_LocalScale: {x: 4.5250473, y: 4.5250325, z: 4.525042}
   m_Children:
   - {fileID: 266115915}
@@ -45494,9 +45467,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0.000026391994, y: 0.401388}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.39861205
 --- !u!1001 &1290213695
 Prefab:
   m_ObjectHideFlags: 0
@@ -61263,8 +61236,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1890378146}
   - component: {fileID: 1890378149}
-  - component: {fileID: 1890378148}
   - component: {fileID: 1890378147}
+  - component: {fileID: 1890378148}
   m_Layer: 0
   m_Name: trim (3)
   m_TagString: Untagged
