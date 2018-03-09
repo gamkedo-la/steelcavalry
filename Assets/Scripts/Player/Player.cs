@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 	// public float exitMechDistancePopUp = 1.1f;
 	public float jetPackPower = 1.0f;
 
-	private Mech mechImIn = null;
+	public Mech mechImIn = null;
 	private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 	private Camera mainCam;

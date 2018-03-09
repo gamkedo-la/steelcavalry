@@ -8307,7 +8307,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4665758446496654, guid: e3d52d10080639343a9472558540e7f2, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3d52d10080639343a9472558540e7f2, type: 2}
@@ -41414,7 +41414,7 @@ Transform:
   - {fileID: 1181111087}
   - {fileID: 941278646}
   m_Father: {fileID: 1386994394}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247760518
 MonoBehaviour:
@@ -41725,7 +41725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4442002908799116, guid: 695c2a368401f9047852baec0648a861, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 695c2a368401f9047852baec0648a861, type: 2}
@@ -45344,7 +45344,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009124279, y: 0.36353877}
+  m_Offset: {x: 0.009124279, y: 0.36150023}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -45355,7 +45355,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7165518, y: 0.7504614}
+  m_Size: {x: 0.7165518, y: 0.7545385}
   m_EdgeRadius: 0
 --- !u!50 &1274868933
 Rigidbody2D:
@@ -45404,8 +45404,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274868928}
   m_LocalRotation: {x: -0.00038266904, y: 0.9988791, z: -0.04701789, w: 0.005465056}
-  m_LocalPosition: {x: 12.07, y: 2.7, z: -0.27}
-  m_LocalScale: {x: 4.5250416, y: 4.5250325, z: 4.5250363}
+  m_LocalPosition: {x: 12.066, y: 2.73, z: 0.04900001}
+  m_LocalScale: {x: 4.5250473, y: 4.5250325, z: 4.525042}
   m_Children:
   - {fileID: 266115915}
   - {fileID: 1118239574}
@@ -45905,12 +45905,12 @@ Transform:
   m_Children:
   - {fileID: 219767445}
   - {fileID: 1274868935}
+  - {fileID: 1247760517}
+  - {fileID: 1993925007}
   - {fileID: 1421956178}
   - {fileID: 736740197}
   - {fileID: 839446289}
   - {fileID: 1512814215}
-  - {fileID: 1247760517}
-  - {fileID: 1993925007}
   - {fileID: 1460532779}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -53350,7 +53350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4210744720910714, guid: e6ace03521d98b249bcedeea4dd29a8b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
         type: 2}
@@ -60703,7 +60703,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4715404951420168, guid: 48396e36d7217164f8aad070f7e5a331, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 199858463973308144, guid: 48396e36d7217164f8aad070f7e5a331,
         type: 2}
@@ -64890,7 +64890,7 @@ Transform:
   - {fileID: 416422935}
   - {fileID: 1692372829}
   m_Father: {fileID: 1386994394}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1993925008
 MonoBehaviour:
