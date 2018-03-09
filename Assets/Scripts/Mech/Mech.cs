@@ -8,7 +8,7 @@ public class Mech : MonoBehaviour
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[Header("Mech Body")]
     [SerializeField] private GameObject[] bodyParts = null;
-    public Transform bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
+    public GameObject bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
     public Transform mechModel;
     public Transform mechFeet; // for raycast origin to get slope normal to walk up slopes
 	private Rigidbody2D mechRigidbody;
