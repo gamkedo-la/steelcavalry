@@ -3857,6 +3857,21 @@ Prefab:
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 1246071018}
+    - target: {fileID: 198459986903734896, guid: 0d6e744d0d440524db2cb1dd8e18b9c0,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1801268075
+      objectReference: {fileID: 0}
+    - target: {fileID: 198459986903734896, guid: 0d6e744d0d440524db2cb1dd8e18b9c0,
+        type: 2}
+      propertyPath: ShapeModule.angle
+      value: 16.102055
+      objectReference: {fileID: 0}
+    - target: {fileID: 198459986903734896, guid: 0d6e744d0d440524db2cb1dd8e18b9c0,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d6e744d0d440524db2cb1dd8e18b9c0, type: 2}
   m_IsPrefabParent: 0
@@ -30534,7 +30549,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1118239573}
   m_LocalRotation: {x: -0.04701789, y: 0.005465056, z: 0.00038266904, w: 0.9988791}
-  m_LocalPosition: {x: 0.0403, y: -0.0177, z: -0.0552}
+  m_LocalPosition: {x: 0.0458, y: 0.041, z: -0.0035}
   m_LocalScale: {x: 0.109490715, y: 0.10949092, z: 0.10949085}
   m_Children:
   - {fileID: 1488948648}
@@ -30554,7 +30569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b84ff3c7c479b24b97c044de3ba91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrusterParticle: {fileID: 0}
+  thrusterParticle: {fileID: 1488948650}
   thrusterLight: {fileID: 1246071018}
 --- !u!1 &1124276118
 GameObject:
@@ -34563,7 +34578,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 384042198
+  randomSeed: 1841664943
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -34703,7 +34718,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -41294,7 +41309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1246071017
 Transform:
   m_ObjectHideFlags: 0
@@ -46287,7 +46302,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1488948647}
   m_LocalRotation: {x: 0.7107996, y: 4.6566118e-10, z: 0.0000000029976939, w: 0.7033946}
-  m_LocalPosition: {x: -0.78420323, y: 0.48910543, z: 0.52559036}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.28228927, y: 0.2824707, z: 0.2524778}
   m_Children:
   - {fileID: 1201127661}
@@ -46410,7 +46425,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1557196504
+  randomSeed: 2050768158
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -46854,7 +46869,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 8
-    angle: 10
+    angle: 6.731805
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
