@@ -4658,8 +4658,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 763262798}
   m_AABB:
-    m_Center: {x: 0.046987265, y: -0.029518992, z: -0.0048437417}
-    m_Extent: {x: 0.4009374, y: 0.17976397, z: 0.41969636}
+    m_Center: {x: 0.046987265, y: -0.036078706, z: -0.0048437417}
+    m_Extent: {x: 0.4009374, y: 0.15981889, z: 0.41969636}
   m_DirtyAABB: 0
 --- !u!1 &266115914
 GameObject:
@@ -45156,6 +45156,7 @@ GameObject:
   - component: {fileID: 1274868930}
   - component: {fileID: 1274868929}
   - component: {fileID: 1274868938}
+  - component: {fileID: 1274868939}
   m_Layer: 11
   m_Name: wingedSpawn
   m_TagString: Mech
@@ -45338,7 +45339,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274868928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: fc439d17d3701f445afb2e8c9caa142a, type: 2}
   m_IsTrigger: 0
@@ -45403,7 +45404,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274868928}
-  m_LocalRotation: {x: -0.00038266904, y: 0.9988791, z: -0.04701789, w: 0.005465056}
+  m_LocalRotation: {x: 0.009508499, y: 0.99990666, z: -0.009792193, w: -0.0006623624}
   m_LocalPosition: {x: 12.066, y: 2.73, z: 0.04900001}
   m_LocalScale: {x: 4.5250473, y: 4.5250325, z: 4.525042}
   m_Children:
@@ -45418,7 +45419,7 @@ Transform:
   - {fileID: 1124276120}
   m_Father: {fileID: 1386994394}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 5.3900003, y: 179.37001, z: -0.074}
+  m_LocalEulerAnglesHint: {x: 1.121, y: 180.08699, z: 1.0910001}
 --- !u!61 &1274868936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45481,6 +45482,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 219767444}
+--- !u!58 &1274868939
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274868928}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: fc439d17d3701f445afb2e8c9caa142a, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1001 &1290213695
 Prefab:
   m_ObjectHideFlags: 0
