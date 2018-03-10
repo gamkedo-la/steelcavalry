@@ -18,7 +18,10 @@ public class animations : MonoBehaviour
     private bool mechInUse;
     private float walk = 0.0f;
     private float walkSpeed = 1.0f;
+    //missile vars
     public bool missileShot;
+    private bool launcherOn = false;
+
 
     //anim IDs
     int onGroundHash = Animator.StringToHash("onGround");
@@ -116,15 +119,25 @@ public class animations : MonoBehaviour
             anim.SetFloat("walk", walk);
         }
 
-        if(weaponMgr.launcherMounted)
+        if (weaponMgr.launcherMounted && launcherOn==false)
         {
-            Debug.Log("I'm here now");
-            missileLauncher = GetComponent<MissileLauncher>();//TODO: How to getComponent only once as the Launcher is mounted. At start
-            //cannot set it because the launcher is not mounted at the start of the game
+            missileLauncher = GetComponentInChildren<MissileLauncher>();
+        }
+
+        Debug.Log("launcher is On " + launcherOn);
+        Debug.Log("Missile Shot is on " + missileShot);
+
+        if (weaponMgr.launcherMounted)
+        {
+            //Debug.Log("I'm here now");
             missileShot = missileLauncher.hasShotMissile;
             Debug.Log("Missile was shot " + missileShot);
             if (missileShot)
+            {
                 anim.SetBool(missileShotHash, true);
+                missileShot = false;
+            }
+                
             else
                 anim.SetBool(missileShotHash, false);
         }
