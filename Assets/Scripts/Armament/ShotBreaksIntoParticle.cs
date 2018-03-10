@@ -18,7 +18,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	{
 		Assert.IsNotNull( didDamageEvent );
 
-		player = GameObject.Find("Player");
+		player = GameObject.FindWithTag("Player");
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
@@ -29,7 +29,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 		nameOfObjectHit = bumpFacts.collider.gameObject.name;
 
 		// If the shot is from the player, ignore it
-		if(nameOfMechPlayerIsIn == nameOfObjectHit) return;
+		if(playerNumber > 0 && nameOfMechPlayerIsIn == nameOfObjectHit) return;
 
 		// Try to find a Mech script on the hit object
 		HP hp = bumpFacts.collider.GetComponent<HP>();
