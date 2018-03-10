@@ -10,6 +10,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Launcher;
 
+    public bool hasShotMissile;
 	public WeaponType Type
 	{
 		get { return type; }
@@ -92,6 +93,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
         GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
+        hasShotMissile = true;
         missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
         //let homingMissile script know mech that shot. Used so self-circle collider of wing spawn is ignored for collision

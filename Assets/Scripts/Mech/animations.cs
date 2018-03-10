@@ -8,6 +8,7 @@ public class animations : MonoBehaviour
     Animator anim;
     public Player Player;
     Mech mechScript;
+    MissileLauncher missileLauncher;
 
     private bool inputUp;
     private bool inputDown;
@@ -20,6 +21,7 @@ public class animations : MonoBehaviour
     //anim IDs
     int onGroundHash = Animator.StringToHash("onGround");
     int mechInUseHash = Animator.StringToHash("mechInUse");
+    int missileShotHash = Animator.StringToHash("missileShot");
 
     //on fly rotation
     private float smooth = 2.0f;
@@ -33,6 +35,7 @@ public class animations : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
+        missileLauncher = GetComponent<MissileLauncher>();
 
         /*inputFire = Input.GetMouseButton(0);
         inputAltFire = Input.GetMouseButton(1);
@@ -113,14 +116,9 @@ public class animations : MonoBehaviour
             anim.SetFloat("walk", walk);
         }
 
-        /*
-        if (mechInUse && (inputLeft || inputRight) && (inputUp || inputDown))
-        {
-            anim.SetBool(flyHash, true);
-        }
-        else
-        {
-            anim.SetBool(flyHash, false);
-        }*/
+       if(missileLauncher.hasShotMissile)
+            anim.SetBool(missileShotHash, true);
+       else
+            anim.SetBool(missileShotHash, false);
     }
 }

@@ -38,8 +38,7 @@ public class HomingMissile : MonoBehaviour
             Debug.Log("IM HERE");
             //TODO: the other mechs can destroy themselves, not when circle collider is set to mech
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), mechShooting.GetComponent<CircleCollider2D>());
-        }
-            
+        }       
     }
 
 	void FixedUpdate( )
