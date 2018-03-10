@@ -111,6 +111,7 @@ public class Mech : MonoBehaviour
 		driverMovement = driver.GetComponent<Player>();
 
 		inUse = true;
+        Debug.Log("in Use " + inUse);
 		hp.UseMultiplier( !inUse );
 		if ( weaponManager != null )
 		{

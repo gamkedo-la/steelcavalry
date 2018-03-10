@@ -67,7 +67,7 @@ public class animations : MonoBehaviour
         inputLeft = Player.inputLeft;
         mechInUse = mechScript.inUse;
 
-        Debug.Log("Mech in use " + mechInUse);
+        //Debug.Log("Mech in use " + mechInUse);
         
         //raycast dist to ground
         float minDistToGround = 0.25f;//dist for standby animation to occur
@@ -78,15 +78,15 @@ public class animations : MonoBehaviour
         //shiftedPosition+=shift;
 
         //start += transform.position + Vector2(0, -1);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDown);
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown);
         
-        if (hit)
+        if (groundHit)
         {
-            if(hit.collider)
+            if(groundHit.collider)
             {
-                GroundDist = hit.distance;//dist to ground
-                Debug.Log("collider hit " + hit.collider.gameObject.name);
-                Debug.Log("Distance to Ground " + GroundDist);
+                GroundDist = groundHit.distance;//dist to ground
+                //Debug.Log("collider hit " + groundHit.collider.gameObject.name);
+                //Debug.Log("Distance to Ground " + GroundDist);
                 Debug.DrawRay(transform.position, rayDown, Color.red);
             }
         }

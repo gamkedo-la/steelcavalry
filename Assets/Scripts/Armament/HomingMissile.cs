@@ -15,16 +15,31 @@ public class HomingMissile : MonoBehaviour
 
 	[HideInInspector]
 	public int playerNumber;
+    Transform mechShooting;
 
-	void Start( )
+    void Start( )
 	{
-		rb = GetComponent<Rigidbody2D>( );
+        rb = GetComponent<Rigidbody2D>( );
 
 		Assert.IsNotNull( rb );
 		Assert.IsNotNull( explosion );
 		Assert.IsNotNull( didDamageEvent );
 		Assert.IsNotNull( audioEvent );
-	}
+
+        //ignore collider of shooting mech if circle collider (i.e. winged mech)
+        //Debug.Log("Shooting Mech was " + mechShooting.name);
+        //type of collider
+        Collider2D colType = mechShooting.GetComponent<Collider2D>();
+        Debug.Log("Col type " + colType.name);
+        //Debug.Log(mechShooting.collider2D.GetType().ToString());
+        
+        /*if (mechShooting.GetType() ==  typeof(CircleCollider2D))
+        {
+            Debug.Log("IM HERE");
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), mechShooting.GetComponent<CircleCollider2D>());
+        }*/
+            
+    }
 
 	void FixedUpdate( )
 	{
@@ -48,10 +63,17 @@ public class HomingMissile : MonoBehaviour
 		rb.velocity = transform.right * speed;
 	}
 
+    public void ReceiveMechName(Transform shootingMech)//determine shooting mech
+    {
+        //Debug.Log("The firing Mech is " + shootingMech.name);
+        mechShooting = shootingMech;
+    }
+
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
-		// Try to find a Mech script on the hit object
-		HP hp = collision.collider.GetComponent<HP>();
+        // Try to find a Mech script on the hit object
+        HP hp = collision.collider.GetComponent<HP>();
+        Debug.Log("Mech hit was " + hp.gameObject.name);
 		if (hp)
 		{
 			didDamageEvent.Raise( 0.5f );

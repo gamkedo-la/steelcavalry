@@ -45,7 +45,7 @@ public class WeaponManager : MonoBehaviour
 
 	public void IsPlayerDriving( bool playerDriver )
 	{
-		//Debug.Log( name + " weapons are used by human player: " + playerDriver );
+		Debug.Log( name + " weapons are used by human player: " + playerDriver );
 
 		isPlayerDriver = playerDriver;
 

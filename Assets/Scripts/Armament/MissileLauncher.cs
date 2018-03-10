@@ -55,7 +55,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	}
 
 	public void SwapModel( string mechName ) { }
-
+    
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
@@ -91,11 +91,15 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 			return;
 
 		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
-		GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
-		missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
+        GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
+        missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
-		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
-		missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
+        //let homingMissile script know mech that shot
+        Transform shootingMech = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+        missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
+
+        // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
+        missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
 
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );
