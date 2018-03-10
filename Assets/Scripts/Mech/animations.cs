@@ -13,13 +13,13 @@ public class animations : MonoBehaviour
     private bool inputDown;
     private bool inputRight;
     private bool inputLeft;
-    private bool mechImIn;
+    private bool mechInUse;
     private float walk = 0.0f;
     private float walkSpeed = 1.0f;
-    private bool animMechImIn = false;
 
     //anim IDs
-    int flyHash = Animator.StringToHash("flying");
+    int onGroundHash = Animator.StringToHash("onGround");
+    int mechInUseHash = Animator.StringToHash("mechInUse");
 
     //on fly rotation
     private float smooth = 2.0f;
@@ -65,10 +65,12 @@ public class animations : MonoBehaviour
         inputDown = Player.inputDown;
         inputRight = Player.inputRight;
         inputLeft = Player.inputLeft;
-        mechImIn = Player.mechImIn;
+        mechInUse = mechScript.inUse;
+
+        Debug.Log("Mech in use " + mechInUse);
         
         //raycast dist to ground
-        float minDistToGround = 1;//dist for standby animation to occur
+        float minDistToGround = 0.25f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
         //circle collider may required this
         //Vector2 shift = new Vector2(0, 0.0f);
@@ -89,17 +91,17 @@ public class animations : MonoBehaviour
             }
         }
         
-        if (GroundDist< minDistToGround)
-            anim.SetBool("onGround", true);
+        if (GroundDist<= minDistToGround)
+            anim.SetBool(onGroundHash, true);
         else
-            anim.SetBool("onGround", false);
+            anim.SetBool(onGroundHash, false);
 
-        if (mechImIn)
+        if (mechInUse)
         {
-            anim.SetBool("animMechImIn", true);
+            anim.SetBool(mechInUseHash, true);
         }
 
-        if (GroundDist < minDistToGround && mechImIn && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
+        if (GroundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
         {
             walk = walkSpeed;
             //Debug.Log("inputLeft " + inputLeft + " inputUp" + inputUp + " inputDown" + inputDown);
@@ -111,13 +113,14 @@ public class animations : MonoBehaviour
             anim.SetFloat("walk", walk);
         }
 
-        if (mechImIn && (inputLeft || inputRight) && (inputUp || inputDown))
+        /*
+        if (mechInUse && (inputLeft || inputRight) && (inputUp || inputDown))
         {
             anim.SetBool(flyHash, true);
         }
         else
         {
             anim.SetBool(flyHash, false);
-        }
+        }*/
     }
 }
