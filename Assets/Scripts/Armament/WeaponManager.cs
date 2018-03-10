@@ -20,7 +20,10 @@ public class WeaponManager : MonoBehaviour
 	private bool isRight = false;
 	private bool isPlayerDriver = false;
 
-	void Start ()
+    public bool launcherMounted = false;//using for animation.
+
+
+    void Start ()
 	{
         //Debug.Log( name + " weapons are attached" );
 
@@ -45,7 +48,7 @@ public class WeaponManager : MonoBehaviour
 
 	public void IsPlayerDriving( bool playerDriver )
 	{
-		Debug.Log( name + " weapons are used by human player: " + playerDriver );
+		//Debug.Log( name + " weapons are used by human player: " + playerDriver );
 
 		isPlayerDriver = playerDriver;
 
@@ -164,7 +167,10 @@ public class WeaponManager : MonoBehaviour
 				}
 
 				g = Instantiate( weapon.GetGameObject( ), launcherMountPoint.position, Quaternion.identity, launcherMountPoint );
-				g.transform.localPosition = Vector3.zero;
+
+                    launcherMounted = true;//using for animation. TODO: need to set when launcher is dismounted if that can happen
+                                           
+                    g.transform.localPosition = Vector3.zero;
 				g.transform.localRotation = Quaternion.Euler
 				(
 					g.transform.localRotation.eulerAngles.x,

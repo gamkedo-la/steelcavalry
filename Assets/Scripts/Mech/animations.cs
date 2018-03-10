@@ -9,6 +9,7 @@ public class animations : MonoBehaviour
     public Player Player;
     Mech mechScript;
     MissileLauncher missileLauncher;
+    WeaponManager weaponMgr;
 
     private bool inputUp;
     private bool inputDown;
@@ -17,6 +18,7 @@ public class animations : MonoBehaviour
     private bool mechInUse;
     private float walk = 0.0f;
     private float walkSpeed = 1.0f;
+    public bool missileShot;
 
     //anim IDs
     int onGroundHash = Animator.StringToHash("onGround");
@@ -27,15 +29,13 @@ public class animations : MonoBehaviour
     private float smooth = 2.0f;
     private float tiltAngle = 30.0f;
     float GroundDist;
-    int mechsLayer;
-    int possibleGround;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
-        missileLauncher = GetComponent<MissileLauncher>();
+        weaponMgr = GetComponent<WeaponManager>();
 
         /*inputFire = Input.GetMouseButton(0);
         inputAltFire = Input.GetMouseButton(1);
@@ -116,9 +116,18 @@ public class animations : MonoBehaviour
             anim.SetFloat("walk", walk);
         }
 
-       if(missileLauncher.hasShotMissile)
-            anim.SetBool(missileShotHash, true);
-       else
-            anim.SetBool(missileShotHash, false);
+        if(weaponMgr.launcherMounted)
+        {
+            Debug.Log("I'm here now");
+            missileLauncher = GetComponent<MissileLauncher>();//TODO: How to getComponent only once as the Launcher is mounted. At start
+            //cannot set it because the launcher is not mounted at the start of the game
+            missileShot = missileLauncher.hasShotMissile;
+            Debug.Log("Missile was shot " + missileShot);
+            if (missileShot)
+                anim.SetBool(missileShotHash, true);
+            else
+                anim.SetBool(missileShotHash, false);
+        }
+        
     }
 }
