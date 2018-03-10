@@ -94,7 +94,8 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
         missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
-        //let homingMissile script know mech that shot
+        //let homingMissile script know mech that shot. Used so self-circle collider of wing spawn is ignored for collision
+        //currently console returns error because the below hierarchy fits the winged spawn only. TODO
         Transform shootingMech = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
         missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
 
