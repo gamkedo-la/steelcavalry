@@ -129,18 +129,21 @@ public class animations : MonoBehaviour
 
         if (weaponMgr.launcherMounted)
         {
-            //Debug.Log("I'm here now");
+            Debug.Log("I'm here now");
             missileShot = missileLauncher.hasShotMissile;
             Debug.Log("Missile was shot " + missileShot);
             if (missileShot)
             {
                 anim.SetBool(missileShotHash, true);
-                missileShot = false;
+                Debug.Log("now inside missileShot which is true");
             }
                 
             else
+            {
+                Debug.Log("now inside missileShot which is false");
                 anim.SetBool(missileShotHash, false);
+            }
+            missileShot = false;
         }
-        
     }
 }
