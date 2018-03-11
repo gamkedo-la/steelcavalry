@@ -26,7 +26,7 @@ public class animations : MonoBehaviour
     //anim IDs
     int onGroundHash = Animator.StringToHash("onGround");
     int mechInUseHash = Animator.StringToHash("mechInUse");
-    int missileShotHash = Animator.StringToHash("missileShot");
+    int missileShotHash = Animator.StringToHash("missileShotStraight1");
 
     //on fly rotation
     private float smooth = 2.0f;
@@ -141,15 +141,8 @@ public class animations : MonoBehaviour
                 {
                     Debug.Log("Animation has finished playing");
                     missileLauncher.hasShotMissile = false;
-                }
-                    
-            }
-                
-            else
-            {
-                Debug.Log("now inside missileShot which is false");
-                anim.SetBool(missileShotHash, false);
-            }
+                }    
+            }                
         }
     }
 }
