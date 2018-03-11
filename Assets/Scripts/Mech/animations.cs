@@ -103,11 +103,12 @@ public class Animations : MonoBehaviour
 
         if (mechInUse)
         {
+            anim.speed = 1;
             anim.SetBool(mechInUseHash, true);
         }
-        else 
+        else
         {
-            anim.SetBool(mechInUseHash, false);
+            anim.speed = 0;
         }
 
         if (groundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
