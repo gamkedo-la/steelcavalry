@@ -121,7 +121,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 			currentMagSize = (int)parameters.MagSize;
 			realoadTimeLeft = parameters.RealoadTime;
 		}
-	}
+    }
 
 	public void SetDir( bool isRight ) { }
 }

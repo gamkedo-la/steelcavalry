@@ -143,7 +143,7 @@ public class animations : MonoBehaviour
                 Debug.Log("now inside missileShot which is false");
                 anim.SetBool(missileShotHash, false);
             }
-            missileShot = false;
+            missileLauncher.hasShotMissile = false;
         }
     }
 }

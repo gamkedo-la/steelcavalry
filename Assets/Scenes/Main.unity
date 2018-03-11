@@ -41610,6 +41610,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1187520963}
   throwerMountPoint: {fileID: 1187520963}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!1001 &1256915977
 Prefab:
   m_ObjectHideFlags: 0
@@ -45223,6 +45224,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1967883308}
   throwerMountPoint: {fileID: 194816698}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &1274868931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45453,6 +45455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 219767444}
+  missileShot: 0
 --- !u!58 &1274868939
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -46163,6 +46166,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1573468500}
   throwerMountPoint: {fileID: 1573468500}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &1460532782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64937,6 +64941,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1613563214}
   throwerMountPoint: {fileID: 1613563214}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &1993925010
 MonoBehaviour:
   m_ObjectHideFlags: 0
