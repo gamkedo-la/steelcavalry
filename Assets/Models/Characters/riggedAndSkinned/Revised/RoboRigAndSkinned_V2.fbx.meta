@@ -71,6 +71,30 @@ ModelImporter:
     100126: QuickRigCharacter_Spine1
     100128: QuickRigCharacter_Spine2
     100130: //RootNode
+    100132: Head
+    100134: Hips
+    100136: LeftArm
+    100138: LeftFoot
+    100140: LeftForeArm
+    100142: LeftHand
+    100144: LeftLeg
+    100146: LeftShoulder
+    100148: LeftToeBase
+    100150: LeftUpLeg
+    100152: Neck
+    100154: QuickRigCharacter_Guides
+    100156: Reference
+    100158: RightArm
+    100160: RightFoot
+    100162: RightForeArm
+    100164: RightHand
+    100166: RightLeg
+    100168: RightShoulder
+    100170: RightToeBase
+    100172: RightUpLeg
+    100174: Spine
+    100176: Spine1
+    100178: Spine2
     400000: Cube.014
     400002: QuickRigCharacter_Ctrl_ChestEndEffector
     400004: QuickRigCharacter_Ctrl_ChestOriginEffector
@@ -137,6 +161,30 @@ ModelImporter:
     400126: QuickRigCharacter_Spine1
     400128: QuickRigCharacter_Spine2
     400130: //RootNode
+    400132: Head
+    400134: Hips
+    400136: LeftArm
+    400138: LeftFoot
+    400140: LeftForeArm
+    400142: LeftHand
+    400144: LeftLeg
+    400146: LeftShoulder
+    400148: LeftToeBase
+    400150: LeftUpLeg
+    400152: Neck
+    400154: QuickRigCharacter_Guides
+    400156: Reference
+    400158: RightArm
+    400160: RightFoot
+    400162: RightForeArm
+    400164: RightHand
+    400166: RightLeg
+    400168: RightShoulder
+    400170: RightToeBase
+    400172: RightUpLeg
+    400174: Spine
+    400176: Spine1
+    400178: Spine2
     4300000: Cube.014
     7400000: Take 001
     9500000: //RootNode
