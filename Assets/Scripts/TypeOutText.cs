@@ -48,7 +48,7 @@ public class TypeOutText : MonoBehaviour {
 
 			if (fullText == "") {
 				yield return new WaitForSeconds(1.0f);
-				buttonText.text = "Start";
+				buttonText.text = "Press to Start";
 				pulseButton = true;
 			} else if (fullText[0] == '\n') {
 				fullText = fullText[0] + ">" + fullText.Substring(1, fullText.Length - 1);
