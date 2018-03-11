@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class animations : MonoBehaviour
+public class MechAnimation : MonoBehaviour
 {
 
     Animator anim;
@@ -104,7 +104,12 @@ public class animations : MonoBehaviour
 
         if (mechInUse)
         {
+            anim.speed = 1;
             anim.SetBool(mechInUseHash, true);
+        }
+        else 
+        {
+            anim.speed = 0;
         }
 
         if (GroundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
