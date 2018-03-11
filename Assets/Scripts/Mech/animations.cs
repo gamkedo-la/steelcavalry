@@ -136,6 +136,12 @@ public class animations : MonoBehaviour
             {
                 anim.SetBool(missileShotHash, true);
                 Debug.Log("now inside missileShot which is true");
+                if(anim.GetCurrentAnimatorStateInfo(0).IsName("shotStraight2"))
+                {
+                    Debug.Log("Animation has finished playing");
+                    missileLauncher.hasShotMissile = false;
+                }
+                    
             }
                 
             else
@@ -143,7 +149,6 @@ public class animations : MonoBehaviour
                 Debug.Log("now inside missileShot which is false");
                 anim.SetBool(missileShotHash, false);
             }
-            missileLauncher.hasShotMissile = false;
         }
     }
 }
