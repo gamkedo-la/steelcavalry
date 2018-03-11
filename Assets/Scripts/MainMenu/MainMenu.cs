@@ -61,6 +61,7 @@ public class MainMenu : MonoBehaviour {
 
     public void MasterVolumeSlide(float volume) {
         PlayerPrefs.SetFloat("masterVolume", volume);
+        music.volume = volume * PlayerPrefs.GetFloat("musicVolume", 1f);
     }
 
     public void EffectsVolumeSlide(float volume) {
@@ -69,6 +70,6 @@ public class MainMenu : MonoBehaviour {
 
     public void MusicVolumeSlide(float volume) {
         PlayerPrefs.SetFloat("musicVolume", volume);
-        music.volume = volume;
+        music.volume = volume * PlayerPrefs.GetFloat("masterVolume", 1f);
     }
 }
