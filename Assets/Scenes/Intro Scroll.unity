@@ -434,11 +434,11 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c6a100a1f5fe1c946a78e1265b1c7016, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
-    m_AlignByGeometry: 1
+    m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
@@ -771,6 +771,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be52c09889f224cbb81fd79667b7bf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  masterVolume: {fileID: 0}
+  effectsVolume: {fileID: 0}
+  musicVolume: {fileID: 0}
+  music: {fileID: 0}
 --- !u!4 &1993073885
 Transform:
   m_ObjectHideFlags: 0

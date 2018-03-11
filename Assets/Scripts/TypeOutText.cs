@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TypeOutText : MonoBehaviour {
 	public GameObject button;
+
 	private Text buttonText;
 	private Text displayText;
 	private string fullText;
@@ -13,6 +14,11 @@ public class TypeOutText : MonoBehaviour {
 	public AudioClip consoleOn;
 	private AudioSource audioSource;
 
+	private bool pulseButton = false;
+	private float pulseMin = 0.25f;
+	private float pulseMax = 1.00f;
+	private float pulseInterval = 0.75f;
+
 	// Use this for initialization
 	void Start () {
 		buttonText = button.GetComponent<Text>();
@@ -20,6 +26,7 @@ public class TypeOutText : MonoBehaviour {
 		fullText = displayText.text;
 		displayText.text = ">_";
 		displayText.canvasRenderer.SetAlpha(0.0f);
+		buttonText.canvasRenderer.SetAlpha(1.0f);
 		audioSource = GetComponent<AudioSource>();
 		StartCoroutine (TypeLetter());
 	}
@@ -42,6 +49,7 @@ public class TypeOutText : MonoBehaviour {
 			if (fullText == "") {
 				yield return new WaitForSeconds(1.0f);
 				buttonText.text = "Start";
+				pulseButton = true;
 			} else if (fullText[0] == '\n') {
 				fullText = fullText[0] + ">" + fullText.Substring(1, fullText.Length - 1);
 				yield return new WaitForSeconds (0.40f);
@@ -58,6 +66,11 @@ public class TypeOutText : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (pulseButton && buttonText.canvasRenderer.GetAlpha() == pulseMax) {
+			buttonText.CrossFadeAlpha(pulseMin, pulseInterval, false);
+		}
+		if (pulseButton && buttonText.canvasRenderer.GetAlpha() == pulseMin) {
+			buttonText.CrossFadeAlpha(pulseMax, pulseInterval, false);
+		}
 	}
 }
