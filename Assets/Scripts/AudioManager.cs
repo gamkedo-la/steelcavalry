@@ -44,7 +44,10 @@ class AudioPlayer
 
 public class AudioManager : MonoBehaviour
 {
-	[SerializeField] private Transform player = null;
+    public float masterVolume;
+    public float effectsVolume;
+
+    [SerializeField] private Transform player = null;
 	[SerializeField] private AudioEventEmiter[] emiters = null;
 
 	private GameObject audioSources;
@@ -52,7 +55,10 @@ public class AudioManager : MonoBehaviour
 
 	void Start ()
 	{
-		Assert.IsNotNull( player );
+        masterVolume = PlayerPrefs.GetFloat("masterVolume", 1f);
+        effectsVolume = PlayerPrefs.GetFloat("effectsVolume", 1f);
+
+        Assert.IsNotNull( player );
 		Assert.IsNotNull( emiters );
 		Assert.AreNotEqual( emiters.Length, 0 );
 
@@ -119,7 +125,7 @@ public class AudioManager : MonoBehaviour
 				float distance = Vector2.Distance( player.transform.position, pos );
 				var aE = ap.AudioEventEmiter;
 				distance = aE.volumeFalloff.keys[aE.volumeFalloff.keys.Length - 1].value > distance ? aE.volumeFalloff.keys[aE.volumeFalloff.keys.Length - 1].value : distance;
-				ap.AudioSource.volume = aE.volume * aE.volumeFalloff.Evaluate( distance );
+				ap.AudioSource.volume = aE.volume * aE.volumeFalloff.Evaluate( distance ) * masterVolume * effectsVolume;
 
 				ap.AudioSource.pitch = Random.Range( ap.AudioEventEmiter.minPitch, ap.AudioEventEmiter.maxPitch );
 				ap.AudioSource.Play( );
