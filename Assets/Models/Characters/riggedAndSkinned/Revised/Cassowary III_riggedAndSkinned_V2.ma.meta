@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: c03b750182eb3634cb387bdb17610a35
-timeCreated: 1520697989
+guid: 9e3d9fe954b339349ab592eba26f10e2
+timeCreated: 1520757750
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: bottom
-    100002: Cube.014
+    100002: //RootNode
     100004: Head
     100006: Hips
     100008: left
@@ -93,12 +93,12 @@ ModelImporter:
     100170: RightShoulder
     100172: RightToeBase
     100174: RightUpLeg
-    100176: //RootNode
-    100178: Spine
-    100180: Spine1
-    100182: Spine2
+    100176: Spine
+    100178: Spine1
+    100180: Spine2
+    100182: thrusters1
     400000: bottom
-    400002: Cube.014
+    400002: //RootNode
     400004: Head
     400006: Hips
     400008: left
@@ -185,22 +185,17 @@ ModelImporter:
     400170: RightShoulder
     400172: RightToeBase
     400174: RightUpLeg
-    400176: //RootNode
-    400178: Spine
-    400180: Spine1
-    400182: Spine2
+    400176: Spine
+    400178: Spine1
+    400180: Spine2
+    400182: thrusters1
     2000000: bottom
     2000002: left
-    4300000: Cube.014
+    4300000: thrusters1
     7400000: Take 001
     9500000: //RootNode
-    13700000: Cube.014
+    13700000: thrusters1
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: fd318b1578d544a97a50f5bdd719bc49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
