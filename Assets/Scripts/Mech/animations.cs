@@ -135,8 +135,9 @@ public class animations : MonoBehaviour
             if (missileShot)
             {
                 anim.SetBool(missileShotHash, true);
-                Debug.Log("now inside missileShot which is true");
-                if(anim.GetCurrentAnimatorStateInfo(0).IsName("shotStraight2"))
+                Debug.Log("Animation shooting Missile");
+                Debug.Log("Anim missileShot bool: " + anim.GetBool("missileShot") + "normalized time " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                if(anim.GetBool("missileShot") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1)
                 {
                     Debug.Log("Animation has finished playing");
                     missileLauncher.hasShotMissile = false;
