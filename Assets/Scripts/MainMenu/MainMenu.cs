@@ -8,8 +8,12 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] Slider masterVolume;
     [SerializeField] Slider effectsVolume;
     [SerializeField] Slider musicVolume;
+    public AudioSource music;
 
     private void Start() {
+        music = GetComponent<AudioSource>();
+        Debug.Log(GetComponent<AudioSource>());
+
         masterVolume.value = PlayerPrefs.GetFloat("masterVolume", 1f);
         effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1f);
         musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1f);
@@ -65,5 +69,6 @@ public class MainMenu : MonoBehaviour {
 
     public void MusicVolumeSlide(float volume) {
         PlayerPrefs.SetFloat("musicVolume", volume);
+        music.volume = volume;
     }
 }
