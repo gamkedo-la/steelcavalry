@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animations : MonoBehaviour
+public class animations : MonoBehaviour
 {
 
-    public Player player;
     Animator anim;
+    public Player Player;
     Mech mechScript;
     MissileLauncher missileLauncher;
     WeaponManager weaponMgr;
@@ -22,6 +22,7 @@ public class Animations : MonoBehaviour
     public bool missileShot;
     private bool launcherOn = false;
 
+
     //anim IDs
     int onGroundHash = Animator.StringToHash("onGround");
     int mechInUseHash = Animator.StringToHash("mechInUse");
@@ -30,7 +31,7 @@ public class Animations : MonoBehaviour
     //on fly rotation
     private float smooth = 2.0f;
     private float tiltAngle = 30.0f;
-    float groundDist;
+    float GroundDist;
 
     // Use this for initialization
     void Start()
@@ -66,10 +67,10 @@ public class Animations : MonoBehaviour
 
     void Update()
     {
-        inputUp = player.inputUp;
-        inputDown = player.inputDown;
-        inputRight = player.inputRight;
-        inputLeft = player.inputLeft;
+        inputUp = Player.inputUp;
+        inputDown = Player.inputDown;
+        inputRight = Player.inputRight;
+        inputLeft = Player.inputLeft;
         mechInUse = mechScript.inUse;
 
         //Debug.Log("Mech in use " + mechInUse);
@@ -89,29 +90,24 @@ public class Animations : MonoBehaviour
         {
             if(groundHit.collider)
             {
-                groundDist = groundHit.distance;//dist to ground
+                GroundDist = groundHit.distance;//dist to ground
                 //Debug.Log("collider hit " + groundHit.collider.gameObject.name);
                 //Debug.Log("Distance to Ground " + GroundDist);
                 Debug.DrawRay(transform.position, rayDown, Color.red);
             }
         }
         
-        if (groundDist<= minDistToGround)
+        if (GroundDist<= minDistToGround)
             anim.SetBool(onGroundHash, true);
         else
             anim.SetBool(onGroundHash, false);
 
         if (mechInUse)
         {
-            anim.speed = 1;
             anim.SetBool(mechInUseHash, true);
         }
-        else
-        {
-            anim.speed = 0;
-        }
 
-        if (groundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
+        if (GroundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
         {
             walk = walkSpeed;
             //Debug.Log("inputLeft " + inputLeft + " inputUp" + inputUp + " inputDown" + inputDown);
