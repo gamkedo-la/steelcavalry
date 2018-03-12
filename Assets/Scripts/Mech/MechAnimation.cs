@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MechAnimation : MonoBehaviour
 {
-
-    Animator anim;
     public Player Player;
     Mech mechScript;
     MissileLauncher missileLauncher;
@@ -15,18 +13,26 @@ public class MechAnimation : MonoBehaviour
     private bool inputDown;
     private bool inputRight;
     private bool inputLeft;
+    private bool inputFire;
     private bool mechInUse;
     private float walk = 0.0f;
     private float walkSpeed = 1.0f;
     //missile vars
-    public bool missileShot;
+    Animator anim;
+    private bool missileShot;
+    private bool missileShotStraight1;
     private bool launcherOn = false;
-
-
+    //direction to shoot missile
+    private Transform missileLauncherChild;
+    
     //anim IDs
+    //animator parameters
     int onGroundHash = Animator.StringToHash("onGround");
     int mechInUseHash = Animator.StringToHash("mechInUse");
-    int missileShotHash = Animator.StringToHash("missileShotStraight1");
+    int missileShotHash = Animator.StringToHash("missileShot");
+    int missileShotStraight1Hash = Animator.StringToHash("missileShotStraight1");
+    //animation IDs
+    int missileShotStraight1Tag;
 
     //on fly rotation
     private float smooth = 2.0f;
@@ -34,11 +40,17 @@ public class MechAnimation : MonoBehaviour
     float GroundDist;
 
     // Use this for initialization
-    void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
         weaponMgr = GetComponent<WeaponManager>();
+        //animation IDs
+        missileShotStraight1Tag = Animator.StringToHash("shotStraight1");
+    }
+    void Start()
+    {
+        
 
         /*inputFire = Input.GetMouseButton(0);
         inputAltFire = Input.GetMouseButton(1);
@@ -71,6 +83,7 @@ public class MechAnimation : MonoBehaviour
         inputDown = Player.inputDown;
         inputRight = Player.inputRight;
         inputLeft = Player.inputLeft;
+        inputFire = Input.GetMouseButton(0);
         mechInUse = mechScript.inUse;
 
         //Debug.Log("Mech in use " + mechInUse);
@@ -127,27 +140,52 @@ public class MechAnimation : MonoBehaviour
         if (weaponMgr.launcherMounted && launcherOn==false)
         {
             missileLauncher = GetComponentInChildren<MissileLauncher>();
+            launcherOn = true;
         }
 
-        Debug.Log("launcher is On " + launcherOn);
-        Debug.Log("Missile Shot is on " + missileShot);
+        //Debug.Log("launcher is On " + launcherOn);
+        //Debug.Log("Missile Shot is on " + missileShot);
+
+        //Debug.Log("Launcher Mounted NOW " + weaponMgr.launcherMounted);
 
         if (weaponMgr.launcherMounted)
         {
             //Debug.Log("I'm here now");
             missileShot = missileLauncher.hasShotMissile;
-            //Debug.Log("Missile was shot " + missileShot);
+            Debug.Log("MissileShot Flag is " + missileShot);
+            
             if (missileShot)
             {
+                int animPlayingTag = anim.GetCurrentAnimatorStateInfo(0).tagHash;
+                //Debug.Log("AnimPlaying " + animPlaying);
+                //missileShotStraight1 = true;//assume for now
                 anim.SetBool(missileShotHash, true);
-                Debug.Log("Animation shooting Missile");
-                Debug.Log("Anim missileShot bool: " + anim.GetBool("missileShot") + "normalized time " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-                if(anim.GetBool("missileShot") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1)
+                anim.SetBool(missileShotStraight1Hash, true);
+                
+                
+                
+                //Debug.Log("Anim missileShot bool: " + anim.GetBool("missileShot") + " anim Playing Tag " + animPlayingTag+ "missileShotStraight1Tag " + missileShotStraight1Tag);
+                if(anim.GetBool(missileShotHash) && animPlayingTag== missileShotStraight1Tag && anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1)
                 {
-                    Debug.Log("Animation has finished playing");
                     missileLauncher.hasShotMissile = false;
+                    anim.SetBool(missileShotHash, false);
+                    missileShotStraight1 = false;
+                    anim.SetBool(missileShotStraight1Hash, false);
+                    
+                    Debug.Log("Animation has finished playing, setting flag to " + missileLauncher.hasShotMissile);
                 }    
             }                
         }
     }
+
+    private void lasserAnimDirection()
+    {
+        missileLauncherChild = transform.Find("Launcher Mount Point");
+        if (Utilities.GetMouseWorldPosition(Input.mousePosition).y < missileLauncherChild.transform.position.y && mechScript.isFacingRight)
+        {
+
+        }
+        
+    }
+
 }
