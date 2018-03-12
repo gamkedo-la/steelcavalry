@@ -51,10 +51,10 @@ public class MechAnimation : MonoBehaviour
         mechScript = GetComponent<Mech>();
         weaponMgr = GetComponent<WeaponManager>();
         //animation IDs
-        missileShotStraight1Tag = Animator.StringToHash("Base Layer.Attack.shotStraight1");
-        missileShotStraight2Tag = Animator.StringToHash("Base Layer.Attack.shotStraight2");
-        missileShotUpTag = Animator.StringToHash("Base Layer.Attack.shotUp");
-        missileShotDownTag = Animator.StringToHash("Base Layer.Attack.shotDown");
+        missileShotStraight1Tag = Animator.StringToHash("shotStraight1");
+        missileShotStraight2Tag = Animator.StringToHash("shotStraight2");
+        missileShotUpTag = Animator.StringToHash("shotUp");
+        missileShotDownTag = Animator.StringToHash("shotDown");
         //Debug.Log("OnWatch2 ID " + Animator.StringToHash("onWatch2"));
         //Debug.Log("missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
     }
@@ -99,7 +99,7 @@ public class MechAnimation : MonoBehaviour
                 tiltDegrees = -45.0f;
             }
             Quaternion targetRotation = Quaternion.AngleAxis(tiltDegrees, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.5f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.05f);
         }
     }
 
@@ -189,7 +189,7 @@ public class MechAnimation : MonoBehaviour
                 lasserAnimDirection();
 
                 //Debug.Log("missileShot " + missileShot + " ////AnimPlayingTag " + animPlayingTag + "missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag  + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
-                Debug.Log("Bool for Shooting Anim " + anim.GetBool(missileShotHash) + " time to end anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime + " AnimPlayingTag " + animPlayingTag);
+                //Debug.Log("Bool for Shooting Anim " + anim.GetBool(missileShotHash) + " time to end anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime + " AnimPlayingTag " + animPlayingTag);
                 if (anim.GetBool(missileShotHash) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1)//(animPlayingTag==missileShotStraight1Tag || animPlayingTag==missileShotStraight2Tag || animPlayingTag==missileShotUpTag || animPlayingTag==missileShotDownTag)
                 {
                     if (animPlayingTag == missileShotStraight1Tag)

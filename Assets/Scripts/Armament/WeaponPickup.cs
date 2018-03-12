@@ -57,6 +57,7 @@ public class WeaponPickup : MonoBehaviour
 			case WeaponType.Turret:
 				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Turret ).ToArray();
 				weapon = ws[Random.Range( 0, ws.Length )];
+                Debug.Log("Weapon " + weapon);
 			break;
 
 			case WeaponType.Launcher:

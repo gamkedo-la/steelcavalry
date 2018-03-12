@@ -127,11 +127,12 @@ public class WeaponManager : MonoBehaviour
 
 	public void GiveWeapon( IWeapon weapon )
 	{
-		//Debug.Log( "I've received " + weapon.Type.ToString() );
+		Debug.Log( "I've received " + weapon.Type.ToString() );
 		GameObject g;
-
-		switch ( weapon.Type )
+        Debug.Log("weapon type " + weapon.Type);
+        switch ( weapon.Type )
 		{
+            
 			case WeaponType.Turret:
 			{
 				if ( turret != null )
