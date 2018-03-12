@@ -16897,6 +16897,11 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 219767444}
+    - target: {fileID: 114080688234258204, guid: 35286b21a7777784f9348a1f2227e119,
+        type: 2}
+      propertyPath: missileLauncherLocation
+      value: 
+      objectReference: {fileID: 1680366890}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35286b21a7777784f9348a1f2227e119, type: 2}
   m_IsPrefabParent: 0
@@ -20980,6 +20985,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 423232367e371c046b7b5cf63365ed52, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1680366890 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4439105728363664, guid: 35286b21a7777784f9348a1f2227e119,
+    type: 2}
+  m_PrefabInternal: {fileID: 1399101443}
 --- !u!1 &1683446306
 GameObject:
   m_ObjectHideFlags: 0

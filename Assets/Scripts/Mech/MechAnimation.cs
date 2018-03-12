@@ -20,10 +20,9 @@ public class MechAnimation : MonoBehaviour
     //missile vars
     Animator anim;
     private bool missileShot;
-    private bool missileShotStraight1;
     private bool launcherOn = false;
     //direction to shoot missile
-    private Transform missileLauncherChild;
+    public Transform missileLauncherLocation;
     
     //anim IDs
     //animator parameters
@@ -171,7 +170,7 @@ public class MechAnimation : MonoBehaviour
                 //decide anim to play
                 lasserAnimDirection();
 
-                //Debug.Log("Anim missileShot bool: " + anim.GetBool("missileShot") + " anim Playing Tag " + animPlayingTag+ "missileShotStraight1Tag " + missileShotStraight1Tag);
+                Debug.Log("missileShot " + missileShot + " ////AnimPlayingTag " + animPlayingTag + "missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag  + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
                 if (anim.GetBool(missileShotHash) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime>=1 && (animPlayingTag==missileShotStraight1Tag || animPlayingTag==missileShotStraight2Tag || animPlayingTag==missileShotUpTag || animPlayingTag==missileShotDownTag))
                 {
                     if(animPlayingTag==missileShotStraight1Tag)
@@ -203,13 +202,12 @@ public class MechAnimation : MonoBehaviour
 
     private void lasserAnimDirection()
     {
-        missileLauncherChild = transform.Find("Launcher Mount Point");
-        if (Utilities.GetMouseWorldPosition(Input.mousePosition).y < missileLauncherChild.transform.position.y)
+        if (Utilities.GetMouseWorldPosition(Input.mousePosition).y < missileLauncherLocation.transform.position.y)
         {
             //shoot down
             anim.SetBool(missileShotDownHash, true);
         }
-        else if (Utilities.GetMouseWorldPosition(Input.mousePosition).y > missileLauncherChild.transform.position.y)
+        else if (Utilities.GetMouseWorldPosition(Input.mousePosition).y > missileLauncherLocation.transform.position.y)
         {
             //shoot up
             anim.SetBool(missileShotUpHash, true);
