@@ -4,6 +4,7 @@ using UnityEngine.Assertions;
 public class Laser : MonoBehaviour, IWeapon
 {
 	[SerializeField] private ParticleSystem muzzleFlesh;
+	[SerializeField] private ParticleSystem impact;
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private AudioEvents audioEventType = AudioEvents.LaserTyp1;
 	[SerializeField] private Transform spawnPoint = null;
@@ -36,6 +37,7 @@ public class Laser : MonoBehaviour, IWeapon
 	void Start( )
 	{
 		Assert.IsNotNull( muzzleFlesh );
+		Assert.IsNotNull( impact );
 		Assert.IsNotNull( audioEvent );
 		Assert.IsNotNull( spawnPoint );
 		Assert.IsNotNull( parameters );
@@ -197,7 +199,10 @@ public class Laser : MonoBehaviour, IWeapon
 			beem.transform.localScale = new Vector3( beem.transform.localScale.x, beem.transform.localScale.y, currentLaserSize * laserScaleCorrection );
 			beem.transform.localPosition = new Vector3( beem.transform.localPosition.x, beem.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
 
-			//Debug.DrawLine( spawnPoint.position, hit.point, Color.red );
+			impact.transform.position = hit.point;
+
+			if ( !impact.isPlaying )
+				impact.Play( );
 
 			HP hp = hit.collider.GetComponent<HP>( );
 			if ( hp )
