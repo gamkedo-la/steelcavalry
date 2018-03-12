@@ -162,10 +162,10 @@ public class Player : MonoBehaviour {
 	void handleInput() {
 
 		if (useKeyboardInput) {
-			inputUp = Input.GetAxisRaw ("Vertical") > 0.0f;
-			inputDown = Input.GetAxisRaw ("Vertical") < 0.0f;
-			inputRight = Input.GetAxisRaw ("Horizontal") > 0.0f;
-			inputLeft = Input.GetAxisRaw ("Horizontal") < 0.0f;
+			inputUp = Input.GetAxisRaw ("Vertical") > 0.1f;
+			inputDown = Input.GetAxisRaw ("Vertical") < -0.1f;
+			inputRight = Input.GetAxisRaw ("Horizontal") > 0.1f;
+			inputLeft = Input.GetAxisRaw ("Horizontal") < -0.1f;
 			inputFire = Input.GetMouseButton(0);
 			inputAltFire = Input.GetMouseButton(1);
 			inputAltFire2 = Input.GetKeyDown(KeyCode.Q);
@@ -298,15 +298,18 @@ public class Player : MonoBehaviour {
 			case PlayerState.inMech:
 				if(mechImIn && mechImIn.mechModel != null) {
                     Quaternion facingDirection;
+                    facingDirection= Quaternion.AngleAxis(mechImIn.transform.rotation.eulerAngles.z, Vector3.forward);
 
                     if (isFacingRight) {
-                        facingDirection = Quaternion.LookRotation(Vector3.right);
+                        facingDirection *= Quaternion.LookRotation(Vector3.right);
                         mechImIn.Side( true );
 					}
                     else {
-                        facingDirection = Quaternion.LookRotation(Vector3.left);
+                        facingDirection *= Quaternion.LookRotation(Vector3.left);
                         mechImIn.Side( false );
 					}
+                    //Debug.Log("Angle Z " + mechImIn.transform.rotation.eulerAngles.z);
+                    //facingDirection *= Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
                     mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation, facingDirection, mechImIn.mechRotateSpeed * Time.deltaTime);
                 }
 

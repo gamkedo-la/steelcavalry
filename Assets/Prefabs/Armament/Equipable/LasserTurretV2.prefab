@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4911830341145172}
   - component: {fileID: 114842657033468830}
   m_Layer: 0
-  m_Name: lasserTurret
+  m_Name: LasserTurretV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
