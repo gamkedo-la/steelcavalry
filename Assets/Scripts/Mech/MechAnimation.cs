@@ -66,18 +66,28 @@ public class MechAnimation : MonoBehaviour
         inputEnter = Input.GetKeyDown(KeyCode.Space);*/
     }
 
-    /*private void FixedUpdate()
+    /*
+    private void FixedUpdate()
     {
-        RaycastHit hit;
+        //raycast dist to ground
+        float minDistToGround = 0.25f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
-        if (Physics.Raycast(transform.position, rayDown, out hit))
-        {
-            float GroundDist = hit.distance;//dist to ground
-            Debug.Log("GrounDist " + GroundDist);
-            //get rotation
-            Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
-            if (mechImIn && (inputLeft || inputRight) && (inputUp || inputDown))
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown);
+
+        if (groundHit)
+        {
+            if (groundHit.collider)
+            {
+                GroundDist = groundHit.distance;//dist to ground
+                Debug.DrawRay(transform.position, rayDown, Color.red);
+            }
+        }
+
+        if (GroundDist <= minDistToGround)
+        {
+            Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, groundHit.normal);
+            if ((inputLeft || inputRight) && (inputUp || inputDown))//need to add (mechImIn &&)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smooth * Time.deltaTime);
                 Debug.Log(targetRotation + " " + transform.rotation);
