@@ -3,6 +3,8 @@ using UnityEngine.Assertions;
 
 public class Gun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private GameObject shell;
+	[SerializeField] private Transform shellSpawnPoint;
 	[SerializeField] private ParticleSystem muzzleFlesh;
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
@@ -29,6 +31,8 @@ public class Gun : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+		Assert.IsNotNull( shell );
+		Assert.IsNotNull( shellSpawnPoint );
 		Assert.IsNotNull( muzzleFlesh );
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
@@ -120,6 +124,9 @@ public class Gun : MonoBehaviour, IWeapon
 		shotGO.GetComponent<ShotBreaksIntoParticle>( ).SetDamage( parameters.GetDamage( ) );
 
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
+
+		GameObject s = Instantiate( shell, shellSpawnPoint.position, Quaternion.identity );
+		s.GetComponent<Rigidbody2D>( ).AddForce( Quaternion.Euler( 0, 0, Random.Range( -30, 30 ) ) * spawnPoint.up * 15 );
 
 		timeToNextShot = parameters.DelayBetweenShots;
 		currentMagSize--;

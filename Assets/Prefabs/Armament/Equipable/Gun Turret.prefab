@@ -26,6 +26,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1085487528266430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4062550653570386}
+  m_Layer: 0
+  m_Name: Shell Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1442088368580122
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +124,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &4062550653570386
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085487528266430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4160619074658214}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4160619074658214
 Transform:
   m_ObjectHideFlags: 1
@@ -122,6 +150,7 @@ Transform:
   - {fileID: 4184342815233306}
   - {fileID: 4416980175691588}
   - {fileID: 4506451220065992}
+  - {fileID: 4062550653570386}
   - {fileID: 4625660398776890}
   - {fileID: 4786168565297882}
   m_Father: {fileID: 0}
@@ -177,7 +206,7 @@ Transform:
   m_LocalScale: {x: 1.0000058, y: 1.0000058, z: 1.0000058}
   m_Children: []
   m_Father: {fileID: 4160619074658214}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4786168565297882
 Transform:
@@ -190,7 +219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4160619074658214}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23437825129961136
 MeshRenderer:
@@ -297,6 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cffce958ddfc38499273b4f396858e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shell: {fileID: 1528886372382112, guid: 8ffb04d87772f6e42920492c397c0d6e, type: 2}
+  shellSpawnPoint: {fileID: 4062550653570386}
   muzzleFlesh: {fileID: 198621527246949254}
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   spawnPoint: {fileID: 4506451220065992}
