@@ -142,12 +142,7 @@ public class WeaponManager : MonoBehaviour
 
 				g = Instantiate( weapon.GetGameObject( ), turretMountPoint.position, Quaternion.identity, turretMountPoint );
 				g.transform.localPosition = Vector3.zero;
-				g.transform.localRotation = Quaternion.Euler
-				(
-					0,
-					0,
-					isRight ? 0 : 180
-				);
+				
 
 				turret = g.GetComponent<IWeapon>( );
 
