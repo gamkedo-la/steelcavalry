@@ -47,34 +47,15 @@ public class WeaponPickup : MonoBehaviour
 		manager.GiveWeapon( weapon );
 	}
 
-	private IWeapon CreateWeapon( )
-	{
-		IWeapon weapon = null;
-		IWeapon[] ws;
+    private IWeapon CreateWeapon() 
+    {
+        IWeapon[] ws;
 
-		switch ( typeToGive )
-		{
-			case WeaponType.Turret:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Turret ).ToArray();
-				weapon = ws[Random.Range( 0, ws.Length )];
-                Debug.Log("Weapon " + weapon);
-			break;
+        if (typeToGive == WeaponType.Any) {
+            return weapons[Random.Range(0, weapons.Count)];
+        }
 
-			case WeaponType.Launcher:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Launcher ).ToArray( );
-				weapon = ws[Random.Range( 0, ws.Length )];
-			break;
-
-			case WeaponType.Thrower:
-				ws = weapons.Select( w => w ).Where( w => w.Type == WeaponType.Thrower ).ToArray( );
-				weapon = ws[Random.Range( 0, ws.Length )];
-			break;
-
-			case WeaponType.Any:
-				weapon = weapons[Random.Range( 0, weapons.Count )];
-			break;
-		}
-
-		return weapon;
-	}
+        ws = weapons.Select(w => w).Where(w => w.Type == typeToGive).ToArray();
+        return ws[Random.Range(0, ws.Length)];
+    }
 }
