@@ -129,7 +129,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		Debug.Log( "I've received " + weapon.Type.ToString() );
 		GameObject g;
-        Debug.Log("weapon type " + weapon.Type);
+        //Debug.Log("weapon type " + weapon.Type);
         switch ( weapon.Type )
 		{
             

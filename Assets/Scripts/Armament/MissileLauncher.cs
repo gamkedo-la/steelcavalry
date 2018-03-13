@@ -10,7 +10,9 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private WeaponType type = WeaponType.Launcher;
 
+    //var for animations
     public bool hasShotMissile;
+    MechAnimation mechAnimScript;
 	public WeaponType Type
 	{
 		get { return type; }
@@ -34,6 +36,8 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		Assert.IsNotNull( weaponSlotEvents );
 
 		currentMagSize = (int)parameters.MagSize;
+
+        mechAnimScript = gameObject.GetComponentInParent<MechAnimation>();//access MechAnimation script from current object 
 	}
 
 	void Update( )
@@ -94,6 +98,11 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
         GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
         hasShotMissile = true;
+        mechAnimScript.positionLocked = true;
+        Debug.Log("Setting PositionLocked " + mechAnimScript.positionLocked);
+        
+        
+        
         //Debug.Log("Has shot missile Launcher CS " + hasShotMissile);
         missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
