@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 
 public class Laser : MonoBehaviour, IWeapon
 {
+    [SerializeField] private GameObject gun;
 	[SerializeField] private ParticleSystem muzzleFlesh;
 	[SerializeField] private ParticleSystem impact;
 	[SerializeField] private GameEventAudioEvent audioEvent;
@@ -142,11 +143,11 @@ public class Laser : MonoBehaviour, IWeapon
 
 	private void LookAtCursor( )
 	{
-		if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < transform.position.x && !isRight ) &&
-			 !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > transform.position.x && isRight ) )
+		if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < gun.transform.position.x && !isRight ) &&
+			 !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > gun.transform.position.x && isRight ) )
 			return;
 
-		Vector3 diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - transform.position;
+		Vector3 diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - gun.transform.position;
 		diff.Normalize( );
 
 		xAngle = -1 * Mathf.Atan2( diff.y, diff.x ) * Mathf.Rad2Deg;
@@ -168,7 +169,7 @@ public class Laser : MonoBehaviour, IWeapon
 
 		float yAngle = 90f;
 
-		transform.rotation = Quaternion.Euler( xAngle, yAngle, 0f );
+		gun.transform.rotation = Quaternion.Euler( xAngle, yAngle, 0f );
 	}
 
 	private void StopSound()
@@ -180,7 +181,7 @@ public class Laser : MonoBehaviour, IWeapon
 	{
 		if ( !shooting )
 		{
-			audioEvent.Raise( audioEventType, transform.position );
+			audioEvent.Raise( audioEventType, gun.transform.position );
 			shooting = true;
 			Invoke( "StopSound", 1f );
 		}

@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3ed3f95a0563b43857205ac592b65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 1496325072605464}
   muzzleFlesh: {fileID: 198960591660588866}
   impact: {fileID: 198002812714808886}
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
