@@ -28,7 +28,7 @@ public class Laser : MonoBehaviour, IWeapon
 	private bool isRight = false;
 	private bool isPlayerDriver = false;
 	private float xAngle;
-	private GameObject beem;
+	private GameObject beam;
 	private bool shooting = false;
 
 	private float realoadTimeLeft = 0;
@@ -45,8 +45,8 @@ public class Laser : MonoBehaviour, IWeapon
 		Assert.IsNotNull( didDamageEvent );
 		Assert.IsNotNull( weaponSlotEvents );
 
-		beem = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.identity, spawnPoint );
-		beem.transform.localRotation = Quaternion.identity;
+		beam = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.identity, spawnPoint );
+		beam.transform.localRotation = Quaternion.identity;
 
 		shootingTimeleft = parameters.MagSize;
 	}
@@ -66,7 +66,7 @@ public class Laser : MonoBehaviour, IWeapon
 
 	void FixedUpdate( )
 	{
-		beem.gameObject.SetActive( false );
+		beam.gameObject.SetActive( false );
 
 		if ( !isActive )
 			return;
@@ -185,7 +185,7 @@ public class Laser : MonoBehaviour, IWeapon
 			Invoke( "StopSound", 1f );
 		}
 
-		beem.gameObject.SetActive( true );
+		beam.gameObject.SetActive( true );
 		if (!muzzleFlesh.isPlaying) muzzleFlesh.Play( );
 
 		Vector2 laserDirection = spawnPoint.rotation * ( spawnPoint.right * -1 );
@@ -196,8 +196,8 @@ public class Laser : MonoBehaviour, IWeapon
 		if ( hit.collider != null )
 		{
 			currentLaserSize = Vector2.Distance( spawnPoint.position, hit.point );
-			beem.transform.localScale = new Vector3( beem.transform.localScale.x, beem.transform.localScale.y, currentLaserSize * laserScaleCorrection );
-			beem.transform.localPosition = new Vector3( beem.transform.localPosition.x, beem.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
+			beam.transform.localScale = new Vector3( beam.transform.localScale.x, beam.transform.localScale.y, currentLaserSize * laserScaleCorrection );
+			beam.transform.localPosition = new Vector3( beam.transform.localPosition.x, beam.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
 
 			impact.transform.position = hit.point;
 
@@ -215,8 +215,8 @@ public class Laser : MonoBehaviour, IWeapon
 		{
 			// Shooting in the air :(
 			currentLaserSize = maxLaserSize;
-			beem.transform.localScale = new Vector3( beem.transform.localScale.x, beem.transform.localScale.y, currentLaserSize * laserScaleCorrection );
-			beem.transform.localPosition = new Vector3( beem.transform.localPosition.x, beem.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
+			beam.transform.localScale = new Vector3( beam.transform.localScale.x, beam.transform.localScale.y, currentLaserSize * laserScaleCorrection );
+			beam.transform.localPosition = new Vector3( beam.transform.localPosition.x, beam.transform.localPosition.y, currentLaserSize * laserMoveCorrection );
 		}
 	}
 }
