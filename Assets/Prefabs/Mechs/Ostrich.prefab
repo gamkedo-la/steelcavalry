@@ -169,6 +169,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4279728738795294}
+  - component: {fileID: 58829992587590510}
+  - component: {fileID: 114848762202684264}
   m_Layer: 11
   m_Name: Mech Feet
   m_TagString: Untagged
@@ -955,7 +957,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873332035167752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.1, y: 4.05, z: 0}
+  m_LocalPosition: {x: -1.33, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224903176226461142}
@@ -2449,6 +2451,21 @@ CircleCollider2D:
   m_Offset: {x: 0.0000010728834, y: 0.15011856}
   serializedVersion: 2
   m_Radius: 0.90105724
+--- !u!58 &58829992587590510
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208257721238880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.01}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!58 &58838161658476484
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -2684,6 +2701,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 4582831794685446}
   throwerMountPoint: {fileID: 4403486158949652}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &114202262445843584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2846,6 +2864,7 @@ MonoBehaviour:
   - {fileID: 1770673971053596}
   - {fileID: 1530465782339838}
   - {fileID: 1517128085901868}
+  bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4049568044068722}
   mechFeet: {fileID: 4279728738795294}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
@@ -2854,7 +2873,7 @@ MonoBehaviour:
   expForceMin: 300
   expForceMax: 500
   thrusterFuelMax: 100
-  thrusterFuelRegen: 25
+  thrusterFuelRegen: 40
   thrusterCost: 130
   thrusterPower: 26000
   firstThrustCost: 0.28
@@ -2862,6 +2881,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  crushDamage: 100
   inUse: 0
   damageTaken: 0
   maxDamage: 100
@@ -3130,6 +3150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrusterParticle: {fileID: 198128209815105494}
   thrusterLight: {fileID: 108347421162641994}
+--- !u!114 &114848762202684264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208257721238880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe36e1302111efa409c2dd486bdeacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
+  dust: {fileID: 1358496686987862, guid: 31b2fbf46395fa143a43215ca9f2d42f, type: 2}
 --- !u!198 &198128209815105494
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -13608,7 +13641,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.08300018, y: 1.61}
-  m_SizeDelta: {x: 4.033, y: 4.0969}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224921205442444182
 RectTransform:

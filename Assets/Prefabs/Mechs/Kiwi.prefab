@@ -643,6 +643,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4006207973259882}
+  - component: {fileID: 58079067842972714}
+  - component: {fileID: 114686375806368710}
   m_Layer: 11
   m_Name: Mech Feet
   m_TagString: Untagged
@@ -897,7 +899,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282593385158692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.26, y: -0.02, z: 0}
+  m_LocalPosition: {x: -13.26, y: 7.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224218437724240372}
@@ -1512,6 +1514,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58079067842972714
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995947032150636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.02}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!58 &58132190701987962
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -2001,6 +2018,7 @@ MonoBehaviour:
   - {fileID: 1907926179531136}
   - {fileID: 1864339844371586}
   - {fileID: 1381676845562546}
+  bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4999060487381030}
   mechFeet: {fileID: 4006207973259882}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
@@ -2017,6 +2035,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  crushDamage: 100
   inUse: 0
   damageTaken: 0
   maxDamage: 100
@@ -2202,6 +2221,20 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 4702498548227360}
   throwerMountPoint: {fileID: 4563447306569764}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
+--- !u!114 &114686375806368710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995947032150636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe36e1302111efa409c2dd486bdeacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
+  dust: {fileID: 1358496686987862, guid: 31b2fbf46395fa143a43215ca9f2d42f, type: 2}
 --- !u!114 &114869344601728256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12662,7 +12695,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.0045059}
-  m_SizeDelta: {x: 4.033, y: 4.0969}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224349543223793198
 RectTransform:
