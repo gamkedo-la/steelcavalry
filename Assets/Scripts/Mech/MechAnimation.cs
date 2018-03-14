@@ -21,6 +21,7 @@ public class MechAnimation : MonoBehaviour
     Animator anim;
     private bool missileShot;
     private bool launcherOn = false;
+    public ParticleSystem missileFireParticles;
     //direction to shoot missile
     public Transform missileLauncherLocation;
     private float missleLauncherLocationY;
@@ -53,6 +54,11 @@ public class MechAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
         weaponMgr = GetComponent<WeaponManager>();
+        //missileFireParticles = GetComponent<ParticleSystem>();
+        //disable particles
+        //var missileEmission = missileFireParticles.emission;
+        //missileEmission.enabled = false;
+
         //animation IDs
         missileShotStraight1Tag = Animator.StringToHash("shotStraight1");
         missileShotStraight2Tag = Animator.StringToHash("shotStraight2");
@@ -60,6 +66,7 @@ public class MechAnimation : MonoBehaviour
         missileShotDownTag = Animator.StringToHash("shootDown");
         //Debug.Log("OnWatch2 ID " + Animator.StringToHash("onWatch2"));
         Debug.Log("missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
+        
     }
     void Start()
     {
@@ -179,7 +186,12 @@ public class MechAnimation : MonoBehaviour
 
         if (weaponMgr.launcherMounted)
         {
-            //Debug.Log("I'm here now");
+            //TODO: need to move this outside update
+            //render off for missile launcher cos mech already has missile shooter
+            GameObject missileLauncherGO = GameObject.FindGameObjectWithTag("missileLauncher");
+            MeshRenderer missileLauncherRender = missileLauncherGO.GetComponent<MeshRenderer>();
+            missileLauncherRender.enabled = false;
+
             missileShot = missileLauncher.hasShotMissile;
             //Debug.Log("MissileShot Flag is " + missileShot);
             
@@ -195,6 +207,9 @@ public class MechAnimation : MonoBehaviour
                     missleLauncherLocationY = missileLauncherLocation.transform.position.y;
                     Debug.Log("I'm inside positionLocked and the var is " + positionLocked);
                     lasserAnimDirection(missleLauncherLocationY);
+                    //enable missile shot particles when shot
+                    //var missileEmission = missileFireParticles.emission;
+                    //missileEmission.enabled = true;
                 }
                 Debug.Log("Now PositionLocked is " + positionLocked);
                 //Debug.Log("missileShot " + missileShot + " ////AnimPlayingTag " + animPlayingTag + "missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag  + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
@@ -228,6 +243,9 @@ public class MechAnimation : MonoBehaviour
                     }
                     missileLauncher.hasShotMissile = false;
                     anim.SetBool(missileShotHash, false);
+                    //disable particles missile launch
+                    var missileEmission = missileFireParticles.emission;
+                    missileEmission.enabled = false;
                     //Debug.Log("Animation has finished playing, setting flag to " + missileLauncher.hasShotMissile);
                 }    
             }                
@@ -237,6 +255,7 @@ public class MechAnimation : MonoBehaviour
     private void lasserAnimDirection(float launcherYLocation)
     {
         float straightAimMargin = 1f;
+        
         Debug.Log("Entering this time in AnimDirection");
         //Debug.Log("BEFORE" + "Location Mouse y: " + Utilities.GetMouseWorldPosition(Input.mousePosition).y + " Location transform y " + (missleLauncherLocationY - 1.0f));
         if (Utilities.GetMouseWorldPosition(Input.mousePosition).y< (launcherYLocation-straightAimMargin))
@@ -245,6 +264,7 @@ public class MechAnimation : MonoBehaviour
             //Debug.Log("AFTER AND DOWN" + "Location Mouse y: " + Utilities.GetMouseWorldPosition(Input.mousePosition).y + " Location transform y " + (missleLauncherLocationY - 1.0f));
             Debug.Log("Anim to play At Direction Function is Down");
             anim.SetBool(missileShotDownHash, true);
+            //activate particles
         }
         else if (Utilities.GetMouseWorldPosition(Input.mousePosition).y > (launcherYLocation+straightAimMargin))
         {

@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114962946382408008}
   m_Layer: 0
   m_Name: Missile Launcher
-  m_TagString: Untagged
+  m_TagString: missileLauncher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +142,4 @@ MonoBehaviour:
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   parameters: {fileID: 11400000, guid: 929d04db69f81ce40882e2dfa0db1073, type: 2}
   type: 1
+  hasShotMissile: 0
