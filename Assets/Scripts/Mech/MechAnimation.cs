@@ -105,13 +105,9 @@ public class MechAnimation : MonoBehaviour
             }
         }
 
-        if (GroundDist > minDistToGround)
+        //may re-add tilting when flying since gravity affecting flying direction-sergio
+        /*if (GroundDist > minDistToGround)
         {
-            /*Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, groundHit.normal);
-            if ((inputLeft || inputRight) && (inputUp || inputDown))//need to add (mechImIn &&)
-            {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smooth * Time.deltaTime);
-            }*/
             //Debug.Log("Distance to Ground bool met " + GroundDist);
             float tiltDegrees = 0.0f;
             if(inputLeft)
@@ -124,7 +120,7 @@ public class MechAnimation : MonoBehaviour
             }
             Quaternion targetRotation = Quaternion.AngleAxis(tiltDegrees, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.05f);
-        }
+        }*/
     }
 
     void Update()
