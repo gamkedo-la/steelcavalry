@@ -74,10 +74,10 @@ public class MechAnimation : MonoBehaviour
         swordSwingTag = Animator.StringToHash("swordSwing");
 
         //Debug.Log("OnWatch2 ID " + Animator.StringToHash("onWatch2"));
-        Debug.Log("missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
+        Debug.Log("swordSwingTag" + swordSwingTag + "missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
 
         //swordSwing raycast
-        enemyLayer = LayerMask.GetMask("Mech");
+        enemyLayer = LayerMask.GetMask("Mechs");
     }
     void Start()
     {
@@ -183,7 +183,7 @@ public class MechAnimation : MonoBehaviour
         //swing Sword Animation
         swordSwing();
         animPlayingTag = anim.GetCurrentAnimatorStateInfo(0).tagHash;
-        Debug.Log("Anim playing " + animPlayingTag + "TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        //Debug.Log("Anim playing " + animPlayingTag + "TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (animPlayingTag==swordSwingTag && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             anim.SetBool(swingAtReachHash, false);
@@ -316,39 +316,40 @@ public class MechAnimation : MonoBehaviour
         float minDistToMech = 1f;//dist for mech to swing sword
         
         bool mechFacingRight = mechScript.isFacingRight;
-        Vector2 directionRight = new Vector2(5, 3);
-        Vector2 directionLeft = new Vector2(-5, 3);
+        Vector2 directionRight = new Vector2(1, 3);
+        Vector2 directionLeft = new Vector2(-1, 3);
         Vector2 rayFwd;
         RaycastHit2D mechHit;
 
         if (mechFacingRight)
         {
             rayFwd = transform.TransformDirection(directionRight);
-            mechHit = Physics2D.Raycast(transform.position + transform.right * -0.5f, rayFwd, enemyLayer);
+            mechHit = Physics2D.Raycast(transform.position + transform.right * 1f, rayFwd, enemyLayer);
             Debug.DrawRay(transform.position + transform.right * 1f, rayFwd, Color.red);
         }
         else
         {
             rayFwd = transform.TransformDirection(directionLeft);
-            mechHit = Physics2D.Raycast(transform.position + transform.right * 0.5f, rayFwd, enemyLayer);
+            mechHit = Physics2D.Raycast(transform.position + transform.right * -1f, rayFwd, enemyLayer);
             Debug.DrawRay(transform.position + transform.right * -1f, rayFwd, Color.red);
         }
 
         if (mechHit)
         {
+            //mechDist = mechHit.distance;//dist to mech
             if (mechHit.collider)
             {
-                mechDist = mechHit.distance;//dist to mech
-                Debug.Log("mechDist " + mechDist);
+                anim.SetBool(swingAtReachHash, true);
                 Debug.Log("I hit collider " + mechHit.collider);
             }
-            
         }
-        if (mechDist < minDistToMech)
+
+        /*if (mechDist < minDistToMech)
         {
             Debug.Log("Swing Anim");
             anim.SetBool(swingAtReachHash, true);
-        }
+        }*/
+
     }
 
 }
