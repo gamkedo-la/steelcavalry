@@ -255,6 +255,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4280892613589322}
+  - component: {fileID: 58329120320553444}
+  - component: {fileID: 114016686577208100}
   m_Layer: 11
   m_Name: Mech Feet
   m_TagString: Untagged
@@ -1727,6 +1729,21 @@ CircleCollider2D:
   m_Offset: {x: -0.0011525025, y: -0.0003075077}
   serializedVersion: 2
   m_Radius: 0.0059256363
+--- !u!58 &58329120320553444
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345863481920100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.04}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!58 &58477776448503004
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -2058,6 +2075,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114016686577208100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345863481920100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe36e1302111efa409c2dd486bdeacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
+  dust: {fileID: 1358496686987862, guid: 31b2fbf46395fa143a43215ca9f2d42f, type: 2}
 --- !u!114 &114022759716863060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2178,6 +2208,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 4821247537355512}
   throwerMountPoint: {fileID: 4708238339849224}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &114415185008693264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2363,6 +2394,7 @@ MonoBehaviour:
   - {fileID: 1052468447749388}
   - {fileID: 1609686764565306}
   - {fileID: 1067968700163778}
+  bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4552810934131264}
   mechFeet: {fileID: 4280892613589322}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
@@ -2379,6 +2411,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  crushDamage: 100
   inUse: 0
   damageTaken: 0
   maxDamage: 100
@@ -13014,7 +13047,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.21, y: 0.8668221}
-  m_SizeDelta: {x: 4.033, y: 4.0969}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224812957217320004
 RectTransform:

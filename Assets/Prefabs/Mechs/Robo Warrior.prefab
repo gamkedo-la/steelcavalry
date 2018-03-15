@@ -34,6 +34,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4404694088174926}
+  - component: {fileID: 58948171505379784}
+  - component: {fileID: 114596307666053360}
   m_Layer: 11
   m_Name: Mech Feet
   m_TagString: Untagged
@@ -2567,6 +2569,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58948171505379784
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009841787835982}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.05}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!61 &61397870500443620
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -2579,7 +2596,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019469053, y: 0.044729173}
+  m_Offset: {x: 0.019469053, y: 0.052616954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2590,7 +2607,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7014746, y: 2.536477}
+  m_Size: {x: 0.7014746, y: 2.5207016}
   m_EdgeRadius: 0
 --- !u!95 &95472504822449094
 Animator:
@@ -2948,6 +2965,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrusterParticle: {fileID: 198778279136254250}
   thrusterLight: {fileID: 108700791209353938}
+--- !u!114 &114596307666053360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009841787835982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe36e1302111efa409c2dd486bdeacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
+  dust: {fileID: 1358496686987862, guid: 31b2fbf46395fa143a43215ca9f2d42f, type: 2}
 --- !u!114 &114605447057754804
 MonoBehaviour:
   m_ObjectHideFlags: 1
