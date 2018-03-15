@@ -7,7 +7,6 @@ public class MechAnimation : MonoBehaviour
 
     float mechDist;//TODO: revise why can't delcare in swing function
 
-
     public Player Player;
     Mech mechScript;
     MissileLauncher missileLauncher;
@@ -55,6 +54,9 @@ public class MechAnimation : MonoBehaviour
     private float tiltAngle = 30.0f;
     float GroundDist;
 
+    //sword Anim
+    public Transform swordRaysastSource;
+
     // Use this for initialization
     private void Awake()
     {
@@ -89,7 +91,7 @@ public class MechAnimation : MonoBehaviour
     private void FixedUpdate()
     {
         //raycast dist to ground
-        float minDistToGround = 0.25f;//dist for standby animation to occur
+        //float minDistToGround = 0.25f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
 
         int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
@@ -100,7 +102,7 @@ public class MechAnimation : MonoBehaviour
             if (groundHit.collider)
             {
                 GroundDist = groundHit.distance;//dist to ground
-                Debug.Log("Distance to Ground " + GroundDist + " hitting " + groundHit.collider.name);
+                //Debug.Log("Distance to Ground " + GroundDist + " hitting " + groundHit.collider.name);
                 Debug.DrawRay(transform.position, rayDown, Color.red);
             }
         }
@@ -125,6 +127,11 @@ public class MechAnimation : MonoBehaviour
 
     void Update()
     {
+        if(mechInUse == false)
+        {
+            return;
+        }
+
         inputUp = Player.inputUp;
         inputDown = Player.inputDown;
         inputRight = Player.inputRight;
@@ -315,31 +322,28 @@ public class MechAnimation : MonoBehaviour
         //float minDistToMech = 1f;//dist for mech to swing sword
         
         bool mechFacingRight = mechScript.isFacingRight;
-        Vector2 directionRight = new Vector2(1, 3);
-        Vector2 directionLeft = new Vector2(-1, 3);
-        Vector2 rayFwd;
+        Vector3 rayLength = new Vector3(1, 0,0);
+        Vector3 rayGap = new Vector3(1, 0, 0);
+        
         RaycastHit2D mechHit;
 
-        if (mechFacingRight)
+        if (mechFacingRight==false)
         {
-            rayFwd = transform.TransformDirection(directionRight);
-            mechHit = Physics2D.Raycast(transform.position + transform.right * 1f, rayFwd, enemyLayer);
-            Debug.DrawRay(transform.position + transform.right * 1f, rayFwd, Color.red);
+            rayLength.x = -rayLength.x;
+            rayGap.x = -rayGap.x;
         }
-        else
-        {
-            rayFwd = transform.TransformDirection(directionLeft);
-            mechHit = Physics2D.Raycast(transform.position + transform.right * -1f, rayFwd, enemyLayer);
-            Debug.DrawRay(transform.position + transform.right * -1f, rayFwd, Color.red);
-        }
+
+        mechHit = Physics2D.Raycast(swordRaysastSource.position + rayGap, rayLength, enemyLayer);
+        Debug.DrawRay(swordRaysastSource.position + rayGap, rayLength, Color.red);
 
         if (mechHit)
         {
+            Debug.Log("I hit collider " + mechHit.collider.name);
             //mechDist = mechHit.distance;//dist to mech
             if (mechHit.collider)
             {
                 //anim.SetBool(swingAtReachHash, true);
-                //Debug.Log("I hit collider " + mechHit.collider);
+                
             }
         }
 
