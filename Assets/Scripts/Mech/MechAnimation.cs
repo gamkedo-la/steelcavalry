@@ -92,13 +92,15 @@ public class MechAnimation : MonoBehaviour
         float minDistToGround = 0.25f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
 
-        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown);
+        int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown, 20.0f, groundLayerMaskIgnore);
 
         if (groundHit)
         {
             if (groundHit.collider)
             {
                 GroundDist = groundHit.distance;//dist to ground
+                Debug.Log("Distance to Ground " + GroundDist + " hitting " + groundHit.collider.name);
                 Debug.DrawRay(transform.position, rayDown, Color.red);
             }
         }
@@ -110,6 +112,7 @@ public class MechAnimation : MonoBehaviour
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smooth * Time.deltaTime);
             }*/
+            //Debug.Log("Distance to Ground bool met " + GroundDist);
             float tiltDegrees = 0.0f;
             if(inputLeft)
             {
@@ -149,7 +152,7 @@ public class MechAnimation : MonoBehaviour
                 GroundDist = groundHit.distance;//dist to ground
                 //Debug.Log("collider hit " + groundHit.collider.gameObject.name);
                 //Debug.Log("Distance to Ground " + GroundDist);
-                Debug.DrawRay(transform.position, rayDown, Color.red);
+                Debug.DrawRay(transform.position, rayDown, Color.green);
             }
         }
         
@@ -313,7 +316,7 @@ public class MechAnimation : MonoBehaviour
     void swordSwing()
     {
         //raycast in front
-        float minDistToMech = 1f;//dist for mech to swing sword
+        //float minDistToMech = 1f;//dist for mech to swing sword
         
         bool mechFacingRight = mechScript.isFacingRight;
         Vector2 directionRight = new Vector2(1, 3);
@@ -339,8 +342,8 @@ public class MechAnimation : MonoBehaviour
             //mechDist = mechHit.distance;//dist to mech
             if (mechHit.collider)
             {
-                anim.SetBool(swingAtReachHash, true);
-                Debug.Log("I hit collider " + mechHit.collider);
+                //anim.SetBool(swingAtReachHash, true);
+                //Debug.Log("I hit collider " + mechHit.collider);
             }
         }
 
