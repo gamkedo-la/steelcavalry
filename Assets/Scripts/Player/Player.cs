@@ -291,19 +291,19 @@ public class Player : MonoBehaviour {
 
 			// Update method for when inside mech
 			case PlayerState.inMech:
-                
-                if (inputRight && !isFacingRight) {
-                    isFacingRight = true;
-                    if (weapon != null)
-                        weapon.SetDir(isFacingRight);
+                if (!(inputFire || inputAltFire || inputAltFire2)) {
+                    if (inputRight && !isFacingRight) {
+                        isFacingRight = true;
+                        if (weapon != null)
+                            weapon.SetDir(isFacingRight);
 
-                }
-                else if (inputLeft && isFacingRight) {
-                    isFacingRight = false;
-                    if (weapon != null)
-                        weapon.SetDir(isFacingRight);
-                }
-                
+                    }
+                    else if (inputLeft && isFacingRight) {
+                        isFacingRight = false;
+                        if (weapon != null)
+                            weapon.SetDir(isFacingRight);
+                    }
+                }                
 
 				if(mechImIn && mechImIn.mechModel != null) {
                     Quaternion facingDirection;
