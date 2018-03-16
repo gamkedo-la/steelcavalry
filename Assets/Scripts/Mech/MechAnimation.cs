@@ -97,7 +97,7 @@ public class MechAnimation : MonoBehaviour
 
         int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
         RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown, 20.0f, groundLayerMaskIgnore);
-
+        
         if (groundHit)
         {
             if (groundHit.collider)
@@ -191,11 +191,11 @@ public class MechAnimation : MonoBehaviour
             anim.SetFloat("walk", walk);
         }
 
-        //swing Sword Animation
+        //swing Sword Animation. Missile Shot takes precedence to swing sword
         swordSwing();
         animPlayingTag = anim.GetCurrentAnimatorStateInfo(0).tagHash;
-        Debug.Log("Anim playing " + animPlayingTag + " TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        if (animPlayingTag==swordSwingTag && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        //Debug.Log("Anim playing " + animPlayingTag + " TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        if (animPlayingTag==swordSwingTag && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 || anim.GetBool(onGroundHash)==false || missileShot==true)
         {
             Debug.Log("Switching off Swing Sword");
             anim.SetBool(swingAtReachHash, false);
@@ -330,6 +330,7 @@ public class MechAnimation : MonoBehaviour
         bool mechFacingRight = mechScript.isFacingRight;
         Vector3 rayLength = new Vector3(1, 0,0);
         Vector3 rayGap = new Vector3(1, 0, 0);
+        float distanceToSwing = 1.2f;
         
         RaycastHit2D mechHit;
 
@@ -339,12 +340,12 @@ public class MechAnimation : MonoBehaviour
             rayGap.x = -rayGap.x;
         }
 
-        mechHit = Physics2D.Raycast(swordRaysastSource.position + rayGap, rayLength, enemyLayer);
+        mechHit = Physics2D.Raycast(swordRaysastSource.position + rayGap, rayLength, distanceToSwing,enemyLayer);
         Debug.DrawRay(swordRaysastSource.position + rayGap, rayLength, Color.red);
 
         if (mechHit)
         {
-            //Debug.Log("I hit collider " + mechHit.collider.name);
+            Debug.Log("I hit collider " + mechHit.collider.name);
             //mechDist = mechHit.distance;//dist to mech
             if (mechHit.collider)
             {
