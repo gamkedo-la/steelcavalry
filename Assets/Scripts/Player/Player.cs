@@ -20,7 +20,9 @@ public class Player : MonoBehaviour {
 	private Camera mainCam;
 	private MainCamera camScript;
 
-	private bool jetpackOn = false;
+    private MouseCursor cursor;
+
+    private bool jetpackOn = false;
 
 	private int mechOnlyMask;
 
@@ -80,7 +82,9 @@ public class Player : MonoBehaviour {
 		mainCam = Camera.main;
 		camScript = mainCam.GetComponent<MainCamera>();
 
-		_state = PlayerState.outOfMech; //default player state, switches between in and out of mech
+        cursor = UIResourceManager.MouseCursor;
+
+        _state = PlayerState.outOfMech; //default player state, switches between in and out of mech
 
 		jetpack = GetComponent<Jetpack>();
 
@@ -254,7 +258,6 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
 		handleInput();
 
 		//Common to both in and out of mech; prob will be changed later
@@ -271,7 +274,7 @@ public class Player : MonoBehaviour {
 				if ( weapon != null )
 					weapon.SetDir( isFacingRight );
 			}
-			} else if(inputLeft && isFacingRight) {
+		} else if (inputLeft && isFacingRight) {
 			if ( _state == PlayerState.inMech && inputFire )
 			{
 				isFacingRight = true;
@@ -284,7 +287,7 @@ public class Player : MonoBehaviour {
 				if ( weapon != null )
 					weapon.SetDir( isFacingRight );
 			}
-			}
+		}
 
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
@@ -299,7 +302,15 @@ public class Player : MonoBehaviour {
 
         if (inputFire){
 			OnFire(); //tells everyone listening that a shot has been fired
-		}
+
+            if (cursor.transform.position.x > transform.position.x) {
+                isFacingRight = true;
+            }
+            else {
+                isFacingRight = false;
+            }
+
+        }
 		if (inputAltFire)
 		{
 			OnAltFire( ); //tells everyone listening that a shot has been fired
@@ -319,15 +330,18 @@ public class Player : MonoBehaviour {
 
                     if (isFacingRight) {
                         facingDirection *= Quaternion.LookRotation(Vector3.right);
-                        mechImIn.Side( true );
 					}
                     else {
-                        facingDirection *= Quaternion.LookRotation(Vector3.left);
-                        mechImIn.Side( false );
+                        facingDirection *= Quaternion.LookRotation(Vector3.left);                        
 					}
+
+                    mechImIn.Side(isFacingRight);
+
                     //Debug.Log("Angle Z " + mechImIn.transform.rotation.eulerAngles.z);
                     //facingDirection *= Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
-                    mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation, facingDirection, mechImIn.mechRotateSpeed * Time.deltaTime);
+                    mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation, 
+                                                                   facingDirection, 
+                                                                   mechImIn.mechRotateSpeed * Time.deltaTime);
                 }
 
 				if ( mechImIn != null )
