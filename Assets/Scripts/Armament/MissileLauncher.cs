@@ -13,6 +13,8 @@ public class MissileLauncher : MonoBehaviour, IWeapon
     //var for animations
     public bool hasShotMissile;
     MechAnimation mechAnimScript;
+    [HideInInspector] public GameObject shootingMech;
+    
 	public WeaponType Type
 	{
 		get { return type; }
@@ -108,8 +110,13 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
         //let homingMissile script know mech that shot. Used so self-circle collider of wing spawn is ignored for collision
         //currently console returns error because the below hierarchy fits the winged spawn only. TODO
-        Transform shootingMech = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-        missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
+        //Transform shootingMech = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+        //Debug.Log("Mech Shooting" + shootingMech);
+        //missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
+
+        //find parent mech name that shot
+        shootingMech = FindParentWithTag(transform, "Mech");
+        Debug.Log("Name of Shooting Mech IS " + shootingMech.name);
 
         // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
         missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
@@ -133,4 +140,24 @@ public class MissileLauncher : MonoBehaviour, IWeapon
     }
 
 	public void SetDir( bool isRight ) { }
+    //find Mech parent name that shot
+    public static GameObject FindParentWithTag(Transform childTransform, string tag)
+    {
+        Transform t = childTransform;
+        //Debug.Log("Tag name " + tag);
+        //Debug.Log("ChildTransform Name " + t.name);
+        while (t.parent != null)
+        {
+            Debug.Log("Parent of child Name " + t.parent.name + "Has tag " + t.parent.tag);
+            if (t.parent.tag == tag)
+            {
+                Debug.Log("IM HERE");
+                return t.parent.gameObject;
+            }
+            t = t.parent.transform;
+        }
+        return null; // Could not find a parent with given tag.
+    }
+
+
 }
