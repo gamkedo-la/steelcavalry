@@ -10,40 +10,44 @@ using UnityEngine.Assertions;
 public class Player : MonoBehaviour {
 	[SerializeField] private PlayerHealthUI playerHealthUI = null;
 	[SerializeField] private GameEventAudioEvent audioEvent;
-	public float humanSpeed = 0.8f;
+    private AbilityIcon firstIcon;
+    private AbilityIcon secondIcon;
+
+    public float playerSpeed = 100f;
 	public float mechNearEnoughToUseDistance = 1.0f;
 	// public float exitMechDistancePopUp = 1.1f;
 	public float jetPackPower = 1.0f;
-
-	public Mech mechImIn = null;
-	private Rigidbody2D rb;
+	
+	private Rigidbody2D playerBody;
     private SlopeWalker slopeWalker;
+    private float oldGravityScale;
+
     private SpriteRenderer spriteRenderer;
-	private Camera mainCam;
+
+    private Camera mainCam;
 	private MainCamera camScript;
 
-    private MouseCursor cursor;
-
-    private bool jetpackOn = false;
+    private MouseCursor cursor;    
 
 	private int mechOnlyMask;
 
-    public bool isFacingRight = true;
-
-    public event Action OnFire = delegate {} ; //firing is now an event that can heard by other scripts
-	public event Action OnAltFire = delegate {} ; //firing is now an event that can heard by other scripts
-	public event Action OnAltFire2 = delegate {} ; //firing is now an event that can heard by other scripts
+    public event Action OnFire = delegate {} ;      //firing is now an event that can heard by other scripts
+	public event Action OnAltFire = delegate {} ;   //firing is now an event that can heard by other scripts
+	public event Action OnAltFire2 = delegate {} ;  //firing is now an event that can heard by other scripts
 
 	private Jetpack jetpack;
 
+    [Header("Player Weapon")]
+    private IWeapon weapon;
     public Transform weaponFiringPoint;
     public WeaponManager weaponManager;
     public GameObject weaponEquipped;
 
-	// public input flags for keyboard/gamepad *or* AI
-	public bool useKeyboardInput = true; // default for player 1, false for bots
+    [Header("Player Input")]
+    // public input flags for keyboard/gamepad *or* AI
+    public bool useKeyboardInput = true; // default for player 1, false for bots
 	public bool useGamepadInput = false; // optional gamepad support for players 2..n
-	public int gamepadNumber = 1; // easy local multiplayer woo hoo used by gamepad stuff
+	public int gamepadNumber = 1;        // easy local multiplayer woo hoo used by gamepad stuff
 
 	// flags set by either the AI, keyboard, or gamepad
 	public bool inputUp = false;
@@ -55,31 +59,27 @@ public class Player : MonoBehaviour {
 	public bool inputAltFire2 = false;
 	public bool inputEnter = false;
 
-	public bool isOnGround = false;
-	private bool isAiPlayer = false;
-
-	private float oldGravityScale;
-
-	private AbilityIcon firstIcon;
-	private AbilityIcon secondIcon;
-	private IWeapon weapon;
-
+    [Header("Player States")]
+    public Mech mechImIn = null;
+    public bool isOnGround = false;
+    public bool isFacingRight = true;
+    private bool jetpackOn = false;
+    private bool isAiPlayer = false;
 	public enum PlayerState{
 		inMech,
 		outOfMech
 	}
 	public PlayerState _state;
 
-	// Use this for initialization
-	void Start ()
-	{
+    // Use this for initialization
+    void Start () {
 		Assert.IsNotNull( audioEvent );
 
 		firstIcon = GameObject.Find("Main UI/Icon Turret").GetComponent<AbilityIcon>();
 		secondIcon = GameObject.Find("Main UI/Icon Thrusters").GetComponent<AbilityIcon>();
 
 		mechOnlyMask = LayerMask.GetMask("Mechs");
-		rb = GetComponent<Rigidbody2D>();
+		playerBody = GetComponent<Rigidbody2D>();
         slopeWalker = GetComponent<SlopeWalker>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -100,8 +100,8 @@ public class Player : MonoBehaviour {
         EnableWeapons(true);
     }
 
-	void EnterMech(Mech mech){
-		if (mech.mechModel == null){
+	void EnterMech(Mech mech) {
+		if (mech.mechModel == null) {
 			//Debug.Log("Attempt to enter mech with no model. Exiting...");
 			Debug.Log("Entering mech with no model... :/");
 			//return;
@@ -112,10 +112,11 @@ public class Player : MonoBehaviour {
 		// eject the previous pilot
 		if (mech.driver &&
 			mech.driver.GetInstanceID() != gameObject.GetInstanceID() &&
-			mech.canBeStolen
-		) {
+			mech.canBeStolen) {
+
 			mech.driver.GetComponent<Player>().ExitMech();
 			mech.ToggleCanBeStolen();
+
 		}
 
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
@@ -124,8 +125,8 @@ public class Player : MonoBehaviour {
 		//Disables human character
 		GetComponent<BoxCollider2D>().enabled = false;
 		spriteRenderer.enabled = false;
-		oldGravityScale = rb.gravityScale;
-		rb.gravityScale = 0;
+		oldGravityScale = playerBody.gravityScale;
+		playerBody.gravityScale = 0;
 		jetpack.JetpackToggle(false);
 
         EnableWeapons(false);
@@ -141,18 +142,17 @@ public class Player : MonoBehaviour {
 	    }
 	}
 
-	public void ExitMech()
-	{
+	public void ExitMech() {
 		if ( mechImIn == null ) return;
 
 		transform.position += Vector3.up * mechImIn.transform.lossyScale.y * 0.5f;
 		mechImIn.wasExited();
 		mechImIn = null;
 
-		//Enable human character
+		// enable human character
 		GetComponent<BoxCollider2D>().enabled = true;
 		spriteRenderer.enabled = true;
-		rb.gravityScale = oldGravityScale;
+		playerBody.gravityScale = oldGravityScale;
 
         EnableWeapons(true);
 
@@ -229,8 +229,7 @@ public class Player : MonoBehaviour {
 			// debug spam
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxisRaw("player"+playerNumber+"updown"));
-
-
+            
 		}
 
 	}
@@ -267,148 +266,135 @@ public class Player : MonoBehaviour {
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
         }
-
-        if (isFacingRight) {
-            weaponFiringPoint.transform.localPosition = new Vector3(0.092f, 0.0337f, 0);
-        }
-        else if (!isFacingRight) {
-            weaponFiringPoint.transform.localPosition = new Vector3(-0.092f, 0.0337f, 0);
-        }
+        
+        // flips weapon firing point to a side depending on facing direction
+        int dir = isFacingRight ? 1 : -1;
+        weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);        
 
         if (inputFire || inputAltFire || inputAltFire2) {
             isFacingRight = cursor.transform.position.x > transform.position.x;
         }
 
-        if (inputFire){
-			OnFire(); //tells everyone listening that a shot has been fired          
-        }
-		if (inputAltFire)
-		{
-			OnAltFire( ); //tells everyone listening that a shot has been fired
-		}
-		if (inputAltFire2)
-		{
-			OnAltFire2( ); //tells everyone listening that a shot has been fired
-		}
+        if (inputFire) OnFire();            //tells everyone listening that a shot has been fired                  
+		if (inputAltFire) OnAltFire( );     //tells everyone listening that a shot has been fired		
+		if (inputAltFire2) OnAltFire2( );   //tells everyone listening that a shot has been fired		
 
-		switch (_state){
+        switch (_state) {
+            // Update method for when inside mech
+            case PlayerState.inMech:
 
-			// Update method for when inside mech
-			case PlayerState.inMech:
                 if (!(inputFire || inputAltFire || inputAltFire2)) {
                     if (inputRight && !isFacingRight) {
                         isFacingRight = true;
-                        if (weapon != null)
+                        if (weapon != null) {
                             weapon.SetDir(isFacingRight);
-
+                        }
                     }
                     else if (inputLeft && isFacingRight) {
                         isFacingRight = false;
-                        if (weapon != null)
+                        if (weapon != null) {
                             weapon.SetDir(isFacingRight);
+                        }
                     }
-                }                
+                }
 
-				if(mechImIn && mechImIn.mechModel != null) {
+                if (mechImIn && mechImIn.mechModel != null) {
                     Quaternion facingDirection;
-                    facingDirection= Quaternion.AngleAxis(mechImIn.transform.rotation.eulerAngles.z, Vector3.forward);
+                    facingDirection = Quaternion.AngleAxis(mechImIn.transform.rotation.eulerAngles.z, Vector3.forward);
 
-                    if (isFacingRight) {
-                        facingDirection *= Quaternion.LookRotation(Vector3.right);
-					}
-                    else {
-                        facingDirection *= Quaternion.LookRotation(Vector3.left);                        
-					}
+                    Vector3 facingDir = isFacingRight ? Vector3.right : Vector3.left;
+                    facingDirection *= Quaternion.LookRotation(facingDir);
 
                     mechImIn.Side(isFacingRight);
 
-                    //Debug.Log("Angle Z " + mechImIn.transform.rotation.eulerAngles.z);
-                    //facingDirection *= Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
-                    mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation, 
-                                                                   facingDirection, 
+                    mechImIn.mechModel.rotation = Quaternion.Slerp(mechImIn.mechModel.rotation,
+                                                                   facingDirection,
                                                                    mechImIn.mechRotateSpeed * Time.deltaTime);
                 }
 
-				if ( mechImIn != null )
-					transform.position = mechImIn.transform.position;
+                if (mechImIn != null) {
+                    transform.position = mechImIn.transform.position;
+                }
 
-				rb.velocity = Vector2.zero;
-				if (inputEnter) ExitMech();
+                playerBody.velocity = Vector2.zero;
+                if (inputEnter) ExitMech();
 
-			break;
+                break;
 
-			//Update method for outside mech
-		case PlayerState.outOfMech:
-            if (!(inputFire || inputAltFire || inputAltFire2)) {
-                if (inputRight && !isFacingRight) {
-                    isFacingRight = true;
-				    if ( weapon != null )
-					    weapon.SetDir( isFacingRight );
-                } else if (inputLeft && isFacingRight) {			    
-				    isFacingRight = false;
-				    if ( weapon != null )
-					    weapon.SetDir( isFacingRight );			    
-		        }
-            }
+            // Update method for outside mech
+            case PlayerState.outOfMech:
 
-			if (inputEnter) {
-				Mech nearestMech = FindNearbyMech ();
-				if (nearestMech) {
-					EnterMech (nearestMech);
-				}
-			}
+                if (!(inputFire || inputAltFire || inputAltFire2)) {
+                    if (inputRight && !isFacingRight) {
+                        isFacingRight = true;
+                        if (weapon != null) {
+                            weapon.SetDir(isFacingRight);
+                        }
+                    } else if (inputLeft && isFacingRight) {
+                        isFacingRight = false;
+                        if (weapon != null) {
+                            weapon.SetDir(isFacingRight);
+                        }
+                    }
+                }
 
-			float horizImpulse = 0f;
-			if (inputLeft) horizImpulse = -1f;
-			else if (inputRight) horizImpulse = 1f;
+                if (inputEnter) {
+                    Mech nearestMech = FindNearbyMech();
+                    if (nearestMech) {
+                        EnterMech(nearestMech);
+                    }
+                }
 
-			//transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
-			if ( horizImpulse != 0 )
-				rb.velocity = new Vector2(horizImpulse * Time.deltaTime * humanSpeed, rb.velocity.y);
+                // inputLeft: -1f; inputRight: 1f; neither: 0f
+                float horizontalImpulse = inputLeft ? -1f : inputRight ? 1f : 0f;
 
-			spriteRenderer.flipX = !isFacingRight;
+                //transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
+                if (horizontalImpulse != 0) {
+                    playerBody.velocity = new Vector2(horizontalImpulse * Time.deltaTime * playerSpeed, playerBody.velocity.y);
+                } 
 
-			if (inputUp) {
-				isOnGround = false;
-				jetpack.JetpackToggle(true);
+			    spriteRenderer.flipX = !isFacingRight;
 
-				if ( !jetpackOn )
-				{
-					jetpackOn = true;
-					audioEvent.Raise( AudioEvents.PlayerJetpack, transform.position );
-					Invoke( "JetpackSoundOff", 0.2f );
-				}
+			    if (inputUp) {
+				    isOnGround = false;
+				    jetpack.JetpackToggle(true);
 
-				//transform.position += Vector3.up * Time.deltaTime * jetPackPower;
-				rb.velocity = new Vector2(rb.velocity.x, Time.deltaTime * jetPackPower);
-                //rb.gravityScale = 1.0f;
-				//rb.velocity = Vector2.zero;
-			} else {
-				jetpack.JetpackToggle(false);
-				//rb.gravityScale = 1.0f;
-			}
-			break;
+				    if ( !jetpackOn ) {
+					    jetpackOn = true;
+					    audioEvent.Raise( AudioEvents.PlayerJetpack, transform.position );
+					    Invoke( "JetpackSoundOff", 0.2f );
+				    }
+
+				    //transform.position += Vector3.up * Time.deltaTime * jetPackPower;
+				    playerBody.velocity = new Vector2(playerBody.velocity.x, Time.deltaTime * jetPackPower);
+                    //playerBody.gravityScale = 1.0f;
+				    //playerBody.velocity = Vector2.zero;
+			    }
+                else {
+				    jetpack.JetpackToggle(false);
+				    //playerBody.gravityScale = 1.0f;
+			    }
+
+			    break;
 
 			default: return;
-
 		}
 
         slopeWalker.isFacingRight = isFacingRight;
 	} // end of Update
 
-	public string getNameOfMechPlayerIsIn() {
-		if(!mechImIn) return "";
+	public string getNameOfMechPlayerIsIn () {
+		if (!mechImIn) return "";
 		return mechImIn.name;
 	}
 
-	private void JetpackSoundOff()
-	{
+	private void JetpackSoundOff ()	{
 		jetpackOn = false;
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
-		for(int i = 0; i < other.contacts.Length; i++) {
-			if(other.contacts[i].normal.y >= 0.9f) {
+	void OnCollisionEnter2D (Collision2D other) {
+		for (int i = 0; i < other.contacts.Length; i++) {
+			if (other.contacts[i].normal.y >= 0.9f) {
 				isOnGround = true;
 				return;
 			}
@@ -416,29 +402,31 @@ public class Player : MonoBehaviour {
 	}
 
 	//returns nearest mech in range or null if there are none
-	Mech FindNearbyMech(){
+	Mech FindNearbyMech () {
+        // detect nearby Mech GameObjects
 		Collider2D[] nearbyMechs = Physics2D.OverlapCircleAll(transform.position,
-		mechNearEnoughToUseDistance,
-		mechOnlyMask);
+		                                                      mechNearEnoughToUseDistance,
+		                                                      mechOnlyMask);
 
+        // making sure the detected nearby Mech GameObjects are tagged "Mech"
 		nearbyMechs = nearbyMechs.Select( m => m ).Where( m => m.gameObject.CompareTag( "Mech" ) ).ToArray( );
 
 		float nearestMechDist = 9000.0f;
 		Collider2D nearestMechCollider = null;
-		for(int i = 0; i < nearbyMechs.Length; i++) {
+		for (int i = 0; i < nearbyMechs.Length; i++) {
 			float distToMech = Vector2.Distance(transform.position,
-			nearbyMechs[i].transform.position);
-			if(distToMech < nearestMechDist) {
+			                                    nearbyMechs[i].transform.position);
+			if (distToMech < nearestMechDist) {
 				nearestMechDist = distToMech;
 				nearestMechCollider = nearbyMechs[i];
 			}
 		}
-		if(nearestMechCollider) {
+		if (nearestMechCollider) {
 			Mech mScript = nearestMechCollider.GetComponent<Mech>();
-			if(mScript) {
-			return mScript; //we found a mech!
+			if (mScript) {
+			    return mScript; //we found a mech!
 			}
-			else{
+			else {
 				Debug.Log("Mech script not found on nearest collider, check mechOnlyMask");
 				return null;
 			}
