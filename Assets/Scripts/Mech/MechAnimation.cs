@@ -48,6 +48,7 @@ public class MechAnimation : MonoBehaviour
     int missileShotUpTag;
     int missileShotDownTag;
     int swordSwingTag;
+    int animPlayingTag;
 
     //on fly rotation
     private float smooth = 2.0f;
@@ -103,7 +104,7 @@ public class MechAnimation : MonoBehaviour
             {
                 GroundDist = groundHit.distance;//dist to ground
                 //Debug.Log("Distance to Ground " + GroundDist + " hitting " + groundHit.collider.name);
-                Debug.DrawRay(transform.position, rayDown, Color.red);
+                //Debug.DrawRay(transform.position, rayDown, Color.red);
             }
         }
 
@@ -127,7 +128,9 @@ public class MechAnimation : MonoBehaviour
 
     void Update()
     {
-        if(mechInUse == false)
+        mechInUse = mechScript.inUse;
+
+        if (mechInUse == false)
         {
             return;
         }
@@ -137,17 +140,19 @@ public class MechAnimation : MonoBehaviour
         inputRight = Player.inputRight;
         inputLeft = Player.inputLeft;
         inputFire = Input.GetMouseButton(0);
-        mechInUse = mechScript.inUse;
+        
 
-        int animPlayingTag;
+        
 
         //Debug.Log("Mech in use " + mechInUse);
 
         //Mech fly animation: raycast dist to ground
         float minDistToGround = 0.25f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
-        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown);
         
+        int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown, 20.0f, groundLayerMaskIgnore);
+
         if (groundHit)
         {
             if(groundHit.collider)
@@ -189,9 +194,10 @@ public class MechAnimation : MonoBehaviour
         //swing Sword Animation
         swordSwing();
         animPlayingTag = anim.GetCurrentAnimatorStateInfo(0).tagHash;
-        //Debug.Log("Anim playing " + animPlayingTag + "TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        Debug.Log("Anim playing " + animPlayingTag + " TagID_SwordSwing"  + swordSwingTag + "Current State Anim " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (animPlayingTag==swordSwingTag && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
+            Debug.Log("Switching off Swing Sword");
             anim.SetBool(swingAtReachHash, false);
         }
 
@@ -338,11 +344,11 @@ public class MechAnimation : MonoBehaviour
 
         if (mechHit)
         {
-            Debug.Log("I hit collider " + mechHit.collider.name);
+            //Debug.Log("I hit collider " + mechHit.collider.name);
             //mechDist = mechHit.distance;//dist to mech
             if (mechHit.collider)
             {
-                //anim.SetBool(swingAtReachHash, true);
+                anim.SetBool(swingAtReachHash, true);
                 
             }
         }
