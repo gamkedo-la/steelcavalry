@@ -260,35 +260,6 @@ public class Player : MonoBehaviour {
     void Update () {
 		handleInput();
 
-		//Common to both in and out of mech; prob will be changed later
-		if (inputRight && !isFacingRight) {
-			if ( _state == PlayerState.inMech && inputFire )
-			{
-				isFacingRight = false;
-				if ( weapon != null )
-					weapon.SetDir( isFacingRight );
-			}
-			else
-			{
-				isFacingRight = true;
-				if ( weapon != null )
-					weapon.SetDir( isFacingRight );
-			}
-		} else if (inputLeft && isFacingRight) {
-			if ( _state == PlayerState.inMech && inputFire )
-			{
-				isFacingRight = true;
-				if ( weapon != null )
-					weapon.SetDir( isFacingRight );
-			}
-			else
-			{
-				isFacingRight = false;
-				if ( weapon != null )
-					weapon.SetDir( isFacingRight );
-			}
-		}
-
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
         }
@@ -300,16 +271,12 @@ public class Player : MonoBehaviour {
             weaponFiringPoint.transform.localPosition = new Vector3(-0.092f, 0.0337f, 0);
         }
 
+        if (inputFire || inputAltFire || inputAltFire2) {
+            isFacingRight = cursor.transform.position.x > transform.position.x;
+        }
+
         if (inputFire){
-			OnFire(); //tells everyone listening that a shot has been fired
-
-            if (cursor.transform.position.x > transform.position.x) {
-                isFacingRight = true;
-            }
-            else {
-                isFacingRight = false;
-            }
-
+			OnFire(); //tells everyone listening that a shot has been fired          
         }
 		if (inputAltFire)
 		{
@@ -324,6 +291,20 @@ public class Player : MonoBehaviour {
 
 			// Update method for when inside mech
 			case PlayerState.inMech:
+                
+                if (inputRight && !isFacingRight) {
+                    isFacingRight = true;
+                    if (weapon != null)
+                        weapon.SetDir(isFacingRight);
+
+                }
+                else if (inputLeft && isFacingRight) {
+                    isFacingRight = false;
+                    if (weapon != null)
+                        weapon.SetDir(isFacingRight);
+                }
+                
+
 				if(mechImIn && mechImIn.mechModel != null) {
                     Quaternion facingDirection;
                     facingDirection= Quaternion.AngleAxis(mechImIn.transform.rotation.eulerAngles.z, Vector3.forward);
@@ -354,6 +335,18 @@ public class Player : MonoBehaviour {
 
 			//Update method for outside mech
 		case PlayerState.outOfMech:
+            if (!(inputFire || inputAltFire || inputAltFire2)) {
+                if (inputRight && !isFacingRight) {
+                    isFacingRight = true;
+				    if ( weapon != null )
+					    weapon.SetDir( isFacingRight );
+                } else if (inputLeft && isFacingRight) {			    
+				    isFacingRight = false;
+				    if ( weapon != null )
+					    weapon.SetDir( isFacingRight );			    
+		        }
+            }
+
 			if (inputEnter) {
 				Mech nearestMech = FindNearbyMech ();
 				if (nearestMech) {
