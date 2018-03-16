@@ -112,6 +112,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1666628852828932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4412624432217106}
+  m_Layer: 8
+  m_Name: PlayerFeet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1709045286645062
 GameObject:
   m_ObjectHideFlags: 1
@@ -196,6 +211,7 @@ GameObject:
   - component: {fileID: 114104692086451574}
   - component: {fileID: 114737420993948950}
   - component: {fileID: 114798886055951432}
+  - component: {fileID: 114277482065149272}
   m_Layer: 8
   m_Name: AI (intense)
   m_TagString: Player
@@ -215,6 +231,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4502811058103556}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4412624432217106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1666628852828932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.145, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4502811058103556}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4462075966575742
 Transform:
@@ -236,7 +265,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967469721266110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 1.4, z: 0}
+  m_LocalPosition: {x: -9.14, y: 1.4, z: 0}
   m_LocalScale: {x: 1.44436, y: 1.52889, z: 1}
   m_Children:
   - {fileID: 4795057593750386}
@@ -244,6 +273,7 @@ Transform:
   - {fileID: 4542464901595530}
   - {fileID: 4462075966575742}
   - {fileID: 224219784203833940}
+  - {fileID: 4412624432217106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,6 +495,22 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114277482065149272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967469721266110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2460c9c110ff49944a59cb841cc59685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkerFeet: {fileID: 1666628852828932}
+  rayLength: 0.5
+  isFacingRight: 0
+  slopeTag: Ground
+  maxClimbableSlopeAngle: 85
 --- !u!114 &114326389257696292
 MonoBehaviour:
   m_ObjectHideFlags: 1
