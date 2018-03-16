@@ -25,6 +25,8 @@ public class MechAnimation : MonoBehaviour
     private bool missileShot;
     private bool launcherOn = false;
     public ParticleSystem missileFireParticles;
+    GameObject mechShooting;
+
     //direction to shoot missile
     public Transform missileLauncherLocation;
     private float missleLauncherLocationY;

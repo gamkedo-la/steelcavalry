@@ -15,7 +15,10 @@ public class HomingMissile : MonoBehaviour
 
 	[HideInInspector]
 	public int playerNumber;
-    Transform mechShooting;
+    GameObject mechShooting;
+
+    MissileLauncher missileLauncher;
+    WeaponManager weaponMgr;
 
     void Start( )
 	{
@@ -25,6 +28,8 @@ public class HomingMissile : MonoBehaviour
 		Assert.IsNotNull( explosion );
 		Assert.IsNotNull( didDamageEvent );
 		Assert.IsNotNull( audioEvent );
+        
+
 
         //ignore collider of shooting mech if circle collider (i.e. winged mech)
         //Debug.Log("Shooting Mech was " + mechShooting.name);
@@ -40,10 +45,11 @@ public class HomingMissile : MonoBehaviour
             //Debug.Log("IM HERE");
             //TODO: the other mechs can destroy themselves, not when circle collider is set to mech
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), mechShooting.GetComponent<CircleCollider2D>());
-        }*/      
+        }*/   
+        
     }
 
-	void FixedUpdate( )
+    void FixedUpdate( )
 	{
 		Vector2 targetPos = Vector2.zero;
 		if (target == null)
@@ -65,15 +71,15 @@ public class HomingMissile : MonoBehaviour
 		rb.velocity = transform.right * speed;
 	}
 
-    /*public void ReceiveMechName(Transform shootingMech)//determine shooting mech
+    public void ReceiveMechName(GameObject shootingMech)//determine shooting mech
     {
         //Debug.Log("The firing Mech is " + shootingMech.name);
         mechShooting = shootingMech;
-    }*/
+    }
 
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
-        
+        Debug.Log("Missile Hit " + collision.gameObject.name);
         // Try to find a Mech script on the hit object
         HP hp = collision.collider.GetComponent<HP>();
         //Debug.Log("Mech hit was " + hp.gameObject.name);

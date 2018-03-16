@@ -100,7 +100,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
         GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
         hasShotMissile = true;
-        mechAnimScript.positionLocked = true;
+        mechAnimScript.positionLocked = true;//TODO: affects only Winged Mech, need to remove error message from the other mechs
         Debug.Log("Setting PositionLocked " + mechAnimScript.positionLocked);
         
         
@@ -114,9 +114,10 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         //Debug.Log("Mech Shooting" + shootingMech);
         //missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
 
-        //find parent mech name that shot
+        //find parent mech object that shot and pass it to homing Missile so missile ignores hitting that mech at first
         shootingMech = FindParentWithTag(transform, "Mech");
         Debug.Log("Name of Shooting Mech IS " + shootingMech.name);
+        missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
 
         // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
         missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
@@ -148,10 +149,9 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         //Debug.Log("ChildTransform Name " + t.name);
         while (t.parent != null)
         {
-            Debug.Log("Parent of child Name " + t.parent.name + "Has tag " + t.parent.tag);
+            //Debug.Log("Parent of child Name " + t.parent.name + "Has tag " + t.parent.tag);
             if (t.parent.tag == tag)
             {
-                Debug.Log("IM HERE");
                 return t.parent.gameObject;
             }
             t = t.parent.transform;
