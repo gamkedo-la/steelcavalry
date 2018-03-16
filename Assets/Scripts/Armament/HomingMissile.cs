@@ -29,8 +29,10 @@ public class HomingMissile : MonoBehaviour
         //ignore collider of shooting mech if circle collider (i.e. winged mech)
         //Debug.Log("Shooting Mech was " + mechShooting.name);
         //type of collider
+        /*
         //TODO: error if hierarchy in MissileLauncher too long (see TODO in MissileLauncher).
         GameObject holder = mechShooting.gameObject;
+        Debug.Log("Mech Shooting " + holder.name);
         Collider2D colType = holder.GetComponent<CircleCollider2D>();
         
         if (colType is CircleCollider2D)
@@ -38,7 +40,7 @@ public class HomingMissile : MonoBehaviour
             //Debug.Log("IM HERE");
             //TODO: the other mechs can destroy themselves, not when circle collider is set to mech
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), mechShooting.GetComponent<CircleCollider2D>());
-        }       
+        }*/      
     }
 
 	void FixedUpdate( )
@@ -63,14 +65,15 @@ public class HomingMissile : MonoBehaviour
 		rb.velocity = transform.right * speed;
 	}
 
-    public void ReceiveMechName(Transform shootingMech)//determine shooting mech
+    /*public void ReceiveMechName(Transform shootingMech)//determine shooting mech
     {
         //Debug.Log("The firing Mech is " + shootingMech.name);
         mechShooting = shootingMech;
-    }
+    }*/
 
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
+        
         // Try to find a Mech script on the hit object
         HP hp = collision.collider.GetComponent<HP>();
         //Debug.Log("Mech hit was " + hp.gameObject.name);
