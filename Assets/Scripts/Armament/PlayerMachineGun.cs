@@ -3,6 +3,10 @@ using UnityEngine.Assertions;
 
 public class PlayerMachineGun : MonoBehaviour, IWeapon
 {
+	[SerializeField] private GameObject shell;
+	[SerializeField] private Transform shellSpawnPoint;
+	[SerializeField] private Transform shellSpawnPoint2;
+	[SerializeField] private ParticleSystem muzzleFlesh;
 	[SerializeField] private GameEventAudioEvent audioEvent;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
@@ -27,6 +31,10 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 
 	void Start( )
 	{
+		Assert.IsNotNull( shell );
+		Assert.IsNotNull( shellSpawnPoint );
+		Assert.IsNotNull( shellSpawnPoint2 );
+		Assert.IsNotNull( muzzleFlesh );
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
@@ -109,6 +117,11 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 		currentMagSize--;
 
 		audioEvent.Raise( AudioEvents.DudeBoltShot, transform.position );
+		muzzleFlesh.Play( );
+
+		GameObject s = Instantiate( shell, shellSpawnPoint.position, Quaternion.identity );
+		Transform dir = isRight ? shellSpawnPoint : shellSpawnPoint2;
+		s.GetComponent<Rigidbody2D>( ).AddForce( Quaternion.Euler( 0, 0, Random.Range( -30, 30 ) ) * dir.up * 3 );
 
 		if ( isPlayerDriver )
 		{

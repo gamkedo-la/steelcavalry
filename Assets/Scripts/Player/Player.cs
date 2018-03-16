@@ -58,6 +58,7 @@ public class Player : MonoBehaviour {
 
 	private AbilityIcon firstIcon;
 	private AbilityIcon secondIcon;
+	private IWeapon weapon;
 
 	public enum PlayerState{
 		inMech,
@@ -83,7 +84,7 @@ public class Player : MonoBehaviour {
 
 		jetpack = GetComponent<Jetpack>();
 
-        IWeapon weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
+        weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
         weaponManager.GiveWeapon(weapon);
 
         isAiPlayer = GetComponent<AI>() != null;
@@ -258,16 +259,32 @@ public class Player : MonoBehaviour {
 
 		//Common to both in and out of mech; prob will be changed later
 		if (inputRight && !isFacingRight) {
-			if ( _state == PlayerState.inMech && inputFire)
+			if ( _state == PlayerState.inMech && inputFire )
+			{
 				isFacingRight = false;
+				if ( weapon != null )
+					weapon.SetDir( isFacingRight );
+			}
 			else
+			{
 				isFacingRight = true;
-		} else if(inputLeft && isFacingRight) {
-			if ( _state == PlayerState.inMech && inputFire)
+				if ( weapon != null )
+					weapon.SetDir( isFacingRight );
+			}
+			} else if(inputLeft && isFacingRight) {
+			if ( _state == PlayerState.inMech && inputFire )
+			{
 				isFacingRight = true;
+				if ( weapon != null )
+					weapon.SetDir( isFacingRight );
+			}
 			else
+			{
 				isFacingRight = false;
-		}
+				if ( weapon != null )
+					weapon.SetDir( isFacingRight );
+			}
+			}
 
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
