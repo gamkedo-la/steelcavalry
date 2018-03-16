@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Jetpack), typeof(WeaponManager), typeof(HP))]
+[RequireComponent(typeof(SlopeWalker))]
 public class Player : MonoBehaviour {
 	[SerializeField] private PlayerHealthUI playerHealthUI = null;
 	[SerializeField] private GameEventAudioEvent audioEvent;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour {
 
 	public Mech mechImIn = null;
 	private Rigidbody2D rb;
+    private SlopeWalker slopeWalker;
     private SpriteRenderer spriteRenderer;
 	private Camera mainCam;
 	private MainCamera camScript;
@@ -78,6 +80,8 @@ public class Player : MonoBehaviour {
 
 		mechOnlyMask = LayerMask.GetMask("Mechs");
 		rb = GetComponent<Rigidbody2D>();
+        slopeWalker = GetComponent<SlopeWalker>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
 		camScript = mainCam.GetComponent<MainCamera>();
@@ -388,6 +392,8 @@ public class Player : MonoBehaviour {
 			default: return;
 
 		}
+
+        slopeWalker.isFacingRight = isFacingRight;
 	} // end of Update
 
 	public string getNameOfMechPlayerIsIn() {
