@@ -771,8 +771,9 @@ GameObject:
   - component: {fileID: 50710434664424132}
   - component: {fileID: 114825380000932626}
   - component: {fileID: 114444812981591504}
-  - component: {fileID: 114080688234258204}
   - component: {fileID: 114629507586596498}
+  - component: {fileID: 114020681516243548}
+  - component: {fileID: 114080688234258204}
   - component: {fileID: 61358571882804734}
   m_Layer: 11
   m_Name: wingedSpawn
@@ -1350,7 +1351,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375973747366194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.65, z: 0}
+  m_LocalPosition: {x: -0.1, y: 1.275, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4685357543940734}
@@ -1625,7 +1626,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664133834930048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.75, y: 2.68, z: 0.051}
+  m_LocalPosition: {x: 3.76, y: -1.292, z: 0.051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224842117299544650}
@@ -2229,6 +2230,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114020681516243548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664133834930048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2460c9c110ff49944a59cb841cc59685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkerFeet: {fileID: 1136175309978804}
+  isFacingRight: 0
+  slopeTag: Ground
+  maxClimbableSlopeAngle: 85
 --- !u!114 &114076804088240342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2512,7 +2528,6 @@ MonoBehaviour:
   - {fileID: 1029026005365024}
   bodyPartToVanish: {fileID: 1954012099066822}
   mechModel: {fileID: 4922977364856674}
-  mechFeet: {fileID: 4056726933970266}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114999132410321908}
   mechName: Winged Spawn

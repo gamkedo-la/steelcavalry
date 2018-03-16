@@ -2,58 +2,57 @@
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(WeaponManager), typeof(HP))]
+[RequireComponent(typeof(WeaponManager), typeof(HP), typeof(SlopeWalker))]
 public class Mech : MonoBehaviour
 {
-	[SerializeField] private GameEventAudioEvent audioEvent;
-	[Header("Mech Body")]
-    [SerializeField] private GameObject[] bodyParts = null;
+    [SerializeField] private GameEventAudioEvent audioEvent;
+    [Header("Mech Body")]
+    [SerializeField]
+    private GameObject[] bodyParts = null;
     public GameObject bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
     public Transform mechModel;
-    public Transform mechFeet; // for raycast origin to get slope normal to walk up slopes
-	private Rigidbody2D mechRigidbody;
-	[SerializeField] private GameObject explosion = null;
-	[SerializeField] private MechUI ui = null;
+    private Rigidbody2D mechRigidbody;
+    private SlopeWalker slopeWalker;
+    [SerializeField] private GameObject explosion = null;
+    [SerializeField] private MechUI ui = null;
 
     [Header("Mech Specs")]
-    [SerializeField] private string mechName = "The Bot";
-	[SerializeField] private float expForceMin = 300f;
-	[SerializeField] private float expForceMax = 500f;
-	[SerializeField] private float thrusterFuelMax = 100f;
-	[SerializeField] private float thrusterFuelRegen = 20f;
-	[SerializeField] private float thrusterCost = 20f;
-	[SerializeField] private float thrusterPower = 20f;
-	[SerializeField] private float firstThrustCost = 0.25f;
-	[SerializeField] private float drag = 0f;
-	public float mechMoveSpeed = 2.0f;
+    [SerializeField]
+    private string mechName = "The Bot";
+    [SerializeField] private float expForceMin = 300f;
+    [SerializeField] private float expForceMax = 500f;
+    [SerializeField] private float thrusterFuelMax = 100f;
+    [SerializeField] private float thrusterFuelRegen = 20f;
+    [SerializeField] private float thrusterCost = 20f;
+    [SerializeField] private float thrusterPower = 20f;
+    [SerializeField] private float firstThrustCost = 0.25f;
+    [SerializeField] private float drag = 0f;
+    public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
- 	public float jumpPower = 10.0f;
- 	public float crushDamage = 100f;
+    public float jumpPower = 10.0f;
+    public float crushDamage = 100f;
 
     [Header("Mech State")]
-	public bool inUse = false;
- 	public float damageTaken = 0.0f;
- 	public float maxDamage = 100.0f;
-	public bool canBeStolen = true;
-	private bool isOnGround;
-    private bool isOnSlope = false;
-    private float slopeAngle = 0f;
-    private const float MAXCLIMBABLESLOPEANGLE = 85f;
-	private bool isFlying = false;
-	private bool canFly = true;
-	public bool isFacingRight;
-	private float thrusterFuelCurrent = 100f;
-	private HP hp = null;
-	private bool isBeingDestroyed = false;
+    public bool inUse = false;
+    public float damageTaken = 0.0f;
+    public float maxDamage = 100.0f;
+    public bool canBeStolen = true;
+    private bool isOnGround;
+    private bool isFlying = false;
+    private bool canFly = true;
+    public bool isFacingRight;
+    private float thrusterFuelCurrent = 100f;
+    private HP hp = null;
+    private bool isBeingDestroyed = false;
 
     [Header("Mech Driver")]
-	public PodLauncher pod;
-	public GameObject driver; // either the player or an enemy ai player
-	private Player driverMovement;
- 	public float minimumSecondsBetweenSteals = 2.0f;
- 	public float lastStolenAt = 0.0f;
+    public PodLauncher pod;
+    public GameObject driver; // either the player or an enemy ai player
+    private Player driverMovement;
+    public float minimumSecondsBetweenSteals = 2.0f;
+    public float lastStolenAt = 0.0f;
 
-	private WeaponManager weaponManager;
+    private WeaponManager weaponManager;
 
     [Header("Golden Goose Mech")]
     // limit the mech to a platform
@@ -69,113 +68,83 @@ public class Mech : MonoBehaviour
     public bool mechCanShield;
     public float shieldWait, shieldDuration, shieldCost;
     private bool canShield = true;
-	private bool shieldActive = false;
-	public GameObject shieldGO;
+    private bool shieldActive = false;
+    public GameObject shieldGO;
     private GameObject shieldInstance;
 
-	private bool thrustersOn = false;
+    private bool thrustersOn = false;
 
-	public UnityEvent ThrustersOn;
-	public UnityEvent ThrustersOff;
+    public UnityEvent ThrustersOn;
+    public UnityEvent ThrustersOff;
 
-	void Start () {
+    void Start() {
 
-		Assert.IsNotNull( ui );
-		Assert.IsNotNull( explosion );
-		Assert.IsNotNull( audioEvent );
-		ui.SetName( mechName );
+        Assert.IsNotNull(ui);
+        Assert.IsNotNull(explosion);
+        Assert.IsNotNull(audioEvent);
+        ui.SetName(mechName);
 
         hp = GetComponent<HP>();
         weaponManager = GetComponent<WeaponManager>();
-		mechRigidbody = GetComponent<Rigidbody2D>();
+        mechRigidbody = GetComponent<Rigidbody2D>();
 
-		thrusterFuelCurrent = thrusterFuelMax;
-	}
+        slopeWalker = GetComponent<SlopeWalker>();
 
-	public void Side (bool isRight)
-	{
-		isFacingRight = isRight;
-		if ( weaponManager != null )
-		{
-			weaponManager.SetDir( isRight );
-		}
+        thrusterFuelCurrent = thrusterFuelMax;
+    }
+
+    public void Side(bool isRight) {
+        isFacingRight = isRight;
+        slopeWalker.isFacingRight = isFacingRight;
+
+        if (weaponManager != null) {
+            weaponManager.SetDir(isRight);
+        }
 
         if (pod != null) {
             pod.SetDir(isRight);
         }
     }
 
-	public void wasEntered(GameObject newDriver)
-	{
-		driver = newDriver;
-		driverMovement = driver.GetComponent<Player>();
+    public void wasEntered(GameObject newDriver) {
+        driver = newDriver;
+        driverMovement = driver.GetComponent<Player>();
 
-		inUse = true;
+        inUse = true;
         //Debug.Log("in Use " + inUse);
-		hp.UseMultiplier( !inUse );
-		if ( weaponManager != null )
-		{
-			weaponManager.IsPlayerDriving( newDriver.CompareTag("Player") );
-			ui.IsPlayerDriving( newDriver.CompareTag( "Player" ) );
-			weaponManager.IsActive( true );
-			driverMovement.OnFire += weaponManager.FirePrimary;
-			driverMovement.OnAltFire += weaponManager.FireSecondary;
-			driverMovement.OnAltFire2 += weaponManager.FireTertiary;
-		}
+        hp.UseMultiplier(!inUse);
+        if (weaponManager != null) {
+            weaponManager.IsPlayerDriving(newDriver.CompareTag("Player"));
+            ui.IsPlayerDriving(newDriver.CompareTag("Player"));
+            weaponManager.IsActive(true);
+            driverMovement.OnFire += weaponManager.FirePrimary;
+            driverMovement.OnAltFire += weaponManager.FireSecondary;
+            driverMovement.OnAltFire2 += weaponManager.FireTertiary;
+        }
 
-        if (pod != null && pod.enabled)
-        {
+        if (pod != null && pod.enabled) {
             driverMovement.OnFire += pod.HandleFire; //adds itself to the listeners of OnFire()
             pod.Active(true);
         }
     }
 
-	public void wasExited() {
-		inUse = false;
-		hp.UseMultiplier( !inUse );
-		if ( weaponManager != null )
-		{
-			driverMovement.OnFire -= weaponManager.FirePrimary;
-			driverMovement.OnAltFire -= weaponManager.FireSecondary;
-			driverMovement.OnAltFire2 -= weaponManager.FireTertiary;
-			weaponManager.IsActive( false );
-			weaponManager.IsPlayerDriving( false );
-			ui.IsPlayerDriving( false );
-		}
-	}
-
-    private float GetCollidedSlopeAngle(string tag) {
-        float angle = 0;
-
-        int feetRaycastDepth = 5;
-        float rayLength = 2.0f;
-        RaycastHit2D[] raycastHits = new RaycastHit2D[feetRaycastDepth];
-        Vector2 raycastDirection = isFacingRight ? Vector2.right : Vector2.left;
-        int rayCount = Physics2D.RaycastNonAlloc(mechFeet.transform.position, raycastDirection, raycastHits, rayLength);
-
-        for (int i = 0; i < rayCount; i++) {
-            if (raycastHits[i].collider.tag == tag) {
-                angle = Vector2.Angle(raycastHits[i].normal, Vector2.up);
-                break;
-            }
+    public void wasExited() {
+        inUse = false;
+        hp.UseMultiplier(!inUse);
+        if (weaponManager != null) {
+            driverMovement.OnFire -= weaponManager.FirePrimary;
+            driverMovement.OnAltFire -= weaponManager.FireSecondary;
+            driverMovement.OnAltFire2 -= weaponManager.FireTertiary;
+            weaponManager.IsActive(false);
+            weaponManager.IsPlayerDriving(false);
+            ui.IsPlayerDriving(false);
         }
-
-        if (angle > 0 && angle < MAXCLIMBABLESLOPEANGLE) {
-            isOnSlope = true;
-        }
-        else {
-            isOnSlope = false;
-        }
-
-        return angle;
     }
 
     // Update is called once per frame
-    public void LateUpdate ()
-    {
+    public void LateUpdate() {
         // BRANCH controls for Regular/Golden Goose Mech
-        if (!isGoldenGoose)
-        {
+        if (!isGoldenGoose) {
             if (!inUse) return; //could be made into a function to do something else when idle
             if (!driverMovement) return;
 
@@ -187,59 +156,45 @@ public class Mech : MonoBehaviour
                 mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);
             }
 
-            slopeAngle = GetCollidedSlopeAngle("Ground") * Mathf.Deg2Rad;
-            float moveAmount = Mathf.Abs(mechRigidbody.velocity.x);
-
-            if (isOnSlope) {
-                Vector2 slopeVector = new Vector2(moveAmount * Mathf.Cos(slopeAngle) * Mathf.Sign(mechRigidbody.velocity.x), moveAmount * Mathf.Sin(slopeAngle));
-                mechRigidbody.velocity = slopeVector;
-            }
-
-            if (driverMovement.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost )
-            {
+            if (driverMovement.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost) {
                 mechRigidbody.AddForce(Vector2.up * jumpPower);
-				thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
+                thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
 
-				isOnGround = false;
-				isFlying = true;
-				canFly = true;
+                isOnGround = false;
+                isFlying = true;
+                canFly = true;
 
-				if ( !thrustersOn )
-				{
-					thrustersOn = true;
-					audioEvent.Raise( AudioEvents.MechThrustter, transform.position );
-					Invoke( "ThrustersOffSound", 1.35f );
-				}
+                if (!thrustersOn) {
+                    thrustersOn = true;
+                    audioEvent.Raise(AudioEvents.MechThrustter, transform.position);
+                    Invoke("ThrustersOffSound", 1.35f);
+                }
 
-				ThrustersOn.Invoke( );
+                ThrustersOn.Invoke();
             }
 
-			if ( driverMovement.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime )
-			{
-				mechRigidbody.AddForce( Vector2.up * thrusterPower * Time.deltaTime );
-				thrusterFuelCurrent -= thrusterCost * Time.deltaTime;
-				ui.SetFuel( thrusterFuelCurrent / thrusterFuelMax );
-			}
-			else
-			{
-				thrusterFuelCurrent += Time.deltaTime * thrusterFuelRegen;
-				thrusterFuelCurrent = thrusterFuelCurrent > thrusterFuelMax ? thrusterFuelMax : thrusterFuelCurrent;
-				ui.SetFuel( thrusterFuelCurrent / thrusterFuelMax );
+            if (driverMovement.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
+                mechRigidbody.AddForce(Vector2.up * thrusterPower * Time.deltaTime);
+                thrusterFuelCurrent -= thrusterCost * Time.deltaTime;
+                ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
+            }
+            else {
+                thrusterFuelCurrent += Time.deltaTime * thrusterFuelRegen;
+                thrusterFuelCurrent = thrusterFuelCurrent > thrusterFuelMax ? thrusterFuelMax : thrusterFuelCurrent;
+                ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
 
-				if (canFly)
-					ThrustersOff.Invoke( );
+                if (canFly)
+                    ThrustersOff.Invoke();
 
-				canFly = false;
-			}
+                canFly = false;
+            }
 
-			if ( !driverMovement.inputUp )
-			{
-				isFlying = false;
-			}
+            if (!driverMovement.inputUp) {
+                isFlying = false;
+            }
 
-		}
-        else
-        {
+        }
+        else {
             if (!inUse) return; //could be made into a function to do something else when idle
             if (!driverMovement) return;
             if (podLaunched) return;
@@ -256,139 +211,128 @@ public class Mech : MonoBehaviour
 
         HandleAbilities();
 
-		mechRigidbody.drag = drag * Mathf.Pow( mechRigidbody.velocity.magnitude, 2 );
+        mechRigidbody.drag = drag * Mathf.Pow(mechRigidbody.velocity.magnitude, 2);
 
-		if(!canBeStolen) {
-			AttemptToToggleCanBeStolen();
-		}
+        if (!canBeStolen) {
+            AttemptToToggleCanBeStolen();
+        }
     }
 
-	private void ThrustersOffSound( )
-	{
-		thrustersOn = false;
-	}
+    private void ThrustersOffSound() {
+        thrustersOn = false;
+    }
 
-	void AttemptToToggleCanBeStolen() {
-    	float differenceInTime = Time.time - lastStolenAt;
-    	if (differenceInTime >= minimumSecondsBetweenSteals) {
-    		ToggleCanBeStolen();
-    	}
+    void AttemptToToggleCanBeStolen() {
+        float differenceInTime = Time.time - lastStolenAt;
+        if (differenceInTime >= minimumSecondsBetweenSteals) {
+            ToggleCanBeStolen();
+        }
     }
 
     public void ToggleCanBeStolen() {
-    	canBeStolen = !!canBeStolen;
-    	if(canBeStolen) {
-    		lastStolenAt = Time.time;
-    	}
+        canBeStolen = !!canBeStolen;
+        if (canBeStolen) {
+            lastStolenAt = Time.time;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         Player player = CheckForCollisionWithPlayer(col);
 
-		for(int i = 0; i < col.contacts.Length; i++) {
-			if(col.contacts[i].normal.y >= 0.9f) {
+        for (int i = 0; i < col.contacts.Length; i++) {
+            if (col.contacts[i].normal.y >= 0.9f) {
 
-				// crush the human beneath the weight of a mech
-				if(player != null && player.isOnGround) {
-					HP hp = col.collider.GetComponent<HP>();
-					if (hp) {
-						hp.TakeDamage(crushDamage);
-					} else {
-						Destroy(col.gameObject);
-					}
-				}
+                // crush the human beneath the weight of a mech
+                if (player != null && player.isOnGround) {
+                    HP hp = col.collider.GetComponent<HP>();
+                    if (hp) {
+                        hp.TakeDamage(crushDamage);
+                    }
+                    else {
+                        Destroy(col.gameObject);
+                    }
+                }
 
-				isOnGround = true;
-				return; // beware, this exits the whole method!
-			}
-		}
-	}
+                isOnGround = true;
+                return; // beware, this exits the whole method!
+            }
+        }
+    }
 
-	private Player CheckForCollisionWithPlayer(Collision2D other) {
-		string playerTag = "Player";
-		bool collidedWithPlayer = other.gameObject.tag == playerTag;
-		if(collidedWithPlayer) {
-			return other.collider.GetComponent<Player>();
-		}
-		return null;
-	}
+    private Player CheckForCollisionWithPlayer(Collision2D other) {
+        string playerTag = "Player";
+        bool collidedWithPlayer = other.gameObject.tag == playerTag;
+        if (collidedWithPlayer) {
+            return other.collider.GetComponent<Player>();
+        }
+        return null;
+    }
 
-	public string GetName()
-	{
-		return mechName;
-	}
+    public string GetName() {
+        return mechName;
+    }
 
-	public void DestroyMech()
-	{
-		audioEvent.Raise( AudioEvents.MechExplosion, transform.position );
-		var exp = Instantiate( explosion, transform.position, Quaternion.identity );
-		Destroy( exp, 3f );
+    public void DestroyMech() {
+        audioEvent.Raise(AudioEvents.MechExplosion, transform.position);
+        var exp = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(exp, 3f);
 
-		const float delay = 0.1f;
-		Invoke( "MakeDestructionEffect", delay);
-	}
+        const float delay = 0.1f;
+        Invoke("MakeDestructionEffect", delay);
+    }
 
-	private void MakeDestructionEffect()
-	{
-		if ( bodyParts == null || bodyParts.Length == 0 || isBeingDestroyed ) return;
+    private void MakeDestructionEffect() {
+        if (bodyParts == null || bodyParts.Length == 0 || isBeingDestroyed) return;
 
-		isBeingDestroyed = true;
+        isBeingDestroyed = true;
 
-		foreach ( var part in bodyParts )
-		{
+        foreach (var part in bodyParts) {
             Debug.Log("body part " + part + "as part of bodyParts " + bodyParts);
-			part.GetComponent<CircleCollider2D>( ).enabled = true;
-            part.AddComponent<Rigidbody2D>( );
-			part.GetComponent<Rigidbody2D>( ).AddForce( Quaternion.Euler( 0, 0, Random.Range( 0, 360 ) ) * Vector2.left * Random.Range( expForceMin, expForceMax ) );
-			part.transform.SetParent( null );
+            part.GetComponent<CircleCollider2D>().enabled = true;
+            part.AddComponent<Rigidbody2D>();
+            part.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
+            part.transform.SetParent(null);
         }
         Destroy(bodyPartToVanish);//added to destroy winged spawn mech body as it is too large to roll after destroyed
-		Destroy( ui.gameObject );
-		Destroy( gameObject );
-	}
+        Destroy(ui.gameObject);
+        Destroy(gameObject);
+    }
 
 
-    private void HandleAbilities()
-	{
-		HandleShield();
-	}
+    private void HandleAbilities() {
+        HandleShield();
+    }
 
-	private void HandleShield()
-	{
-		if (Input.GetKeyDown(KeyCode.LeftShift) && canShield && mechCanShield) //Temporal test imput
-		{
-			shieldInstance = Instantiate(shieldGO, transform.position, Quaternion.identity);
-			shieldInstance.transform.parent = transform;
-			canShield = false;
-			shieldActive = true;
-			//Invoke("EnableShield", shieldWait);
-			//Invoke("DisableShieldObject", shieldDuration);
-		}
-		else if (Input.GetKey(KeyCode.LeftShift) && !canShield)
-		{
-			thrusterFuelCurrent -= shieldCost * Time.deltaTime;
-			thrusterFuelCurrent = Mathf.Clamp(thrusterFuelCurrent, 0f, thrusterFuelMax);
-			ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
-			if (thrusterFuelCurrent <= 0f && shieldActive)
-			{
-				DisableShieldObject();
-			}
-		}
-		else if (Input.GetKeyUp(KeyCode.LeftShift) && shieldActive)
-		{
-			DisableShieldObject();
-		}
-	}
+    private void HandleShield() {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canShield && mechCanShield) //Temporal test imput
+        {
+            shieldInstance = Instantiate(shieldGO, transform.position, Quaternion.identity);
+            shieldInstance.transform.parent = transform;
+            canShield = false;
+            shieldActive = true;
+            //Invoke("EnableShield", shieldWait);
+            //Invoke("DisableShieldObject", shieldDuration);
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) && !canShield) {
+            thrusterFuelCurrent -= shieldCost * Time.deltaTime;
+            thrusterFuelCurrent = Mathf.Clamp(thrusterFuelCurrent, 0f, thrusterFuelMax);
+            ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
+            if (thrusterFuelCurrent <= 0f && shieldActive) {
+                DisableShieldObject();
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && shieldActive) {
+            DisableShieldObject();
+        }
+    }
 
-	private void EnableShield()
-    {
+    private void EnableShield() {
         canShield = true;
     }
 
-    private void DisableShieldObject()
-    {
-		shieldActive = false;
-		Invoke("EnableShield", shieldWait);
-		shieldInstance.GetComponentInChildren<Animator>().SetTrigger("CloseShield");
+    private void DisableShieldObject() {
+        shieldActive = false;
+        Invoke("EnableShield", shieldWait);
+        shieldInstance.GetComponentInChildren<Animator>().SetTrigger("CloseShield");
     }
 }
