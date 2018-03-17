@@ -5,8 +5,9 @@ using UnityEngine;
 public class Mine : MonoBehaviour
 {
     [SerializeField] private GameObject explosion = null;
+	[SerializeField] private GameEventAudioEvent explosionAudio = null;
 
-    public bool deployed = false;
+	public bool deployed = false;
     public bool floatLR = false;
     public bool floatUD = false;
     public float explosionDestroyDelay = 2f;
@@ -50,7 +51,10 @@ public class Mine : MonoBehaviour
         }
     }
 
-    private void ExplodeAndDestroy() {
+    private void ExplodeAndDestroy()
+	{
+		explosionAudio.Raise( AudioEvents.Explosion, transform.position );
+
         var newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(newExplosion, explosionDestroyDelay);
         Destroy(gameObject);
