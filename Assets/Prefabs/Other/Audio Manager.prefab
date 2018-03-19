@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488215a5a0ecfd4fae75465772f21f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 0
+  effectsVolume: 0
   player: {fileID: 0}
   emiters:
   - ReadOnlyName: MechExplosion
