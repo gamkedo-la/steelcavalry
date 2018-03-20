@@ -25,6 +25,7 @@ public class MechAnimation : MonoBehaviour
     private bool missileShot;
     private bool launcherOn = false;
     public ParticleSystem missileFireParticles;
+    
     GameObject mechShooting;
 
     //direction to shoot missile
@@ -32,6 +33,7 @@ public class MechAnimation : MonoBehaviour
     private float missleLauncherLocationY;
     [HideInInspector] public bool positionLocked=false;//lock mouse and missileLauncher position to determine direction of anim
     LayerMask enemyLayer;//masking for sword swing raycast
+    //missile emission - used to cover wrong exit of missiles from winged spawn
 
     //anim IDs
     //animator parameters
@@ -66,11 +68,7 @@ public class MechAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
         weaponMgr = GetComponent<WeaponManager>();
-        //missileFireParticles = GetComponent<ParticleSystem>();
-        //disable particles
-        //var missileEmission = missileFireParticles.emission;
-        //missileEmission.enabled = false;
-
+        
         //animation IDs
         missileShotStraight1Tag = Animator.StringToHash("shotStraight1");
         missileShotStraight2Tag = Animator.StringToHash("shotStraight2");
@@ -83,6 +81,9 @@ public class MechAnimation : MonoBehaviour
 
         //swordSwing raycast
         enemyLayer = LayerMask.GetMask("Mechs");
+
+        //disable particles
+        missileFireParticles.Stop();
     }
     void Start()
     {
@@ -90,6 +91,7 @@ public class MechAnimation : MonoBehaviour
         inputAltFire = Input.GetMouseButton(1);
         inputAltFire2 = Input.GetKeyDown(KeyCode.Q);
         inputEnter = Input.GetKeyDown(KeyCode.Space);*/
+        
     }
     private void FixedUpdate()
     {
@@ -238,9 +240,8 @@ public class MechAnimation : MonoBehaviour
                     missleLauncherLocationY = missileLauncherLocation.transform.position.y;
                     //Debug.Log("I'm inside positionLocked and the var is " + positionLocked);
                     lasserAnimDirection(missleLauncherLocationY);
-                    //enable missile shot particles when shot
-                    //var missileEmission = missileFireParticles.emission;
-                    //missileEmission.enabled = true;
+                    //play missile particles to hide wrong exit of missile
+                    missileFireParticles.Play();
                 }
                 //Debug.Log("Now PositionLocked is " + positionLocked);
                 //Debug.Log("missileShot " + missileShot + " ////AnimPlayingTag " + animPlayingTag + "missileShotStraight1Tag " + missileShotStraight1Tag + " Straigh2 " + missileShotStraight2Tag  + " ShotUp " + missileShotUpTag + " ShotDown " + missileShotDownTag);
@@ -275,9 +276,7 @@ public class MechAnimation : MonoBehaviour
                     missileLauncher.hasShotMissile = false;
                     anim.SetBool(missileShotHash, false);
                     //disable particles missile launch
-                    var missileEmission = missileFireParticles.emission;
-                    missileEmission.enabled = false;
-                    //Debug.Log("Animation has finished playing, setting flag to " + missileLauncher.hasShotMissile);
+                    missileFireParticles.Stop();
                 }    
             }                
         }
@@ -295,7 +294,6 @@ public class MechAnimation : MonoBehaviour
             //Debug.Log("AFTER AND DOWN" + "Location Mouse y: " + Utilities.GetMouseWorldPosition(Input.mousePosition).y + " Location transform y " + (missleLauncherLocationY - 1.0f));
             //Debug.Log("Anim to play At Direction Function is Down");
             anim.SetBool(missileShotDownHash, true);
-            //activate particles
         }
         else if (Utilities.GetMouseWorldPosition(Input.mousePosition).y > (launcherYLocation+straightAimMargin))
         {
