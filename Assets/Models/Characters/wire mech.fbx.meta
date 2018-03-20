@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: ced8fd26b360ad342a22ae19df5b9178
+timeCreated: 1521524959
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle
+    100002: Ankle.001
+    100004: Arm
+    100006: Camera
+    100008: Cockpit
+    100010: Cube
+    100012: Cube.003
+    100014: Cylinder
+    100016: Cylinder.001
+    100018: Foot
+    100020: Foot.001
+    100022: Glass
+    100024: Glass Bars
+    100026: Gun
+    100028: Gun.001
+    100030: Lamp
+    100032: Lower Leg
+    100034: Lower Leg.001
+    100036: Ostrich
+    100038: Pelvis
+    100040: Torus
+    100042: Torus.001
+    100044: Upper Leg
+    100046: Upper Leg.001
+    100048: //RootNode
+    400000: Ankle
+    400002: Ankle.001
+    400004: Arm
+    400006: Camera
+    400008: Cockpit
+    400010: Cube
+    400012: Cube.003
+    400014: Cylinder
+    400016: Cylinder.001
+    400018: Foot
+    400020: Foot.001
+    400022: Glass
+    400024: Glass Bars
+    400026: Gun
+    400028: Gun.001
+    400030: Lamp
+    400032: Lower Leg
+    400034: Lower Leg.001
+    400036: Ostrich
+    400038: Pelvis
+    400040: Torus
+    400042: Torus.001
+    400044: Upper Leg
+    400046: Upper Leg.001
+    400048: //RootNode
+    2000000: Camera
+    2300000: Ankle
+    2300002: Ankle.001
+    2300004: Arm
+    2300006: Cockpit
+    2300008: Cube
+    2300010: Cube.003
+    2300012: Cylinder
+    2300014: Cylinder.001
+    2300016: Foot
+    2300018: Foot.001
+    2300020: Glass
+    2300022: Glass Bars
+    2300024: Gun
+    2300026: Gun.001
+    2300028: Lower Leg
+    2300030: Lower Leg.001
+    2300032: Pelvis
+    2300034: Torus
+    2300036: Torus.001
+    2300038: Upper Leg
+    2300040: Upper Leg.001
+    3300000: Ankle
+    3300002: Ankle.001
+    3300004: Arm
+    3300006: Cockpit
+    3300008: Cube
+    3300010: Cube.003
+    3300012: Cylinder
+    3300014: Cylinder.001
+    3300016: Foot
+    3300018: Foot.001
+    3300020: Glass
+    3300022: Glass Bars
+    3300024: Gun
+    3300026: Gun.001
+    3300028: Lower Leg
+    3300030: Lower Leg.001
+    3300032: Pelvis
+    3300034: Torus
+    3300036: Torus.001
+    3300038: Upper Leg
+    3300040: Upper Leg.001
+    4300000: Arm
+    4300002: Gun
+    4300004: Cockpit
+    4300006: Glass
+    4300008: Glass Bars
+    4300010: Cylinder
+    4300012: Cylinder.001
+    4300014: Upper Leg
+    4300016: Lower Leg
+    4300018: Cube
+    4300020: Pelvis
+    4300022: Foot
+    4300024: Ankle
+    4300026: Gun.001
+    4300028: Ankle.001
+    4300030: Foot.001
+    4300032: Cube.003
+    4300034: Lower Leg.001
+    4300036: Upper Leg.001
+    4300038: Torus
+    4300040: Torus.001
+    10800000: Lamp
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 6660ae139612c60459029b8f429a72c3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
