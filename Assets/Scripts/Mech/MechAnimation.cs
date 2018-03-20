@@ -355,6 +355,8 @@ public class MechAnimation : MonoBehaviour
                 
             }
         }
+        else
+            anim.SetBool(swingAtReachHash, false);
 
         /*if (mechDist < minDistToMech)
         {
