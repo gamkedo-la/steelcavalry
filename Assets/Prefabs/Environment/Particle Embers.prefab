@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198205087025428888}
   - component: {fileID: 199585546317097204}
   m_Layer: 0
-  m_Name: Space Station Environmental Particles (embers)
+  m_Name: Particle Embers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
