@@ -43,12 +43,11 @@ public class Mine : MonoBehaviour
     {
         // Try to find a Mech script on the hit object
         HP hp = collision.collider.GetComponent<HP>();
-        if (hp)
-        {
+        if (hp){
 			//TODO: Add DoDestruction implementation
 			hp.TakeDamage(damagePerMine);
-            ExplodeAndDestroy();
         }
+        ExplodeAndDestroy();
     }
 
     private void ExplodeAndDestroy()
