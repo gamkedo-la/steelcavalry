@@ -1,96 +1,164 @@
 fileFormatVersion: 2
-guid: bb9185f7973531a42951c75d5653bb8b
-timeCreated: 1517851868
+guid: 9ec698c73e2924c4fa28798e341c3420
+timeCreated: 1521821266
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Ankle
     100002: Ankle.001
-    100004: Arm
-    100006: Cockpit
-    100008: Cube
-    100010: Cube.003
-    100012: Cylinder
-    100014: Cylinder.001
-    100016: Foot
-    100018: Foot.001
-    100020: Glass
-    100022: Glass Bars
-    100024: Gun
-    100026: Gun.001
-    100028: Lower Leg
-    100030: Lower Leg.001
-    100032: Pelvis
-    100034: //RootNode
-    100036: Torus
-    100038: Torus.001
-    100040: Upper Leg
-    100042: Upper Leg.001
+    100004: Ankle_L
+    100006: Ankle_R
+    100008: Arm
+    100010: Arm_L
+    100012: Arm_R
+    100014: ArmCtrl_L
+    100016: ArmCtrl_R
+    100018: ArmIK_L
+    100020: ArmIK_R
+    100022: Clavicle
+    100024: Cockpit
+    100026: Cube
+    100028: Cube.003
+    100030: Cylinder
+    100032: Cylinder.001
+    100034: ElbowPivot_L
+    100036: ElbowPivot_R
+    100038: Feet_L
+    100040: Feet_R
+    100042: FeetIK_L
+    100044: FeetIK_R
+    100046: FeetL
+    100048: FeetR
+    100050: Foot
+    100052: Foot.001
+    100054: Forearm_L
+    100056: Forearm_R
+    100058: GattlingGun_L
+    100060: GattlingGun_R
+    100062: Glass
+    100064: Glass Bars
+    100066: GunCtrl_L
+    100068: GunCtrl_R
+    100070: GunFinger_L
+    100072: GunFinger_R
+    100074: GunHolder_L
+    100076: GunHolder_R
+    100078: Hand_L
+    100080: Hand_R
+    100082: HandIK_L
+    100084: HandIK_R
+    100086: HeadCtrl
+    100088: Hip
+    100090: HipsCtrl
+    100092: Knee_L
+    100094: Knee_R
+    100096: KneePivot_L
+    100098: KneePivot_R
+    100100: LegCtrl_L
+    100102: LegCtrl_R
+    100104: LegIK_L
+    100106: LegIK_R
+    100108: Lower Leg
+    100110: Lower Leg.001
+    100112: Neck
+    100114: Ostrich
+    100116: Pelvis
+    100118: Shoulder_L
+    100120: Shoulder_R
+    100122: ShoulderCtrl_L
+    100124: ShoulderCtrl_R
+    100126: ShoulderIK
+    100128: ShoulderIK 1
+    100130: ShoulderIK_L
+    100132: ShoulderIK_R
+    100134: Spine_COG
+    100136: //RootNode
+    100138: Toe_L
+    100140: Toe_R
+    100142: TopLeg_L
+    100144: TopLeg_R
+    100146: Torus
+    100148: Torus.001
+    100150: Upper Leg
+    100152: Upper Leg.001
     400000: Ankle
     400002: Ankle.001
-    400004: Arm
-    400006: Cockpit
-    400008: Cube
-    400010: Cube.003
-    400012: Cylinder
-    400014: Cylinder.001
-    400016: Foot
-    400018: Foot.001
-    400020: Glass
-    400022: Glass Bars
-    400024: Gun
-    400026: Gun.001
-    400028: Lower Leg
-    400030: Lower Leg.001
-    400032: Pelvis
-    400034: //RootNode
-    400036: Torus
-    400038: Torus.001
-    400040: Upper Leg
-    400042: Upper Leg.001
-    2300000: Ankle
-    2300002: Ankle.001
-    2300004: Arm
-    2300006: Cockpit
-    2300008: Cube
-    2300010: Cube.003
-    2300012: Cylinder
-    2300014: Cylinder.001
-    2300016: Foot
-    2300018: Foot.001
-    2300020: Glass
-    2300022: Glass Bars
-    2300024: Gun
-    2300026: Gun.001
-    2300028: Lower Leg
-    2300030: Lower Leg.001
-    2300032: Pelvis
-    2300034: Torus
-    2300036: Torus.001
-    2300038: Upper Leg
-    2300040: Upper Leg.001
-    3300000: Ankle
-    3300002: Ankle.001
-    3300004: Arm
-    3300006: Cockpit
-    3300008: Cube
-    3300010: Cube.003
-    3300012: Cylinder
-    3300014: Cylinder.001
-    3300016: Foot
-    3300018: Foot.001
-    3300020: Glass
-    3300022: Glass Bars
-    3300024: Gun
-    3300026: Gun.001
-    3300028: Lower Leg
-    3300030: Lower Leg.001
-    3300032: Pelvis
-    3300034: Torus
-    3300036: Torus.001
-    3300038: Upper Leg
-    3300040: Upper Leg.001
+    400004: Ankle_L
+    400006: Ankle_R
+    400008: Arm
+    400010: Arm_L
+    400012: Arm_R
+    400014: ArmCtrl_L
+    400016: ArmCtrl_R
+    400018: ArmIK_L
+    400020: ArmIK_R
+    400022: Clavicle
+    400024: Cockpit
+    400026: Cube
+    400028: Cube.003
+    400030: Cylinder
+    400032: Cylinder.001
+    400034: ElbowPivot_L
+    400036: ElbowPivot_R
+    400038: Feet_L
+    400040: Feet_R
+    400042: FeetIK_L
+    400044: FeetIK_R
+    400046: FeetL
+    400048: FeetR
+    400050: Foot
+    400052: Foot.001
+    400054: Forearm_L
+    400056: Forearm_R
+    400058: GattlingGun_L
+    400060: GattlingGun_R
+    400062: Glass
+    400064: Glass Bars
+    400066: GunCtrl_L
+    400068: GunCtrl_R
+    400070: GunFinger_L
+    400072: GunFinger_R
+    400074: GunHolder_L
+    400076: GunHolder_R
+    400078: Hand_L
+    400080: Hand_R
+    400082: HandIK_L
+    400084: HandIK_R
+    400086: HeadCtrl
+    400088: Hip
+    400090: HipsCtrl
+    400092: Knee_L
+    400094: Knee_R
+    400096: KneePivot_L
+    400098: KneePivot_R
+    400100: LegCtrl_L
+    400102: LegCtrl_R
+    400104: LegIK_L
+    400106: LegIK_R
+    400108: Lower Leg
+    400110: Lower Leg.001
+    400112: Neck
+    400114: Ostrich
+    400116: Pelvis
+    400118: Shoulder_L
+    400120: Shoulder_R
+    400122: ShoulderCtrl_L
+    400124: ShoulderCtrl_R
+    400126: ShoulderIK
+    400128: ShoulderIK 1
+    400130: ShoulderIK_L
+    400132: ShoulderIK_R
+    400134: Spine_COG
+    400136: //RootNode
+    400138: Toe_L
+    400140: Toe_R
+    400142: TopLeg_L
+    400144: TopLeg_R
+    400146: Torus
+    400148: Torus.001
+    400150: Upper Leg
+    400152: Upper Leg.001
     4300000: Torus.001
     4300002: Torus
     4300004: Upper Leg.001
@@ -98,20 +166,48 @@ ModelImporter:
     4300008: Cube.003
     4300010: Foot.001
     4300012: Ankle.001
-    4300014: Gun.001
-    4300016: Ankle
-    4300018: Foot
-    4300020: Pelvis
-    4300022: Cube
-    4300024: Lower Leg
-    4300026: Upper Leg
-    4300028: Cylinder.001
-    4300030: Cylinder
-    4300032: Glass Bars
-    4300034: Glass
-    4300036: Cockpit
-    4300038: Gun
-    4300040: Arm
+    4300014: Ankle
+    4300016: Foot
+    4300018: Pelvis
+    4300020: Cube
+    4300022: Lower Leg
+    4300024: Upper Leg
+    4300026: Cylinder.001
+    4300028: Cylinder
+    4300030: Glass Bars
+    4300032: Glass
+    4300034: Cockpit
+    4300036: GunHolder_R
+    4300038: GattlingGun_R
+    4300040: GunHolder_L
+    4300042: GattlingGun_L
+    4300044: Arm
+    7400000: Walk
+    7400002: Take 001
+    9500000: //RootNode
+    13700000: Ankle
+    13700002: Ankle.001
+    13700004: Arm
+    13700006: Cockpit
+    13700008: Cube
+    13700010: Cube.003
+    13700012: Cylinder
+    13700014: Cylinder.001
+    13700016: Foot
+    13700018: Foot.001
+    13700020: GattlingGun_L
+    13700022: GattlingGun_R
+    13700024: Glass
+    13700026: Glass Bars
+    13700028: GunHolder_L
+    13700030: GunHolder_R
+    13700032: Lower Leg
+    13700034: Lower Leg.001
+    13700036: Pelvis
+    13700038: Torus
+    13700040: Torus.001
+    13700042: Upper Leg
+    13700044: Upper Leg.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -131,8 +227,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 797670811c090144abf2dd4f3798bb19, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: dd650b9297e2e4944aa141e1c575d297, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -158,7 +254,63 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -204,7 +356,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
