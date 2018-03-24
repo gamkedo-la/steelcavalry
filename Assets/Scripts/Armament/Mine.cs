@@ -55,6 +55,10 @@ public class Mine : MonoBehaviour
 		explosionAudio.Raise( AudioEvents.Explosion, transform.position );
 
         var newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        var explosionParticles = newExplosion.gameObject.transform.GetChild(0);
+        var explosionEnlarger = explosionParticles.GetComponent<ExplosionEnlarger>();
+        explosionEnlarger.SetDamage(damagePerMine);
+
         Destroy(newExplosion, explosionDestroyDelay);
         Destroy(gameObject);
     }
