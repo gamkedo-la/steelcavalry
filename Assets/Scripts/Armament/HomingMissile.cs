@@ -89,10 +89,16 @@ public class HomingMissile : MonoBehaviour
 			hp.TakeDamage(damagePerMissile);
 		}
 
-		if ( collision.contacts.Length > 0 )
+		if ( collision.contacts.Length > 0 ) {
 			DoDestruction( collision.contacts[0].point );
-		else
+		} else {
 			DoDestruction( transform.position );
+		}
+
+		Mine mine = collision.collider.GetComponent<Mine>();
+		if (mine) {
+			mine.ExplodeAndDestroy();
+		}
 	}
 
 	public void DoDestruction( Vector2 point )

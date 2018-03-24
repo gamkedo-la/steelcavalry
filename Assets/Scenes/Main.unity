@@ -49092,6 +49092,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114645793980758882, guid: 48396e36d7217164f8aad070f7e5a331,
+        type: 2}
+      propertyPath: mechCanShield
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48396e36d7217164f8aad070f7e5a331, type: 2}
   m_IsPrefabParent: 0
