@@ -59,14 +59,19 @@ public class BackAndForth : MonoBehaviour {
 
 	//Change direction if we hit wall
 	void OnCollisionEnter2D(Collision2D bumpFacts){
-		for(int i = 0; i < bumpFacts.contacts.Length; i++) {
-			if(Mathf.Abs(bumpFacts.contacts[i].normal.x) >= 0.9f) {
-				facingRight = !facingRight;
-				return;
-			}
-			if(Mathf.Abs(bumpFacts.contacts[i].normal.y) >= 0.9f) {
-				facingUp = !facingUp;
-				return;
+
+		if (bumpFacts.gameObject.CompareTag("Ground")){
+
+			for(int i = 0; i < bumpFacts.contacts.Length; i++) {
+
+				if(Mathf.Abs(bumpFacts.contacts[i].normal.x) >= 0.9f) {
+					facingRight = !facingRight;
+					return;
+				}
+				if(Mathf.Abs(bumpFacts.contacts[i].normal.y) >= 0.9f) {
+					facingUp = !facingUp;
+					return;
+				}
 			}
 		}
 	}
