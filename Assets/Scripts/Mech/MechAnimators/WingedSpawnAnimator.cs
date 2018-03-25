@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MechAnimation : MonoBehaviour
+public class WingedSpawnAnimator : MonoBehaviour
 {
 
     float mechDist;//TODO: revise why can't delcare in swing function
