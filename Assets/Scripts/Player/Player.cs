@@ -63,6 +63,7 @@ public class Player : MonoBehaviour {
     public Mech mechImIn = null;
     public bool isOnGround = false;
     public bool isFacingRight = true;
+    public bool isAttacking = false;
     private bool jetpackOn = false;
     private bool isAiPlayer = false;
 	public enum PlayerState{
@@ -273,7 +274,12 @@ public class Player : MonoBehaviour {
 
         if (inputFire || inputAltFire || inputAltFire2) {
             isFacingRight = cursor.transform.position.x > transform.position.x;
+            isAttacking = true;
+        } 
+        else {
+            isAttacking = false;
         }
+
 
         if (inputFire) OnFire();            //tells everyone listening that a shot has been fired                  
 		if (inputAltFire) OnAltFire( );     //tells everyone listening that a shot has been fired		

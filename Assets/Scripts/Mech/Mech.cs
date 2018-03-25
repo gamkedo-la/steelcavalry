@@ -49,8 +49,7 @@ public class Mech : MonoBehaviour
 
     [Header("Mech Driver")]
     public PodLauncher pod;
-    [HideInInspector]
-    public Player driver;
+    [HideInInspector] public Player driver;
     public float minimumSecondsBetweenSteals = 2.0f;
     public float lastStolenAt = 0.0f;
 

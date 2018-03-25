@@ -25,7 +25,8 @@ public class MechAnimator : MonoBehaviour {
 	void Update () {        
         canIdle = mech.isOnGround && 
                   Mathf.Abs(mech.mechRigidbody.velocity.x) < belowThisSpeedIsIdle && 
-                  mech.inUse ? 
+                  mech.inUse &&
+                  !mech.driver.isAttacking ? 
                     true : false;
 
         if (canIdle) {
