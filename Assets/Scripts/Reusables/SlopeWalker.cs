@@ -47,9 +47,8 @@ public class SlopeWalker : MonoBehaviour {
         walkerBody = GetComponent<Rigidbody2D>();
     }
 
-    public void LateUpdate () {
+    public void FixedUpdate () {        
         GetCollidedSlopeAngle(walkerBody.velocity, walkerFeet, rayLength, isFacingRight, slopeTag, maxClimbableSlopeAngle);
-
         if (isOnSlope) {
             walkerBody.velocity = velocityOnSlope;
         }
