@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spin : MonoBehaviour {
+public class SpinAndDisableRenderer : MonoBehaviour {
 	public float rotationSpeed;
 
 	// Use this for initialization
