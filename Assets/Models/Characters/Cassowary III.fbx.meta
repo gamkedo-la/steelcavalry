@@ -83,6 +83,30 @@ ModelImporter:
     100150: thrusters
     100152: UpLeg.L
     100154: UpLeg.R
+    100156: Head
+    100158: Hips
+    100160: LeftArm
+    100162: LeftFoot
+    100164: LeftForeArm
+    100166: LeftHand
+    100168: LeftLeg
+    100170: LeftShoulder
+    100172: LeftToeBase
+    100174: LeftUpLeg
+    100176: Neck
+    100178: QuickRigCharacter_Guides
+    100180: Reference
+    100182: RightArm
+    100184: RightFoot
+    100186: RightForeArm
+    100188: RightHand
+    100190: RightLeg
+    100192: RightShoulder
+    100194: RightToeBase
+    100196: RightUpLeg
+    100198: Spine
+    100200: Spine1
+    100202: Spine2
     400000: arm_up.L
     400002: arm_up.R
     400004: blade.L
@@ -161,6 +185,30 @@ ModelImporter:
     400150: thrusters
     400152: UpLeg.L
     400154: UpLeg.R
+    400156: Head
+    400158: Hips
+    400160: LeftArm
+    400162: LeftFoot
+    400164: LeftForeArm
+    400166: LeftHand
+    400168: LeftLeg
+    400170: LeftShoulder
+    400172: LeftToeBase
+    400174: LeftUpLeg
+    400176: Neck
+    400178: QuickRigCharacter_Guides
+    400180: Reference
+    400182: RightArm
+    400184: RightFoot
+    400186: RightForeArm
+    400188: RightHand
+    400190: RightLeg
+    400192: RightShoulder
+    400194: RightToeBase
+    400196: RightUpLeg
+    400198: Spine
+    400200: Spine1
+    400202: Spine2
     4300000: UpLeg.R
     4300002: arm_up.R
     4300004: body
@@ -174,7 +222,7 @@ ModelImporter:
     4300020: UpLeg.L
     4300022: foot.R
     4300024: leg_low.R
-    7400000: Take 001
+    7400000: Rest
     7400002: Walk
     7400004: Idle1
     7400006: Idle2
@@ -228,17 +276,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Rest
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 371
+      firstFrame: 408
+      lastFrame: 417
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
