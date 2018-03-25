@@ -1167,7 +1167,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: walk
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101941208503017244}
@@ -1334,12 +1334,12 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107007824699048642}
-    second:
-    - {fileID: 1109090045349231526}
   - first: {fileID: 1107914268860931118}
     second:
     - {fileID: 1109098819204543110}
+  - first: {fileID: 1107007824699048642}
+    second:
+    - {fileID: 1109090045349231526}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}

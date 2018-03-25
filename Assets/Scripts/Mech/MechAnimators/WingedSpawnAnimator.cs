@@ -151,7 +151,7 @@ public class WingedSpawnAnimator : MonoBehaviour
         //Debug.Log("Mech in use " + mechInUse);
 
         //Mech fly animation: raycast dist to ground
-        float minDistToGround = 0.25f;//dist for standby animation to occur
+        float minDistToGround = 0.55f;//dist for standby animation to occur
         Vector2 rayDown = transform.TransformDirection(Vector2.down);
         
         int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
