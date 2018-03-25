@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponManager), typeof(HP), typeof(SlopeWalker))]
+[RequireComponent(typeof(MechAnimator))]
 public class Mech : MonoBehaviour
 {
     [SerializeField] private GameEventAudioEvent audioEvent;
@@ -11,7 +12,8 @@ public class Mech : MonoBehaviour
     private GameObject[] bodyParts = null;
     public GameObject bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
     public Transform mechModel;
-    private Rigidbody2D mechRigidbody;
+    [HideInInspector]
+    public Rigidbody2D mechRigidbody;
     private SlopeWalker slopeWalker;
     [SerializeField] private GameObject explosion = null;
     [SerializeField] private MechUI ui = null;
@@ -37,7 +39,7 @@ public class Mech : MonoBehaviour
     public float damageTaken = 0.0f;
     public float maxDamage = 100.0f;
     public bool canBeStolen = true;
-    private bool isOnGround;
+    public bool isOnGround;
     public bool isFlying = false;
     private bool canFly = true;
     public bool isFacingRight;

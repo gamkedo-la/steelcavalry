@@ -171,7 +171,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4808916868816766}
-  - component: {fileID: 95800481824167794}
   m_Layer: 0
   m_Name: Cassowary III
   m_TagString: Untagged
@@ -1024,7 +1023,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4442002908799116}
-  - component: {fileID: 33078580835691528}
   - component: {fileID: 50824966354189754}
   - component: {fileID: 61720431279103562}
   - component: {fileID: 95250742282326674}
@@ -1032,6 +1030,7 @@ GameObject:
   - component: {fileID: 114307644631841450}
   - component: {fileID: 114285528296611220}
   - component: {fileID: 114688791397996210}
+  - component: {fileID: 114712331308402562}
   m_Layer: 11
   m_Name: Cassowary III
   m_TagString: Mech
@@ -2100,7 +2099,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631684117738174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.14, y: 0.27, z: 0}
+  m_LocalPosition: {x: -11.25, y: 6.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224733927357161492}
@@ -2945,13 +2944,6 @@ Transform:
   m_Father: {fileID: 4008072786251008}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33078580835691528
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631684117738174}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &50824966354189754
 Rigidbody2D:
   serializedVersion: 4
@@ -3022,26 +3014,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4be21640515a60847b0256d4b9d26872, type: 3}
   m_Controller: {fileID: 9100000, guid: e0c887d5e6d578b4388912bfef40086c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95800481824167794
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1087235989396900}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4be21640515a60847b0256d4b9d26872, type: 3}
-  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3434,6 +3409,17 @@ MonoBehaviour:
   isFacingRight: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+--- !u!114 &114712331308402562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631684117738174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04558ab4f83d65b4f87999d7722a9a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114739242064904312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3554,6 +3540,7 @@ MonoBehaviour:
   - {fileID: 0}
   bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4808916868816766}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114816332605013776}
   mechName: Cassowary III
@@ -3573,6 +3560,8 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
   driver: {fileID: 0}

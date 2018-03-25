@@ -426,11 +426,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 95800481824167794, guid: 695c2a368401f9047852baec0648a861,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e0c887d5e6d578b4388912bfef40086c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 695c2a368401f9047852baec0648a861, type: 2}
   m_IsPrefabParent: 0
@@ -15645,11 +15640,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.925
+      value: -11.36
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.328
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 4628510976472440, guid: ed0c26709e6c6c3428a7153191e31612, type: 2}
       propertyPath: m_LocalPosition.z
@@ -64011,6 +64006,7 @@ MonoBehaviour:
   - {fileID: 1130053219}
   bodyPartToVanish: {fileID: 1961926759}
   mechModel: {fileID: 114349451}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 454903263}
   mechName: Winged Spawn
@@ -64030,6 +64026,8 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
   driver: {fileID: 0}
