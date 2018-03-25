@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MechAnimator : MonoBehaviour {
+    public float idleWaitSeconds = 5f;
+    public float belowThisSpeedIsIdle = 0.2f;
+
     Mech mech;
 
     Animator animController;
@@ -19,8 +22,11 @@ public class MechAnimator : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        canIdle = mech.isOnGround && Mathf.Abs(mech.mechRigidbody.velocity.x) < 1f ? true : false;
+	void Update () {        
+        canIdle = mech.isOnGround && 
+                  Mathf.Abs(mech.mechRigidbody.velocity.x) < belowThisSpeedIsIdle && 
+                  mech.driver == null ? 
+                    true : false;
 
         if (canIdle) {
             StartCoroutine("IdleTracker");
@@ -31,7 +37,7 @@ public class MechAnimator : MonoBehaviour {
         }
 
         canWalk = mech.isOnGround && 
-                  Mathf.Abs(mech.mechRigidbody.velocity.x) > 0 && 
+                  Mathf.Abs(mech.mechRigidbody.velocity.x) > belowThisSpeedIsIdle && 
                   mech.driver != null && 
                   (mech.driver.inputLeft || mech.driver.inputRight);
         animController.SetBool(isWalkingParam, canWalk);
@@ -41,7 +47,7 @@ public class MechAnimator : MonoBehaviour {
 	}
 
     IEnumerator IdleTracker () {        
-        yield return new WaitForSeconds(5f);        
+        yield return new WaitForSeconds(idleWaitSeconds);        
         Debug.Log("Set mech animation to idle if mech is idle.");
         animController.SetBool(isIdlingParam, canIdle);
     }
