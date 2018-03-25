@@ -1451,11 +1451,11 @@ GameObject:
   - component: {fileID: 4210744720910714}
   - component: {fileID: 50383405306128032}
   - component: {fileID: 61619340895615006}
+  - component: {fileID: 95827245596235256}
   - component: {fileID: 114450318377407044}
   - component: {fileID: 114124044937149014}
   - component: {fileID: 114534354882542394}
   - component: {fileID: 114671733432943480}
-  - component: {fileID: 95827245596235256}
   - component: {fileID: 114474736081063012}
   m_Layer: 11
   m_Name: Ostrich
@@ -1681,7 +1681,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718689194683924}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.969, z: 0}
+  m_LocalPosition: {x: 0, y: -0.93, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4377601590291910}
@@ -1708,7 +1708,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216363262105486}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.0730002, y: -2.666, z: -0.040000007}
+  m_LocalPosition: {x: 1.0730002, y: -0.44, z: -0.040000007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547144013730734}
@@ -2132,7 +2132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1208257721238880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.325, z: 0}
+  m_LocalPosition: {x: 0, y: -1.077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4210744720910714}
@@ -2654,7 +2654,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349103818041164}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.0700004, y: -2.666, z: -0.04000029}
+  m_LocalPosition: {x: -1.0700004, y: -0.44, z: -0.04000029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4125796364395006}
@@ -2968,7 +2968,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018195987, y: -0.0006427765}
+  m_Offset: {x: 0.018195987, y: 0.087883234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2979,7 +2979,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.963608, y: 2.6428099}
+  m_Size: {x: 0.963608, y: 2.4657578}
   m_EdgeRadius: 0
 --- !u!95 &95827245596235256
 Animator:
@@ -2991,9 +2991,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9ec698c73e2924c4fa28798e341c3420, type: 3}
   m_Controller: {fileID: 9100000, guid: e2d13cc382e03254fa7a30e0e9e44511, type: 2}
-  m_CullingMode: 2
+  m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3470,6 +3470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04558ab4f83d65b4f87999d7722a9a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleWaitSeconds: 5
+  belowThisSpeedIsIdle: 0.2
 --- !u!114 &114523431291521986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3622,7 +3624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1208257721238880}
-  rayLength: 2
+  rayLength: 0.7
   isFacingRight: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
