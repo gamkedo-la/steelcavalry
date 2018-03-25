@@ -208,7 +208,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4377601590291910}
-  - component: {fileID: 95326744573407348}
   m_Layer: 0
   m_Name: The Ostrich IV
   m_TagString: Untagged
@@ -1457,6 +1456,7 @@ GameObject:
   - component: {fileID: 114534354882542394}
   - component: {fileID: 114671733432943480}
   - component: {fileID: 95827245596235256}
+  - component: {fileID: 114474736081063012}
   m_Layer: 11
   m_Name: Ostrich
   m_TagString: Mech
@@ -1681,7 +1681,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718689194683924}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.969, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4377601590291910}
@@ -2132,7 +2132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1208257721238880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.267, z: 0}
+  m_LocalPosition: {x: 0, y: -1.325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4210744720910714}
@@ -2320,7 +2320,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097241094121200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4582831794685446}
@@ -2981,23 +2981,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.963608, y: 2.6428099}
   m_EdgeRadius: 0
---- !u!95 &95326744573407348
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1097241094121200}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9ec698c73e2924c4fa28798e341c3420, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95827245596235256
 Animator:
   serializedVersion: 3
@@ -3008,7 +2991,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9ec698c73e2924c4fa28798e341c3420, type: 3}
   m_Controller: {fileID: 9100000, guid: e2d13cc382e03254fa7a30e0e9e44511, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -3330,6 +3313,7 @@ MonoBehaviour:
   - {fileID: 0}
   bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4049568044068722}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114570427814008144}
   mechName: Ostrich The Bot
@@ -3349,6 +3333,8 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  isFlying: 0
   isFacingRight: 1
   pod: {fileID: 0}
   driver: {fileID: 0}
@@ -3473,6 +3459,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Bob The Bot
+--- !u!114 &114474736081063012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873332035167752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04558ab4f83d65b4f87999d7722a9a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114523431291521986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14928,7 +14925,7 @@ ParticleSystemRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
