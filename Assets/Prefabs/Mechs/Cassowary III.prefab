@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1345863481920100}
-  rayLength: 2
+  rayLength: 0.51
   isFacingRight: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
@@ -3420,6 +3420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04558ab4f83d65b4f87999d7722a9a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleWaitSeconds: 5
+  belowThisSpeedIsIdle: 0.2
 --- !u!114 &114739242064904312
 MonoBehaviour:
   m_ObjectHideFlags: 1
