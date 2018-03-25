@@ -293,9 +293,7 @@ MonoBehaviour:
   type: 0
   minAngle: -60
   maxAngle: 60
-  models:
-  - {fileID: 0}
-  - {fileID: 1848110246138526}
+  model: {fileID: 1341227328559600}
 --- !u!198 &198621527246949254
 ParticleSystem:
   m_ObjectHideFlags: 1
