@@ -183,7 +183,7 @@ ModelImporter:
     4300042: GattlingGun_L
     4300044: Arm
     7400000: Walk
-    7400002: Take 001
+    7400002: Rest
     7400004: Taking off (Fly)
     7400006: Flying loop
     9500000: //RootNode
@@ -258,17 +258,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Rest
       takeName: Take 001
-      firstFrame: 10
-      lastFrame: 50
+      firstFrame: 50
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
