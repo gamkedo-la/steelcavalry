@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1035090671365332}
-  rayLength: 0.7
+  rayLength: 0.5
   isFacingRight: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
