@@ -120,7 +120,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
 
         // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
-        missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.GetComponent<Player>().gamepadNumber; // FIXME
+        missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.gamepadNumber; // FIXME
 
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );

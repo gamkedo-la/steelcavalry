@@ -114,7 +114,7 @@ public class Player : MonoBehaviour {
 			mech.driver.GetInstanceID() != gameObject.GetInstanceID() &&
 			mech.canBeStolen) {
 
-			mech.driver.GetComponent<Player>().ExitMech();
+			mech.driver.ExitMech();
 			mech.ToggleCanBeStolen();
 
 		}

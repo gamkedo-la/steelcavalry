@@ -38,7 +38,7 @@ public class Mech : MonoBehaviour
     public float maxDamage = 100.0f;
     public bool canBeStolen = true;
     private bool isOnGround;
-    private bool isFlying = false;
+    public bool isFlying = false;
     private bool canFly = true;
     public bool isFacingRight;
     private float thrusterFuelCurrent = 100f;
@@ -47,8 +47,8 @@ public class Mech : MonoBehaviour
 
     [Header("Mech Driver")]
     public PodLauncher pod;
-    public GameObject driver; // either the player or an enemy ai player
-    private Player driverMovement;
+    [HideInInspector]
+    public Player driver;
     public float minimumSecondsBetweenSteals = 2.0f;
     public float lastStolenAt = 0.0f;
 
@@ -107,8 +107,7 @@ public class Mech : MonoBehaviour
     }
 
     public void wasEntered(GameObject newDriver) {
-        driver = newDriver;
-        driverMovement = driver.GetComponent<Player>();
+        driver = newDriver.GetComponent<Player>();
 
         inUse = true;
         //Debug.Log("in Use " + inUse);
@@ -117,13 +116,13 @@ public class Mech : MonoBehaviour
             weaponManager.IsPlayerDriving(newDriver.CompareTag("Player"));
             ui.IsPlayerDriving(newDriver.CompareTag("Player"));
             weaponManager.IsActive(true);
-            driverMovement.OnFire += weaponManager.FirePrimary;
-            driverMovement.OnAltFire += weaponManager.FireSecondary;
-            driverMovement.OnAltFire2 += weaponManager.FireTertiary;
+            driver.OnFire += weaponManager.FirePrimary;
+            driver.OnAltFire += weaponManager.FireSecondary;
+            driver.OnAltFire2 += weaponManager.FireTertiary;
         }
 
         if (pod != null && pod.enabled) {
-            driverMovement.OnFire += pod.HandleFire; //adds itself to the listeners of OnFire()
+            driver.OnFire += pod.HandleFire; //adds itself to the listeners of OnFire()
             pod.Active(true);
         }
     }
@@ -132,9 +131,9 @@ public class Mech : MonoBehaviour
         inUse = false;
         hp.UseMultiplier(!inUse);
         if (weaponManager != null) {
-            driverMovement.OnFire -= weaponManager.FirePrimary;
-            driverMovement.OnAltFire -= weaponManager.FireSecondary;
-            driverMovement.OnAltFire2 -= weaponManager.FireTertiary;
+            driver.OnFire -= weaponManager.FirePrimary;
+            driver.OnAltFire -= weaponManager.FireSecondary;
+            driver.OnAltFire2 -= weaponManager.FireTertiary;
             weaponManager.IsActive(false);
             weaponManager.IsPlayerDriving(false);
             ui.IsPlayerDriving(false);
@@ -146,17 +145,17 @@ public class Mech : MonoBehaviour
         // BRANCH controls for Regular/Golden Goose Mech
         if (!isGoldenGoose) {
             if (!inUse) return; //could be made into a function to do something else when idle
-            if (!driverMovement) return;
+            if (!driver) return;
 
-            if (driverMovement.inputRight) {
+            if (driver.inputRight) {
                 mechRigidbody.velocity = new Vector2(Time.deltaTime * mechMoveSpeed, mechRigidbody.velocity.y);
             }
 
-            if (driverMovement.inputLeft) {
+            if (driver.inputLeft) {
                 mechRigidbody.velocity = new Vector2(Time.deltaTime * -mechMoveSpeed, mechRigidbody.velocity.y);
             }
 
-            if (driverMovement.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost) {
+            if (driver.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost) {
                 mechRigidbody.AddForce(Vector2.up * jumpPower);
                 thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
 
@@ -173,7 +172,7 @@ public class Mech : MonoBehaviour
                 ThrustersOn.Invoke();
             }
 
-            if (driverMovement.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
+            if (driver.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
                 mechRigidbody.AddForce(Vector2.up * thrusterPower * Time.deltaTime);
                 thrusterFuelCurrent -= thrusterCost * Time.deltaTime;
                 ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
@@ -189,23 +188,23 @@ public class Mech : MonoBehaviour
                 canFly = false;
             }
 
-            if (!driverMovement.inputUp) {
+            if (!driver.inputUp) {
                 isFlying = false;
             }
 
         }
         else {
             if (!inUse) return; //could be made into a function to do something else when idle
-            if (!driverMovement) return;
+            if (!driver) return;
             if (podLaunched) return;
 
-            if (driverMovement.inputRight && isOnGround && goldenLedgeCheck.isGroundRight)
+            if (driver.inputRight && isOnGround && goldenLedgeCheck.isGroundRight)
                 transform.position += Vector3.right * Time.deltaTime * mechMoveSpeed;
-            if (driverMovement.inputLeft && isOnGround && goldenLedgeCheck.isGroundLeft)
+            if (driver.inputLeft && isOnGround && goldenLedgeCheck.isGroundLeft)
                 transform.position += Vector3.left * Time.deltaTime * mechMoveSpeed;
-            if (driverMovement.inputUp && isOnGround)
+            if (driver.inputUp && isOnGround)
                 rocketPivot.transform.Rotate(Vector3.forward * Time.deltaTime * gGRocketRotateSpeed);
-            if (driverMovement.inputDown && isOnGround)
+            if (driver.inputDown && isOnGround)
                 rocketPivot.transform.Rotate(Vector3.back * Time.deltaTime * gGRocketRotateSpeed);
         }
 
