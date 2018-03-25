@@ -12,7 +12,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
     //var for animations
     public bool hasShotMissile;
-    MechAnimation mechAnimScript;
+    WingedSpawnAnimator mechAnimScript;
     [HideInInspector] public GameObject shootingMech;
     
 	public WeaponType Type
@@ -39,7 +39,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 		currentMagSize = (int)parameters.MagSize;
 
-        mechAnimScript = gameObject.GetComponentInParent<MechAnimation>();//access MechAnimation script from current object 
+        mechAnimScript = gameObject.GetComponentInParent<WingedSpawnAnimator>();//access MechAnimation script from current object 
 	}
 
 	void Update( )
