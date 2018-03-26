@@ -2308,7 +2308,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279026425158912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.95, y: 4.76, z: 0}
+  m_LocalPosition: {x: 14.14, y: 3.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224148648787007390}
@@ -2908,6 +2908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1009841787835982}
+  rayLength: 2
   isFacingRight: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
@@ -3057,6 +3058,7 @@ MonoBehaviour:
   - {fileID: 0}
   bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4561950020907594}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114440264249737682}
   mechName: Robo Warrior
@@ -3076,6 +3078,8 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
   driver: {fileID: 0}
@@ -3086,11 +3090,11 @@ MonoBehaviour:
   rocketPivot: {fileID: 0}
   gGRocketRotateSpeed: 1
   podLaunched: 0
-  mechCanShield: 0
-  shieldWait: 0
-  shieldDuration: 0
-  shieldCost: 0
-  shieldGO: {fileID: 0}
+  mechCanShield: 1
+  shieldWait: 1
+  shieldDuration: 5
+  shieldCost: 50
+  shieldGO: {fileID: 1660712157176938, guid: f5d472ea2a5804dc8961b4a611f43428, type: 2}
   ThrustersOn:
     m_PersistentCalls:
       m_Calls:

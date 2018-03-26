@@ -16178,10 +16178,11 @@ MonoBehaviour:
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10
-  scannedCount: 5
   visibleToMe:
     serializedVersion: 2
     m_Bits: 0
+  scannerIntervalms: 1000
+  scannerDepth: 5
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
 --- !u!114 &1247760525
@@ -16199,6 +16200,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1187520963}
   throwerMountPoint: {fileID: 1187520963}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!1 &1248003112
 GameObject:
   m_ObjectHideFlags: 0
@@ -16960,10 +16962,11 @@ MonoBehaviour:
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10
-  scannedCount: 5
   visibleToMe:
     serializedVersion: 2
     m_Bits: 0
+  scannerIntervalms: 1000
+  scannerDepth: 5
   seekTargetOutside: {fileID: 736740196}
   seekTargetInMech: {fileID: 219767439}
 --- !u!114 &1460532781
@@ -16981,6 +16984,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1573468500}
   throwerMountPoint: {fileID: 1573468500}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &1460532782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20757,82 +20761,6 @@ Prefab:
     - target: {fileID: 4210744720910714, guid: e6ace03521d98b249bcedeea4dd29a8b, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124044937149014, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 1297227010}
-    - target: {fileID: 224865874139583382, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 224865874139583382, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.9819474
-      objectReference: {fileID: 0}
-    - target: {fileID: 224327596223875672, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.87999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 224327596223875672, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.0099998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224845701726580930, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 224845701726580930, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 224696586187986128, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 224696586187986128, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.98194724
-      objectReference: {fileID: 0}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: mechCanShield
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: shieldDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: shieldCooldown
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: shieldGO
-      value: 
-      objectReference: {fileID: 1660712157176938, guid: ec85a304a0ae8634096c29c3b2fbfe1f,
-        type: 2}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: shieldWait
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114450318377407044, guid: e6ace03521d98b249bcedeea4dd29a8b,
-        type: 2}
-      propertyPath: shieldCost
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6ace03521d98b249bcedeea4dd29a8b, type: 2}
@@ -28441,10 +28369,11 @@ MonoBehaviour:
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10
-  scannedCount: 5
   visibleToMe:
     serializedVersion: 2
     m_Bits: 0
+  scannerIntervalms: 1000
+  scannerDepth: 5
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
 --- !u!114 &1993925009
@@ -28462,6 +28391,7 @@ MonoBehaviour:
   launcherMountPoint: {fileID: 1613563214}
   throwerMountPoint: {fileID: 1613563214}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
+  launcherMounted: 0
 --- !u!114 &1993925010
 MonoBehaviour:
   m_ObjectHideFlags: 0

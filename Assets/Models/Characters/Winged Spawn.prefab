@@ -1564,8 +1564,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644489564896410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.85, y: -1.32, z: 0.051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224101470365488356}
@@ -2553,10 +2553,10 @@ MonoBehaviour:
   gGRocketRotateSpeed: 1
   podLaunched: 0
   mechCanShield: 0
-  shieldWait: 0
-  shieldDuration: 0
-  shieldCost: 0
-  shieldGO: {fileID: 0}
+  shieldWait: 1
+  shieldDuration: 5
+  shieldCost: 50
+  shieldGO: {fileID: 1660712157176938, guid: 3aaf7c687d55c43ddbeb3efde8948022, type: 2}
   ThrustersOn:
     m_PersistentCalls:
       m_Calls:
