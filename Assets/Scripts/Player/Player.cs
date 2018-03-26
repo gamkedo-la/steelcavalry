@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 		mainCam = Camera.main;
 		camScript = mainCam.GetComponent<MainCamera>();
 
-        cursor = UIResourceManager.MouseCursor;
+        cursor = UIResourceManager.MouseCursor; // NOTE: ai bots use this class but do not use mouse cursor
 
         _state = PlayerState.outOfMech; //default player state, switches between in and out of mech
 
