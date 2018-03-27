@@ -14,7 +14,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
     public bool hasShotMissile;
     WingedSpawnAnimator mechAnimScript;
     [HideInInspector] public GameObject shootingMech;
-    
+
 	public WeaponType Type
 	{
 		get { return type; }
@@ -39,7 +39,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 
 		currentMagSize = (int)parameters.MagSize;
 
-        mechAnimScript = gameObject.GetComponentInParent<WingedSpawnAnimator>();//access MechAnimation script from current object 
+        mechAnimScript = gameObject.GetComponentInParent<WingedSpawnAnimator>();//access MechAnimation script from current object
 	}
 
 	void Update( )
@@ -62,7 +62,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	}
 
 	public void SwapModel( string mechName ) { }
-    
+
 	public void Active( bool isActive )
 	{
 		this.isActive = isActive;
@@ -100,11 +100,8 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		audioEvent.Raise( AudioEvents.RocketLaunch, transform.position );
         GameObject missile = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler( 0, 0, 90 + Random.Range( -15f, 15f ) ) );
         hasShotMissile = true;
-        mechAnimScript.positionLocked = true;//TODO: affects only Winged Mech, need to remove error message from the other mechs
-        Debug.Log("Setting PositionLocked " + mechAnimScript.positionLocked);
-        
-        
-        
+        if ( mechAnimScript != null) mechAnimScript.positionLocked = true;
+
         //Debug.Log("Has shot missile Launcher CS " + hasShotMissile);
         missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
 
