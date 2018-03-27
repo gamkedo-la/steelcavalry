@@ -40,13 +40,9 @@ public class Mine : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {        
-        // Try to find a Mech script on the hit object
-        HP hp = collision.collider.GetComponent<HP>();
-        if (hp){
-            //TODO: Add DoDestruction implementation
-            hp.TakeDamage(damagePerMine);
-        }
+    {
+        string colliderName = collision.collider.gameObject.name;
+        if (colliderName.Contains("Shell")) return;
         ExplodeAndDestroy();
     }
 
