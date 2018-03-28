@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour {
     [SerializeField] GameObject mainMenu;
@@ -21,28 +23,34 @@ public class MainMenu : MonoBehaviour {
 
     public void StartGame() {
         PlayerPrefs.Save();
-        SceneManager.LoadScene ("Main");
+        StartCoroutine(ChangeLevel("Main Scene"));
 	}
 
 	public void LevelTwo() {
-		SceneManager.LoadScene ("Level 2");
+		StartCoroutine(ChangeLevel("Level 2"));
 	}
 
 	public void Credits() {
-		SceneManager.LoadScene ("Credits");
+		StartCoroutine(ChangeLevel("Credits"));
 	}
 
 	public void CreditsTwo() {
-		SceneManager.LoadScene ("Credits 2");
+		StartCoroutine(ChangeLevel("Credits 2"));
 	}
 
 	public void CreditsThree() {
-		SceneManager.LoadScene ("Credits 3");
+		StartCoroutine(ChangeLevel("Credits 3"));
 	}
 
 	public void Menu() {
-		SceneManager.LoadScene ("Menu");
+		StartCoroutine(ChangeLevel("Menu"));
 	}
+
+    IEnumerator ChangeLevel(string sceneName) {
+        float fadeTime = GameObject.Find("SceneTransition").GetComponent<SceneFading>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(sceneName);
+    }
 
 	public void QuitGame() {
         PlayerPrefs.Save();
