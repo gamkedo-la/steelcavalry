@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void Menu() {
-		StartCoroutine(ChangeLevel("Menu"));
+		SceneManager.LoadScene("Menu");
 	}
 
     IEnumerator ChangeLevel(string sceneName) {
