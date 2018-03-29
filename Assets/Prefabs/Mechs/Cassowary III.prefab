@@ -1450,6 +1450,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1843427016526588
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4007952711513576}
+  m_Layer: 12
+  m_Name: Launcher Mount Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1852602787055612
 GameObject:
   m_ObjectHideFlags: 1
@@ -1678,6 +1693,19 @@ Transform:
   m_Children:
   - {fileID: 4003947860493820}
   m_Father: {fileID: 4808794816619316}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4007952711513576
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1843427016526588}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.031422928, y: 1.197087, z: -0.17443489}
+  m_LocalScale: {x: 0.21576773, y: 0.40737236, z: 0.1799748}
+  m_Children: []
+  m_Father: {fileID: 4808916868816766}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4008072786251008
@@ -2383,6 +2411,7 @@ Transform:
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children:
   - {fileID: 4604687045328944}
+  - {fileID: 4821247537355512}
   m_Father: {fileID: 4331016159600010}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2625,7 +2654,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.25181, z: 0.13434}
   m_LocalScale: {x: 1.6827352, y: 1.6827354, z: 1.6827354}
   m_Children:
-  - {fileID: 4821247537355512}
+  - {fileID: 4007952711513576}
   - {fileID: 4856770108781578}
   - {fileID: 4708238339849224}
   - {fileID: 4773783099809314}
@@ -2656,12 +2685,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643388046524192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.031422928, y: 1.197087, z: -0.17443489}
-  m_LocalScale: {x: 0.21576773, y: 0.40737236, z: 0.1799748}
+  m_LocalRotation: {x: -0.6519259, y: 0.31820765, z: 0.6193667, w: 0.30020237}
+  m_LocalPosition: {x: -0.109409146, y: -0.44337246, z: -0.015060725}
+  m_LocalScale: {x: 0.21576777, y: 0.40737236, z: 0.17997481}
   m_Children: []
-  m_Father: {fileID: 4808916868816766}
-  m_RootOrder: 0
+  m_Father: {fileID: 4603297956776130}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4834460458558390
 Transform:
@@ -2968,7 +2997,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 23
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.3
@@ -3759,7 +3788,7 @@ MonoBehaviour:
   thrusterFuelMax: 100
   thrusterFuelRegen: 40
   thrusterCost: 20
-  thrusterPower: 17000
+  thrusterPower: 15500
   firstThrustCost: 0.28
   drag: 0
   mechMoveSpeed: 200

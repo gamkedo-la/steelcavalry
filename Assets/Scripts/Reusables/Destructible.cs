@@ -18,7 +18,9 @@ public class Destructible : MonoBehaviour
 	void Start ()
 	{
 		Assert.IsNotNull( mat );
+
 		spritesRoot = GameObject.Find( "Pieces" );
+		Assert.IsNotNull( spritesRoot );
 	}
 
 	public void DoDestruction( )
