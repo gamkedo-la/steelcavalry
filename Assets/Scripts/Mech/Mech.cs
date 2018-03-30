@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
@@ -164,12 +164,6 @@ public class Mech : MonoBehaviour
                 isFlying = true;
                 canFly = true;
 
-                if (!thrustersOn) {
-                    thrustersOn = true;
-                    audioEvent.Raise(AudioEvents.MechThrustter, transform.position);
-                    Invoke("ThrustersOffSound", 1.35f);
-                }
-
                 ThrustersOn.Invoke();
             }
 
@@ -192,6 +186,13 @@ public class Mech : MonoBehaviour
             if (!driver.inputUp) {
                 isFlying = false;
             }
+
+			if (isFlying && canFly && !thrustersOn )
+			{
+				thrustersOn = true;
+				audioEvent.Raise( AudioEvents.MechThrustter, transform.position );
+				Invoke( "ThrustersOffSound", 0.5f );
+			}
 
         }
         else {

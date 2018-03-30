@@ -231,7 +231,7 @@ MonoBehaviour:
   objectsToPickUp:
   - {fileID: 1761153564979496, guid: 02bc43916f64f304a99920c19a17e59c, type: 2}
   - {fileID: 1448447016015004, guid: 965029a569dcd2c498b8dd4309b3fb92, type: 2}
-  - {fileID: 1282935700071570, guid: b5921384a3394f5458f3963d88cbc0f7, type: 2}
+  - {fileID: 1995069063983258, guid: cf64291d31a0dfd498fe9dccd14a4cd2, type: 2}
   - {fileID: 1956260519700346, guid: 5e9279b6a6da8284bb095289a446d619, type: 2}
   typeToGive: 1
 --- !u!212 &212290980772478244
