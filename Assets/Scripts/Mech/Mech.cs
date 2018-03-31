@@ -283,7 +283,7 @@ public class Mech : MonoBehaviour
     }
 
     private void MakeDestructionEffect() {
-        if (bodyParts == null || bodyParts.Length == 0 || isBeingDestroyed) return;
+        if (isBeingDestroyed) return;
 
         isBeingDestroyed = true;
 
