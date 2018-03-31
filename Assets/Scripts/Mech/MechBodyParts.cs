@@ -24,16 +24,23 @@ public class MechBodyParts : MonoBehaviour {
             MeshRenderer bodyPartMesh = bodyPart.GetComponent<MeshRenderer>();
 
             if (bodyPartSkinnedMesh == null && bodyPartMesh == null) continue;
+            
+            GameObject bodyPartParent = new GameObject(bodyPart.name);
+            bodyPartParent.transform.position = bodyPart.transform.parent.position;
+            
+            bodyPartParent.layer = 12;
+            
+            bodyPart.transform.SetParent(bodyPartParent.transform);
 
-            CircleCollider2D bodyPartCollider2D = bodyPart.GetComponent<CircleCollider2D>();
-            bodyPartCollider2D = bodyPartCollider2D == null ? bodyPart.AddComponent<CircleCollider2D>() : bodyPartCollider2D;
+            CircleCollider2D bodyPartCollider2D = bodyPartParent.GetComponent<CircleCollider2D>();
+            bodyPartCollider2D = bodyPartCollider2D == null ? bodyPartParent.AddComponent<CircleCollider2D>() : bodyPartCollider2D;
             bodyPartCollider2D.enabled = true;
 
-            Rigidbody2D bodyPartRb2D = bodyPart.GetComponent<Rigidbody2D>();
-            bodyPartRb2D = bodyPartRb2D == null ? bodyPart.AddComponent<Rigidbody2D>() : bodyPartRb2D;
+            Rigidbody2D bodyPartRb2D = bodyPartParent.GetComponent<Rigidbody2D>();
+            bodyPartRb2D = bodyPartRb2D == null ? bodyPartParent.AddComponent<Rigidbody2D>() : bodyPartRb2D;
             bodyPartRb2D.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
 
-            bodyPart.transform.SetParent(null);            
+            bodyPartParent.transform.SetParent(null);
         }
     }
 }
