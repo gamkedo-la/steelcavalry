@@ -9,7 +9,7 @@ public class Mech : MonoBehaviour
     [SerializeField] private GameEventAudioEvent audioEvent;
     [Header("Mech Body")]
     [SerializeField]
-    private GameObject[] bodyParts = null;
+    private MechBodyParts mechBodyParts;
     public GameObject bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
     public Transform mechModel;
     [HideInInspector]
@@ -287,13 +287,8 @@ public class Mech : MonoBehaviour
 
         isBeingDestroyed = true;
 
-        foreach (var part in bodyParts) {
-            Debug.Log("body part " + part + "as part of bodyParts " + bodyParts);
-            part.GetComponent<CircleCollider2D>().enabled = true;
-            part.AddComponent<Rigidbody2D>();
-            part.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
-            part.transform.SetParent(null);
-        }
+        mechBodyParts.MakeBodyParts(expForceMin, expForceMax);
+
         Destroy(bodyPartToVanish);//added to destroy winged spawn mech body as it is too large to roll after destroyed
         Destroy(ui.gameObject);
         Destroy(gameObject);
