@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4180310965668888}
   - component: {fileID: 137347769232188006}
   - component: {fileID: 58058309475213194}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4165868764853658}
   - component: {fileID: 137337190704174174}
   - component: {fileID: 58609690953030312}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4722397384558550}
   - component: {fileID: 137330065418083738}
   - component: {fileID: 58731034807021428}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 4765344659703294}
   - component: {fileID: 137623981415033828}
   - component: {fileID: 58528751892502472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GunHolder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4318700000112044}
   - component: {fileID: 137915606843128184}
   - component: {fileID: 58884029741081842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 4518304985655960}
   - component: {fileID: 137161697207457900}
   - component: {fileID: 58497396372134918}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GattlingGun_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4931016717987534}
   - component: {fileID: 137041417625801230}
   - component: {fileID: 58816114763032882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Upper Leg.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 4583766676133240}
   - component: {fileID: 137848266336243114}
   - component: {fileID: 58200176161770052}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 4305267064086112}
   - component: {fileID: 137595070866856792}
   - component: {fileID: 58695516019149868}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 4374383898290842}
   - component: {fileID: 137475738176032996}
   - component: {fileID: 58503567698465342}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 4922799199882448}
   - component: {fileID: 137914665354478702}
   - component: {fileID: 58470078475919228}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Glass Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 4890835549507658}
   - component: {fileID: 137667414586893038}
   - component: {fileID: 58825813541063864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ankle.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 4156582315724226}
   - component: {fileID: 137545104550188102}
   - component: {fileID: 58394829196761468}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GunHolder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ GameObject:
   - component: {fileID: 4515031743011952}
   - component: {fileID: 137881976242147386}
   - component: {fileID: 58318629486523286}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 4945245468994202}
   - component: {fileID: 137486297970976296}
   - component: {fileID: 58943528851556140}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ankle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 4521950174464784}
   - component: {fileID: 137051068108725858}
   - component: {fileID: 58694668496095604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GattlingGun_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 4163987012030584}
   - component: {fileID: 137671830801451710}
   - component: {fileID: 58228969995109780}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 4804564887691874}
   - component: {fileID: 137324850834846910}
   - component: {fileID: 58387097468348446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 4132693589183622}
   - component: {fileID: 137289291779005640}
   - component: {fileID: 58844381524412818}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 4336563881020590}
   - component: {fileID: 137718747954143938}
   - component: {fileID: 58797308872784208}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Upper Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1455,7 +1455,7 @@ GameObject:
   - component: {fileID: 4306582621278430}
   - component: {fileID: 137671461355171074}
   - component: {fileID: 58093242903779110}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1557,7 +1557,7 @@ GameObject:
   - component: {fileID: 4745705287648628}
   - component: {fileID: 137956521827280438}
   - component: {fileID: 58524362335799250}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 4048857762974872}
   - component: {fileID: 137071237689907066}
   - component: {fileID: 58080627078926992}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Foot.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
