@@ -25,6 +25,8 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if (PauseMenu.gameIsPaused) return;
+        
 		if(floatLR && floatUD)
         {
             this.transform.position = new Vector3((float)Utilities.floatEffect(this.transform.position.x,floatWeight), (float)Utilities.floatEffect(this.transform.position.y,floatWeight), this.transform.position.z);
