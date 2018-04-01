@@ -174,14 +174,14 @@ public class Player : MonoBehaviour {
 	void handleInput() {
 
 		if (useKeyboardInput) {
-			inputUp = Input.GetAxisRaw ("Vertical") > 0.1f;
+			inputUp = Input.GetAxisRaw ("Vertical") > 0.1f || Input.GetKey(KeyCode.Space);
 			inputDown = Input.GetAxisRaw ("Vertical") < -0.1f;
 			inputRight = Input.GetAxisRaw ("Horizontal") > 0.1f;
 			inputLeft = Input.GetAxisRaw ("Horizontal") < -0.1f;
 			inputFire = Input.GetMouseButton(0);
 			inputAltFire = Input.GetMouseButton(1);
 			inputAltFire2 = Input.GetKeyDown(KeyCode.Q);
-			inputEnter = Input.GetKeyDown(KeyCode.Space);
+			inputEnter = Input.GetKeyDown(KeyCode.E);
 		}
 
 		if (useGamepadInput) {
