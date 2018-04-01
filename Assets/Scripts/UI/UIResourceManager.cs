@@ -14,7 +14,7 @@ public class UIResourceManager : MonoBehaviour {
         get {
             if (_instance == null) {
                 _instance = FindObjectOfType<UIResourceManager>();
-                DontDestroyOnLoad(_instance.gameObject);
+                // DontDestroyOnLoad(_instance.gameObject);
             }
 
             return _instance;
@@ -24,7 +24,7 @@ public class UIResourceManager : MonoBehaviour {
     void Awake() {
         if (_instance == null) {
             _instance = this;
-            DontDestroyOnLoad(this);
+            // DontDestroyOnLoad(this);
         } else if (this != _instance) {
             Destroy(gameObject);            
         }
