@@ -93,8 +93,10 @@ public class Player : MonoBehaviour {
 
 		jetpack = GetComponent<Jetpack>();
 
-        weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
-        weaponManager.GiveWeapon(weapon);
+		if (weaponEquipped) { // sanity check: some bots don't have this?
+			weapon = weaponEquipped.GetComponent<PlayerMachineGun> ();
+			weaponManager.GiveWeapon (weapon);
+		}
 
         isAiPlayer = GetComponent<AI>() != null;
 
@@ -270,7 +272,8 @@ public class Player : MonoBehaviour {
         
         // flips weapon firing point to a side depending on facing direction
         int dir = isFacingRight ? 1 : -1;
-        weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);        
+		if (weaponFiringPoint) // sanity check - some bots don't don't have this?
+			weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);        
 
         if (inputFire || inputAltFire || inputAltFire2) {
             isFacingRight = cursor.transform.position.x > transform.position.x;

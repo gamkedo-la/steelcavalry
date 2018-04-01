@@ -16,10 +16,14 @@ public class Jetpack : MonoBehaviour {
 	void Start () {
 		jetpackSmoke = psScriptSmoke.emission;
 		emissionWhenFiringJetpackSmoke = jetpackSmoke.rateOverTime;
+		// FIXME: above line not allowed in unity >5.4?
+		// we are supposed to get this module from an actual ps instance, something like
+		// GetComponentInChildren<ParticleSystem>.EmissionModule??? 
+
 		jetpackSmoke.rateOverTime = 0;
 
 		jetpackThrust = psScriptThrust.emission;
-		emissionWhenFiringJetpackThrust = jetpackThrust.rateOverTime;
+		emissionWhenFiringJetpackThrust = jetpackThrust.rateOverTime; // FIXME
 		jetpackThrust.rateOverTime = 0;
 	}
 	
