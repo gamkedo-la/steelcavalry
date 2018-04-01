@@ -23,12 +23,14 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		gameIsPaused = false;
+		Cursor.visible = false;
 	}
 
 	void Pause () {
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		gameIsPaused = true;
+		Cursor.visible = true;
 	}
 
 	public void LoadMenu () {
