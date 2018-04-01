@@ -7,8 +7,7 @@ using UnityEngine.Events;
 public class Mech : MonoBehaviour
 {
     [SerializeField] private GameEventAudioEvent audioEvent;
-    [Header("Mech Body")]
-    [SerializeField]
+    [Header("Mech Body")]    
     private MechBodyParts mechBodyParts;
     public GameObject bodyPartToVanish = null;//added to destroy winged swpan mech body as it is too large to roll after destroyed
     public Transform mechModel;
@@ -88,6 +87,7 @@ public class Mech : MonoBehaviour
         hp = GetComponent<HP>();
         weaponManager = GetComponent<WeaponManager>();
         mechRigidbody = GetComponent<Rigidbody2D>();
+        mechBodyParts = GetComponentInChildren<MechBodyParts>();
 
         slopeWalker = GetComponent<SlopeWalker>();
 
