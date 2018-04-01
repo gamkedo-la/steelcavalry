@@ -48,7 +48,7 @@ public class Mine : MonoBehaviour
 
     public void ExplodeAndDestroy()
 	{
-		explosionAudio.Raise( AudioEvents.Explosion, transform.position );
+		explosionAudio.Raise( AudioEvents.MineExplosion, transform.position );
 
         var newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
         var explosionParticles = newExplosion.gameObject.transform.GetChild(0);

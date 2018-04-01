@@ -19,6 +19,7 @@ public enum AudioEvents
 	PlayerJetpack,
 	RocketLaunch,
 	Shot,
+	MineExplosion,
 }
 
 [System.Serializable]
