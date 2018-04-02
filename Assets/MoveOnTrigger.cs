@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveOnTrigger : MonoBehaviour {
 
+	public GameObject toMove;
+
 	public Transform initialPos;
 	public Transform endPos;
 	private Transform target;
@@ -14,24 +16,25 @@ public class MoveOnTrigger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+		target = initialPos;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		
 		float delta = moveSpeed * Time.deltaTime;
-		transform.position = Vector3.MoveTowards(transform.position, target.position, delta);
+		toMove.transform.position = Vector3.MoveTowards(toMove.transform.position, target.position, delta);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		Debug.Log("Triggered");
 		target = endPos;
 
 	}
 
 	void OnTriggerExit2D(){
-		Debug.Log("Exit");
+
 		target = initialPos;
+		
 	}
 }
