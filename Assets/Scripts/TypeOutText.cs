@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TypeOutText : MonoBehaviour {
 	public GameObject button;
@@ -71,6 +72,9 @@ public class TypeOutText : MonoBehaviour {
 		}
 		if (pulseButton && buttonText.canvasRenderer.GetAlpha() == pulseMin) {
 			buttonText.CrossFadeAlpha(pulseMax, pulseInterval, false);
+		}
+		if (Input.GetMouseButton(0)) {
+			SceneManager.LoadScene("Menu");
 		}
 	}
 }
