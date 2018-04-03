@@ -74,6 +74,8 @@ public class Mech : MonoBehaviour
 
     private bool thrustersOn = false;
 
+    private float explosionDamageToPlayer = 1000;
+
     public UnityEvent ThrustersOn;
     public UnityEvent ThrustersOff;
 
@@ -289,11 +291,20 @@ public class Mech : MonoBehaviour
 
         mechBodyParts.MakeBodyParts(expForceMin, expForceMax);
 
+        KillPlayerInMech();
+
         Destroy(bodyPartToVanish);//added to destroy winged spawn mech body as it is too large to roll after destroyed
         Destroy(ui.gameObject);
         Destroy(gameObject);
     }
 
+    private void KillPlayerInMech() {
+        if (driver) {
+            driver.ExitMech();
+            HP hp = driver.GetComponent<HP>();
+            hp.TakeDamage(explosionDamageToPlayer);
+        }
+    }
 
     private void HandleAbilities() {
         HandleShield();
