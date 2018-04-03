@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 	public float mechNearEnoughToUseDistance = 1.0f;
 	// public float exitMechDistancePopUp = 1.1f;
 	public float jetPackPower = 1.0f;
-	
+
 	private Rigidbody2D playerBody;
     private SlopeWalker slopeWalker;
     private float oldGravityScale;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     private Camera mainCam;
 	private MainCamera camScript;
 
-    private MouseCursor cursor;    
+    private MouseCursor cursor;
 
 	private int mechOnlyMask;
 
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour {
 
         if (!isAiPlayer) {
 			camScript.MechZoom(mechImIn);
-	        firstIcon.SetIcon("turretIcon");
+	        firstIcon.SetIcon( "turretGatling" );
 	        secondIcon.SetIcon("exitIcon");
 	    }
 	}
@@ -232,7 +232,7 @@ public class Player : MonoBehaviour {
 			// debug spam
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
 			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxisRaw("player"+playerNumber+"updown"));
-            
+
 		}
 
 	}
@@ -269,24 +269,24 @@ public class Player : MonoBehaviour {
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
         }
-        
+
         // flips weapon firing point to a side depending on facing direction
         int dir = isFacingRight ? 1 : -1;
 		if (weaponFiringPoint) // sanity check - some bots don't don't have this?
-			weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);        
+			weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);
 
         if (inputFire || inputAltFire || inputAltFire2) {
             isFacingRight = cursor.transform.position.x > transform.position.x;
             isAttacking = true;
-        } 
+        }
         else {
             isAttacking = false;
         }
 
 
-        if (inputFire) OnFire();            //tells everyone listening that a shot has been fired                  
-		if (inputAltFire) OnAltFire( );     //tells everyone listening that a shot has been fired		
-		if (inputAltFire2) OnAltFire2( );   //tells everyone listening that a shot has been fired		
+        if (inputFire) OnFire();            //tells everyone listening that a shot has been fired
+		if (inputAltFire) OnAltFire( );     //tells everyone listening that a shot has been fired
+		if (inputAltFire2) OnAltFire2( );   //tells everyone listening that a shot has been fired
 
         switch (_state) {
             // Update method for when inside mech
@@ -360,7 +360,7 @@ public class Player : MonoBehaviour {
                 //transform.position += Vector3.right * horizImpulse /*Input.GetAxisRaw("Horizontal")*/ * Time.deltaTime * humanSpeed;
                 if (horizontalImpulse != 0) {
                     playerBody.velocity = new Vector2(horizontalImpulse * Time.deltaTime * playerSpeed, playerBody.velocity.y);
-                } 
+                }
 
 			    spriteRenderer.flipX = !isFacingRight;
 
