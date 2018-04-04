@@ -367,6 +367,7 @@ public class Player : MonoBehaviour {
 			    if (inputUp) {
 				    isOnGround = false;
 				    jetpack.JetpackToggle(true);
+                    slopeWalker.isMovingUp = true;
 
 				    if ( !jetpackOn ) {
 					    jetpackOn = true;
@@ -381,6 +382,7 @@ public class Player : MonoBehaviour {
 			    }
                 else {
 				    jetpack.JetpackToggle(false);
+                    slopeWalker.isMovingUp = false;
 				    //playerBody.gravityScale = 1.0f;
 			    }
 

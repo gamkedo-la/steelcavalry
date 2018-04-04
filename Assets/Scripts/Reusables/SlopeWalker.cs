@@ -7,6 +7,7 @@ public class SlopeWalker : MonoBehaviour {
     public GameObject walkerFeet;
     public float rayLength = 2.0f;
     public bool isFacingRight = false;
+    public bool isMovingUp = false;
     public string slopeTag = "Ground";
     public float maxClimbableSlopeAngle = 85f;
 
@@ -43,13 +44,13 @@ public class SlopeWalker : MonoBehaviour {
         return angle;
     }
 
-    public void Start () {
+    void Start () {
         walkerBody = GetComponent<Rigidbody2D>();
     }
 
-    public void LateUpdate () {        
+    void FixedUpdate () {        
         GetCollidedSlopeAngle(walkerBody.velocity, walkerFeet, rayLength, isFacingRight, slopeTag, maxClimbableSlopeAngle);
-        if (isOnSlope && !(Input.GetAxisRaw("Vertical") > 0.1f || Input.GetKey(KeyCode.Space))) {
+        if (isOnSlope && !isMovingUp) {
             walkerBody.velocity = velocityOnSlope;
         }
     }
