@@ -6,7 +6,15 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
 	public static bool gameIsPaused = false;
-	public GameObject pauseMenuUI;
+	public GameObject inGameMenuUI;
+	private Scene currentScene;
+	private string pauseText = "Paused";
+	private string playerDiedText = "Mission Failed";
+	private string playerWonText = "Mission Complete";
+
+	void Start () {
+		currentScene = SceneManager.GetActiveScene();
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -20,17 +28,26 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Resume () {
-		pauseMenuUI.SetActive(false);
+		inGameMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		gameIsPaused = false;
 		Cursor.visible = false;
 	}
 
 	void Pause () {
-		pauseMenuUI.SetActive(true);
+		inGameMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		gameIsPaused = true;
 		Cursor.visible = true;
+	}
+
+	public void ReloadScene () {
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(currentScene.name);
+	}
+
+	public void GoToNextStage () {
+		// Handle going to the next stage
 	}
 
 	public void LoadMenu () {
