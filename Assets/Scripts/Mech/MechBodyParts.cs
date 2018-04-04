@@ -17,41 +17,51 @@ public class MechBodyParts : MonoBehaviour {
 	}
 
     public void MakeBodyParts (float expForceMin, float expForceMax) {
-        for (int i = 0; i < bodyPartsTransforms.Length; i++) {
-            GameObject bodyPart = bodyPartsTransforms[i].gameObject;
+		for (int i = 0; i < bodyPartsTransforms.Length; i++) {
+			GameObject bodyPart = bodyPartsTransforms[i].gameObject;
 
-            SkinnedMeshRenderer bodyPartSkinnedMesh = bodyPart.GetComponent<SkinnedMeshRenderer>();
-            MeshRenderer bodyPartMesh = bodyPart.GetComponent<MeshRenderer>();
+			SkinnedMeshRenderer bodyPartSkinnedMesh = bodyPart.GetComponent<SkinnedMeshRenderer> ();
+			MeshRenderer bodyPartMesh = bodyPart.GetComponent<MeshRenderer> ();
 
-            if (bodyPartSkinnedMesh == null && bodyPartMesh == null) continue;            
+			if (bodyPartSkinnedMesh == null && bodyPartMesh == null)
+				continue;            
 
-            GameObject bodyPartParent = new GameObject(bodyPart.name);
-            bodyPartParent.layer = 12;
+			bodyPart.layer = 12;
 
-            Bounds boundsOfMesh = new Bounds();
+			Bounds boundsOfMesh = new Bounds ();
 
-            if (bodyPartSkinnedMesh != null) {
-                boundsOfMesh.Encapsulate(bodyPartSkinnedMesh.bounds);
-            }
-            else if (bodyPartMesh != null) {
-                boundsOfMesh.Encapsulate(bodyPartMesh.bounds);
-            }
+			if (bodyPartSkinnedMesh != null) {
+				boundsOfMesh.Encapsulate(bodyPartSkinnedMesh.GetComponent<SkinnedMeshRenderer>().bounds);
+			} else if (bodyPartMesh != null) {
+				boundsOfMesh.Encapsulate(bodyPartMesh.GetComponent<Renderer>().bounds);
+			}
             
-            bodyPartParent.transform.localPosition = boundsOfMesh.center;
-            
-            bodyPart.transform.SetParent(bodyPartParent.transform);
+			// a nice tightly fit bbox (will only fit tightly to parts that are mostly axis aligned)
+			// works nicely with shapes like "|" or "---" but not something L shaped or like a diagonal line /
+			BoxCollider2D bodyPartCollider2D = bodyPart.GetComponent<BoxCollider2D>();
+			bodyPartCollider2D = bodyPartCollider2D == null ? bodyPart.AddComponent<BoxCollider2D>() : bodyPartCollider2D;
+			bodyPartCollider2D.enabled = true;            
+			bodyPartCollider2D.bounds.Encapsulate(boundsOfMesh); 
 
-            CircleCollider2D bodyPartCollider2D = bodyPartParent.GetComponent<CircleCollider2D>();
-            bodyPartCollider2D = bodyPartCollider2D == null ? bodyPartParent.AddComponent<CircleCollider2D>() : bodyPartCollider2D;
-            bodyPartCollider2D.enabled = true;            
-            bodyPartCollider2D.offset = new Vector2(boundsOfMesh.center.x - bodyPartCollider2D.radius / bodyPart.transform.localScale.x, 
-                                                    boundsOfMesh.center.y - bodyPartCollider2D.radius / bodyPart.transform.localScale.y);
+			// these circles are wonky - remove:
+			CircleCollider2D cCollider2D = bodyPart.GetComponent<CircleCollider2D>();
+			if (cCollider2D)
+				cCollider2D.enabled = false;
 
-            Rigidbody2D bodyPartRb2D = bodyPartParent.GetComponent<Rigidbody2D>();
-            bodyPartRb2D = bodyPartRb2D == null ? bodyPartParent.AddComponent<Rigidbody2D>() : bodyPartRb2D;
+			// turn off any animation
+			Animator anim = bodyPart.GetComponent<Animator>();
+			if (anim) anim.enabled = false;
+
+            Rigidbody2D bodyPartRb2D = bodyPart.GetComponent<Rigidbody2D>();
+            bodyPartRb2D = bodyPartRb2D == null ? bodyPart.AddComponent<Rigidbody2D>() : bodyPartRb2D;
             bodyPartRb2D.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
+			bodyPartRb2D.drag = 0.01f;
+			bodyPartRb2D.angularDrag = 0.0f; // hmmmmmmmm
+			bodyPartRb2D.angularVelocity = 0f;
+			bodyPartRb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // stops wild spins? no
 
-            bodyPartParent.transform.SetParent(null);
+			bodyPart.transform.SetParent (null);
+
         }
     }
 }
