@@ -3,7 +3,8 @@ using UnityEngine.Assertions;
 
 public class FadePart : MonoBehaviour
 {
-	[SerializeField] private float fadePerSecond = 0.1f;
+	[SerializeField] private float waitTime = 2f;
+	[SerializeField] private float fadePerSecond = 0.5f;
 	[SerializeField] private bool destroyAtTheEnd = true;
 
 	private Material material;
@@ -17,6 +18,9 @@ public class FadePart : MonoBehaviour
 
 	void Update( )
 	{
+		waitTime -= Time.deltaTime;
+		if ( waitTime > 0 ) return;
+
 		var color = material.color;
 		alpha = alpha - ( fadePerSecond * Time.deltaTime );
 

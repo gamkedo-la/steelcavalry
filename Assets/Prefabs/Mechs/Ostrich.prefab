@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4180310965668888}
   - component: {fileID: 137347769232188006}
   - component: {fileID: 58058309475213194}
+  - component: {fileID: 114892612823390562}
   m_Layer: 12
   m_Name: Cube.003
   m_TagString: Untagged
@@ -119,6 +120,7 @@ GameObject:
   - component: {fileID: 4165868764853658}
   - component: {fileID: 137337190704174174}
   - component: {fileID: 58609690953030312}
+  - component: {fileID: 114584912940524526}
   m_Layer: 12
   m_Name: Pelvis
   m_TagString: Untagged
@@ -136,6 +138,7 @@ GameObject:
   - component: {fileID: 4722397384558550}
   - component: {fileID: 137330065418083738}
   - component: {fileID: 58731034807021428}
+  - component: {fileID: 114148178399324842}
   m_Layer: 12
   m_Name: Torus.001
   m_TagString: Untagged
@@ -243,6 +246,7 @@ GameObject:
   - component: {fileID: 4765344659703294}
   - component: {fileID: 137623981415033828}
   - component: {fileID: 58528751892502472}
+  - component: {fileID: 114482851086213398}
   m_Layer: 12
   m_Name: GunHolder_L
   m_TagString: Untagged
@@ -320,6 +324,7 @@ GameObject:
   - component: {fileID: 4318700000112044}
   - component: {fileID: 137915606843128184}
   - component: {fileID: 58884029741081842}
+  - component: {fileID: 114725375261813676}
   m_Layer: 12
   m_Name: Lower Leg.001
   m_TagString: Untagged
@@ -337,6 +342,7 @@ GameObject:
   - component: {fileID: 4518304985655960}
   - component: {fileID: 137161697207457900}
   - component: {fileID: 58497396372134918}
+  - component: {fileID: 114952300476645206}
   m_Layer: 12
   m_Name: GattlingGun_R
   m_TagString: Untagged
@@ -418,6 +424,7 @@ GameObject:
   - component: {fileID: 4931016717987534}
   - component: {fileID: 137041417625801230}
   - component: {fileID: 58816114763032882}
+  - component: {fileID: 114696374993797650}
   m_Layer: 12
   m_Name: Upper Leg.001
   m_TagString: Untagged
@@ -529,6 +536,7 @@ GameObject:
   - component: {fileID: 4583766676133240}
   - component: {fileID: 137848266336243114}
   - component: {fileID: 58200176161770052}
+  - component: {fileID: 114199359060098118}
   m_Layer: 12
   m_Name: Torus
   m_TagString: Untagged
@@ -595,6 +603,7 @@ GameObject:
   - component: {fileID: 4305267064086112}
   - component: {fileID: 137595070866856792}
   - component: {fileID: 58695516019149868}
+  - component: {fileID: 114617174703841948}
   m_Layer: 12
   m_Name: Cockpit
   m_TagString: Untagged
@@ -781,6 +790,7 @@ GameObject:
   - component: {fileID: 4374383898290842}
   - component: {fileID: 137475738176032996}
   - component: {fileID: 58503567698465342}
+  - component: {fileID: 114992665521981706}
   m_Layer: 12
   m_Name: Lower Leg
   m_TagString: Untagged
@@ -798,6 +808,7 @@ GameObject:
   - component: {fileID: 4922799199882448}
   - component: {fileID: 137914665354478702}
   - component: {fileID: 58470078475919228}
+  - component: {fileID: 114670259985565566}
   m_Layer: 12
   m_Name: Glass Bars
   m_TagString: Untagged
@@ -936,6 +947,7 @@ GameObject:
   - component: {fileID: 4890835549507658}
   - component: {fileID: 137667414586893038}
   - component: {fileID: 58825813541063864}
+  - component: {fileID: 114058323864670296}
   m_Layer: 12
   m_Name: Ankle.001
   m_TagString: Untagged
@@ -953,6 +965,7 @@ GameObject:
   - component: {fileID: 4156582315724226}
   - component: {fileID: 137545104550188102}
   - component: {fileID: 58394829196761468}
+  - component: {fileID: 114328634951809100}
   m_Layer: 12
   m_Name: GunHolder_R
   m_TagString: Untagged
@@ -1048,6 +1061,7 @@ GameObject:
   - component: {fileID: 4515031743011952}
   - component: {fileID: 137881976242147386}
   - component: {fileID: 58318629486523286}
+  - component: {fileID: 114544921555490892}
   m_Layer: 12
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -1095,6 +1109,7 @@ GameObject:
   - component: {fileID: 4945245468994202}
   - component: {fileID: 137486297970976296}
   - component: {fileID: 58943528851556140}
+  - component: {fileID: 114493338070058078}
   m_Layer: 12
   m_Name: Ankle
   m_TagString: Untagged
@@ -1221,6 +1236,7 @@ GameObject:
   - component: {fileID: 4521950174464784}
   - component: {fileID: 137051068108725858}
   - component: {fileID: 58694668496095604}
+  - component: {fileID: 114616406190534626}
   m_Layer: 12
   m_Name: GattlingGun_L
   m_TagString: Untagged
@@ -1328,6 +1344,7 @@ GameObject:
   - component: {fileID: 4163987012030584}
   - component: {fileID: 137671830801451710}
   - component: {fileID: 58228969995109780}
+  - component: {fileID: 114715567876661170}
   m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1345,6 +1362,7 @@ GameObject:
   - component: {fileID: 4804564887691874}
   - component: {fileID: 137324850834846910}
   - component: {fileID: 58387097468348446}
+  - component: {fileID: 114732713717047968}
   m_Layer: 12
   m_Name: Glass
   m_TagString: Untagged
@@ -1392,6 +1410,7 @@ GameObject:
   - component: {fileID: 4132693589183622}
   - component: {fileID: 137289291779005640}
   - component: {fileID: 58844381524412818}
+  - component: {fileID: 114934800290963268}
   m_Layer: 12
   m_Name: Foot
   m_TagString: Untagged
@@ -1439,6 +1458,7 @@ GameObject:
   - component: {fileID: 4336563881020590}
   - component: {fileID: 137718747954143938}
   - component: {fileID: 58797308872784208}
+  - component: {fileID: 114402608664020154}
   m_Layer: 12
   m_Name: Upper Leg
   m_TagString: Untagged
@@ -1456,6 +1476,7 @@ GameObject:
   - component: {fileID: 4306582621278430}
   - component: {fileID: 137671461355171074}
   - component: {fileID: 58093242903779110}
+  - component: {fileID: 114746917385261908}
   m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
@@ -1558,6 +1579,7 @@ GameObject:
   - component: {fileID: 4745705287648628}
   - component: {fileID: 137956521827280438}
   - component: {fileID: 58524362335799250}
+  - component: {fileID: 114312442201887906}
   m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
@@ -1590,6 +1612,7 @@ GameObject:
   - component: {fileID: 4048857762974872}
   - component: {fileID: 137071237689907066}
   - component: {fileID: 58080627078926992}
+  - component: {fileID: 114181080907327838}
   m_Layer: 12
   m_Name: Foot.001
   m_TagString: Untagged
@@ -3475,6 +3498,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114058323864670296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515184320835892}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114113623656517838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3518,6 +3555,34 @@ MonoBehaviour:
   throwerMountPoint: {fileID: 4403486158949652}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   launcherMounted: 0
+--- !u!114 &114148178399324842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075916546835282}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114181080907327838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945537282510926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114181333314137028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3529,6 +3594,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0611002b4eb411043aa88154fcd2ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114199359060098118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265327217538726}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114202262445843584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3617,6 +3696,34 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114312442201887906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934615510780450}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114328634951809100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516169424401882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114367108011590864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3660,6 +3767,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114402608664020154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870114487702716}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114450318377407044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3672,7 +3793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
-  mechBodyParts: {fileID: 114181333314137028}
   bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 4049568044068722}
   mechRigidbody: {fileID: 0}
@@ -3834,6 +3954,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleWaitSeconds: 5
   belowThisSpeedIsIdle: 0.2
+--- !u!114 &114482851086213398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124759879737862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114493338070058078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662728209451294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114523431291521986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3890,6 +4038,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114544921555490892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621766008852190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114552342337796810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3961,6 +4123,48 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114584912940524526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074952424654848}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114616406190534626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741802038993094}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114617174703841948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306211553429668}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114663265130896656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3974,6 +4178,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrusterParticle: {fileID: 198128209815105494}
   thrusterLight: {fileID: 108347421162641994}
+--- !u!114 &114670259985565566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434641195862820}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114671733432943480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3988,8 +4206,79 @@ MonoBehaviour:
   walkerFeet: {fileID: 1208257721238880}
   rayLength: 0.7
   isFacingRight: 0
+  isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+--- !u!114 &114696374993797650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231779691217004}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114715567876661170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791146441133234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114725375261813676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182113108170370}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114732713717047968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801725774502964}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114746917385261908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870529890201334}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!114 &114848762202684264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4003,6 +4292,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   dust: {fileID: 1358496686987862, guid: 31b2fbf46395fa143a43215ca9f2d42f, type: 2}
+--- !u!114 &114892612823390562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014605769781012}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114934800290963268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832893106285532}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114952300476645206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205155825088012}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
+--- !u!114 &114992665521981706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418123229170486}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fc3efc5ff8cf41918f2cc23459848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  fadePerSecond: 0.5
+  destroyAtTheEnd: 1
 --- !u!137 &137041417625801230
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -5715,11 +6060,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -6435,6 +6780,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7832,6 +8218,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -7876,12 +8263,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -9032,11 +9421,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -9752,6 +10141,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11149,6 +11579,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -11193,12 +11624,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -12349,11 +12782,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -13069,6 +13502,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14466,6 +14940,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -14510,12 +14985,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0

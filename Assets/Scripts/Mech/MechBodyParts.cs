@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +10,10 @@ public class MechBodyParts : MonoBehaviour {
 	void Start () {
         bodyPartsTransforms = GetComponentsInChildren<Transform>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     public void MakeBodyParts (float expForceMin, float expForceMax) {
@@ -24,7 +24,7 @@ public class MechBodyParts : MonoBehaviour {
 			MeshRenderer bodyPartMesh = bodyPart.GetComponent<MeshRenderer> ();
 
 			if (bodyPartSkinnedMesh == null && bodyPartMesh == null)
-				continue;            
+				continue;
 
 			bodyPart.layer = 12;
 
@@ -35,18 +35,21 @@ public class MechBodyParts : MonoBehaviour {
 			} else if (bodyPartMesh != null) {
 				boundsOfMesh.Encapsulate(bodyPartMesh.GetComponent<Renderer>().bounds);
 			}
-            
+
 			// a nice tightly fit bbox (will only fit tightly to parts that are mostly axis aligned)
 			// works nicely with shapes like "|" or "---" but not something L shaped or like a diagonal line /
 			BoxCollider2D bodyPartCollider2D = bodyPart.GetComponent<BoxCollider2D>();
 			bodyPartCollider2D = bodyPartCollider2D == null ? bodyPart.AddComponent<BoxCollider2D>() : bodyPartCollider2D;
-			bodyPartCollider2D.enabled = true;            
-			bodyPartCollider2D.bounds.Encapsulate(boundsOfMesh); 
+			bodyPartCollider2D.enabled = true;
+			bodyPartCollider2D.bounds.Encapsulate(boundsOfMesh);
 
 			// these circles are wonky - remove:
 			CircleCollider2D cCollider2D = bodyPart.GetComponent<CircleCollider2D>();
 			if (cCollider2D)
 				cCollider2D.enabled = false;
+
+			FadePart fp = bodyPart.GetComponent<FadePart>( );
+			if ( fp != null ) fp.enabled = true;
 
 			// turn off any animation
 			Animator anim = bodyPart.GetComponent<Animator>();
