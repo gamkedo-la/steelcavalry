@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject levelSelectMenu;
+	[SerializeField] GameObject controlsMenu;
     [SerializeField] Slider masterVolume;
     [SerializeField] Slider effectsVolume;
     [SerializeField] Slider musicVolume;
@@ -71,6 +72,17 @@ public class MainMenu : MonoBehaviour {
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
     }
+
+	public void OpenControls() {
+		mainMenu.SetActive(false);
+		controlsMenu.SetActive(true);
+	}
+
+	public void CloseControls() {
+		mainMenu.SetActive(true);
+		controlsMenu.SetActive(false);
+	}
+
 
     public void ShowLevelSelect() {
         mainMenu.SetActive(false);
