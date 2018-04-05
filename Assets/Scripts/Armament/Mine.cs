@@ -25,7 +25,7 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (PauseMenu.gameIsPaused) return;
+        if (InGameMenu.gameIsPaused) return;
         
 		if(floatLR && floatUD)
         {

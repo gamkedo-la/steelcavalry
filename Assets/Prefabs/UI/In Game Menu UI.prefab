@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 223300989282581996}
   - component: {fileID: 114905252348052566}
   - component: {fileID: 114463829157445948}
-  - component: {fileID: 114085483891139418}
+  - component: {fileID: 114273962218369312}
   m_Layer: 5
   m_Name: In Game Menu UI
   m_TagString: Untagged
@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1478898957970456
 GameObject:
   m_ObjectHideFlags: 1
@@ -244,18 +244,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114085483891139418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1265313613725686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa7e2c1030c085499a67a72fac838ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameMenuUI: {fileID: 1419899206487930}
 --- !u!114 &114101989902652322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,7 +283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114085483891139418}
+      - m_Target: {fileID: 0}
         m_MethodName: GoToNextStage
         m_Mode: 1
         m_Arguments:
@@ -362,6 +350,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114273962218369312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265313613725686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa7e2c1030c085499a67a72fac838ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameMenuUI: {fileID: 1419899206487930}
 --- !u!114 &114380855411900494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114085483891139418}
+      - m_Target: {fileID: 0}
         m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114085483891139418}
+      - m_Target: {fileID: 0}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114085483891139418}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114085483891139418}
+      - m_Target: {fileID: 0}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
