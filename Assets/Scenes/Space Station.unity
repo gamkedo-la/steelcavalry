@@ -1124,6 +1124,11 @@ Prefab:
       propertyPath: emiters.Array.data[16].maxEventsAtOneTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 82005923813764676, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a5b372a59a52b641ac252276857d4d5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdf611f9e3f4f04449835f31a4868d35, type: 2}
   m_IsPrefabParent: 0
