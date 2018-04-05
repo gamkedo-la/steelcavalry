@@ -104,9 +104,9 @@ public class InGameMenu : MonoBehaviour {
 	}
 
 	public void GoToNextStage () {
-		Time.timeScale = 1f;
 		int nextSceneIndex = sceneNames.IndexOf(currentScene.name) + 1;
 		if (nextSceneIndex <= totalScenes) {
+			Time.timeScale = 1f;
 			string nextSceneName = sceneNames[nextSceneIndex];
 			SceneManager.LoadScene(nextSceneName);
 		}
