@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro Scroll.unity
     guid: f2f505387b226b449a1584c4a9b98d6e
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 17a364a03ba884d28b5cbcbdbe1b3a79
   - enabled: 0
     path: Assets/Scenes/Credits Scenes/Credits.unity
     guid: 2d61e00529b0444c7ad32b64016e568a
@@ -18,14 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits Scenes/Credits 3.unity
     guid: d3f348ebc87864d56886bdd13a5f5412
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 17a364a03ba884d28b5cbcbdbe1b3a79
-  - enabled: 1
-    path: Assets/Scenes/EnemyBase.unity
-    guid: b4a7c8b54128ea845bac12c4caf05690
-  - enabled: 1
     path: Assets/Scenes/Main Scene.unity
     guid: 3a4367704890d8646b1cf5a6dd4a6f16
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 627d967837835cf4ea7a10ab48653087
+    path: Assets/Scenes/Space Station.unity
+    guid: b1e32e21e68d5bf46a450c7ebad9f287
+  - enabled: 1
+    path: Assets/Scenes/EnemyBase.unity
+    guid: b4a7c8b54128ea845bac12c4caf05690
