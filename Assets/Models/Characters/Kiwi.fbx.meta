@@ -1,78 +1,129 @@
 fileFormatVersion: 2
-guid: ce7b769473a16914e9839a9db7b92375
-timeCreated: 1518336219
+guid: 052ec664aae47044989c05fde3fd67a7
+timeCreated: 1522937705
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: body
-    100002: Camera
-    100004: foot_L
-    100006: //RootNode
-    100008: Lamp
-    100010: leg_lower_L
-    100012: leg_lower_R
-    100014: leg_upper_L
-    100016: leg_upper_R
-    100018: missle_launcher
-    100020: pelvis
-    100022: toes_L
-    100024: toes_R
-    400000: body
-    400002: Camera
-    400004: foot_L
-    400006: //RootNode
-    400008: Lamp
-    400010: leg_lower_L
-    400012: leg_lower_R
-    400014: leg_upper_L
-    400016: leg_upper_R
-    400018: missle_launcher
-    400020: pelvis
-    400022: toes_L
-    400024: toes_R
-    2000000: Camera
-    2100000: Material
-    2100002: unnamed
-    2300000: body
-    2300002: foot_L
-    2300004: leg_lower_L
-    2300006: leg_lower_R
-    2300008: leg_upper_L
-    2300010: leg_upper_R
-    2300012: missle_launcher
-    2300014: pelvis
-    2300016: toes_L
-    2300018: toes_R
-    3300000: body
-    3300002: foot_L
-    3300004: leg_lower_L
-    3300006: leg_lower_R
-    3300008: leg_upper_L
-    3300010: leg_upper_R
-    3300012: missle_launcher
-    3300014: pelvis
-    3300016: toes_L
-    3300018: toes_R
-    4300000: body
-    4300002: missle_launcher
-    4300004: pelvis
-    4300006: leg_upper_L
-    4300008: leg_lower_L
-    4300010: foot_L
-    4300012: toes_L
-    4300014: toes_R
-    4300016: leg_lower_R
-    4300018: leg_upper_R
-    7400000: Default Take
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Arm_L
+    100006: Arm_R
+    100008: Body2
+    100010: body_Cube_013
+    100012: COG_Ctrl
+    100014: Foot_L
+    100016: foot_L_Circle_001
+    100018: Foot_R
+    100020: foot_R_Circle_003
+    100022: FootL_IK
+    100024: FootR_IK
+    100026: Head
+    100028: Head_Ctrl
+    100030: Kiwi
+    100032: //RootNode
+    100034: Knee_L
+    100036: Knee_R
+    100038: L_Arm_Ctrl
+    100040: Leg_L
+    100042: Leg_L_Ctrl
+    100044: leg_lower_L_Circle_004
+    100046: leg_lower_R_Circle_000
+    100048: Leg_R
+    100050: Leg_R_Ctrl
+    100052: leg_upper_L_Cube_012
+    100054: leg_upper_R_Cube_004
+    100056: LegL_IK
+    100058: LegR_IK
+    100060: LKnee_Pivot
+    100062: Missile_L
+    100064: Missile_R
+    100066: missle_launcher_Cylinder_002
+    100068: pelvis_Cube_010
+    100070: R_Arm_Ctrl
+    100072: RKnee_Pivot
+    100074: Spine_COG
+    100076: Toe_R
+    100078: Toe_R 1
+    100080: toes_L_Cube_011
+    100082: toes_R_Cube_001
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Arm_L
+    400006: Arm_R
+    400008: Body2
+    400010: body_Cube_013
+    400012: COG_Ctrl
+    400014: Foot_L
+    400016: foot_L_Circle_001
+    400018: Foot_R
+    400020: foot_R_Circle_003
+    400022: FootL_IK
+    400024: FootR_IK
+    400026: Head
+    400028: Head_Ctrl
+    400030: Kiwi
+    400032: //RootNode
+    400034: Knee_L
+    400036: Knee_R
+    400038: L_Arm_Ctrl
+    400040: Leg_L
+    400042: Leg_L_Ctrl
+    400044: leg_lower_L_Circle_004
+    400046: leg_lower_R_Circle_000
+    400048: Leg_R
+    400050: Leg_R_Ctrl
+    400052: leg_upper_L_Cube_012
+    400054: leg_upper_R_Cube_004
+    400056: LegL_IK
+    400058: LegR_IK
+    400060: LKnee_Pivot
+    400062: Missile_L
+    400064: Missile_R
+    400066: missle_launcher_Cylinder_002
+    400068: pelvis_Cube_010
+    400070: R_Arm_Ctrl
+    400072: RKnee_Pivot
+    400074: Spine_COG
+    400076: Toe_R
+    400078: Toe_R 1
+    400080: toes_L_Cube_011
+    400082: toes_R_Cube_001
+    4300000: foot_L_Circle_001
+    4300002: body_Cube_013
+    4300004: missle_launcher_Cylinder_002
+    4300006: pelvis_Cube_010
+    4300008: leg_upper_L_Cube_012
+    4300010: leg_lower_L_Circle_004
+    4300012: foot_R_Circle_003
+    4300014: toes_L_Cube_011
+    4300016: toes_R_Cube_001
+    4300018: leg_lower_R_Circle_000
+    4300020: leg_upper_R_Cube_004
+    7400000: Walk
     9500000: //RootNode
-    10800000: Lamp
-  externalObjects: {}
+    13700000: body_Cube_013
+    13700002: foot_L_Circle_001
+    13700004: foot_R_Circle_003
+    13700006: leg_lower_L_Circle_004
+    13700008: leg_lower_R_Circle_000
+    13700010: leg_upper_L_Cube_012
+    13700012: leg_upper_R_Cube_004
+    13700014: missle_launcher_Cylinder_002
+    13700016: pelvis_Cube_010
+    13700018: toes_L_Cube_011
+    13700020: toes_R_Cube_001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: dd650b9297e2e4944aa141e1c575d297, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -93,7 +144,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -110,8 +189,6 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
