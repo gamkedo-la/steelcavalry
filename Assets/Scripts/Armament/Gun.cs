@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour, IWeapon
     private float timeToNextShot = 0;
     private float realoadTimeLeft = 0;
     private int currentMagSize = 0;
+    private int magSize = 15;
 
     void Start() {
         Assert.IsNotNull(shell);
@@ -38,7 +39,8 @@ public class Gun : MonoBehaviour, IWeapon
         Assert.IsNotNull(weaponSlotEvents);
         Assert.IsNotNull(audioEvent);
 
-        currentMagSize = (int)parameters.MagSize;
+        // currentMagSize = (int)parameters.MagSize;
+        currentMagSize = magSize;
     }
 
     void Update() {
@@ -124,12 +126,12 @@ public class Gun : MonoBehaviour, IWeapon
 
         if ( isPlayerDriver )
 		{
-			weaponSlotEvents.Raise( UIEvent.TurretOn, currentMagSize / parameters.MagSize );
+			weaponSlotEvents.Raise( UIEvent.TurretOn, currentMagSize / (float)magSize );
 		}
 
 		if ( currentMagSize <= 0 )
 		{
-			currentMagSize = (int)parameters.MagSize;
+			currentMagSize = magSize;
 			realoadTimeLeft = parameters.RealoadTime;
 		}
 	}
