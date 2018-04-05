@@ -30,7 +30,7 @@ public class InGameMenu : MonoBehaviour {
 
 		sceneNames.Add("Main Scene");
 		sceneNames.Add("Space Station");
-		sceneNames.Add("Enemy Base");
+		sceneNames.Add("EnemyBase");
 	}
 
 	// Update is called once per frame

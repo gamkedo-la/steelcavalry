@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class MainMenu : MonoBehaviour {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject levelSelectMenu;
     [SerializeField] Slider masterVolume;
     [SerializeField] Slider effectsVolume;
     [SerializeField] Slider musicVolume;
@@ -26,9 +27,13 @@ public class MainMenu : MonoBehaviour {
         StartCoroutine(ChangeLevel("Main Scene"));
 	}
 
-	public void LevelTwo() {
-		StartCoroutine(ChangeLevel("Level 2"));
-	}
+    public void GoToSpaceStation() {
+        StartCoroutine(ChangeLevel("Space Station"));
+    }
+
+    public void GoToEnemyBase() {
+        StartCoroutine(ChangeLevel("EnemyBase"));
+    }
 
 	public void Credits() {
 		StartCoroutine(ChangeLevel("Credits"));
@@ -65,6 +70,16 @@ public class MainMenu : MonoBehaviour {
     public void CloseOptions() {
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
+    }
+
+    public void ShowLevelSelect() {
+        mainMenu.SetActive(false);
+        levelSelectMenu.SetActive(true);
+    }
+
+    public void HideLevelSelect() {
+        mainMenu.SetActive(true);
+        levelSelectMenu.SetActive(false);
     }
 
     public void MasterVolumeSlide(float volume) {
