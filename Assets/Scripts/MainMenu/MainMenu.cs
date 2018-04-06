@@ -14,6 +14,10 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] Slider musicVolume;
     public AudioSource music;
 
+    private GameObject cityClearedPanel;
+    private GameObject spaceStationClearedPanel;
+    private GameObject enemyBaseClearedPanel;
+
     private void Start() {
         music = GetComponent<AudioSource>();
         Debug.Log(GetComponent<AudioSource>());
@@ -86,7 +90,20 @@ public class MainMenu : MonoBehaviour {
     public void ShowLevelSelect() {
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(true);
+        SetClearedPanels();
         DisplayProgress();
+    }
+
+    void SetClearedPanels () {        
+        if (!cityClearedPanel) {
+            cityClearedPanel = GameObject.Find("City Cleared");
+        }
+        if (!spaceStationClearedPanel) {
+            spaceStationClearedPanel = GameObject.Find("Space Station Cleared");
+        }
+        if (!enemyBaseClearedPanel) {
+            enemyBaseClearedPanel = GameObject.Find("Enemy Base Cleared");    
+        }
     }
 
     void DisplayProgress() {
@@ -94,9 +111,9 @@ public class MainMenu : MonoBehaviour {
         bool hasClearedSpaceStation = PlayerPrefs.GetInt("spaceStationCleared", 0) > 0;
         bool hasClearedEnemyBase = PlayerPrefs.GetInt("enemyBaseCleared", 0) > 0;
 
-        GameObject.Find("City Cleared").SetActive(hasClearedCity);
-        GameObject.Find("Space Station Cleared").SetActive(hasClearedSpaceStation);
-        GameObject.Find("Enemy Base Cleared").SetActive(hasClearedEnemyBase);
+        cityClearedPanel.SetActive(hasClearedCity);
+        spaceStationClearedPanel.SetActive(hasClearedSpaceStation);
+        enemyBaseClearedPanel.SetActive(hasClearedEnemyBase);
     }
 
     public void ResetProgress() {
