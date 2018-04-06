@@ -41,7 +41,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 
 		GameObject pfxGO = Instantiate(pfx, transform.position, transform.rotation);
 		pfxGO.transform.SetParent(LitterContainer.instanceTransform);
-		Destroy(gameObject);
+		if (gameObject) Destroy(gameObject);
 	}
 
 	public void SetDamage( float damage )

@@ -73,7 +73,9 @@ public class AI : MonoBehaviour {
     private GameObject pointInArc;
 
 [Header("Target GameObjects")]    
-    public GameObject seekTargetOutside;
+	public GameObject spawnPrefabOnDeath;
+	public GameObject spawnPrefabOnHit;
+	public GameObject seekTargetOutside;
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
@@ -314,5 +316,20 @@ public class AI : MonoBehaviour {
 		fear += fearWhenHit; // terror
 		confidence += confidenceWhenHit; // wavering
 		boredom = 0f; // instant reset: it you get hurt, you get focussed
+		if (spawnPrefabOnHit) {
+			GameObject pfxGO = Instantiate (spawnPrefabOnHit, transform.position, transform.rotation);
+		}
 	}
+
+	public void aiDiedEvent()
+	{
+		Debug.Log("AI was destroyed!");
+		// FIXME: send an event to game manager for score?
+		if (spawnPrefabOnHit) {
+			GameObject pfxGO = Instantiate (spawnPrefabOnDeath, transform.position, transform.rotation);
+		}
+		Object.Destroy(this.gameObject,2); // after two seconds
+		//if (gameObject) Destroy(gameObject); // go away
+	}
+
 }

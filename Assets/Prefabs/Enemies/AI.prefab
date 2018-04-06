@@ -525,6 +525,7 @@ MonoBehaviour:
   maxTimePerThink: 1.5
   distanceTolerance: 0.5
   unitsAboveTarget: 1
+  maxFireDist: 5
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 15
@@ -533,6 +534,8 @@ MonoBehaviour:
     m_Bits: 2304
   scannerIntervalms: 1000
   scannerDepth: 5
+  spawnPrefabOnDeath: {fileID: 0}
+  spawnPrefabOnHit: {fileID: 0}
   seekTargetOutside: {fileID: 0}
   seekTargetInMech: {fileID: 0}
 --- !u!114 &114502011163983848
@@ -546,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa52527de6cecd40a7b918542466e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
+  maxHp: 2
   onHPChanged:
     m_PersistentCalls:
       m_Calls:
@@ -565,8 +568,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114247246905794794}
-        m_MethodName: DestroyPlayer
+      - m_Target: {fileID: 114349045444646190}
+        m_MethodName: aiDiedEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,7 +578,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114529278357689914
