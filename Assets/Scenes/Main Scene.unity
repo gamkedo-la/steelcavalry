@@ -9467,7 +9467,7 @@ Prefab:
     - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
         type: 2}
       propertyPath: typeToGive
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114369150980532666, guid: 423232367e371c046b7b5cf63365ed52,
         type: 2}
@@ -16795,6 +16795,7 @@ MonoBehaviour:
   maxTimePerThink: 0.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
+  maxFireDist: 5
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10
@@ -17525,6 +17526,7 @@ MonoBehaviour:
   maxTimePerThink: 0.75
   distanceTolerance: 0.5
   unitsAboveTarget: 1.5
+  maxFireDist: 5
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10
@@ -29280,6 +29282,7 @@ MonoBehaviour:
   maxTimePerThink: 2.5
   distanceTolerance: 0.5
   unitsAboveTarget: 0.25
+  maxFireDist: 5
   scannerLength: 5
   scannerMaxRotation: 60
   scannerRotateSpeed: 10

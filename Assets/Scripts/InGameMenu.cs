@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class InGameMenu : MonoBehaviour {
 
 	public static bool gameIsPaused = false;
+	public static bool playerWon = false;
+	public static bool playerLost = false;
+
 	public GameObject inGameMenuUI;
 
 	private Scene currentScene;
@@ -36,7 +39,7 @@ public class InGameMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (gameIsPaused) {
+			if (gameIsPaused && !playerWon && !playerLost) {
 				Resume();
 			} else {
 				Pause();
@@ -89,6 +92,7 @@ public class InGameMenu : MonoBehaviour {
 		DeactivateButtons();
 		retryButton.SetActive(true);
 		menuTitleText.text = playerDiedText;
+		playerLost = true;
 	}
 
 	public void MissionComplete () {
@@ -96,6 +100,29 @@ public class InGameMenu : MonoBehaviour {
 		DeactivateButtons();
 		nextStageButton.SetActive(true);
 		menuTitleText.text = playerWonText;
+		playerWon = true;
+		SavePlayerProgress();
+	}
+
+	private void SavePlayerProgress () {
+		switch (currentScene.name) {
+			case "Main Scene":
+				PlayerPrefs.SetInt("cityCleared", 1);
+				Debug.Log("updated cityCleared in playerprefs!");
+				break;
+			case "Space Station":
+		        PlayerPrefs.SetInt("spaceStationCleared", 1);
+		        Debug.Log("updated spaceStationCleared in playerprefs!");
+		        break;
+		    case "EnemyBase":
+		        PlayerPrefs.SetInt("enemyBaseCleared", 1);
+		        Debug.Log("updated enemyBaseCleared in playerprefs!");
+		       	break;
+		    default:
+		    	Debug.Log("Tring to save progress on an invalid stage.");
+		    	break;
+		}
+        PlayerPrefs.Save();
 	}
 
 	public void ReloadScene () {
