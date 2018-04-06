@@ -33,7 +33,9 @@ public class WeaponManager : MonoBehaviour
 		Assert.IsNotNull( launcherMountPoint );
 		Assert.IsNotNull( throwerMountPoint );
 
-		Assert.IsNotNull( cursor ); // FIXME: null is valid for bots since they do not use the mouse cursor
+		if(isPlayerDriver) { // null is valid for bots since they do not use the mouse cursor
+			Assert.IsNotNull( cursor );
+		}
 		Assert.IsNotNull( weaponSlotEvents );
 
 		if ( turretMountPoint.transform.childCount > 0 )

@@ -59,7 +59,6 @@ public class AudioManager : MonoBehaviour
         masterVolume = PlayerPrefs.GetFloat("masterVolume", 1f);
         effectsVolume = PlayerPrefs.GetFloat("effectsVolume", 1f);
 
-        Assert.IsNotNull( player );
 		Assert.IsNotNull( emiters );
 		Assert.AreNotEqual( emiters.Length, 0 );
 
@@ -121,7 +120,7 @@ public class AudioManager : MonoBehaviour
 
 		foreach ( var ap in eventAudioPlayers )
 		{
-			if (!ap.AudioSource.isPlaying)
+			if (!ap.AudioSource.isPlaying && player)
 			{
 				float distance = Vector2.Distance( player.transform.position, pos );
 				var aE = ap.AudioEventEmiter;

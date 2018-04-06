@@ -277,8 +277,18 @@ public class Player : MonoBehaviour {
 			weaponFiringPoint.transform.localPosition =  new Vector3(dir * 0.092f, 0.0337f, 0);
 
         if (inputFire || inputAltFire || inputAltFire2) {
-            isFacingRight = cursor.transform.position.x > transform.position.x;
+			if(cursor != null) {
+				isFacingRight = cursor.transform.position.x > transform.position.x;
+			} else {
+				if(inputRight) { // not setting directly so standing won't flip it
+					isFacingRight = true;
+				} else if(inputLeft) {
+					isFacingRight = false;
+				}
+
+			}
             isAttacking = true;
+
         }
         else {
             isAttacking = false;
