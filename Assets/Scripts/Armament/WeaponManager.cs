@@ -132,7 +132,6 @@ public class WeaponManager : MonoBehaviour
         //Debug.Log("weapon type " + weapon.Type);
         switch ( weapon.Type )
 		{
-            
 			case WeaponType.Turret:
 			{
 				if ( turret != null )
@@ -142,7 +141,6 @@ public class WeaponManager : MonoBehaviour
 
 				g = Instantiate( weapon.GetGameObject( ), turretMountPoint.position, Quaternion.identity, turretMountPoint );
 				g.transform.localPosition = Vector3.zero;
-				
 
 				turret = g.GetComponent<IWeapon>( );
 
@@ -164,9 +162,9 @@ public class WeaponManager : MonoBehaviour
 
 				g = Instantiate( weapon.GetGameObject( ), launcherMountPoint.position, Quaternion.identity, launcherMountPoint );
 
-                    launcherMounted = true;//using for animation. TODO: need to set when launcher is dismounted if that can happen
-                                           
-                    g.transform.localPosition = Vector3.zero;
+                launcherMounted = true;//using for animation. TODO: need to set when launcher is dismounted if that can happen
+
+				g.transform.localPosition = Vector3.zero;
 				g.transform.localRotation = Quaternion.Euler
 				(
 					g.transform.localRotation.eulerAngles.x,

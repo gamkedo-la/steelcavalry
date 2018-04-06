@@ -78,6 +78,11 @@ public class Laser : MonoBehaviour, IWeapon
 	public void IsPlayerDriving( bool playerDriver )
 	{
 		isPlayerDriver = playerDriver;
+
+		var firstIcon = GameObject.Find( "Main UI/Icon Turret" ).GetComponent<AbilityIcon>( );
+		firstIcon.SetIcon( "turretLaser" );
+
+		weaponSlotEvents.Raise( UIEvent.TurretOn, shootingTimeleft / parameters.MagSize );
 	}
 
 	public void SwapModel( string mechName )
@@ -99,6 +104,9 @@ public class Laser : MonoBehaviour, IWeapon
 
 		if ( isActive )
 		{
+			var firstIcon = GameObject.Find( "Main UI/Icon Turret" ).GetComponent<AbilityIcon>( );
+			firstIcon.SetIcon( "turretLaser" );
+
 			weaponSlotEvents.Raise( UIEvent.TurretOn );
 		}
 		else

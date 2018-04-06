@@ -9,7 +9,9 @@ public class AbilityIcon : MonoBehaviour
 	[SerializeField] private CanvasGroup group;
 	[SerializeField] private Image background;
 	[SerializeField] private float disableState = 0.4f;
+
 	private Image icon;
+	private bool isOn = false;
 
 	void Start ()
 	{
@@ -32,12 +34,14 @@ public class AbilityIcon : MonoBehaviour
 		{
 			group.alpha = 1.0f;
 			background.fillAmount = percentFull;
+			isOn = true;
 		}
 
 		if ( eventType == respondToEventOff )
 		{
 			group.alpha = disableState;
 			background.fillAmount = percentFull;
+			isOn = false;
 		}
 	}
 
@@ -45,5 +49,7 @@ public class AbilityIcon : MonoBehaviour
 		string path = "Sprites/" + iconName;
 		Sprite spriteToUse = Resources.Load<Sprite>(path);
 		icon.sprite = spriteToUse;
+
+		if ( isOn ) group.alpha = 1.0f;
 	}
 }

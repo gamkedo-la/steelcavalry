@@ -110,6 +110,7 @@ public class Player : MonoBehaviour {
 			//return;
 		}
 
+
 		if (mech.driver && !mech.canBeStolen) return;
 
 		// eject the previous pilot
@@ -119,8 +120,9 @@ public class Player : MonoBehaviour {
 
 			mech.driver.ExitMech();
 			mech.ToggleCanBeStolen();
-
 		}
+
+        EnableWeapons(false);
 
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
 		mechImIn = mech;
@@ -132,16 +134,15 @@ public class Player : MonoBehaviour {
 		playerBody.gravityScale = 0;
 		jetpack.JetpackToggle(false);
 
-        EnableWeapons(false);
-
         playerHealthUI.SetHealthVisibility(false);
 
         _state = PlayerState.inMech; //changes player state
 
         if (!isAiPlayer) {
 			camScript.MechZoom(mechImIn);
-	        firstIcon.SetIcon( "turretGatling" );
-	        secondIcon.SetIcon("exitIcon");
+			//firstIcon.SetIcon( "turretGatling" );
+			//weaponManager.IsPlayerDriving( true );
+			secondIcon.SetIcon("exitIcon");
 	    }
 	}
 

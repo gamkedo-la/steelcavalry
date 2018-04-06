@@ -62,10 +62,14 @@ public class Gun : MonoBehaviour, IWeapon
 
     public void IsPlayerDriving(bool playerDriver) {
         isPlayerDriver = playerDriver;
-    }
+
+		var firstIcon = GameObject.Find( "Main UI/Icon Turret" ).GetComponent<AbilityIcon>( );
+		firstIcon.SetIcon( "turretGatling" );
+
+		weaponSlotEvents.Raise( UIEvent.TurretOn, currentMagSize / (float)magSize );
+	}
 
     public void SwapModel(string mechName) { }
-		
 
 	public void Active(bool isActive)
 	{
@@ -76,6 +80,9 @@ public class Gun : MonoBehaviour, IWeapon
 
 		if (isActive)
 		{
+			var firstIcon = GameObject.Find( "Main UI/Icon Turret" ).GetComponent<AbilityIcon>( );
+			firstIcon.SetIcon( "turretGatling" );
+
 			weaponSlotEvents.Raise( UIEvent.TurretOn );
 		}
 		else
