@@ -83,10 +83,28 @@ public class MainMenu : MonoBehaviour {
 		controlsMenu.SetActive(false);
 	}
 
-
     public void ShowLevelSelect() {
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(true);
+        DisplayProgress();
+    }
+
+    void DisplayProgress() {
+        bool hasClearedCity = PlayerPrefs.GetInt("cityCleared", 0) > 0;
+        bool hasClearedSpaceStation = PlayerPrefs.GetInt("spaceStationCleared", 0) > 0;
+        bool hasClearedEnemyBase = PlayerPrefs.GetInt("enemyBaseCleared", 0) > 0;
+
+        GameObject.Find("City Cleared").SetActive(hasClearedCity);
+        GameObject.Find("Space Station Cleared").SetActive(hasClearedSpaceStation);
+        GameObject.Find("Enemy Base Cleared").SetActive(hasClearedEnemyBase);
+    }
+
+    public void ResetProgress() {
+        PlayerPrefs.SetInt("cityCleared", 0);
+        PlayerPrefs.SetInt("spaceStationCleared", 0);
+        PlayerPrefs.SetInt("enemyBaseCleared", 0);
+        PlayerPrefs.Save();
+        DisplayProgress();
     }
 
     public void HideLevelSelect() {
