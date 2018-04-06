@@ -7,7 +7,6 @@ public class WingedSpawnAnimator : MonoBehaviour
 
     float mechDist;//TODO: revise why can't delcare in swing function
 
-    public Player Player;
     Mech mechScript;
     MissileLauncher missileLauncher;
     WeaponManager weaponMgr;
@@ -68,7 +67,7 @@ public class WingedSpawnAnimator : MonoBehaviour
         anim = GetComponent<Animator>();
         mechScript = GetComponent<Mech>();
         weaponMgr = GetComponent<WeaponManager>();
-        
+		        
         //animation IDs
         missileShotStraight1Tag = Animator.StringToHash("shotStraight1");
         missileShotStraight2Tag = Animator.StringToHash("shotStraight2");
@@ -134,19 +133,18 @@ public class WingedSpawnAnimator : MonoBehaviour
     {
         mechInUse = mechScript.inUse;
 
-        if (mechInUse == false)
+		if (mechInUse == false || mechScript.driver == null)
         {
             return;
         }
 
-        inputUp = Player.inputUp;
-        inputDown = Player.inputDown;
-        inputRight = Player.inputRight;
-        inputLeft = Player.inputLeft;
-        inputFire = Input.GetMouseButton(0);
-        
-
-        
+		if(mechScript.driver) {
+			inputUp = mechScript.driver.inputUp;
+			inputDown = mechScript.driver.inputDown;
+			inputRight = mechScript.driver.inputRight;
+			inputLeft = mechScript.driver.inputLeft;
+			inputFire = mechScript.driver.inputFire;
+		}
 
         //Debug.Log("Mech in use " + mechInUse);
 

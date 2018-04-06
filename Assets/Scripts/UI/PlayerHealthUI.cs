@@ -48,7 +48,7 @@ public class PlayerHealthUI : MonoBehaviour {
 	}
 
 	public void SetHP ( float value ) {
-		Debug.Log("SetHP received " + value);
+		// Debug.Log("SetHP received " + value);
 		playerHpBar.fillAmount = value;
 	}
 

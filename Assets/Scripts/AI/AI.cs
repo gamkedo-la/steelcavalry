@@ -127,15 +127,15 @@ public class AI : MonoBehaviour {
 
         for (int i = 1; i < hit1; i++) {  // i starts at 1 to ignore self
             Collider2D resultCollider = scannedHits1[i].collider;
-            if (resultCollider != null) {                
+            /*if (resultCollider != null) {                
                 Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");                
-            }
+            }*/
         }
         for (int i = 1; i < hit2; i++) {  // i starts at 1 to ignore self
             Collider2D resultCollider = scannedHits2[i].collider;
-            if (resultCollider != null) {
+            /*if (resultCollider != null) {
                 Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");
-            }
+            }*/
         }
 
         RaycastHit2D[] scannedHitsAll = new RaycastHit2D[scannedHits1.Length + scannedHits2.Length];

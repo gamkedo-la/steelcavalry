@@ -91,11 +91,15 @@ public class Laser : MonoBehaviour, IWeapon
 
 	public void SwapModel( string mechName )
 	{
-		Debug.Log( mechName );
+		// Debug.Log( mechName );
 		if (mechName == "Ostrich The Bot" )
 		{
-			models[0].SetActive( false );
-			models[1].SetActive( true );
+			if(models[0]) {
+				models[0].SetActive(false);
+			}
+			if(models[1]) {
+				models[1].SetActive(true);
+			}
 		}
 	}
 
