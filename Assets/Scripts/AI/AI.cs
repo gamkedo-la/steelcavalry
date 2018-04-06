@@ -312,11 +312,12 @@ public class AI : MonoBehaviour {
 
 	public void aiGotHurtEvent()
 	{
-		Debug.Log("AI got hurt! Fear and confidence are affected! HP:");
+		Debug.Log("AI got hurt! Fear and confidence are affected!");
 		fear += fearWhenHit; // terror
 		confidence += confidenceWhenHit; // wavering
 		boredom = 0f; // instant reset: it you get hurt, you get focussed
 		if (spawnPrefabOnHit) {
+			Debug.Log("Spawning a spawnPrefabOnHit effect");
 			GameObject pfxGO = Instantiate (spawnPrefabOnHit, transform.position, transform.rotation);
 		}
 	}
@@ -326,10 +327,11 @@ public class AI : MonoBehaviour {
 		Debug.Log("AI was destroyed!");
 		// FIXME: send an event to game manager for score?
 		if (spawnPrefabOnHit) {
+			Debug.Log("Spawning a spawnPrefabOnDeath effect");
 			GameObject pfxGO = Instantiate (spawnPrefabOnDeath, transform.position, transform.rotation);
 		}
-		Object.Destroy(this.gameObject,2); // after two seconds
-		//if (gameObject) Destroy(gameObject); // go away
+		//Object.Destroy(this.gameObject,2); // after two seconds
+		if (gameObject) Destroy(gameObject); // go away
 	}
 
 }
