@@ -67,7 +67,11 @@ public class Laser : MonoBehaviour, IWeapon
 
 	void FixedUpdate( )
 	{
-		beam.gameObject.SetActive( false );
+		if(beam) {
+			beam.gameObject.SetActive(false);
+		} else {
+			Debug.LogWarning("Beam not defined in Laser.cs file?");
+		}
 
 		if ( !isActive )
 			return;
