@@ -79,7 +79,11 @@ public class Mech : MonoBehaviour
     public UnityEvent ThrustersOn;
     public UnityEvent ThrustersOff;
 
+	private Animator anim;
+
     void Start() {
+
+		anim = GetComponentInChildren<Animator>();
 
         Assert.IsNotNull(ui);
         Assert.IsNotNull(explosion);
@@ -94,6 +98,8 @@ public class Mech : MonoBehaviour
         slopeWalker = GetComponent<SlopeWalker>();
 
         thrusterFuelCurrent = thrusterFuelMax;
+
+		anim.enabled = false;
     }
 
     public void Side(bool isRight) {
@@ -111,8 +117,8 @@ public class Mech : MonoBehaviour
 
     public void wasEntered(GameObject newDriver) {
         driver = newDriver.GetComponent<Player>();
-
         inUse = true;
+		anim.enabled = inUse;
         //Debug.Log("in Use " + inUse);
         hp.UseMultiplier(!inUse);
         if (weaponManager != null) {
@@ -132,6 +138,7 @@ public class Mech : MonoBehaviour
 
     public void wasExited() {
         inUse = false;
+		anim.enabled = inUse;
         hp.UseMultiplier(!inUse);
         if (weaponManager != null) {
             driver.OnFire -= weaponManager.FirePrimary;
