@@ -22,9 +22,15 @@ public class MainMenu : MonoBehaviour {
         music = GetComponent<AudioSource>();
         Debug.Log(GetComponent<AudioSource>());
 
-        masterVolume.value = PlayerPrefs.GetFloat("masterVolume", 1f);
-        effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1f);
-        musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1f);
+		if(masterVolume) {
+			masterVolume.value = PlayerPrefs.GetFloat("masterVolume", 1f);
+		}
+		if(effectsVolume) {
+			effectsVolume.value = PlayerPrefs.GetFloat("effectsVolume", 1f);
+		}
+		if(musicVolume) {
+			musicVolume.value = PlayerPrefs.GetFloat("musicVolume", 1f);
+		}
     }
 
     public void StartGame() {

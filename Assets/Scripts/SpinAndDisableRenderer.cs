@@ -7,7 +7,10 @@ public class SpinAndDisableRenderer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Renderer>().enabled = false;
+		Renderer rend = GetComponent<Renderer>();
+		if(rend) {
+			rend.enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
