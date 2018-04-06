@@ -18,6 +18,8 @@ public class PlayerHealthUI : MonoBehaviour {
 	private string playerTag = "Player";
 	private Vector3 spawnPoint;
 
+	private InGameMenu inGameMenu;
+
 	// Use this for initialization
 	void Start () {
 		Assert.IsNotNull(playerHpBar);
@@ -32,6 +34,7 @@ public class PlayerHealthUI : MonoBehaviour {
 		if(!player.GetComponent<AI>()) {
 			isPlayer = true;
 			GameObject LivesTextObject = GameObject.Find("Lives text");
+			inGameMenu = GameObject.Find("In Game Menu UI").GetComponent<InGameMenu>();
 
 			if (LivesTextObject) {				
 				livesText = LivesTextObject.GetComponent<Text>();
@@ -57,6 +60,7 @@ public class PlayerHealthUI : MonoBehaviour {
 		lives--;
 		SetLivesText();
 		if (lives < 1) {
+			inGameMenu.MissionFailed();
 			Destroy(player);
 		} else {
 			RespawnPlayer();
