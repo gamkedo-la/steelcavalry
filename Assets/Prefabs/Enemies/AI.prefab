@@ -291,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1520017109342236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 1.4, z: 0}
+  m_LocalPosition: {x: 38.71381, y: 10.6305065, z: 0}
   m_LocalScale: {x: 1.44436, y: 1.52889, z: 1}
   m_Children:
   - {fileID: 4764357755977490}
@@ -507,7 +507,7 @@ MonoBehaviour:
   boredom: 0
   anger: 0.124
   fear: 0.336
-  chanceItMoves: 0.75
+  chanceItMoves: 1
   chanceItFires: 0.7
   chanceItEnters: 0.2
   chanceItExits: 0.01
@@ -634,11 +634,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 114247246905794794}
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
-  humanSpeed: 100
+  playerSpeed: 100
   mechNearEnoughToUseDistance: 1
   jetPackPower: 100
-  mechImIn: {fileID: 0}
-  isFacingRight: 1
   weaponFiringPoint: {fileID: 4764357755977490}
   weaponManager: {fileID: 114529278357689914}
   weaponEquipped: {fileID: 1448447016015004, guid: 58003835753150d4cb9c2822cd417d3d,
@@ -654,7 +652,10 @@ MonoBehaviour:
   inputAltFire: 0
   inputAltFire2: 0
   inputEnter: 0
+  mechImIn: {fileID: 0}
   isOnGround: 1
+  isFacingRight: 1
+  isAttacking: 0
   _state: 1
 --- !u!114 &114754730038898088
 MonoBehaviour:
@@ -699,6 +700,7 @@ MonoBehaviour:
   walkerFeet: {fileID: 1067331580633618}
   rayLength: 0.5
   isFacingRight: 0
+  isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
 --- !u!198 &198132065080834648

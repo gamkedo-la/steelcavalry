@@ -60,6 +60,7 @@ public class AI : MonoBehaviour {
 	public float maxTimePerThink = 1.5f;
 	public float distanceTolerance = 0.5f; // close enough in world units
 	public float unitsAboveTarget = 1.0f; // try to move "above" the target y (good for getting on top of mech)
+	public float maxFireDist = 5.0f; // don't shoot when far away
 
 [Header("Vision Scanner")]
     public float scannerLength = 5.0f;
@@ -244,13 +245,17 @@ public class AI : MonoBehaviour {
 
 			// fixme: we also need to choose where to aim: not the mouse cursor!
 			if (Random.value < chanceItFires) {
-				randy = Random.value; // fire?
-				if (randy < 0.333f) {
-					myMovement.inputFire = true;
-				} else if (randy < 0.666f) {
-					myMovement.inputAltFire = true;
-				} else {
-					myMovement.inputAltFire2 = true;
+				// only fire is close enough to target - avoid offscreen spam
+				if (!seekTarget ||  // if not set, fire like an idiot =)
+					Vector3.Distance (this.transform.position, seekTarget.transform.position) < maxFireDist) {
+					randy = Random.value; // fire?
+					if (randy < 0.333f) {
+						myMovement.inputFire = true;
+					} else if (randy < 0.666f) {
+						myMovement.inputAltFire = true;
+					} else {
+						myMovement.inputAltFire2 = true;
+					}
 				}
 			}
 
