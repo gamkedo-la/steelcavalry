@@ -72,6 +72,8 @@ public class Player : MonoBehaviour {
 	}
 	public PlayerState _state;
 
+	public GameObject enterMechTooltipToHide; // ignored if null for levels besides #1
+
     // Use this for initialization
     void Start () {
 		Assert.IsNotNull( audioEvent );
@@ -120,6 +122,11 @@ public class Player : MonoBehaviour {
 
 			mech.driver.ExitMech();
 			mech.ToggleCanBeStolen();
+		}
+
+		if(enterMechTooltipToHide) {
+			enterMechTooltipToHide.SetActive(false);
+			enterMechTooltipToHide = null;
 		}
 
         EnableWeapons(false);
