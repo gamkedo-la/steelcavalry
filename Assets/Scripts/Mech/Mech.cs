@@ -153,9 +153,7 @@ public class Mech : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void LateUpdate() {
-        Debug.Log(currentTimeToTakeOff);
-
+    public void FixedUpdate() {
         // BRANCH controls for Regular/Golden Goose Mech
         if (!isGoldenGoose) {
             if (!inUse) return; //could be made into a function to do something else when idle

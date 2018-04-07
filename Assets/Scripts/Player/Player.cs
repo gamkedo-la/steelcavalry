@@ -321,6 +321,31 @@ public class Player : MonoBehaviour {
 		if (inputAltFire) OnAltFire( );     //tells everyone listening that a shot has been fired
 		if (inputAltFire2) OnAltFire2( );   //tells everyone listening that a shot has been fired
 
+        slopeWalker.isFacingRight = isFacingRight;
+	} // end of Update
+
+
+    void LateUpdate() {
+        switch (_state) {
+            // Update method for when inside mech
+            case PlayerState.inMech:
+                if (inputEnter) ExitMech();
+                break;
+
+            // Update method for outside mech
+            case PlayerState.outOfMech:
+                if (inputEnter) {
+                    Mech nearestMech = FindNearbyMech();
+                    if (nearestMech) {
+                        EnterMech(nearestMech);
+                    }
+                }
+                break;
+        }
+    }
+
+
+    void FixedUpdate() {
         switch (_state) {
             // Update method for when inside mech
             case PlayerState.inMech:
@@ -359,8 +384,7 @@ public class Player : MonoBehaviour {
                 }
 
                 playerBody.velocity = Vector2.zero;
-                if (inputEnter) ExitMech();
-
+                
                 break;
 
             // Update method for outside mech
@@ -372,18 +396,12 @@ public class Player : MonoBehaviour {
                         if (weapon != null) {
                             weapon.SetDir(isFacingRight);
                         }
-                    } else if (inputLeft && isFacingRight) {
+                    }
+                    else if (inputLeft && isFacingRight) {
                         isFacingRight = false;
                         if (weapon != null) {
                             weapon.SetDir(isFacingRight);
                         }
-                    }
-                }
-
-                if (inputEnter) {
-                    Mech nearestMech = FindNearbyMech();
-                    if (nearestMech) {
-                        EnterMech(nearestMech);
                     }
                 }
 
@@ -395,39 +413,37 @@ public class Player : MonoBehaviour {
                     playerBody.velocity = new Vector2(horizontalImpulse * Time.deltaTime * playerSpeed, playerBody.velocity.y);
                 }
 
-			    spriteRenderer.flipX = !isFacingRight;
+                spriteRenderer.flipX = !isFacingRight;
 
-			    if (inputUp) {
-				    isOnGround = false;
-				    jetpack.JetpackToggle(true);
+                if (inputUp) {
+                    isOnGround = false;
+                    jetpack.JetpackToggle(true);
                     slopeWalker.isMovingUp = true;
 
-				    if ( !jetpackOn ) {
-					    jetpackOn = true;
-					    audioEvent.Raise( AudioEvents.PlayerJetpack, transform.position );
-					    Invoke( "JetpackSoundOff", 0.2f );
-				    }
+                    if (!jetpackOn) {
+                        jetpackOn = true;
+                        audioEvent.Raise(AudioEvents.PlayerJetpack, transform.position);
+                        Invoke("JetpackSoundOff", 0.2f);
+                    }
 
-				    //transform.position += Vector3.up * Time.deltaTime * jetPackPower;
-				    playerBody.velocity = new Vector2(playerBody.velocity.x, Time.deltaTime * jetPackPower);
+                    //transform.position += Vector3.up * Time.deltaTime * jetPackPower;
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, Time.deltaTime * jetPackPower);
                     //playerBody.gravityScale = 1.0f;
-				    //playerBody.velocity = Vector2.zero;
-			    }
+                    //playerBody.velocity = Vector2.zero;
+                }
                 else {
-				    jetpack.JetpackToggle(false);
+                    jetpack.JetpackToggle(false);
                     slopeWalker.isMovingUp = false;
-				    //playerBody.gravityScale = 1.0f;
-			    }
+                    //playerBody.gravityScale = 1.0f;
+                }
 
-			    break;
+                break;
 
-			default: return;
-		}
+            default: return;
+        }
+    }
 
-        slopeWalker.isFacingRight = isFacingRight;
-	} // end of Update
-
-	public string getNameOfMechPlayerIsIn () {
+    public string getNameOfMechPlayerIsIn () {
 		if (!mechImIn) return "";
 		return mechImIn.name;
 	}
