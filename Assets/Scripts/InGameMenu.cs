@@ -14,14 +14,23 @@ public class InGameMenu : MonoBehaviour {
 
 	private Scene currentScene;
 	private Text menuTitleText;
+	private Text stageClearedText;
 
 	private GameObject resumeButton;
 	private GameObject retryButton;
 	private GameObject nextStageButton;
+	private GameObject stageClearedPanel;
 
 	private string pauseText = "Paused";
 	private string playerDiedText = "Mission Failed";
 	private string playerWonText = "Mission Complete";
+
+	private string cityClearedText = 
+		"Well done, private! It looks like more of those space pirates are " + 
+		"attacking a transport ship. I just sent you their coordinates. Get over there ASAP!";
+
+	private string spaceStationClearedText = "";
+	private string enemyBaseClearedText = "";
 
 	private List<string> sceneNames = new List<string>();
 	private int totalScenes = 3;
@@ -29,7 +38,7 @@ public class InGameMenu : MonoBehaviour {
 	void Start () {
 		SetSceneAndMenuUI();
 		DeactivateMenu();
-		DeactivateButtons();
+		DeactivateButtonsAndPanels();
 
 		sceneNames.Add("Main Scene");
 		sceneNames.Add("Space Station");
@@ -45,11 +54,17 @@ public class InGameMenu : MonoBehaviour {
 				Pause();
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.C)) {
+			MissionComplete();
+		}
 	}
 
 	void SetSceneAndMenuUI () {
 		currentScene = SceneManager.GetActiveScene();
 		menuTitleText = GameObject.Find("MenuTitle").GetComponent<Text>();
+		stageClearedPanel = GameObject.Find("StageClearedPanel");
+		stageClearedText = GameObject.Find("StageCleared").GetComponent<Text>();
 		resumeButton = GameObject.Find("ResumeButton");
 		retryButton = GameObject.Find("RetryButton");
 		nextStageButton = GameObject.Find("NextStageButton");
@@ -59,10 +74,11 @@ public class InGameMenu : MonoBehaviour {
 		inGameMenuUI.SetActive(false);
 	}
 
-	void DeactivateButtons () {
+	void DeactivateButtonsAndPanels () {
 		resumeButton.SetActive(false);
 		retryButton.SetActive(false);
 		nextStageButton.SetActive(false);
+		stageClearedPanel.SetActive(false);
 	}
 
 	public void Resume () {
@@ -83,7 +99,7 @@ public class InGameMenu : MonoBehaviour {
 
 	public void MissionFailed () {
 		Pause();
-		DeactivateButtons();
+		DeactivateButtonsAndPanels();
 		retryButton.SetActive(true);
 		menuTitleText.text = playerDiedText;
 		playerLost = true;
@@ -91,11 +107,26 @@ public class InGameMenu : MonoBehaviour {
 
 	public void MissionComplete () {
 		Pause();
-		DeactivateButtons();
+		DeactivateButtonsAndPanels();
 		nextStageButton.SetActive(true);
 		menuTitleText.text = playerWonText;
+		stageClearedPanel.SetActive(true);
+		stageClearedText.text = GetStageClearedText();
 		playerWon = true;
 		SavePlayerProgress();
+	}
+
+	public string GetStageClearedText() {
+		switch (currentScene.name) {
+			case "Main Scene":
+				return cityClearedText;
+			case "Space Station":
+		        return spaceStationClearedText;
+		    case "EnemyBase":
+		        return enemyBaseClearedText;
+		    default:
+		    	return "";
+		}
 	}
 
 	private void SavePlayerProgress () {
