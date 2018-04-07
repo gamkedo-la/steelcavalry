@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Homing Missile
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1794838503539024, guid: dea20ff766ba6364f8c00bb6b818ecd3, type: 2}
-  DamageMin: 10
-  DamageMax: 11
+  DamageMin: 30
+  DamageMax: 30
   Force: 20
   MagSize: 10
   DelayBetweenShots: 0.02

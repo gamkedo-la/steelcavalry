@@ -7,7 +7,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	[SerializeField] private GameObject pfx;
 	[SerializeField] private float damagePerShot = 10.0f;
 
-	private GameObject player;
+	private Player player;
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
 
@@ -18,18 +18,25 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	{
 		Assert.IsNotNull( didDamageEvent );
 
-		player = GameObject.FindWithTag("Player");
+		GameObject playerGO = GameObject.FindWithTag("Player");
+		if(playerGO) {
+			player = playerGO.GetComponent<Player>();
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
 		/*Debug.Log("Shot hit: " + bumpFacts.collider.gameObject.name +
 		"Reminder: using Physics2D Layer ignore shenanigans for demo");*/
-		if (!player) return;
-		nameOfMechPlayerIsIn = player.GetComponent<Player>().getNameOfMechPlayerIsIn();
-		nameOfObjectHit = bumpFacts.collider.gameObject.name;
 
-		// If the shot is from the player, ignore it
-		if(playerNumber > 0 && nameOfMechPlayerIsIn == nameOfObjectHit) return;
+		if(player) {
+			nameOfMechPlayerIsIn = player.GetComponent<Player>().getNameOfMechPlayerIsIn();
+			nameOfObjectHit = bumpFacts.collider.gameObject.name;
+
+			// If the shot is from the player, ignore it
+			if(playerNumber > 0 && nameOfMechPlayerIsIn == nameOfObjectHit) {
+				return;
+			}
+		}
 
 		// Try to find a Mech script on the hit object
 		HP hp = bumpFacts.collider.GetComponent<HP>();
