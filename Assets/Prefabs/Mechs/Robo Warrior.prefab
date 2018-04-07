@@ -794,7 +794,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4419821131747954}
-  - component: {fileID: 95921352402862052}
   m_Layer: 0
   m_Name: Robo Warrior
   m_TagString: Untagged
@@ -2245,7 +2244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279026425158912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.19, y: -8.09, z: 0}
+  m_LocalPosition: {x: -16.43, y: 6.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224148648787007390}
@@ -2608,23 +2607,6 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2d406bb8dbcf57347be43bbb0a54620f, type: 3}
   m_Controller: {fileID: 9100000, guid: 95b7de5c380b3c641a44d79742e24823, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95921352402862052
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1540823858441766}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2d406bb8dbcf57347be43bbb0a54620f, type: 3}
-  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
