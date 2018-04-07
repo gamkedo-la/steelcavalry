@@ -24,7 +24,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
 		/*Debug.Log("Shot hit: " + bumpFacts.collider.gameObject.name +
 		"Reminder: using Physics2D Layer ignore shenanigans for demo");*/
-
+		if (!player) return;
 		nameOfMechPlayerIsIn = player.GetComponent<Player>().getNameOfMechPlayerIsIn();
 		nameOfObjectHit = bumpFacts.collider.gameObject.name;
 

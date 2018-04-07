@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // This is a singleton class component.
 public class UIResourceManager : MonoBehaviour {
     public MouseCursor mouseCursor;
 
     public static MouseCursor MouseCursor;
+
+    private Text enemyCountText;
 
     private static UIResourceManager _instance;
 
@@ -30,5 +33,21 @@ public class UIResourceManager : MonoBehaviour {
         }
 
         UIResourceManager.MouseCursor = mouseCursor;
+        GetEnemyCountText();
+        SetEnemyCountText();
+    }
+
+    void FixedUpdate() {
+        SetEnemyCountText();
+    }
+
+    void GetEnemyCountText() {
+        GameObject enemyCountTextObject = GameObject.Find("Enemy count text");
+        enemyCountText = enemyCountTextObject.GetComponent<Text>();
+    }
+
+    public void SetEnemyCountText() {
+        int totalEnemies = FindObjectsOfType<AI>().Length;
+        enemyCountText.text = "x" + totalEnemies;
     }
 }

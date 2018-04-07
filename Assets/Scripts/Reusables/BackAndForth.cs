@@ -22,18 +22,18 @@ public class BackAndForth : MonoBehaviour {
 
 	void OnEnable () {
 
-			if (range == 0) Debug.Log("Your BackAndForth script isn't doing anything! :O");
+		if (range == 0) Debug.Log("Your BackAndForth script isn't doing anything! :O");
 
-			xStart = transform.position.x;
-			yStart = transform.position.y;
+		xStart = transform.position.x;
+		yStart = transform.position.y;
 
-			sin = Mathf.Sin(angle*Mathf.Deg2Rad);
-			cos = Mathf.Cos(angle*Mathf.Deg2Rad);
+		sin = Mathf.Sin(angle*Mathf.Deg2Rad);
+		cos = Mathf.Cos(angle*Mathf.Deg2Rad);
 
-			xMin = xStart - Mathf.Abs(range*cos/2);
-			xMax = xStart +Mathf.Abs(range*cos/2);
-			yMin = yStart - Mathf.Abs(range*sin/2);
-			yMax = yStart + Mathf.Abs(range*sin/2);
+		xMin = xStart - Mathf.Abs(range*cos/2);
+		xMax = xStart +Mathf.Abs(range*cos/2);
+		yMin = yStart - Mathf.Abs(range*sin/2);
+		yMax = yStart + Mathf.Abs(range*sin/2);
 
 	}
 
