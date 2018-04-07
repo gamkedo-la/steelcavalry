@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private AbilityIcon secondIcon;
 
     public float playerSpeed = 100f;
+    public float playerEjectForceMagnitude = 100;
 	public float mechNearEnoughToUseDistance = 1.0f;
 	// public float exitMechDistancePopUp = 1.1f;
 	public float jetPackPower = 1.0f;
@@ -156,7 +157,21 @@ public class Player : MonoBehaviour {
 	public void ExitMech() {
 		if ( mechImIn == null ) return;
 
-		transform.position += Vector3.up * mechImIn.transform.lossyScale.y * 0.5f;
+		//transform.position += Vector3.up * mechImIn.transform.lossyScale.y * 0.5f;
+
+        if (mechImIn.isFacingRight) {
+            //transform.position += Vector3.left * mechImIn.transform.lossyScale.y * 0.5f;
+            isFacingRight = false;
+            weapon.SetDir(false);
+            playerBody.AddForce(Vector3.up * playerEjectForceMagnitude * 2f + Vector3.left * playerEjectForceMagnitude);
+        }
+        else if (!mechImIn.isFacingRight) {
+            transform.position += Vector3.right * mechImIn.transform.lossyScale.y * 0.5f;
+            isFacingRight = true;
+            weapon.SetDir(true);
+            playerBody.AddForce(Vector3.up * playerEjectForceMagnitude * 2f + Vector3.right * playerEjectForceMagnitude);
+        }        
+
 		mechImIn.wasExited();
 		mechImIn = null;
 
