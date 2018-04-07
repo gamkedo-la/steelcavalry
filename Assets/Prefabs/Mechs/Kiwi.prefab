@@ -809,7 +809,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4920128520306450}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Kiwi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709899569100756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.83, y: -7.4872646, z: 1}
+  m_LocalPosition: {x: -32.37, y: -7.75, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224361447441235030}
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   mechRotateSpeed: 5
   jumpPower: 4000
   crushDamage: 100
-  inUse: 1
+  inUse: 0
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
@@ -13192,7 +13192,7 @@ ParticleSystemRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
