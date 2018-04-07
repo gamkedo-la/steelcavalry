@@ -44,7 +44,7 @@ public class MechAnimator : MonoBehaviour {
                   (mech.driver.inputLeft || mech.driver.inputRight);
         animController.SetBool(isWalkingParam, canWalk);
 
-        canTakeOff = mech.driver.inputUp;
+        if (mech.inUse) canTakeOff = mech.driver.inputUp;
         animController.SetBool(isTakingOffParam, canTakeOff);
 
         canFly = mech.currentTimeToTakeOff >= mech.takingOffTime &&
