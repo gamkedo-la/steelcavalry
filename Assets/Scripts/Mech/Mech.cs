@@ -39,6 +39,8 @@ public class Mech : MonoBehaviour
     public float maxDamage = 100.0f;
     public bool canBeStolen = true;
     public bool isOnGround;
+    public float currentTimeToTakeOff = 0;
+    public float takingOffTime = 2.4f;
     public bool isFlying = false;
     private bool canFly = true;
     public bool isFacingRight;
@@ -166,8 +168,13 @@ public class Mech : MonoBehaviour
             }
 
             if (driver.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost) {
-                mechRigidbody.AddForce(Vector2.up * jumpPower);
-                thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
+
+                currentTimeToTakeOff += Time.deltaTime;
+
+                if (currentTimeToTakeOff >= takingOffTime) {
+                    mechRigidbody.AddForce(Vector2.up * jumpPower);
+                    thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
+                }
 
                 isOnGround = false;
                 isFlying = true;
@@ -175,9 +182,11 @@ public class Mech : MonoBehaviour
                 slopeWalker.isMovingUp = true;
 
                 ThrustersOn.Invoke();
+
             }
             else {
                 slopeWalker.isMovingUp = false;
+                currentTimeToTakeOff = 0;
             }
 
             if (driver.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
