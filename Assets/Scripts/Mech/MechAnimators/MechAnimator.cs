@@ -12,7 +12,8 @@ public class MechAnimator : MonoBehaviour {
     int isIdlingParam = Animator.StringToHash("isIdling");
     int isWalkingParam = Animator.StringToHash("isWalking");
     int isFlyingParam = Animator.StringToHash("isFlying");
-    bool canIdle = false, canWalk = false, canFly = false;
+    int isTakingOffParam = Animator.StringToHash("isTakingOff");
+    bool canIdle = false, canWalk = false, canFly = false, canTakeOff = false;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +44,11 @@ public class MechAnimator : MonoBehaviour {
                   (mech.driver.inputLeft || mech.driver.inputRight);
         animController.SetBool(isWalkingParam, canWalk);
 
-        canFly = !mech.isOnGround;
+        canTakeOff = mech.driver.inputUp;
+        animController.SetBool(isTakingOffParam, canTakeOff);
+
+        canFly = mech.currentTimeToTakeOff >= mech.takingOffTime &&
+                 canTakeOff;
         animController.SetBool(isFlyingParam, canFly);
 	}
 
