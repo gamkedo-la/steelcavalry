@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ostrich IV
+  m_Name: Robo Warrior
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isIdling
@@ -433,14 +433,14 @@ AnimatorStateMachine:
   - first: {fileID: 0}
     second:
     - {fileID: 1109568810479902360}
-  - first: {fileID: 1107320077991097538}
-    second:
-    - {fileID: 1109544546171087132}
-    - {fileID: 1109298156533800178}
   - first: {fileID: 1107044494642525728}
     second:
     - {fileID: 1109542314430897220}
     - {fileID: 1109375797609536710}
+  - first: {fileID: 1107320077991097538}
+    second:
+    - {fileID: 1109544546171087132}
+    - {fileID: 1109298156533800178}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
