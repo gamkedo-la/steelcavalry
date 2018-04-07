@@ -2244,7 +2244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279026425158912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.43, y: 6.91, z: 0}
+  m_LocalPosition: {x: -38.89, y: -8.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224148648787007390}
@@ -2609,7 +2609,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 95b7de5c380b3c641a44d79742e24823, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2954,7 +2954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleWaitSeconds: 5
-  belowThisSpeedIsIdle: 0.2
+  belowThisSpeedIsIdle: 0.005
 --- !u!114 &114504894407294362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3076,6 +3076,8 @@ MonoBehaviour:
   maxDamage: 100
   canBeStolen: 1
   isOnGround: 0
+  currentTimeToTakeOff: 0
+  takingOffTime: 0.5
   isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
