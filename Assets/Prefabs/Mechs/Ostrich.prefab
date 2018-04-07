@@ -3818,7 +3818,7 @@ MonoBehaviour:
   canBeStolen: 1
   isOnGround: 0
   currentTimeToTakeOff: 0
-  takingOffTime: 2.4
+  takingOffTime: 0.6
   isFlying: 0
   isFacingRight: 1
   pod: {fileID: 0}
