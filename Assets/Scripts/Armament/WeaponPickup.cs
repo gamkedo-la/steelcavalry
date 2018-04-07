@@ -47,7 +47,7 @@ public class WeaponPickup : MonoBehaviour
 		manager.GiveWeapon( weapon );
 	}
 
-    private IWeapon CreateWeapon() 
+    private IWeapon CreateWeapon()
     {
         IWeapon[] ws;
 

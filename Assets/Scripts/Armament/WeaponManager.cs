@@ -3,10 +3,11 @@ using UnityEngine.Assertions;
 
 public class WeaponManager : MonoBehaviour
 {
+	[SerializeField] GameObject startingWeapon = null;
+
 	[SerializeField] Transform turretMountPoint = null;
 	[SerializeField] Transform launcherMountPoint = null;
 	[SerializeField] Transform throwerMountPoint = null;
-
 
 	[SerializeField] IWeapon turret = null;
 	[SerializeField] IWeapon launcher = null;
@@ -21,7 +22,6 @@ public class WeaponManager : MonoBehaviour
 	private bool isPlayerDriver = false;
 
     public bool launcherMounted = false;//using for animation.
-
 
     void Start ()
 	{
@@ -46,6 +46,15 @@ public class WeaponManager : MonoBehaviour
 
 		if ( throwerMountPoint.transform.childCount > 0 )
 			thrower = throwerMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
+
+		if ( startingWeapon != null )
+		{
+			IWeapon w = startingWeapon.GetComponent<IWeapon>( );
+			Assert.IsNotNull( w );
+
+			if ( w != null )
+				GiveWeapon( w );
+		}
 	}
 
 	public void IsPlayerDriving( bool playerDriver )
