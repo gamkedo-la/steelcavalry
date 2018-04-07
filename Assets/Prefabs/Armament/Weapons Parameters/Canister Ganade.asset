@@ -17,4 +17,4 @@ MonoBehaviour:
   Force: 20
   MagSize: 1
   DelayBetweenShots: 0.1
-  RealoadTime: 10
+  RealoadTime: 1
