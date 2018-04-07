@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class InGameMenu : MonoBehaviour {
 
 	public static bool gameIsPaused = false;
-	public static bool playerWon = false;
-	public static bool playerLost = false;
+	public bool playerWon = false;
+	public bool playerLost = false;
 
 	public GameObject inGameMenuUI;
 
@@ -38,18 +38,12 @@ public class InGameMenu : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (gameIsPaused && !playerWon && !playerLost) {
+		if (Input.GetKeyDown(KeyCode.Escape) && !playerWon && !playerLost) {
+			if (gameIsPaused) {
 				Resume();
 			} else {
 				Pause();
 			}
-		}
-		if (Input.GetKeyDown(KeyCode.X)) {
-			MissionFailed();
-		}
-		if (Input.GetKeyDown(KeyCode.C)) {
-			MissionComplete();
 		}
 	}
 

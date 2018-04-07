@@ -9,7 +9,9 @@ public class UIResourceManager : MonoBehaviour {
 
     public static MouseCursor MouseCursor;
 
+    private InGameMenu inGameMenu;
     private Text enemyCountText;
+    private Text droneCountText;
 
     private static UIResourceManager _instance;
 
@@ -33,21 +35,36 @@ public class UIResourceManager : MonoBehaviour {
         }
 
         UIResourceManager.MouseCursor = mouseCursor;
-        GetEnemyCountText();
-        SetEnemyCountText();
+        inGameMenu = GameObject.Find("In Game Menu UI").GetComponent<InGameMenu>();
+
+        GetEnemyCountTexts();
+        SetEnemyCountTexts();
     }
 
-    void FixedUpdate() {
-        SetEnemyCountText();
+    void Update() {
+        if (!inGameMenu.playerWon && !inGameMenu.playerLost) {            
+            SetEnemyCountTexts();
+        }
     }
 
-    void GetEnemyCountText() {
+    void GetEnemyCountTexts() {
         GameObject enemyCountTextObject = GameObject.Find("Enemy count text");
         enemyCountText = enemyCountTextObject.GetComponent<Text>();
+
+        GameObject droneCountTextObject = GameObject.Find("Drone count text");
+        droneCountText = droneCountTextObject.GetComponent<Text>();
     }
 
-    public void SetEnemyCountText() {
-        int totalEnemies = FindObjectsOfType<AI>().Length;
-        enemyCountText.text = "x" + totalEnemies;
+    public void SetEnemyCountTexts() {
+        int totalAiPilots = FindObjectsOfType<AI>().Length;
+        int totalDrones = FindObjectsOfType<Enemy>().Length;
+
+        enemyCountText.text = "x" + totalAiPilots;
+        droneCountText.text = "x" + totalDrones;
+                
+        int totalEnemies = totalAiPilots + totalDrones;
+        if (totalEnemies < 1) {
+            inGameMenu.MissionComplete();
+        }
     }
 }
