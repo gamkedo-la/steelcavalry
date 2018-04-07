@@ -47,10 +47,11 @@ public class MechAnimator : MonoBehaviour {
         if (mech.inUse) canTakeOff = mech.driver.inputUp;
         animController.SetBool(isTakingOffParam, canTakeOff);
 
-        canFly = mech.currentTimeToTakeOff >= mech.takingOffTime &&
-                 canTakeOff;
+        canFly = (mech.currentTimeToTakeOff >= mech.takingOffTime || canFly);
         animController.SetBool(isFlyingParam, canFly);
-	}
+
+        if (mech.isOnGround) canFly = false;
+    }
 
     IEnumerator IdleTracker () {        
         yield return new WaitForSeconds(idleWaitSeconds);        

@@ -154,6 +154,8 @@ public class Mech : MonoBehaviour
 
     // Update is called once per frame
     public void LateUpdate() {
+        Debug.Log(currentTimeToTakeOff);
+
         // BRANCH controls for Regular/Golden Goose Mech
         if (!isGoldenGoose) {
             if (!inUse) return; //could be made into a function to do something else when idle
@@ -168,25 +170,22 @@ public class Mech : MonoBehaviour
             }
 
             if (driver.inputUp && !isFlying /*isOnGround*/ && thrusterFuelCurrent >= thrusterFuelMax * firstThrustCost) {
-
                 currentTimeToTakeOff += Time.deltaTime;
 
                 if (currentTimeToTakeOff >= takingOffTime) {
                     mechRigidbody.AddForce(Vector2.up * jumpPower);
                     thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
+                    isOnGround = false;
+                    isFlying = true;
+                    canFly = true;
+                    slopeWalker.isMovingUp = true;
+
                 }
 
-                isOnGround = false;
-                isFlying = true;
-                canFly = true;
-                slopeWalker.isMovingUp = true;
-
                 ThrustersOn.Invoke();
-
             }
             else {
-                slopeWalker.isMovingUp = false;
-                currentTimeToTakeOff = 0;
+                slopeWalker.isMovingUp = false;                
             }
 
             if (driver.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
@@ -279,6 +278,7 @@ public class Mech : MonoBehaviour
                 }
 
                 isOnGround = true;
+                currentTimeToTakeOff = 0;
                 return; // beware, this exits the whole method!
             }
         }
