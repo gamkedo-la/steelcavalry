@@ -10,13 +10,13 @@ public class Gun : MonoBehaviour, IWeapon
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameEventUI weaponSlotEvents;
     [SerializeField] private WeaponParameters parameters = null;
-    [SerializeField] private Player.PlayerTeam fromTeam;
+    [SerializeField] private Team fromTeam;
     [SerializeField] private WeaponType type = WeaponType.Turret;
     [SerializeField] private float minAngle = -60f;
     [SerializeField] private float maxAngle = 60f;
     [SerializeField] private GameObject model;
 
-    public Player.PlayerTeam FromTeam {
+    public Team FromTeam {
         get { return fromTeam; }
         set { fromTeam = value; }
     }

@@ -72,15 +72,8 @@ public class Player : MonoBehaviour {
 		outOfMech
 	}
 	public PlayerState _state;
-
-    public enum PlayerTeam {
-        Independant,
-        TeamA,
-        TeamB,
-        TeamC,
-        TeamD
-    }
-    public PlayerTeam team = PlayerTeam.Independant;
+    
+    public Team team = Team.Independant;
 
 	public GameObject enterMechTooltipToHide; // ignored if null for levels besides #1
 
@@ -196,7 +189,7 @@ public class Player : MonoBehaviour {
         WeaponManager mechWeaponManager = mechImIn.GetComponent<WeaponManager>();
 
         for (int i = 0; i < mechWeaponManager.equippedWeapons.Count; i++) {
-            mechWeaponManager.equippedWeapons[i].FromTeam = PlayerTeam.Independant;
+            mechWeaponManager.equippedWeapons[i].FromTeam = Team.Independant;
         }
 
         mechImIn.wasExited();

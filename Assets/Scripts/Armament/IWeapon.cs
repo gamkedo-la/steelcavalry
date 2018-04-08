@@ -8,7 +8,7 @@ public enum WeaponType
 
 public interface IWeapon
 {
-    Player.PlayerTeam FromTeam { get; set; }
+    Team FromTeam { get; set; }
 	WeaponType Type { get; }
 
 	void Active( bool isActive );

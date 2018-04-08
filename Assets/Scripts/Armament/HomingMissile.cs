@@ -9,7 +9,7 @@ public class HomingMissile : MonoBehaviour
 	[SerializeField] private float speed = 5f;
 	[SerializeField] private float rotatingSpeed= 200f;
 	[SerializeField] private float damagePerMissile = 20f;
-    [HideInInspector] public Player.PlayerTeam fromTeam;
+    [HideInInspector] public Team fromTeam;
 
     private Transform target;
 	private Rigidbody2D rb;
@@ -89,7 +89,7 @@ public class HomingMissile : MonoBehaviour
             collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
         }
 
-        if (fromTeam != Player.PlayerTeam.Independant && collidedPlayer && collidedPlayer.team == fromTeam)
+        if (fromTeam != Team.Independant && collidedPlayer && collidedPlayer.team == fromTeam)
             return;
 
         // Try to find a Mech script on the hit object

@@ -12,7 +12,7 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
-    [SerializeField] private Player.PlayerTeam fromTeam;
+    [SerializeField] private Team fromTeam;
     [SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
 	[SerializeField] private float laserScaleCorrection = 1f;
@@ -21,7 +21,7 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private float maxAngle = 60f;
 	[SerializeField] private GameObject[] models;
 
-    public Player.PlayerTeam FromTeam {
+    public Team FromTeam {
         get { return fromTeam; }
         set { fromTeam = value; }
     }
@@ -234,7 +234,7 @@ public class Laser : MonoBehaviour, IWeapon
                 collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
             }
 
-            if (FromTeam != Player.PlayerTeam.Independant && collidedPlayer && collidedPlayer.team == FromTeam) {
+            if (FromTeam != Team.Independant && collidedPlayer && collidedPlayer.team == FromTeam) {
                 return;                
             }
 

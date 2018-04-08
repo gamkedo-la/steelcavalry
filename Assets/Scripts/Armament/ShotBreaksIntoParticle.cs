@@ -10,7 +10,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
     
-    public Player.PlayerTeam fromTeam;
+    public Team fromTeam;
 
 
 	void Start()
@@ -39,7 +39,7 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 			nameOfObjectHit = bumpFacts.collider.gameObject.name;
 
 			// If the shot is from the player, ignore it
-			if(fromTeam != Player.PlayerTeam.Independant && collidedPlayer.team == fromTeam && nameOfMechPlayerIsIn == nameOfObjectHit) {
+			if(fromTeam != Team.Independant && collidedPlayer.team == fromTeam && nameOfMechPlayerIsIn == nameOfObjectHit) {
                 return;
 			}            
 		}

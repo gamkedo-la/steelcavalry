@@ -3,7 +3,7 @@ using UnityEngine.Assertions;
 
 public class CanisterGrenade : MonoBehaviour
 {
-    [HideInInspector] public Player.PlayerTeam fromTeam;
+    [HideInInspector] public Team fromTeam;
 
 	[SerializeField] private GameObject explosionPrefab = null;
 	[SerializeField] private GameEventAudioEvent explosionAudio = null;
