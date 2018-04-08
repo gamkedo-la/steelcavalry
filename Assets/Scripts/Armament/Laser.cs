@@ -244,6 +244,11 @@ public class Laser : MonoBehaviour, IWeapon
 				didDamageEvent.Raise( 0.1f );
 				hp.TakeDamage( parameters.GetDamage( ) * Time.deltaTime );
 			}
+			
+			CanisterGrenade canisterGrenade = hit.collider.GetComponent<CanisterGrenade>();
+			if (canisterGrenade) {
+				canisterGrenade.DoDestruction(canisterGrenade.transform.position);
+			}
 
 			Mine mine = hit.collider.GetComponent<Mine>();
 			if (mine) {

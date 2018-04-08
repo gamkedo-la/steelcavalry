@@ -25,7 +25,7 @@ public class CanisterGrenade : MonoBehaviour
 		DoDestruction( transform.position );
 	}
 
-	private void DoDestruction( Vector2 point )
+	public void DoDestruction( Vector2 point )
 	{
 		explosionAudio.Raise( AudioEvents.MineExplosion, transform.position );
 		var explosion = Instantiate(explosionPrefab, point, Quaternion.identity);
