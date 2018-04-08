@@ -38,10 +38,9 @@ public class MechAnimator : MonoBehaviour {
             animController.SetBool(isIdlingParam, canIdle);            
         }
 
-        canWalk = mech.isOnGround && 
-                  Mathf.Abs(mech.mechRigidbody.velocity.x) > belowThisSpeedIsIdle && 
-                  mech.inUse && 
-                  (mech.driver.inputLeft || mech.driver.inputRight);
+        canWalk = mech.isOnGround &&
+                  Mathf.Abs(mech.mechRigidbody.velocity.x) >= belowThisSpeedIsIdle &&
+                  mech.inUse;
         animController.SetBool(isWalkingParam, canWalk);
 
         if (mech.inUse) canTakeOff = mech.driver.inputUp;
