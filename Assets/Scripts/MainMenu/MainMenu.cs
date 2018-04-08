@@ -33,6 +33,10 @@ public class MainMenu : MonoBehaviour {
 		}
     }
 
+    public void MissionDetails() {
+        StartCoroutine(ChangeLevel("Mission Details"));
+    }
+
     public void StartGame() {
         PlayerPrefs.Save();
         StartCoroutine(ChangeLevel("Main Scene"));
@@ -48,14 +52,6 @@ public class MainMenu : MonoBehaviour {
 
 	public void Credits() {
 		StartCoroutine(ChangeLevel("Credits"));
-	}
-
-	public void CreditsTwo() {
-		StartCoroutine(ChangeLevel("Credits 2"));
-	}
-
-	public void CreditsThree() {
-		StartCoroutine(ChangeLevel("Credits 3"));
 	}
 
 	public void Menu() {

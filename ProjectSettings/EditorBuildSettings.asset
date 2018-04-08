@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 17a364a03ba884d28b5cbcbdbe1b3a79
   - enabled: 1
+    path: Assets/Scenes/Mission Details.unity
+    guid: 6998b21562c0a7844b6386e6d606346e
+  - enabled: 1
     path: Assets/Scenes/Main Scene.unity
     guid: 3a4367704890d8646b1cf5a6dd4a6f16
   - enabled: 1
