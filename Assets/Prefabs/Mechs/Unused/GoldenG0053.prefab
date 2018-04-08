@@ -875,9 +875,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEvent: {fileID: 0}
-  bodyParts: []
+  bodyPartToVanish: {fileID: 0}
   mechModel: {fileID: 0}
-  mechFeet: {fileID: 0}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 0}
   ui: {fileID: 114713018997930334}
   mechName: Golden G0053
@@ -892,10 +892,15 @@ MonoBehaviour:
   mechMoveSpeed: 2
   mechRotateSpeed: 5
   jumpPower: 2500
+  crushDamage: 100
   inUse: 0
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  currentTimeToTakeOff: 0
+  takingOffTime: 2.4
+  isFlying: 0
   isFacingRight: 0
   pod: {fileID: 114265409940954450}
   driver: {fileID: 0}
