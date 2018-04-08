@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MechBodyParts : MonoBehaviour {
-    Transform[] bodyPartsTransforms;
+    public float screenshakePower = 5f;
 
+    Transform[] bodyPartsTransforms;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,9 @@ public class MechBodyParts : MonoBehaviour {
 	}
 
     public void MakeBodyParts (float expForceMin, float expForceMax) {
-		for (int i = 0; i < bodyPartsTransforms.Length; i++) {
+        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
+
+        for (int i = 0; i < bodyPartsTransforms.Length; i++) {
 			GameObject bodyPart = bodyPartsTransforms[i].gameObject;
 
 			SkinnedMeshRenderer bodyPartSkinnedMesh = bodyPart.GetComponent<SkinnedMeshRenderer> ();

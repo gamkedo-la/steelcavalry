@@ -5,6 +5,7 @@ using System.Collections;
 public class CanisterGrenade : MonoBehaviour
 {
     [HideInInspector] public Team fromTeam;
+    public float screenshakePower = 4f;
 
 	[SerializeField] private GameObject explosionPrefab = null;
 	[SerializeField] private GameEventAudioEvent explosionAudio = null;
@@ -42,7 +43,9 @@ public class CanisterGrenade : MonoBehaviour
         explosionEnlarger.fromTeam = fromTeam;
 		explosionEnlarger.SetDamage(explosionDamage);
 
-		Destroy(explosion, 2f);
+        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
+
+        Destroy(explosion, 2f);
 		Destroy(gameObject);
 	}
 
