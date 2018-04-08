@@ -235,96 +235,118 @@ public class AI : MonoBehaviour {
 
 		for(;;) {
 
-			if ( ShouldISleep( ) )
+			if ( !ShouldISleep( ) )
 			{
 				Debug.Log( "SLEEP" );
-				yield return new WaitForSeconds( minTimePerThink + Random.value * ( maxTimePerThink - minTimePerThink ) );
-			}
 
-			// reset
-			myMovement.inputUp = false;
-			myMovement.inputDown = false;
-			myMovement.inputLeft = false;
-			myMovement.inputRight = false;
-			myMovement.inputFire = false;
-			myMovement.inputAltFire = false;
-			myMovement.inputAltFire2 = false;
-			myMovement.inputEnter = false;
+				// reset
+				myMovement.inputUp = false;
+				myMovement.inputDown = false;
+				myMovement.inputLeft = false;
+				myMovement.inputRight = false;
+				myMovement.inputFire = false;
+				myMovement.inputAltFire = false;
+				myMovement.inputAltFire2 = false;
+				myMovement.inputEnter = false;
 
-			//Debug.Log("aiThink");
+				//Debug.Log("aiThink");
 
-			if (Random.value < chanceItMoves)
-			{
-				randy = Random.value;
-				if (randy < 0.25f) {
-					myMovement.inputUp = true;
-				} else if (randy < 0.5f) {
-					myMovement.inputDown = true;
-				} else if (randy < 0.75f) {
-					myMovement.inputLeft = true;
-				} else {
-					myMovement.inputRight = true;
-				} // other values: do nothing
-			}
-
-			// fixme: we also need to choose where to aim: not the mouse cursor!
-			if (Random.value < chanceItFires) {
-				// only fire is close enough to target - avoid offscreen spam
-				if (!seekTarget ||  // if not set, fire like an idiot =)
-					Vector3.Distance (this.transform.position, seekTarget.transform.position) < maxFireDist) {
-					randy = Random.value; // fire?
-					if (randy < 0.333f) {
-						myMovement.inputFire = true;
-					} else if (randy < 0.666f) {
-						myMovement.inputAltFire = true;
-					} else {
-						myMovement.inputAltFire2 = true;
-					}
-				}
-			}
-
-			if (myMovement._state == Player.PlayerState.outOfMech) {
-				myMovement.inputEnter = (Random.value < chanceItEnters); // maybe hop into a mech
-			}
-
-			if (myMovement._state == Player.PlayerState.inMech) {
-				myMovement.inputEnter = (Random.value < chanceItExits); // rarely exit the mech we're in
-			}
-
-			// simple "hack"
-			// if we're seeking something,
-			// and happen to have decided to move horizontally
-			// be sure to choose moving towards it
-			// fixme: could be fear-dependent etc
-			if (seekTarget) {
-
-				bool canSeeTarget = hasLineOfSightTo(seekTarget);
-
-				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
-
-					if (seekTarget.transform.position.x < this.transform.position.x-distanceTolerance) { // is the target left of me?
-						myMovement.inputLeft = true;
-						myMovement.inputRight = false;
-					} else if (seekTarget.transform.position.x > this.transform.position.x+distanceTolerance) { // target is to the right of me
-						myMovement.inputLeft = false;
-						myMovement.inputRight = true;
-					}
-					else // it is nearby
+				if ( Random.value < chanceItMoves )
+				{
+					randy = Random.value;
+					if ( randy < 0.25f )
 					{
-					}
-
-					// let's try gaining altitude when required as well (but now the movement is barely random at all)
-					if ((seekTarget.transform.position.y+unitsAboveTarget) > this.transform.position.y) { // is the target above me?
 						myMovement.inputUp = true;
 					}
-
-					// are we really scared? then run away instead
-					if (fear > 0.5) {
-						Debug.Log("Too scared! Running away from target!");
-						myMovement.inputLeft = !myMovement.inputLeft;
-						myMovement.inputRight = !myMovement.inputRight;
+					else if ( randy < 0.5f )
+					{
+						myMovement.inputDown = true;
 					}
+					else if ( randy < 0.75f )
+					{
+						myMovement.inputLeft = true;
+					}
+					else
+					{
+						myMovement.inputRight = true;
+					} // other values: do nothing
+				}
 
+				// fixme: we also need to choose where to aim: not the mouse cursor!
+				if ( Random.value < chanceItFires )
+				{
+					// only fire is close enough to target - avoid offscreen spam
+					if ( !seekTarget ||  // if not set, fire like an idiot =)
+						Vector3.Distance( this.transform.position, seekTarget.transform.position ) < maxFireDist )
+					{
+						randy = Random.value; // fire?
+						if ( randy < 0.333f )
+						{
+							myMovement.inputFire = true;
+						}
+						else if ( randy < 0.666f )
+						{
+							myMovement.inputAltFire = true;
+						}
+						else
+						{
+							myMovement.inputAltFire2 = true;
+						}
+					}
+				}
+
+				if ( myMovement._state == Player.PlayerState.outOfMech )
+				{
+					myMovement.inputEnter = ( Random.value < chanceItEnters ); // maybe hop into a mech
+				}
+
+				if ( myMovement._state == Player.PlayerState.inMech )
+				{
+					myMovement.inputEnter = ( Random.value < chanceItExits ); // rarely exit the mech we're in
+				}
+
+				// simple "hack"
+				// if we're seeking something,
+				// and happen to have decided to move horizontally
+				// be sure to choose moving towards it
+				// fixme: could be fear-dependent etc
+				if ( seekTarget )
+				{
+
+					bool canSeeTarget = hasLineOfSightTo( seekTarget );
+
+					if ( myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp )
+					{
+
+						if ( seekTarget.transform.position.x < this.transform.position.x - distanceTolerance )
+						{ // is the target left of me?
+							myMovement.inputLeft = true;
+							myMovement.inputRight = false;
+						}
+						else if ( seekTarget.transform.position.x > this.transform.position.x + distanceTolerance )
+						{ // target is to the right of me
+							myMovement.inputLeft = false;
+							myMovement.inputRight = true;
+						}
+						else // it is nearby
+						{
+						}
+
+						// let's try gaining altitude when required as well (but now the movement is barely random at all)
+						if ( ( seekTarget.transform.position.y + unitsAboveTarget ) > this.transform.position.y )
+						{ // is the target above me?
+							myMovement.inputUp = true;
+						}
+
+						// are we really scared? then run away instead
+						if ( fear > 0.5 )
+						{
+							Debug.Log( "Too scared! Running away from target!" );
+							myMovement.inputLeft = !myMovement.inputLeft;
+							myMovement.inputRight = !myMovement.inputRight;
+						}
+
+					}
 				}
 			}
 
