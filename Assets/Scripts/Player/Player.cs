@@ -75,35 +75,41 @@ public class Player : MonoBehaviour {
 
 	public GameObject enterMechTooltipToHide; // ignored if null for levels besides #1
 
-    // Use this for initialization
-    void Start () {
-		Assert.IsNotNull( audioEvent );
-
-		firstIcon = GameObject.Find("Main UI/Icon Turret").GetComponent<AbilityIcon>();
-		secondIcon = GameObject.Find("Main UI/Icon Thrusters").GetComponent<AbilityIcon>();
-
-		mechOnlyMask = LayerMask.GetMask("Mechs");
-		playerBody = GetComponent<Rigidbody2D>();
+    void Awake() {
         slopeWalker = GetComponent<SlopeWalker>();
+        slopeWalker.enabled = false;
+
+        Assert.IsNotNull(audioEvent);
+
+        firstIcon = GameObject.Find("Main UI/Icon Turret").GetComponent<AbilityIcon>();
+        secondIcon = GameObject.Find("Main UI/Icon Thrusters").GetComponent<AbilityIcon>();
+
+        mechOnlyMask = LayerMask.GetMask("Mechs");
+        playerBody = GetComponent<Rigidbody2D>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-		mainCam = Camera.main;
-		camScript = mainCam.GetComponent<MainCamera>();
+        mainCam = Camera.main;
+        camScript = mainCam.GetComponent<MainCamera>();
 
         cursor = UIResourceManager.MouseCursor; // NOTE: ai bots use this class but do not use mouse cursor
 
         _state = PlayerState.outOfMech; //default player state, switches between in and out of mech
 
-		jetpack = GetComponent<Jetpack>();
+        jetpack = GetComponent<Jetpack>();
 
-		if (weaponEquipped) { // sanity check: some bots don't have this?
-			weapon = weaponEquipped.GetComponent<PlayerMachineGun> ();
-			weaponManager.GiveWeapon (weapon);
-		}
+        if (weaponEquipped) { // sanity check: some bots don't have this?
+            weapon = weaponEquipped.GetComponent<PlayerMachineGun>();
+            weaponManager.GiveWeapon(weapon);
+        }
 
         isAiPlayer = GetComponent<AI>() != null;
 
         EnableWeapons(true);
+    }
+
+    // Use this for initialization
+    void Start () {
+        slopeWalker.enabled = true;
     }
 
 	void EnterMech(Mech mech) {

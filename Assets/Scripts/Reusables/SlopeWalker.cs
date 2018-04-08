@@ -10,14 +10,14 @@ public class SlopeWalker : MonoBehaviour {
     public bool isMovingUp = false;
     public string slopeTag = "Ground";
     public float maxClimbableSlopeAngle = 85f;
+    public int feetRaycastDepth = 5;
 
     private bool isOnSlope = false;
     private Vector2 velocityOnSlope = Vector2.zero;
 
     public float GetCollidedSlopeAngle (Vector2 velocity, GameObject feet, float rayLength, bool isFacingRight, string tag, float maxClimbableAngle) {
         float angle = 0;
-
-        int feetRaycastDepth = 5;        
+                
         RaycastHit2D[] raycastHits = new RaycastHit2D[feetRaycastDepth];
         Vector2 raycastDirection = isFacingRight ? Vector2.right : Vector2.left;
         int rayCount = Physics2D.RaycastNonAlloc(feet.transform.position, raycastDirection, raycastHits, rayLength);

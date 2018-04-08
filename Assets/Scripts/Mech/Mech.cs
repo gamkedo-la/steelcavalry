@@ -83,7 +83,9 @@ public class Mech : MonoBehaviour
 
 	private Animator anim;
 
-    void Start() {
+    void Awake () {
+        slopeWalker = GetComponent<SlopeWalker>();
+        slopeWalker.enabled = false;
 
 		anim = GetComponentInChildren<Animator>();
 
@@ -97,11 +99,14 @@ public class Mech : MonoBehaviour
         mechRigidbody = GetComponent<Rigidbody2D>();
         mechBodyParts = GetComponentInChildren<MechBodyParts>();
 
-        slopeWalker = GetComponent<SlopeWalker>();
 
         thrusterFuelCurrent = thrusterFuelMax;
 
 		anim.enabled = false;
+    }
+
+    void Start() {
+        slopeWalker.enabled = true;    
     }
 
     public void Side(bool isRight) {
