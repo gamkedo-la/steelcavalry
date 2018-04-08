@@ -29,8 +29,13 @@ public class InGameMenu : MonoBehaviour {
 		"Well done, private! It looks like more of those space pirates are " + 
 		"attacking a transport ship. I just sent you their coordinates. Get over there ASAP!";
 
-	private string spaceStationClearedText = "";
-	private string enemyBaseClearedText = "";
+	private string spaceStationClearedText = 
+		"Good work! While you kept the ship safe, we traced outgoing " +
+		"transmissions back to the pirate base. Coordinates sent. Let's go round 'em up!";
+
+	private string enemyBaseClearedText = 
+		"It looks like you got 'em all! A team is inbound to secure the area " + 
+		"and confiscate their equipment. Come on back to HQ for debriefing. Excellent work!";
 
 	private List<string> sceneNames = new List<string>();
 	private int totalScenes = 3;
