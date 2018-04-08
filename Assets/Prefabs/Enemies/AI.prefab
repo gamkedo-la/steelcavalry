@@ -503,6 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab46232818b1f5438b775edaf06e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanPLayer: {fileID: 0}
+  inactiveRange: 15
   confidence: 0.687
   boredom: 0
   anger: 0.124
@@ -594,6 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingWeapon: {fileID: 0}
   turretMountPoint: {fileID: 4764357755977490}
   launcherMountPoint: {fileID: 4764357755977490}
   throwerMountPoint: {fileID: 4764357755977490}
@@ -640,6 +643,7 @@ MonoBehaviour:
   playerHealthUI: {fileID: 114247246905794794}
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
   playerSpeed: 100
+  playerEjectForceMagnitude: 100
   mechNearEnoughToUseDistance: 1
   jetPackPower: 100
   weaponFiringPoint: {fileID: 4764357755977490}
@@ -662,6 +666,8 @@ MonoBehaviour:
   isFacingRight: 1
   isAttacking: 0
   _state: 1
+  team: 2
+  enterMechTooltipToHide: {fileID: 0}
 --- !u!114 &114754730038898088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -708,6 +714,9 @@ MonoBehaviour:
   isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+  feetRaycastDepth: 10
+  slopeAngle: 0
+  isOnSlope: 0
 --- !u!198 &198132065080834648
 ParticleSystem:
   m_ObjectHideFlags: 1
