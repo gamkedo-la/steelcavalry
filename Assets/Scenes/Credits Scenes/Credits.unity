@@ -256,8 +256,8 @@ MonoBehaviour:
     local multiplayer\r\n<b><size=20>Daniel Viruet</size></b> Menu scene, platform
     models, mech colliders, addl. tuning, city background mech model (Robo Knight),
     mine model (updated)\r\n<b><size=20>Miles Robson</size></b> Mines code (and original
-    model, not shown), camera zoom code improvements, controls guide\r\n<b><size=20>Vignesh
-    Ramesh</size></b> Action sound effects, several background songs\r\n<b><size=20>Christopher
+    model, not shown), camera zoom code improvements\r\n<b><size=20>Vignesh Ramesh</size></b>
+    Action sound effects, controls guide, several background songs\r\n<b><size=20>Christopher
     McLaughlin</size></b> Intro text sequence (writing, code, and display of wireframe)\r\n<b><size=20>Andy
     King</size></b> Kiwi integration, addl. texturing for Cassowary\r\n<b><size=20>Nicholas
     Polchies</size></b> Robo Warrior rigging, menu buttons, sound and music sliders
