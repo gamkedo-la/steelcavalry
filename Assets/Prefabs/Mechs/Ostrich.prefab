@@ -1727,14 +1727,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718689194683924}
-  m_LocalRotation: {x: -0, y: 0.8916509, z: -0, w: -0.45272362}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.009475708, y: -0.94699955, z: 0.35081872}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4377601590291910}
   m_Father: {fileID: 4210744720910714}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 233.83699, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4049720087865266
 Transform:
   m_ObjectHideFlags: 1
@@ -2055,7 +2055,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873332035167752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.7, y: -8.3, z: 0}
+  m_LocalPosition: {x: -9.58, y: 7.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224903176226461142}
@@ -3385,7 +3385,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e2d13cc382e03254fa7a30e0e9e44511, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3812,6 +3812,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  takingOffTime: 0.6
   crushDamage: 100
   inUse: 0
   damageTaken: 0
@@ -3819,7 +3820,7 @@ MonoBehaviour:
   canBeStolen: 1
   isOnGround: 0
   currentTimeToTakeOff: 0
-  takingOffTime: 0.6
+  canRotateOnSlopes: 1
   isFlying: 0
   isFacingRight: 1
   pod: {fileID: 0}
@@ -4208,11 +4209,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1208257721238880}
-  rayLength: 0.7
+  rayLength: 1.5
   isFacingRight: 0
   isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+  feetRaycastDepth: 3
+  slopeAngle: 0
+  isOnSlope: 0
 --- !u!114 &114696374993797650
 MonoBehaviour:
   m_ObjectHideFlags: 1

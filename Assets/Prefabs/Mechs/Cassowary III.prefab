@@ -2016,7 +2016,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345863481920100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.124, z: 0}
+  m_LocalPosition: {x: 0, y: -1.067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442002908799116}
@@ -2169,7 +2169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631684117738174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.73019, y: -7.587064, z: 1}
+  m_LocalPosition: {x: -12.833317, y: 13.126715, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224733927357161492}
@@ -3296,7 +3296,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e0c887d5e6d578b4388912bfef40086c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3799,11 +3799,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1345863481920100}
-  rayLength: 0.51
+  rayLength: 1.2
   isFacingRight: 0
   isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+  feetRaycastDepth: 3
+  slopeAngle: 0
+  isOnSlope: 0
 --- !u!114 &114710788171587492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3991,6 +3994,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  takingOffTime: 0.5
   crushDamage: 100
   inUse: 0
   damageTaken: 0
@@ -3998,7 +4002,7 @@ MonoBehaviour:
   canBeStolen: 1
   isOnGround: 0
   currentTimeToTakeOff: 0
-  takingOffTime: 0.5
+  canRotateOnSlopes: 1
   isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}

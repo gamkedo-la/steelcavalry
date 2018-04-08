@@ -1120,7 +1120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709899569100756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.37, y: -7.75, z: 1}
+  m_LocalPosition: {x: -10.671453, y: 7.5446243, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224361447441235030}
@@ -1644,7 +1644,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472137353520340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.06, z: 0}
+  m_LocalPosition: {x: 0, y: -0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4025798628902146}
@@ -1971,7 +1971,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33, y: 0.43}
+  m_Offset: {x: 0.14854527, y: 0.50290453}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1982,7 +1982,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4646072, y: 3.4064484}
+  m_Size: {x: 1.4997272, y: 3.2606394}
   m_EdgeRadius: 0
 --- !u!95 &95569396242321082
 Animator:
@@ -1996,7 +1996,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a40d7c08d9774f54fa0dcf23532f7d65, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2460,11 +2460,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkerFeet: {fileID: 1472137353520340}
-  rayLength: 2
+  rayLength: 1.5
   isFacingRight: 1
   isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+  feetRaycastDepth: 3
 --- !u!114 &114560210114045128
 MonoBehaviour:
   m_ObjectHideFlags: 1
