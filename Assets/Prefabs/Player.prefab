@@ -595,7 +595,7 @@ MonoBehaviour:
   isFacingRight: 1
   isAttacking: 0
   _state: 0
-  team: 0
+  team: 1
   enterMechTooltipToHide: {fileID: 0}
 --- !u!114 &114866021389114344
 MonoBehaviour:
