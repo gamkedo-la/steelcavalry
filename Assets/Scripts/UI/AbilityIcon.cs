@@ -23,9 +23,11 @@ public class AbilityIcon : MonoBehaviour
 		icon = transform.Find("Icon").GetComponent<Image>();
 	}
 
-	void Update ()
+	public void SetStateDefault( )
 	{
-
+		group.alpha = 1.0f;
+		background.fillAmount = 1;
+		isOn = true;
 	}
 
 	public void SetState( UIEvent eventType, float percentFull )
