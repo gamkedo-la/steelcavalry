@@ -51,7 +51,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ef45685887da23d40b842a2f9eef6961, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2a5b372a59a52b641ac252276857d4d5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.233
   m_Pitch: 1
@@ -558,6 +558,32 @@ MonoBehaviour:
   - ReadOnlyName: Shot
     audioEvent: 14
     soundFile: {fileID: 8300000, guid: 64ddcaa83e2bf4a4e833286195f45302, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: MineExplosion
+    audioEvent: 15
+    soundFile: {fileID: 8300000, guid: 946c76b4aebefb540b4ba1a21ae6ecbe, type: 3}
     volume: 1
     priority: 128
     minPitch: 0.9
