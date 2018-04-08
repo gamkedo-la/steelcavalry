@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour {
     public float zoomSpeed = 3;
     public float followSpeed = 3;
     public float shakePower = 0;
-
+    public bool canShake = false;
     private float targetCamZoomSize;
 	private Camera mainCam;
     private Vector3 originalCamPosition;
@@ -50,13 +50,15 @@ public class MainCamera : MonoBehaviour {
 	}
 
     public void ShakeTheCam(float shakeValue, int wait = 0, float rate = 0.001f) {
-        if (shakePower <= 0) {
-            originalCamPosition = mainCam.transform.position;
-            shakePower = shakeValue;
-            InvokeRepeating("CameraShaker", wait, rate);            
-        }
-        else {
-            CameraShakerStopper();
+        if (canShake) {
+            if (shakePower <= 0) {
+                originalCamPosition = mainCam.transform.position;
+                shakePower = shakeValue;
+                InvokeRepeating("CameraShaker", wait, rate);
+            }
+            else {
+                CameraShakerStopper();
+            }
         }
     }
 
@@ -83,5 +85,4 @@ public class MainCamera : MonoBehaviour {
         CancelInvoke("CameraShaker");
         mainCam.transform.position = originalCamPosition;
     }
-
 }
