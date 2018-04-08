@@ -68,7 +68,7 @@ public class Targeting : MonoBehaviour
     {
         if (targetableTags.Contains(other.gameObject.tag))
         {
-            Debug.Log("Found the player!!!!");
+            // Debug.Log("Found the player!!!!");
             currentTarget = other.gameObject; //locked on the player
 
             backAndForth.enabled = false;
@@ -79,7 +79,7 @@ public class Targeting : MonoBehaviour
     {
         if (other.gameObject == currentTarget)
         {
-            Debug.Log("I lost'em....");
+            // Debug.Log("I lost'em....");
             currentTarget = null;
             backAndForth.enabled = true;
         }

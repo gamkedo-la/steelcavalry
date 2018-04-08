@@ -3643,7 +3643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWeapon: {fileID: 0}
+  startingWeapon: {fileID: 1995069063983258, guid: cf64291d31a0dfd498fe9dccd14a4cd2,
+    type: 2}
   turretMountPoint: {fileID: 4856770108781578}
   launcherMountPoint: {fileID: 4821247537355512}
   throwerMountPoint: {fileID: 4708238339849224}

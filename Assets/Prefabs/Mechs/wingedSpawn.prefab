@@ -2244,6 +2244,7 @@ MonoBehaviour:
   walkerFeet: {fileID: 1136175309978804}
   rayLength: 2
   isFacingRight: 0
+  isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
 --- !u!114 &114076804088240342
@@ -2284,7 +2285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a15617e65a434cac4768d3e209203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   missileFireParticles: {fileID: 198751023226625790}
   missileLauncherLocation: {fileID: 4439105728363664}
   positionLocked: 0
@@ -2383,6 +2383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingWeapon: {fileID: 1448447016015004, guid: 965029a569dcd2c498b8dd4309b3fb92,
+    type: 2}
   turretMountPoint: {fileID: 4641756229534610}
   launcherMountPoint: {fileID: 4439105728363664}
   throwerMountPoint: {fileID: 4575199096112362}
@@ -2523,12 +2525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEvent: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
-  bodyParts:
-  - {fileID: 1189775165479272}
-  - {fileID: 1265468005696324}
-  - {fileID: 1029026005365024}
   bodyPartToVanish: {fileID: 1954012099066822}
   mechModel: {fileID: 4922977364856674}
+  mechRigidbody: {fileID: 0}
   explosion: {fileID: 1477945586301028, guid: 415fdc48bfd697142bf7ce948eb9649a, type: 2}
   ui: {fileID: 114999132410321908}
   mechName: Winged Spawn
@@ -2548,6 +2547,10 @@ MonoBehaviour:
   damageTaken: 0
   maxDamage: 100
   canBeStolen: 1
+  isOnGround: 0
+  currentTimeToTakeOff: 0
+  takingOffTime: 2.4
+  isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
   driver: {fileID: 0}

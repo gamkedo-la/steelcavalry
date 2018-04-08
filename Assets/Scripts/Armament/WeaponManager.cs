@@ -27,15 +27,11 @@ public class WeaponManager : MonoBehaviour
 	{
         //Debug.Log( name + " weapons are attached" );
 
-        cursor = UIResourceManager.MouseCursor;
-
+        
 		Assert.IsNotNull( turretMountPoint );
 		Assert.IsNotNull( launcherMountPoint );
 		Assert.IsNotNull( throwerMountPoint );
 
-		if(isPlayerDriver) { // null is valid for bots since they do not use the mouse cursor
-			Assert.IsNotNull( cursor );
-		}
 		Assert.IsNotNull( weaponSlotEvents );
 
 		if ( turretMountPoint.transform.childCount > 0 )
@@ -184,7 +180,14 @@ public class WeaponManager : MonoBehaviour
 				);
 
 				launcher = g.GetComponent<IWeapon>( );
-				g.GetComponent<MissileLauncher>( ).SetCursor( cursor );
+				if(isPlayerDriver) { // null is valid for bots since they do not use the mouse cursor
+					if(cursor == null) {
+						cursor = UIResourceManager.MouseCursor;
+						Assert.IsNotNull( cursor );
+					}
+					g.GetComponent<MissileLauncher>( ).SetCursor( cursor );
+				}
+
 
 				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );

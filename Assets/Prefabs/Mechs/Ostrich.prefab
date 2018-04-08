@@ -3550,7 +3550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1293067286f67499cadbcede988502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWeapon: {fileID: 0}
+  startingWeapon: {fileID: 1448447016015004, guid: 965029a569dcd2c498b8dd4309b3fb92,
+    type: 2}
   turretMountPoint: {fileID: 4361747724607256}
   launcherMountPoint: {fileID: 4582831794685446}
   throwerMountPoint: {fileID: 4403486158949652}

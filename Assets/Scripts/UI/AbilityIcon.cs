@@ -48,7 +48,11 @@ public class AbilityIcon : MonoBehaviour
 	public void SetIcon(string iconName) {
 		string path = "Sprites/" + iconName;
 		Sprite spriteToUse = Resources.Load<Sprite>(path);
-		icon.sprite = spriteToUse;
+		if(icon) {
+			icon.sprite = spriteToUse;
+		} else {
+			Debug.LogWarning("ability icon not found");
+		}
 
 		if ( isOn ) group.alpha = 1.0f;
 	}
