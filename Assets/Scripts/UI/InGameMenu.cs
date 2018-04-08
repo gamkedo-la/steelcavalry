@@ -59,6 +59,10 @@ public class InGameMenu : MonoBehaviour {
 				Pause();
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.C)) {
+			MissionComplete();
+		}
 	}
 
 	void SetSceneAndMenuUI () {
@@ -109,7 +113,9 @@ public class InGameMenu : MonoBehaviour {
 	public void MissionComplete () {
 		Pause();
 		DeactivateButtonsAndPanels();
-		nextStageButton.SetActive(true);
+		if (currentScene.name != "EnemyBase") {			
+			nextStageButton.SetActive(true);
+		}
 		menuTitleText.text = playerWonText;
 		stageClearedPanel.SetActive(true);
 		stageClearedText.text = GetStageClearedText();
