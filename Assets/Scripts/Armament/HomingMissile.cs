@@ -89,7 +89,7 @@ public class HomingMissile : MonoBehaviour
             collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
         }
 
-        if (collidedPlayer && collidedPlayer.team == fromTeam)
+        if (fromTeam != Player.PlayerTeam.Independant && collidedPlayer && collidedPlayer.team == fromTeam)
             return;
 
         // Try to find a Mech script on the hit object
