@@ -30,7 +30,8 @@ public class CanisterGrenade : MonoBehaviour
 		explosionAudio.Raise( AudioEvents.MineExplosion, transform.position );
 		var explosion = Instantiate(explosionPrefab, point, Quaternion.identity);
 		var explosionWave = explosion.gameObject.transform.GetChild(0);
-		var explosionEnlarger = explosionWave.GetComponent<ExplosionEnlarger>();
+		ExplosionEnlarger explosionEnlarger = explosionWave.GetComponent<ExplosionEnlarger>();
+        explosionEnlarger.fromTeam = fromTeam;
 		explosionEnlarger.SetDamage(explosionDamage);
 
 		Destroy(explosion, 2f);
