@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Collections;
 
 public class CanisterGrenade : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class CanisterGrenade : MonoBehaviour
 	[SerializeField] private GameEventAudioEvent explosionAudio = null;
 
 	private float explosionDamage = 10f;
+	private float explosionDelay = 4f;
 
 	void Start( )
 	{
 		Assert.IsNotNull( explosionPrefab );
+		StartCoroutine(StartCountDown());
 	}
 
 	private void OnCollisionEnter2D( Collision2D collision )
@@ -23,6 +26,11 @@ public class CanisterGrenade : MonoBehaviour
 			return;
 
 		DoDestruction( transform.position );
+	}
+
+	IEnumerator StartCountDown () {
+		yield return new WaitForSeconds(explosionDelay);
+		DoDestruction(transform.position);
 	}
 
 	public void DoDestruction( Vector2 point )
