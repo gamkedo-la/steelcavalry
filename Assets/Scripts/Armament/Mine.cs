@@ -13,6 +13,7 @@ public class Mine : MonoBehaviour
     public float explosionDestroyDelay = 2f;
     public float damagePerMine = 10f;
     public double floatWeight = 100;
+    public float screenshakePower = 5f;
 
     // Use this for initialization
     public void Start()
@@ -46,6 +47,8 @@ public class Mine : MonoBehaviour
         string colliderName = collision.collider.gameObject.name;
         if (colliderName.Contains("Shell")) return;
         ExplodeAndDestroy();
+
+        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
     }
 
     public void ExplodeAndDestroy()
