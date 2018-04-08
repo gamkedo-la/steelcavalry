@@ -31,6 +31,7 @@ public class Mech : MonoBehaviour
     public float mechMoveSpeed = 2.0f;
     public float mechRotateSpeed = 5.0f;
     public float jumpPower = 10.0f;
+    public float takingOffTime = 2.4f;
     public float crushDamage = 100f;
 
     [Header("Mech State")]
@@ -40,7 +41,7 @@ public class Mech : MonoBehaviour
     public bool canBeStolen = true;
     public bool isOnGround;
     public float currentTimeToTakeOff = 0;
-    public float takingOffTime = 2.4f;
+    public bool canRotateOnSlopes = true;
     public bool isFlying = false;
     private bool canFly = true;
     public bool isFacingRight;
@@ -157,6 +158,13 @@ public class Mech : MonoBehaviour
         }
     }
 
+    public void Update() {
+        if (slopeWalker.isOnSlope && canRotateOnSlopes) {
+            Quaternion slopeQuaternion = Quaternion.Euler(Mathf.RoundToInt(-slopeWalker.slopeAngle), mechModel.transform.eulerAngles.y, mechModel.transform.eulerAngles.x);
+            mechModel.transform.rotation = Quaternion.Slerp(mechModel.transform.rotation, slopeQuaternion, 10f * Time.deltaTime);
+        }
+    }
+
     // Update is called once per frame
     public void FixedUpdate() {
         // BRANCH controls for Regular/Golden Goose Mech
@@ -238,7 +246,7 @@ public class Mech : MonoBehaviour
 
         HandleAbilities();
 
-        mechRigidbody.drag = drag * Mathf.Pow(mechRigidbody.velocity.magnitude, 2);
+        mechRigidbody.drag = drag * Mathf.Pow(mechRigidbody.velocity.magnitude, 2);        
 
         if (!canBeStolen) {
             AttemptToToggleCanBeStolen();

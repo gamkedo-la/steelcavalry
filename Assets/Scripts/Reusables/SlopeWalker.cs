@@ -5,14 +5,15 @@ using UnityEngine;
 public class SlopeWalker : MonoBehaviour {
     private Rigidbody2D walkerBody;
     public GameObject walkerFeet;
-    public float rayLength = 2.0f;
+    public float rayLength = 0.5f;
     public bool isFacingRight = false;
     public bool isMovingUp = false;
     public string slopeTag = "Ground";
     public float maxClimbableSlopeAngle = 85f;
-    public int feetRaycastDepth = 5;
-
-    private bool isOnSlope = false;
+    public int feetRaycastDepth = 3;
+    [HideInInspector] public float slopeAngle = 0;
+    
+    [HideInInspector] public bool isOnSlope = false;
     private Vector2 velocityOnSlope = Vector2.zero;
 
     public float GetCollidedSlopeAngle (Vector2 velocity, GameObject feet, float rayLength, bool isFacingRight, string tag, float maxClimbableAngle) {
@@ -49,9 +50,9 @@ public class SlopeWalker : MonoBehaviour {
     }
 
     void FixedUpdate () {        
-        GetCollidedSlopeAngle(walkerBody.velocity, walkerFeet, rayLength, isFacingRight, slopeTag, maxClimbableSlopeAngle);
+        slopeAngle = GetCollidedSlopeAngle(walkerBody.velocity, walkerFeet, rayLength, isFacingRight, slopeTag, maxClimbableSlopeAngle);
         if (isOnSlope && !isMovingUp) {
             walkerBody.velocity = velocityOnSlope;
-        }
+        }                
     }
 }
