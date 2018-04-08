@@ -105,12 +105,13 @@ public class Player : MonoBehaviour {
         isAiPlayer = GetComponent<AI>() != null;
 
         EnableWeapons(true);
-    }
 
-    // Use this for initialization
+		Invoke( "SetDefaultIcons", 0.1f );
+	}
+
     void Start () {
         slopeWalker.enabled = true;
-    }
+	}
 
 	void EnterMech(Mech mech) {
 		if (mech.mechModel == null) {
@@ -176,7 +177,7 @@ public class Player : MonoBehaviour {
             isFacingRight = true;
             weapon.SetDir(true);
             playerBody.AddForce(Vector3.up * playerEjectForceMagnitude * 2f + Vector3.right * playerEjectForceMagnitude);
-        }        
+        }
 
 		mechImIn.wasExited();
 		mechImIn = null;
@@ -257,13 +258,17 @@ public class Player : MonoBehaviour {
 			inputAltFire = Input.GetButton("player"+gamepadNumber+"fire2");
 			inputAltFire2 = Input.GetButton("player"+gamepadNumber+"fire3");
 			inputEnter = Input.GetButton("player"+gamepadNumber+"jump");
-
-			// debug spam
-			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxis("player"+playerNumber+"updown"));
-			//Debug.Log("player"+playerNumber+"updown="+Input.GetAxisRaw("player"+playerNumber+"updown"));
-
 		}
+	}
 
+	void SetDefaultIcons()
+	{
+		if ( !isAiPlayer )
+		{
+			firstIcon.SetIcon( "pilotGunIcon" );
+			firstIcon.SetStateDefault( );
+			secondIcon.SetIcon( "enterIcon" );
+		}
 	}
 
     void EnableWeapons(bool enabled) {
@@ -390,7 +395,7 @@ public class Player : MonoBehaviour {
                 }
 
                 playerBody.velocity = Vector2.zero;
-                
+
                 break;
 
             // Update method for outside mech
