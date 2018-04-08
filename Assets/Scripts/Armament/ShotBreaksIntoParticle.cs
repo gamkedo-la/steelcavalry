@@ -7,35 +7,41 @@ public class ShotBreaksIntoParticle : MonoBehaviour
 	[SerializeField] private GameObject pfx;
 	[SerializeField] private float damagePerShot = 10.0f;
 
-	private Player player;
 	private string nameOfMechPlayerIsIn;
 	private string nameOfObjectHit;
+    
+    public Player.PlayerTeam fromTeam;
 
-	[HideInInspector]
-	public int playerNumber;
 
 	void Start()
 	{
 		Assert.IsNotNull( didDamageEvent );
-
-		GameObject playerGO = GameObject.FindWithTag("Player");
-		if(playerGO) {
-			player = playerGO.GetComponent<Player>();
-		}
 	}
 
 	void OnCollisionEnter2D(Collision2D bumpFacts) {
-		/*Debug.Log("Shot hit: " + bumpFacts.collider.gameObject.name +
+        /*Debug.Log("Shot hit: " + bumpFacts.collider.gameObject.name +
 		"Reminder: using Physics2D Layer ignore shenanigans for demo");*/
 
-		if(player) {
-			nameOfMechPlayerIsIn = player.GetComponent<Player>().getNameOfMechPlayerIsIn();
-			nameOfObjectHit = bumpFacts.collider.gameObject.name;
+        Player collidedPlayer = bumpFacts.collider.GetComponent<Player>();
+        Mech collidedMech = bumpFacts.collider.GetComponent<Mech>();
 
+        if (collidedPlayer != null || collidedMech != null) {
+            collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
+        }
+
+		if(collidedPlayer) {
+			nameOfMechPlayerIsIn = collidedPlayer.GetComponent<Player>().getNameOfMechPlayerIsIn();
+
+            if (nameOfMechPlayerIsIn.Length == 0) {
+                nameOfMechPlayerIsIn = collidedPlayer.gameObject.name;
+            }
+
+			nameOfObjectHit = bumpFacts.collider.gameObject.name;
+            
 			// If the shot is from the player, ignore it
-			if(playerNumber > 0 && nameOfMechPlayerIsIn == nameOfObjectHit) {
-				return;
-			}
+			if(fromTeam != Player.PlayerTeam.Independant && collidedPlayer.team == fromTeam && nameOfMechPlayerIsIn == nameOfObjectHit) {
+                return;
+			}            
 		}
 
 		// Try to find a Mech script on the hit object

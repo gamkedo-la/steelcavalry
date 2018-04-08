@@ -107,7 +107,9 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
-		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
+        shotGO.GetComponent<ShotBreaksIntoParticle>().fromTeam = transform.GetComponentInParent<Player>().team;
+
+        Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;
 		shotGO.GetComponent<ShotBreaksIntoParticle>( ).SetDamage( parameters.GetDamage( ) );
 

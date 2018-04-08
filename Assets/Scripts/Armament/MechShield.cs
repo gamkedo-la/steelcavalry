@@ -13,8 +13,8 @@ public class MechShield : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
-		if (other.CompareTag("PlayerProjectile") && transform.parent.parent.GetComponent<Mech>().driver.gamepadNumber // FIXME
-			!= other.gameObject.GetComponent<ShotBreaksIntoParticle>().playerNumber)
+		if (other.CompareTag("PlayerProjectile") && transform.parent.parent.GetComponent<Mech>().driver.team // FIXME
+			!= other.gameObject.GetComponent<ShotBreaksIntoParticle>().fromTeam)
         {
 			GameObject pfxGO = Instantiate(pfx, other.transform.position, transform.rotation);
 			pfxGO.transform.SetParent(LitterContainer.instanceTransform);

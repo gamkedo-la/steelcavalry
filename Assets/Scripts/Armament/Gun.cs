@@ -114,7 +114,7 @@ public class Gun : MonoBehaviour, IWeapon
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
 		// TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
-		shotGO.GetComponent<ShotBreaksIntoParticle>().playerNumber = transform.GetComponentInParent<Mech>().driver.gamepadNumber;
+		shotGO.GetComponent<ShotBreaksIntoParticle>().fromTeam = transform.GetComponentInParent<Mech>().driver.team;
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;

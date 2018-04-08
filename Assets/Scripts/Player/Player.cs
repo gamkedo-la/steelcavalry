@@ -73,6 +73,15 @@ public class Player : MonoBehaviour {
 	}
 	public PlayerState _state;
 
+    public enum PlayerTeam {
+        Independant,
+        TeamA,
+        TeamB,
+        TeamC,
+        TeamD
+    }
+    public PlayerTeam team = PlayerTeam.Independant;
+
 	public GameObject enterMechTooltipToHide; // ignored if null for levels besides #1
 
     void Awake() {
