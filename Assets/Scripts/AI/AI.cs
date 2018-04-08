@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 // This AI class is like a "dumb terminal" in a good way;
 // it only interfaces with the game the same way the player does:
@@ -9,8 +10,12 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 
 public class AI : MonoBehaviour {
+[Header("Player")]
+	[Tooltip("Put reference to the human player")]
+	public Transform humanPLayer;
+	public float inactiveRange = 15f;
 
-[Header("Emotional State")]
+	[Header("Emotional State")]
 	[Tooltip("Fluctuating values based on game events")]
 	[Range(0.0f, 1.0f)]
 	public float confidence = 0.0f;
@@ -66,37 +71,40 @@ public class AI : MonoBehaviour {
     public float scannerLength = 5.0f;
     public float scannerMaxRotation = 60.0f;
     public float scannerRotateSpeed = 10.0f;
-    public LayerMask visibleToMe;    
+    public LayerMask visibleToMe;
     private GameObject scanner;
     public int scannerIntervalms = 1000;
     public int scannerDepth = 5;
     private GameObject pointInArc;
 
-[Header("Target GameObjects")]    
+[Header("Target GameObjects")]
 	public GameObject spawnPrefabOnDeath;
 	public GameObject spawnPrefabOnHit;
 	public GameObject seekTargetOutside;
 	public GameObject seekTargetInMech;
 	private GameObject seekTarget;
 
-	private Player myMovement; // so we can access the input boolean flags    
+	private Player myMovement; // so we can access the input boolean flags
 
     // Use this for initialization
     void Start () {
+
+		Assert.IsNotNull( humanPLayer );
+
 		myMovement = GetComponent<Player>();
 
         // Vision Scanner, this rotates
         scanner = new GameObject("Vision Scanner");
         Transform thisTransform = this.gameObject.transform;
         scanner.transform.position = thisTransform.position;
-        scanner.transform.parent = thisTransform;        
+        scanner.transform.parent = thisTransform;
 
         // A point in the arc of the vision scanner, parented under Vision Scanner to rotate along the arc
         pointInArc = new GameObject("Point in Arc");
-        Transform scannerTransform = scanner.gameObject.transform;        
+        Transform scannerTransform = scanner.gameObject.transform;
         float leftOrRight = myMovement.isFacingRight ? 1 : -1;
-        pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerLength, 
-                                                    scanner.transform.position.y);        
+        pointInArc.transform.position = new Vector3(scannerTransform.position.x + leftOrRight * scannerLength,
+                                                    scanner.transform.position.y);
         pointInArc.transform.parent = scannerTransform;
 
         // AI starts thinking
@@ -104,7 +112,7 @@ public class AI : MonoBehaviour {
     }
 
     public RaycastHit2D[] GetScannedGameObjects() {
-        Vector3 rayDirection1 = (new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y - 2f) - 
+        Vector3 rayDirection1 = (new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y - 2f) -
                                  scanner.transform.position)
                                  .normalized;
         Vector3 rayDirection2 = (new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y + 2f) -
@@ -127,8 +135,8 @@ public class AI : MonoBehaviour {
 
         for (int i = 1; i < hit1; i++) {  // i starts at 1 to ignore self
             Collider2D resultCollider = scannedHits1[i].collider;
-            /*if (resultCollider != null) {                
-                Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");                
+            /*if (resultCollider != null) {
+                Debug.Log(gameObject.name + " can see " + resultCollider.name + "!");
             }*/
         }
         for (int i = 1; i < hit2; i++) {  // i starts at 1 to ignore self
@@ -172,11 +180,16 @@ public class AI : MonoBehaviour {
 		return amount;
 	}
 
+	private bool ShouldISleep( )
+	{
+		return Vector2.Distance( transform.position, humanPLayer.position ) >= inactiveRange;
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (!myMovement)
+		if (!myMovement || ShouldISleep())
 			return;
-        
+
         if (Mathf.FloorToInt(Time.timeSinceLevelLoad * 1000f) % (scannerIntervalms + 100) >= scannerIntervalms) {
             // set the position of the point in arc depending on the facing direction
             Vector3 pointInArcLocalPos = pointInArc.transform.localPosition;
@@ -185,7 +198,7 @@ public class AI : MonoBehaviour {
             // rotate the vision scanner
             scanner.transform.rotation = Quaternion.Euler(0f, 0f, scannerMaxRotation * Mathf.Sin(Time.time * scannerRotateSpeed));
         }
-        
+
         Debug.DrawLine(scanner.transform.position, new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y - 2f), Color.red);
         Debug.DrawLine(scanner.transform.position, new Vector3(pointInArc.transform.position.x, pointInArc.transform.position.y + 2f), Color.red);
 
@@ -219,6 +232,10 @@ public class AI : MonoBehaviour {
 		float randy;
 
 		for(;;) {
+
+			if ( ShouldISleep( ) )
+				yield return new WaitForSeconds( minTimePerThink + Random.value * ( maxTimePerThink - minTimePerThink ) );
+
 			// reset
 			myMovement.inputUp = false;
 			myMovement.inputDown = false;
@@ -231,7 +248,7 @@ public class AI : MonoBehaviour {
 
 			//Debug.Log("aiThink");
 
-			if (Random.value < chanceItMoves) 
+			if (Random.value < chanceItMoves)
 			{
 				randy = Random.value;
 				if (randy < 0.25f) {
@@ -279,7 +296,7 @@ public class AI : MonoBehaviour {
 				bool canSeeTarget = hasLineOfSightTo(seekTarget);
 
 				if (myMovement.inputLeft || myMovement.inputRight || myMovement.inputUp) {
-					
+
 					if (seekTarget.transform.position.x < this.transform.position.x-distanceTolerance) { // is the target left of me?
 						myMovement.inputLeft = true;
 						myMovement.inputRight = false;
