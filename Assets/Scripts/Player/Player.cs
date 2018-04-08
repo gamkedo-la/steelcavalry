@@ -322,6 +322,9 @@ public class Player : MonoBehaviour {
 
         if (weaponManager != null) {
             weaponManager.SetDir(isFacingRight);
+            if (weaponManager.equippedWeapons.Count > 0) {
+                weaponManager.equippedWeapons[0].FromTeam = team;
+            }
         }
 
         // flips weapon firing point to a side depending on facing direction
