@@ -234,7 +234,7 @@ public class Laser : MonoBehaviour, IWeapon
                 collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
             }
 
-            if (collidedPlayer && collidedPlayer.team == FromTeam) {
+            if (FromTeam != Player.PlayerTeam.Independant && collidedPlayer && collidedPlayer.team == FromTeam) {
                 return;                
             }
 
