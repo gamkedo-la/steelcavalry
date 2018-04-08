@@ -187,8 +187,10 @@ public class AI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!myMovement || ShouldISleep())
+		if ( !myMovement || ShouldISleep( ) )
+		{
 			return;
+		}
 
         if (Mathf.FloorToInt(Time.timeSinceLevelLoad * 1000f) % (scannerIntervalms + 100) >= scannerIntervalms) {
             // set the position of the point in arc depending on the facing direction
@@ -234,7 +236,10 @@ public class AI : MonoBehaviour {
 		for(;;) {
 
 			if ( ShouldISleep( ) )
+			{
+				Debug.Log( "SLEEP" );
 				yield return new WaitForSeconds( minTimePerThink + Random.value * ( maxTimePerThink - minTimePerThink ) );
+			}
 
 			// reset
 			myMovement.inputUp = false;
