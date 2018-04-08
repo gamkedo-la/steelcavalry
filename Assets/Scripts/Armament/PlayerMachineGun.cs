@@ -11,11 +11,17 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
-	[SerializeField] private WeaponType type = WeaponType.Turret;
+    [SerializeField] private Player.PlayerTeam fromTeam;
+    [SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float maxAngle = 60f;
 
-	public WeaponType Type
+    public Player.PlayerTeam FromTeam {
+        get { return fromTeam; }
+        set { fromTeam = value; }
+    }
+
+    public WeaponType Type
 	{
 		get { return type; }
 	}
@@ -107,7 +113,7 @@ public class PlayerMachineGun : MonoBehaviour, IWeapon
 
 		GameObject shotGO = Instantiate( parameters.Projectile, spawnPoint.position, Quaternion.Euler(0, 0, -xAngle + Random.Range( -5f, 5f ) ) );
 
-        shotGO.GetComponent<ShotBreaksIntoParticle>().fromTeam = transform.GetComponentInParent<Player>().team;
+        shotGO.GetComponent<ShotBreaksIntoParticle>().fromTeam = FromTeam;
 
         Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.right * parameters.Force;

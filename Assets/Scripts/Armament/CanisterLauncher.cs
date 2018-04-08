@@ -6,9 +6,15 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
+    [SerializeField] private Player.PlayerTeam fromTeam;
 	[SerializeField] private WeaponType type = WeaponType.Thrower;
 
-	public WeaponType Type
+    public Player.PlayerTeam FromTeam {
+        get { return fromTeam; }
+        set { fromTeam = value; }
+    }
+
+    public WeaponType Type
 	{
 		get { return type; }
 	}
@@ -95,7 +101,10 @@ public class CanisterLauncher : MonoBehaviour, IWeapon
 
 		Rigidbody2D shotRB = shotGO.GetComponent<Rigidbody2D>( );
 		shotRB.velocity = shotGO.transform.rotation * Vector2.left * parameters.Force;
-		shotGO.GetComponent<CanisterGrenade>( ).SetDamage( parameters.GetDamage( ) );
+
+        CanisterGrenade grenade = shotGO.GetComponent<CanisterGrenade>();
+        grenade.fromTeam = FromTeam;
+		grenade.SetDamage( parameters.GetDamage( ) );
 
 		shotGO.transform.SetParent( LitterContainer.instanceTransform );
 

@@ -12,7 +12,8 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private WeaponParameters parameters = null;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private GameEventFloat didDamageEvent = null;
-	[SerializeField] private WeaponType type = WeaponType.Turret;
+    [SerializeField] private Player.PlayerTeam fromTeam;
+    [SerializeField] private WeaponType type = WeaponType.Turret;
 	[SerializeField] private float maxLaserSize = 20f;
 	[SerializeField] private float laserScaleCorrection = 1f;
 	[SerializeField] private float laserMoveCorrection = 1f;
@@ -20,7 +21,12 @@ public class Laser : MonoBehaviour, IWeapon
 	[SerializeField] private float maxAngle = 60f;
 	[SerializeField] private GameObject[] models;
 
-	public WeaponType Type
+    public Player.PlayerTeam FromTeam {
+        get { return fromTeam; }
+        set { fromTeam = value; }
+    }
+
+    public WeaponType Type
 	{
 		get { return type; }
 	}
@@ -221,7 +227,18 @@ public class Laser : MonoBehaviour, IWeapon
 			if ( !impact.isPlaying )
 				impact.Play( );
 
-			HP hp = hit.collider.GetComponent<HP>( );
+            Player collidedPlayer = hit.collider.gameObject.GetComponent<Player>();
+            Mech collidedMech = hit.collider.gameObject.GetComponent<Mech>();
+
+            if (collidedPlayer != null || collidedMech != null) {
+                collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
+            }
+
+            if (collidedPlayer && collidedPlayer.team == FromTeam) {
+                return;                
+            }
+
+            HP hp = hit.collider.GetComponent<HP>( );
 			if ( hp )
 			{
 				didDamageEvent.Raise( 0.1f );

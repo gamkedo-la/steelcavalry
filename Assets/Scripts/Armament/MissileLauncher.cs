@@ -8,14 +8,20 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private GameEventUI weaponSlotEvents;
 	[SerializeField] private WeaponParameters parameters = null;
-	[SerializeField] private WeaponType type = WeaponType.Launcher;
+    [SerializeField] private Player.PlayerTeam fromTeam;
+    [SerializeField] private WeaponType type = WeaponType.Launcher;
 
     //var for animations
     public bool hasShotMissile;
     WingedSpawnAnimator mechAnimScript;
     [HideInInspector] public GameObject shootingMech;
 
-	public WeaponType Type
+    public Player.PlayerTeam FromTeam {
+        get { return fromTeam; }
+        set { fromTeam = value; }
+    }
+
+    public WeaponType Type
 	{
 		get { return type; }
 	}
@@ -102,8 +108,12 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         hasShotMissile = true;
         if ( mechAnimScript != null) mechAnimScript.positionLocked = true;
 
+        HomingMissile missileScript = missile.GetComponent<HomingMissile>();
+
+        missileScript.fromTeam = FromTeam;
+
         //Debug.Log("Has shot missile Launcher CS " + hasShotMissile);
-        missile.GetComponent<HomingMissile>( ).SetDamage( parameters.GetDamage( ) );
+        missileScript.SetDamage( parameters.GetDamage( ) );
 
         //let homingMissile script know mech that shot. Used so self-circle collider of wing spawn is ignored for collision
         //currently console returns error because the below hierarchy fits the winged spawn only. TODO
@@ -114,10 +124,10 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         //find parent mech object that shot and pass it to homing Missile so missile ignores hitting that mech at first
         shootingMech = FindParentWithTag(transform, "Mech");
         Debug.Log("Name of Shooting Mech IS " + shootingMech.name);
-        missile.GetComponent<HomingMissile>().ReceiveMechName(shootingMech);
+        missileScript.ReceiveMechName(shootingMech);
 
         // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
-        missile.GetComponent<HomingMissile>().playerNumber = transform.GetComponentInParent<Mech>().driver.gamepadNumber; // FIXME
+        missileScript.playerNumber = transform.GetComponentInParent<Mech>().driver.gamepadNumber; // FIXME
 
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );

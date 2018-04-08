@@ -129,7 +129,6 @@ public class Player : MonoBehaviour {
 			//return;
 		}
 
-
 		if (mech.driver && !mech.canBeStolen) return;
 
 		// eject the previous pilot
@@ -150,6 +149,12 @@ public class Player : MonoBehaviour {
 
 		mech.wasEntered(this.transform.gameObject); // tell the mech who is driving
 		mechImIn = mech;
+
+        WeaponManager mechWeaponManager = mech.GetComponent<WeaponManager>();
+        
+        for (int i = 0; i < mechWeaponManager.equippedWeapons.Count; i++) {
+            mechWeaponManager.equippedWeapons[i].FromTeam = team;
+        }        
 
 		//Disables human character
 		GetComponent<BoxCollider2D>().enabled = false;
@@ -188,7 +193,13 @@ public class Player : MonoBehaviour {
             playerBody.AddForce(Vector3.up * playerEjectForceMagnitude * 2f + Vector3.right * playerEjectForceMagnitude);
         }
 
-		mechImIn.wasExited();
+        WeaponManager mechWeaponManager = mechImIn.GetComponent<WeaponManager>();
+
+        for (int i = 0; i < mechWeaponManager.equippedWeapons.Count; i++) {
+            mechWeaponManager.equippedWeapons[i].FromTeam = PlayerTeam.Independant;
+        }
+
+        mechImIn.wasExited();
 		mechImIn = null;
 
 		// enable human character

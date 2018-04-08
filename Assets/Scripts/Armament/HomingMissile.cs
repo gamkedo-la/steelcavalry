@@ -9,8 +9,9 @@ public class HomingMissile : MonoBehaviour
 	[SerializeField] private float speed = 5f;
 	[SerializeField] private float rotatingSpeed= 200f;
 	[SerializeField] private float damagePerMissile = 20f;
+    [HideInInspector] public Player.PlayerTeam fromTeam;
 
-	private Transform target;
+    private Transform target;
 	private Rigidbody2D rb;
 
 	[HideInInspector]
@@ -80,6 +81,17 @@ public class HomingMissile : MonoBehaviour
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
         Debug.Log("Missile Hit " + collision.gameObject.name);
+
+        Player collidedPlayer = collision.collider.GetComponent<Player>();
+        Mech collidedMech = collision.collider.GetComponent<Mech>();
+
+        if (collidedPlayer != null || collidedMech != null) {
+            collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
+        }
+
+        if (collidedPlayer && collidedPlayer.team == fromTeam)
+            return;
+
         // Try to find a Mech script on the hit object
         HP hp = collision.collider.GetComponent<HP>();
         //Debug.Log("Mech hit was " + hp.gameObject.name);

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class WeaponManager : MonoBehaviour
 {
 	[SerializeField] GameObject startingWeapon = null;
+    public List<IWeapon> equippedWeapons = new List<IWeapon>();
 
 	[SerializeField] Transform turretMountPoint = null;
 	[SerializeField] Transform launcherMountPoint = null;
@@ -21,12 +23,14 @@ public class WeaponManager : MonoBehaviour
 	private bool isRight = false;
 	private bool isPlayerDriver = false;
 
-    public bool launcherMounted = false;//using for animation.
+    Player playerWithWeapon;
+    Mech mechPlayerIsIn;
 
+    public bool launcherMounted = false;//using for animation.
+    
     void Start ()
 	{
         //Debug.Log( name + " weapons are attached" );
-
         
 		Assert.IsNotNull( turretMountPoint );
 		Assert.IsNotNull( launcherMountPoint );
@@ -34,7 +38,14 @@ public class WeaponManager : MonoBehaviour
 
 		Assert.IsNotNull( weaponSlotEvents );
 
-		if ( turretMountPoint.transform.childCount > 0 )
+        playerWithWeapon = GetComponent<Player>();
+        mechPlayerIsIn = GetComponent<Mech>();
+
+        if (playerWithWeapon != null || mechPlayerIsIn != null) {
+            playerWithWeapon = playerWithWeapon == null ? mechPlayerIsIn.driver : playerWithWeapon;
+        }
+
+        if ( turretMountPoint.transform.childCount > 0 )
 			turret = turretMountPoint.GetChild( 0 ).GetComponent<IWeapon>( );
 
 		if ( launcherMountPoint.transform.childCount > 0 )
@@ -46,10 +57,12 @@ public class WeaponManager : MonoBehaviour
 		if ( startingWeapon != null )
 		{
 			IWeapon w = startingWeapon.GetComponent<IWeapon>( );
+
 			Assert.IsNotNull( w );
 
-			if ( w != null )
-				GiveWeapon( w );
+            if (w != null) {
+                GiveWeapon(w);
+            }
 		}
 	}
 
@@ -134,8 +147,8 @@ public class WeaponManager : MonoBehaviour
 
 	public void GiveWeapon( IWeapon weapon )
 	{
-		// Debug.Log( "I've received " + weapon.Type.ToString() );
-		GameObject g;
+        // Debug.Log( "I've received " + weapon.Type.ToString() );
+        GameObject g;
         //Debug.Log("weapon type " + weapon.Type);
         switch ( weapon.Type )
 		{
@@ -143,13 +156,18 @@ public class WeaponManager : MonoBehaviour
 			{
 				if ( turret != null )
 				{
-					Destroy( turret.GetGameObject( ) );
+                    if (equippedWeapons.Contains(turret)) {
+                        equippedWeapons.Remove(turret);
+                    }
+                    Destroy( turret.GetGameObject( ) );
+
 				}
 
 				g = Instantiate( weapon.GetGameObject( ), turretMountPoint.position, Quaternion.identity, turretMountPoint );
 				g.transform.localPosition = Vector3.zero;
 
-				turret = g.GetComponent<IWeapon>( );
+				turret = g.GetComponent<IWeapon>();
+                equippedWeapons.Add(turret);
 
 				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
@@ -164,7 +182,10 @@ public class WeaponManager : MonoBehaviour
 			{
 				if ( launcher != null )
 				{
-					Destroy( launcher.GetGameObject( ) );
+                    if (equippedWeapons.Contains(launcher)) {
+                        equippedWeapons.Remove(launcher);
+                    }
+                    Destroy( launcher.GetGameObject( ) );
 				}
 
 				g = Instantiate( weapon.GetGameObject( ), launcherMountPoint.position, Quaternion.identity, launcherMountPoint );
@@ -180,6 +201,8 @@ public class WeaponManager : MonoBehaviour
 				);
 
 				launcher = g.GetComponent<IWeapon>( );
+                equippedWeapons.Add(launcher);
+
 				if(isPlayerDriver) { // null is valid for bots since they do not use the mouse cursor
 					if(cursor == null) {
 						cursor = UIResourceManager.MouseCursor;
@@ -199,7 +222,10 @@ public class WeaponManager : MonoBehaviour
 			{
 				if ( thrower != null )
 				{
-					Destroy( thrower.GetGameObject( ) );
+                    if (equippedWeapons.Contains(thrower)) {
+                        equippedWeapons.Remove(thrower);
+                    }
+                    Destroy( thrower.GetGameObject( ) );
 				}
 
 				g = Instantiate( weapon.GetGameObject( ), throwerMountPoint.position, Quaternion.identity, throwerMountPoint );
@@ -207,6 +233,7 @@ public class WeaponManager : MonoBehaviour
 				g.transform.localRotation = Quaternion.Euler ( 0, 0, 0 );
 
 				thrower = g.GetComponent<IWeapon>( );
+                equippedWeapons.Add(thrower);
 
 				IsPlayerDriving( isPlayerDriver );
 				SetDir( isRight );
