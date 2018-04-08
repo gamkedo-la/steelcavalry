@@ -90,8 +90,8 @@ public class UIResourceManager : MonoBehaviour {
         totalAiPilots = FindObjectsOfType<AI>().Length;
         totalDrones = FindObjectsOfType<Enemy>().Length;
 
-        enemyCountText.text = "x" + totalAiPilots;
-        droneCountText.text = "x" + totalDrones;
+        if (enemyCountText) enemyCountText.text = "x" + totalAiPilots;
+        if (droneCountText) droneCountText.text = "x" + totalDrones;
                 
         int totalEnemies = totalAiPilots + totalDrones;
         if (totalEnemies < 1) {

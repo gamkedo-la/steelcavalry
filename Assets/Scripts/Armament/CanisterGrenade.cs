@@ -4,6 +4,7 @@ using UnityEngine.Assertions;
 public class CanisterGrenade : MonoBehaviour
 {
 	[SerializeField] private GameObject explosionPrefab = null;
+	[SerializeField] private GameEventAudioEvent explosionAudio = null;
 
 	private float explosionDamage = 10f;
 
@@ -24,6 +25,7 @@ public class CanisterGrenade : MonoBehaviour
 
 	private void DoDestruction( Vector2 point )
 	{
+		explosionAudio.Raise( AudioEvents.MineExplosion, transform.position );
 		var explosion = Instantiate(explosionPrefab, point, Quaternion.identity);
 		var explosionWave = explosion.gameObject.transform.GetChild(0);
 		var explosionEnlarger = explosionWave.GetComponent<ExplosionEnlarger>();
