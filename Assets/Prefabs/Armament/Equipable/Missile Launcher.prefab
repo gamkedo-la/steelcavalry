@@ -34,10 +34,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4180518663712928}
-  - component: {fileID: 33063265873822020}
   - component: {fileID: 65932679848684210}
   - component: {fileID: 23004770618754944}
   - component: {fileID: 114962946382408008}
+  - component: {fileID: 33787315124183754}
   m_Layer: 0
   m_Name: Missile Launcher
   m_TagString: missileLauncher
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956260519700346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.717827, y: -7.046257, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4642212881448758}
@@ -106,13 +106,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33063265873822020
+--- !u!33 &33787315124183754
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956260519700346}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: a455f98f418fe42a0b1066f72ef825de, type: 3}
 --- !u!65 &65932679848684210
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -141,5 +141,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4642212881448758}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   parameters: {fileID: 11400000, guid: 929d04db69f81ce40882e2dfa0db1073, type: 2}
+  fromTeam: 0
   type: 1
   hasShotMissile: 0
+  shootingMech: {fileID: 0}

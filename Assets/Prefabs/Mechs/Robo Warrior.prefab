@@ -2902,6 +2902,9 @@ MonoBehaviour:
   isMovingUp: 0
   slopeTag: Ground
   maxClimbableSlopeAngle: 85
+  feetRaycastDepth: 3
+  slopeAngle: 0
+  isOnSlope: 0
 --- !u!114 &114409574604742794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2913,6 +2916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0611002b4eb411043aa88154fcd2ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenshakePower: 5
 --- !u!114 &114423211561411288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3071,6 +3075,7 @@ MonoBehaviour:
   mechMoveSpeed: 200
   mechRotateSpeed: 5
   jumpPower: 4000
+  takingOffTime: 0.5
   crushDamage: 100
   inUse: 0
   damageTaken: 0
@@ -3078,7 +3083,7 @@ MonoBehaviour:
   canBeStolen: 1
   isOnGround: 0
   currentTimeToTakeOff: 0
-  takingOffTime: 0.5
+  canRotateOnSlopes: 1
   isFlying: 0
   isFacingRight: 0
   pod: {fileID: 0}
