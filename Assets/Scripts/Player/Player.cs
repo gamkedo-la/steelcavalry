@@ -124,6 +124,8 @@ public class Player : MonoBehaviour {
 
 		if (mech.driver && !mech.canBeStolen) return;
 
+		if (mech.driver && isAiPlayer) return; // block mech stealing by AI
+
 		// eject the previous pilot
 		if (mech.driver &&
 			mech.driver.GetInstanceID() != gameObject.GetInstanceID() &&
