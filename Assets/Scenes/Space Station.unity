@@ -1031,6 +1031,56 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 681774118}
+    - target: {fileID: 82005923813764676, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a5b372a59a52b641ac252276857d4d5, type: 3}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[0].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[0].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[1].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].volumeFalloff.m_Curve.Array.data[1].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].minPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780889110114044, guid: bdf611f9e3f4f04449835f31a4868d35,
+        type: 2}
+      propertyPath: emiters.Array.data[18].maxPitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdf611f9e3f4f04449835f31a4868d35, type: 2}
   m_IsPrefabParent: 0
@@ -9170,6 +9220,8 @@ MonoBehaviour:
   inMechCamZoomSize: 60
   zoomSpeed: 3
   followSpeed: 3
+  shakePower: 0
+  canShake: 0
   myPlayer: {fileID: 681774120}
 --- !u!81 &1898408742
 AudioListener:

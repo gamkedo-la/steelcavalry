@@ -51,7 +51,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2a5b372a59a52b641ac252276857d4d5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f9742da3bb2cffe4ebd6c8b20fff5380, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.233
   m_Pitch: 1
@@ -584,6 +584,84 @@ MonoBehaviour:
   - ReadOnlyName: MineExplosion
     audioEvent: 15
     soundFile: {fileID: 8300000, guid: 946c76b4aebefb540b4ba1a21ae6ecbe, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: CityClearedVO
+    audioEvent: 16
+    soundFile: {fileID: 8300000, guid: f947244c5f23ef24489eb04b6d1b721d, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: SpaceStationClearedVO
+    audioEvent: 17
+    soundFile: {fileID: 8300000, guid: 95a299c1d60e9ef45a9d24290feabd39, type: 3}
+    volume: 1
+    priority: 128
+    minPitch: 0.9
+    maxPitch: 1.1
+    volumeFalloff:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 300
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    maxEventsAtOneTime: 5
+  - ReadOnlyName: EnemyBaseClearedVO
+    audioEvent: 18
+    soundFile: {fileID: 8300000, guid: e47b19dd9886af9499bd24879a653547, type: 3}
     volume: 1
     priority: 128
     minPitch: 0.9
