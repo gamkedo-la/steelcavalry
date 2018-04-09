@@ -20,6 +20,9 @@ public enum AudioEvents
 	RocketLaunch,
 	Shot,
 	MineExplosion,
+	CityClearedVO,
+	SpaceStationClearedVO,
+	EnemyBaseClearedVO
 }
 
 [System.Serializable]
@@ -47,6 +50,7 @@ public class AudioManager : MonoBehaviour
 {
     public float masterVolume;
     public float effectsVolume;
+    public float musicVolume;
 
     [SerializeField] private Transform player = null;
 	[SerializeField] private AudioEventEmiter[] emiters = null;
@@ -58,6 +62,9 @@ public class AudioManager : MonoBehaviour
 	{
         masterVolume = PlayerPrefs.GetFloat("masterVolume", 1f);
         effectsVolume = PlayerPrefs.GetFloat("effectsVolume", 1f);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
+
+        SetMusicVolume();
 
 		Assert.IsNotNull( emiters );
 		Assert.AreNotEqual( emiters.Length, 0 );
@@ -102,6 +109,13 @@ public class AudioManager : MonoBehaviour
 
 				list.Add( ap );
 			}
+		}
+	}
+
+	void SetMusicVolume () {
+		AudioSource[] musicSources = gameObject.GetComponents<AudioSource>();
+		foreach(AudioSource musicSource in musicSources) {
+			musicSource.volume = masterVolume * musicVolume;
 		}
 	}
 

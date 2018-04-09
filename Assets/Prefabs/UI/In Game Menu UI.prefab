@@ -415,6 +415,7 @@ MonoBehaviour:
   playerWon: 0
   playerLost: 0
   inGameMenuUI: {fileID: 1419899206487930}
+  stageClearedAudio: {fileID: 11400000, guid: 19d9f8dd366e0d149a1ed0cc22369d74, type: 2}
 --- !u!114 &114354063211028070
 MonoBehaviour:
   m_ObjectHideFlags: 1

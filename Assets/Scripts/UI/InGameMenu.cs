@@ -16,10 +16,14 @@ public class InGameMenu : MonoBehaviour {
 	private Text menuTitleText;
 	private Text stageClearedText;
 
+	private GameObject audioManager;
+
 	private GameObject resumeButton;
 	private GameObject retryButton;
 	private GameObject nextStageButton;
 	private GameObject stageClearedPanel;
+
+	[SerializeField] private GameEventAudioEvent stageClearedAudio = null;
 
 	private string pauseText = "Paused";
 	private string playerDiedText = "Mission Failed";
@@ -41,6 +45,7 @@ public class InGameMenu : MonoBehaviour {
 	private int totalScenes = 3;
 
 	void Start () {
+		audioManager = GameObject.Find("Audio Manager");
 		SetSceneAndMenuUI();
 		DeactivateMenu();
 		DeactivateButtonsAndPanels();
@@ -58,10 +63,6 @@ public class InGameMenu : MonoBehaviour {
 			} else {
 				Pause();
 			}
-		}
-
-		if (Input.GetKeyDown(KeyCode.C)) {
-			MissionComplete();
 		}
 	}
 
@@ -121,6 +122,29 @@ public class InGameMenu : MonoBehaviour {
 		stageClearedText.text = GetStageClearedText();
 		playerWon = true;
 		SavePlayerProgress();
+		ReduceMusicVolume();
+		PlayStageClearedVO();
+	}
+
+	void ReduceMusicVolume () {
+		AudioSource music = audioManager.gameObject.GetComponent<AudioSource>();
+		music.volume *= 0.25f;
+	}
+
+	void PlayStageClearedVO () {
+		switch (currentScene.name) {
+			case "Main Scene":
+				stageClearedAudio.Raise(AudioEvents.CityClearedVO, transform.position);
+				break;
+			case "Space Station":
+				stageClearedAudio.Raise(AudioEvents.SpaceStationClearedVO, transform.position);
+		        break;
+		    case "EnemyBase":
+		    	stageClearedAudio.Raise(AudioEvents.EnemyBaseClearedVO, transform.position);
+		        break;
+		    default:
+		    	break;
+		}
 	}
 
 	public string GetStageClearedText() {
