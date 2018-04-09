@@ -41,6 +41,9 @@ public class Laser : MonoBehaviour, IWeapon
 	private float realoadTimeLeft = 0;
 	private float shootingTimeleft = 0;
 
+	// in lieu of a mouse cursor for bots
+	private GameObject cachedPlayerReference;
+
 	void Start( )
 	{
 		Assert.IsNotNull( muzzleFlesh );
@@ -165,11 +168,22 @@ public class Laser : MonoBehaviour, IWeapon
 
 	private void LookAtCursor( )
 	{
-		if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < gun.transform.position.x && !isRight ) &&
-			 !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > gun.transform.position.x && isRight ) )
-			return;
+		Vector3 diff;
 
-		Vector3 diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - gun.transform.position;
+		if (isPlayerDriver) // only aim at the mouse cursor if this is the player
+		{
+			if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < transform.position.x && !isRight ) &&
+				!( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > transform.position.x && isRight ) )
+				return;
+
+			diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - transform.position;
+		}
+		else // a bot with no mouse cursor
+		{
+			if (!cachedPlayerReference) cachedPlayerReference = GameObject.Find("Player");
+			diff = cachedPlayerReference.transform.position - transform.position;
+		}
+
 		diff.Normalize( );
 
 		xAngle = -1 * Mathf.Atan2( diff.y, diff.x ) * Mathf.Rad2Deg;

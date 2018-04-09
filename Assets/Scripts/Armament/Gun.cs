@@ -35,6 +35,9 @@ public class Gun : MonoBehaviour, IWeapon
     private int currentMagSize = 0;
     private int magSize = 15;
 
+	// in lieu of a mouse cursor for bots
+	private GameObject cachedPlayerReference;
+
     void Start() {
         Assert.IsNotNull(shell);
         Assert.IsNotNull(shellSpawnPoint);
@@ -151,11 +154,22 @@ public class Gun : MonoBehaviour, IWeapon
 
 	private void LookAtCursor( )
 	{
+		Vector3 diff;
+
+		if (isPlayerDriver) // only aim at the mouse cursor if this is the player
+		{
 		if ( !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x < transform.position.x && !isRight ) &&
 			 !( Utilities.GetMouseWorldPosition( Input.mousePosition ).x > transform.position.x && isRight ) )
 			return;
 
-		Vector3 diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - transform.position;
+			diff = Utilities.GetMouseWorldPosition( Input.mousePosition ) - transform.position;
+		}
+		else // a bot with no mouse cursor
+		{
+			if (!cachedPlayerReference) cachedPlayerReference = GameObject.Find("Player");
+			diff = cachedPlayerReference.transform.position - transform.position;
+		}
+		
 		diff.Normalize( );
 
 		xAngle = -1 * Mathf.Atan2( diff.y, diff.x ) * Mathf.Rad2Deg;

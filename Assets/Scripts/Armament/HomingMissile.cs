@@ -55,7 +55,7 @@ public class HomingMissile : MonoBehaviour
 		Vector2 targetPos = Vector2.zero;
 		if (target == null)
 		{
-			targetPos = Utilities.GetMouseWorldPosition( Input.mousePosition );
+			targetPos = Utilities.GetMouseWorldPosition( Input.mousePosition ); // FIXME: what if this missile was not fired by the player?
 		}
 
 		if (Vector2.Distance(targetPos, transform.position) <= 0.1f)
