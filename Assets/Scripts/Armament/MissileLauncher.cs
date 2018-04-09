@@ -40,7 +40,7 @@ public class MissileLauncher : MonoBehaviour, IWeapon
 		Assert.IsNotNull( parameters );
 		Assert.IsNotNull( parameters.Projectile );
 		Assert.IsNotNull( spawnPoint );
-		Assert.IsNotNull( cursor );
+		// Assert.IsNotNull( cursor );
 		Assert.IsNotNull( weaponSlotEvents );
 
 		currentMagSize = (int)parameters.MagSize;
@@ -129,6 +129,9 @@ public class MissileLauncher : MonoBehaviour, IWeapon
         // TODO: suggest that we compare TAGS, not which gamepad this player is controlled by
         missileScript.playerNumber = transform.GetComponentInParent<Mech>().driver.gamepadNumber; // FIXME
 
+		if(cursor == null) {
+			cursor = UIResourceManager.MouseCursor;
+		}
 		cursor.AddMissile( missile );
 		missile.transform.SetParent( LitterContainer.instanceTransform );
 

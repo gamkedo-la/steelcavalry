@@ -206,7 +206,7 @@ public class WeaponManager : MonoBehaviour
 				if(isPlayerDriver) { // null is valid for bots since they do not use the mouse cursor
 					if(cursor == null) {
 						cursor = UIResourceManager.MouseCursor;
-						Assert.IsNotNull( cursor );
+						// Assert.IsNotNull( cursor );
 					}
 					g.GetComponent<MissileLauncher>( ).SetCursor( cursor );
 				}
