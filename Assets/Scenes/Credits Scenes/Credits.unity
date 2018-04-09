@@ -249,7 +249,7 @@ MonoBehaviour:
     Fewkes</size></b> Models for 3 Mechs (Kiwi, Cassowary III, Ostrich IV)\r\n<b><size=20>Lou
     Herard</size></b> Music for credits and city level\r\n<b><size=20>R\xE9my Lapointe</size></b>
     Enemy Base level, drones implementation, elevator and door code, early refactoring
-    and bug fixing\r\n<b><size=20>Christer \"McFunkypants\" Kaitila</size></b> enemy
+    and bug fixing\r\n<b><size=20>Christer \"McFunkypants\" Kaitila</size></b> Enemy
     AI, space station level, selection of space backgrounds (public domain, courtesy
     of NASA), city foreground decoration greeble and lighting art, boundary checks,
     enemy removal effects, story text, voice over, experiments (unreleased) with gamepad
