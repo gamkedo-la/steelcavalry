@@ -7,8 +7,8 @@ public class MainCamera : MonoBehaviour {
     public float inMechCamZoomSize = 60;
     public float zoomSpeed = 3;
     public float followSpeed = 3;
-    public float shakePower = 0;
-    public bool canShake = true;
+    [HideInInspector] public float shakePower = 0;
+    public bool canShake = false;
     private float targetCamZoomSize;
 	private Camera mainCam;
     private Vector3 originalCamPosition;
@@ -30,10 +30,10 @@ public class MainCamera : MonoBehaviour {
 
         // Follows player around        
         Vector3 targetPosition = new Vector3(myPlayer.transform.position.x, myPlayer.transform.position.y, -10);
-        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);                
 
         if (shakePower > 0) {
-            shakePower -= 50f * Time.deltaTime;
+            shakePower -= 50f * Time.deltaTime;            
         }
 	}
 
@@ -47,20 +47,17 @@ public class MainCamera : MonoBehaviour {
         }
 	}
 
-    public void ShakeTheCam(float shakeValue, int wait = 0, float rate = 0.001f) {
+    public void ShakeTheCam(float shakeValue, int wait = 0, float rate = 0.1f) {
         if (canShake) {
             if (shakePower <= 0) {
                 originalCamPosition = mainCam.transform.position;
                 shakePower = shakeValue;
                 InvokeRepeating("CameraShaker", wait, rate);
             }
-            else {
-                CameraShakerStopper();
-            }
         }
     }
 
-    public void StopShaking (float time = 0.1f) {
+    public void StopShaking (float time = 0.5f) {
         if (shakePower > 0) {
             shakePower = 0;
             Invoke("CameraShakerStopper", time);
@@ -69,21 +66,21 @@ public class MainCamera : MonoBehaviour {
 
     void CameraShaker() {
         if (shakePower > 0) {
-            float quakePower = (Random.value > 0.5f ? -1 : 1) * shakePower - shakePower;
+            Random.InitState(Mathf.RoundToInt(10000 * Time.deltaTime));
+            
+            float quakePower = Random.value * shakePower - shakePower;
             Vector3 displacedPosition = mainCam.transform.position;
 
-            Random.InitState(Mathf.RoundToInt(10000 * Time.deltaTime));                                    
-            displacedPosition.x += 0.1f * quakePower * (Random.value > 0.5f ? -1 : 1);
+            displacedPosition.x += quakePower * (myPlayer.GetComponent<Player>().isFacingRight ? -0.5f : 0.5f);
+            displacedPosition.y += quakePower * -0.25f;
+            displacedPosition.z += quakePower * 0.2f;
 
-            Random.InitState(Mathf.RoundToInt(10000 * Time.deltaTime));
-            displacedPosition.y += 0.1f * quakePower * (Random.value > 0.5f ? -1 : 1);          
-
-            mainCam.transform.position = displacedPosition;
+            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, displacedPosition, followSpeed * Time.deltaTime);
         }
     }
 
     void CameraShakerStopper() {
         CancelInvoke("CameraShaker");
-        mainCam.transform.position = originalCamPosition;
+        mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, originalCamPosition, followSpeed * Time.deltaTime);
     }
 }

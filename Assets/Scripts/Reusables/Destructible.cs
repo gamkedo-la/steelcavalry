@@ -12,8 +12,9 @@ public class Destructible : MonoBehaviour
 	[SerializeField] private float disintegrateDelayDeltaMin = 0.1f;
 	[SerializeField] private float disintegrateDelayDeltaMax = 0.3f;
 	[SerializeField] private float disintegrateDecayTime = 1f;
+    [SerializeField] private float screenshakePower = 5f;
 
-	private GameObject spritesRoot;
+    private GameObject spritesRoot;
 
 	void Start ()
 	{
@@ -25,7 +26,9 @@ public class Destructible : MonoBehaviour
 
 	public void DoDestruction( )
 	{
-		Texture2D source = GetComponent<SpriteRenderer>( ).sprite.texture;
+        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
+
+        Texture2D source = GetComponent<SpriteRenderer>( ).sprite.texture;
 
 		float partW = source.width / partsInRow;
 		float partH = source.height / partsInRow;

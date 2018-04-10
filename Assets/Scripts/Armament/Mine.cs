@@ -44,11 +44,10 @@ public class Mine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
         string colliderName = collision.collider.gameObject.name;
         if (colliderName.Contains("Shell")) return;
         ExplodeAndDestroy();
-
-        Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
     }
 
     public void ExplodeAndDestroy()

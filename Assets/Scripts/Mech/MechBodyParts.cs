@@ -67,7 +67,6 @@ public class MechBodyParts : MonoBehaviour {
 			bodyPartRb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // stops wild spins? no
 
 			bodyPart.transform.SetParent (null);
-
         }
     }
 }
