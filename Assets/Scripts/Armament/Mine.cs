@@ -13,7 +13,7 @@ public class Mine : MonoBehaviour
     public float explosionDestroyDelay = 2f;
     public float damagePerMine = 10f;
     public double floatWeight = 100;
-    public float screenshakePower = 5f;
+    public float screenshakePower = 15f;
 
     // Use this for initialization
     public void Start()

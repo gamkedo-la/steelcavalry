@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MechBodyParts : MonoBehaviour {
-    public float screenshakePower = 5f;
+    public float screenshakePower = 15f;
 
     Transform[] bodyPartsTransforms;
 
