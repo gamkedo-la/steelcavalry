@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class MainMenu : MonoBehaviour {
     [SerializeField] GameObject mainMenu;
@@ -64,9 +65,18 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
     }
 
-	public void QuitGame() {
-        PlayerPrefs.Save();
-        Application.Quit (); 
+	public void QuitGame() { // no longer used since mainly doing web build
+		PlayerPrefs.Save();
+        Application.Quit ();
+	}
+
+	public void MakeGames() {
+		string URL = "https://gamkedo.com";
+		#if UNITY_WEBGL
+		openWindow(URL);
+		#else
+		Application.OpenURL(URL);
+		#endif
 	}
 
     public void OpenOptions() {
@@ -144,4 +154,7 @@ public class MainMenu : MonoBehaviour {
         PlayerPrefs.SetFloat("musicVolume", volume);
         music.volume = volume * PlayerPrefs.GetFloat("masterVolume", 1f);
     }
+
+	[DllImport("__Internal")]
+	private static extern void openWindow(string url);
 }
