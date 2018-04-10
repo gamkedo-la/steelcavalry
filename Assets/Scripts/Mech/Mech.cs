@@ -188,22 +188,16 @@ public class Mech : MonoBehaviour
                     thrusterFuelCurrent -= thrusterFuelMax * firstThrustCost;
                     isOnGround = false;
                     isFlying = true;
-                    canFly = true;
-                    slopeWalker.isMovingUp = true;
-
+                    canFly = true;                    
                 }
 
                 ThrustersOn.Invoke();
-            }
-            else {
-                slopeWalker.isMovingUp = false;                
             }
 
             if (driver.inputUp && isFlying && canFly && thrusterFuelCurrent > thrusterCost * Time.deltaTime) {
                 mechRigidbody.AddForce(Vector2.up * thrusterPower * Time.deltaTime);
                 thrusterFuelCurrent -= thrusterCost * Time.deltaTime;
-                ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);
-                slopeWalker.isMovingUp = true;
+                ui.SetFuel(thrusterFuelCurrent / thrusterFuelMax);                
             }
             else {
                 thrusterFuelCurrent += Time.deltaTime * thrusterFuelRegen;
@@ -214,7 +208,6 @@ public class Mech : MonoBehaviour
                     ThrustersOff.Invoke();
 
                 canFly = false;
-                slopeWalker.isMovingUp = false;
             }
 
             if (!driver.inputUp) {
@@ -251,6 +244,8 @@ public class Mech : MonoBehaviour
         if (!canBeStolen) {
             AttemptToToggleCanBeStolen();
         }
+
+        slopeWalker.isMovingUp = driver.inputUp;
     }
 
     private void ThrustersOffSound() {
