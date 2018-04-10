@@ -237,8 +237,6 @@ public class AI : MonoBehaviour {
 
 			if ( !ShouldISleep( ) )
 			{
-				Debug.Log( "SLEEP" );
-
 				// reset
 				myMovement.inputUp = false;
 				myMovement.inputDown = false;
