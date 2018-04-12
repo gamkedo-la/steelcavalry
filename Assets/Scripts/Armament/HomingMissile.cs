@@ -89,8 +89,21 @@ public class HomingMissile : MonoBehaviour
             collidedPlayer = collidedPlayer == null ? collidedMech.driver : collidedPlayer;
         }
 
-        if (fromTeam != Team.Independant && collidedPlayer && collidedPlayer.team == fromTeam)
-            return;
+        if (collision.contacts.Length > 0) {
+            DoDestruction(collision.contacts[0].point);
+        }
+        else {
+            DoDestruction(transform.position);
+        }
+
+        Mine mine = collision.collider.GetComponent<Mine>();
+        if (mine) {
+            mine.ExplodeAndDestroy();
+        }
+
+        if (collidedPlayer)
+            if (fromTeam != Team.Independant && collidedPlayer.team == fromTeam)
+                return;
 
         // Try to find a Mech script on the hit object
         HP hp = collision.collider.GetComponent<HP>();
@@ -99,17 +112,6 @@ public class HomingMissile : MonoBehaviour
 		{
 			didDamageEvent.Raise( 0.5f );
 			hp.TakeDamage(damagePerMissile);
-		}
-
-		if ( collision.contacts.Length > 0 ) {
-			DoDestruction( collision.contacts[0].point );
-		} else {
-			DoDestruction( transform.position );
-		}
-
-		Mine mine = collision.collider.GetComponent<Mine>();
-		if (mine) {
-			mine.ExplodeAndDestroy();
 		}
 	}
 
