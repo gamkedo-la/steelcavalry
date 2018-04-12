@@ -7,6 +7,7 @@ public class MechAnimator : MonoBehaviour {
     public float belowThisSpeedIsIdle = 0.2f;
 
     Mech mech;
+    Quaternion currentMechRotation;
 
     Animator animController;
     int isIdlingParam = Animator.StringToHash("isIdling");
@@ -14,10 +15,12 @@ public class MechAnimator : MonoBehaviour {
     int isFlyingParam = Animator.StringToHash("isFlying");
     int isTakingOffParam = Animator.StringToHash("isTakingOff");
     bool canIdle = false, canWalk = false, canFly = false, canTakeOff = false;
-
+    
 	// Use this for initialization
 	void Start () {
         mech = GetComponent<Mech>();
+        currentMechRotation = mech.mechModel.rotation;
+
         animController = GetComponent<Animator>();
         animController.SetBool(isIdlingParam, true);
     }
@@ -38,10 +41,13 @@ public class MechAnimator : MonoBehaviour {
             animController.SetBool(isIdlingParam, canIdle);            
         }
 
+        bool hasMechRotated = Mathf.Abs(mech.mechModel.eulerAngles.y - currentMechRotation.eulerAngles.y) > 1.0f;
+
         canWalk = mech.isOnGround &&
-                  Mathf.Abs(mech.mechRigidbody.velocity.x) >= belowThisSpeedIsIdle &&
+                  (Mathf.Abs(mech.mechRigidbody.velocity.x) >= belowThisSpeedIsIdle || hasMechRotated) &&
                   mech.inUse;
         animController.SetBool(isWalkingParam, canWalk);
+        currentMechRotation = mech.mechModel.rotation;
 
         if (mech.inUse) canTakeOff = mech.driver.inputUp;
         animController.SetBool(isTakingOffParam, canTakeOff);
@@ -51,7 +57,7 @@ public class MechAnimator : MonoBehaviour {
 
         if (mech.isOnGround) canFly = false;
     }
-
+    
     IEnumerator IdleTracker () {        
         yield return new WaitForSeconds(idleWaitSeconds);        
         Debug.Log("Set mech animation to idle if mech is idle.");
