@@ -5,20 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MechBodyParts : MonoBehaviour {
     [SerializeField] private float screenshakePower = 15f;
-    [SerializeField] private bool canExplodeIn3D = true;
+    [SerializeField] private bool canExplodeIn3D = false;
+    [SerializeField] private bool isAffectedByGravity = true;
     
     Transform[] bodyPartsTransforms;
 
 	// Use this for initialization
 	void Start () {
         bodyPartsTransforms = GetComponentsInChildren<Transform>();
-	}
 
-	// Update is called once per frame
-	void Update () {
-
-	}
-
+        if (SceneManager.GetActiveScene().name.Contains("Space")) {
+            isAffectedByGravity = false;
+        }
+    }
+    
     public void MakeBodyParts (float expForceMin, float expForceMax) {
         Camera.main.GetComponent<MainCamera>().ShakeTheCam(screenshakePower);
 
@@ -60,11 +60,9 @@ public class MechBodyParts : MonoBehaviour {
                 Rigidbody bodyPartRb = bodyPart.GetComponent<Rigidbody>();
                 bodyPartRb = bodyPartRb == null ? bodyPart.AddComponent<Rigidbody>() : bodyPartRb;
                 bodyPartRb.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
-
-                if (SceneManager.GetActiveScene().name.Contains("Space")) {
-                    bodyPartRb.useGravity = false;
-                }
-
+                                
+                bodyPartRb.useGravity = isAffectedByGravity;
+                
                 bodyPartRb.drag = 1.0f;
                 bodyPartRb.angularDrag = 0.05f; 
 
@@ -76,10 +74,7 @@ public class MechBodyParts : MonoBehaviour {
                 BoxCollider2D bodyPartCollider2D = bodyPart.GetComponent<BoxCollider2D>();
                 bodyPartCollider2D = bodyPartCollider2D == null ? bodyPart.AddComponent<BoxCollider2D>() : bodyPartCollider2D;
                 bodyPartCollider2D.enabled = true;
-                bodyPartCollider2D.bounds.Encapsulate(boundsOfMesh);
-                
-                FadePart fp = bodyPart.GetComponent<FadePart>();
-                if (fp != null) fp.enabled = true;
+                bodyPartCollider2D.bounds.Encapsulate(boundsOfMesh);                
 
                 Rigidbody2D bodyPartRb2D = bodyPart.GetComponent<Rigidbody2D>();
                 bodyPartRb2D = bodyPartRb2D == null ? bodyPart.AddComponent<Rigidbody2D>() : bodyPartRb2D;
@@ -90,6 +85,12 @@ public class MechBodyParts : MonoBehaviour {
                 bodyPartRb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // stops wild spins? no
 
                 bodyPartRb2D.transform.SetParent(null);
+            }
+
+            FadePart fp = bodyPart.GetComponent<FadePart>();
+            if (fp != null) {
+                fp.enabled = true;
+                fp.EnableFade(canExplodeIn3D, isAffectedByGravity);
             }
         }
     }
