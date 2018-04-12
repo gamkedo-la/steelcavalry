@@ -159,7 +159,7 @@ public class Mech : MonoBehaviour
         }
     }
 
-    public void wasExited() {
+    public void wasExited() {        
         inUse = false;
 		anim.enabled = inUse;
         hp.UseMultiplier(!inUse);
@@ -171,6 +171,8 @@ public class Mech : MonoBehaviour
             weaponManager.IsPlayerDriving(false);
             ui.IsPlayerDriving(false);
         }
+
+        driver = null;
     }
 
     public void Update() {
