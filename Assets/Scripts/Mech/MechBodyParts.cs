@@ -13,9 +13,14 @@ public class MechBodyParts : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bodyPartsTransforms = GetComponentsInChildren<Transform>();
+        string sceneName = SceneManager.GetActiveScene().name;
 
-        if (SceneManager.GetActiveScene().name.Contains("Space")) {
+        if (sceneName.Contains("Space")) {
             isAffectedByGravity = false;
+        }
+
+        if (sceneName.Contains("Base")) {
+            canExplodeIn3D = false;
         }
     }
     
@@ -79,8 +84,8 @@ public class MechBodyParts : MonoBehaviour {
                 Rigidbody2D bodyPartRb2D = bodyPart.GetComponent<Rigidbody2D>();
                 bodyPartRb2D = bodyPartRb2D == null ? bodyPart.AddComponent<Rigidbody2D>() : bodyPartRb2D;
                 bodyPartRb2D.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
-                bodyPartRb2D.drag = 0.01f;
-                bodyPartRb2D.angularDrag = 0.0f; // hmmmmmmmm
+                bodyPartRb2D.drag = 0.5f;
+                bodyPartRb2D.angularDrag = 0.9f; // hmmmmmmmm
                 bodyPartRb2D.angularVelocity = 0f;
                 bodyPartRb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // stops wild spins? no
 
@@ -88,6 +93,7 @@ public class MechBodyParts : MonoBehaviour {
             }
 
             FadePart fp = bodyPart.GetComponent<FadePart>();
+            fp = fp == null ? bodyPart.AddComponent<FadePart>() : fp;
             if (fp != null) {
                 fp.enabled = true;
                 fp.EnableFade(canExplodeIn3D, isAffectedByGravity);
