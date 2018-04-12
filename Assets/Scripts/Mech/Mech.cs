@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(WeaponManager), typeof(HP), typeof(SlopeWalker))]
 [RequireComponent(typeof(MechAnimator))]
@@ -16,6 +17,8 @@ public class Mech : MonoBehaviour
     private SlopeWalker slopeWalker;
     [SerializeField] private GameObject explosion = null;
     [SerializeField] private MechUI ui = null;
+    [SerializeField] private bool canExplodeIn3D = true;
+    [SerializeField] private bool isAffectedByGravity = true;
 
     [Header("Mech Specs")]
     [SerializeField]
@@ -98,8 +101,20 @@ public class Mech : MonoBehaviour
         hp = GetComponent<HP>();
         weaponManager = GetComponent<WeaponManager>();
         mechRigidbody = GetComponent<Rigidbody2D>();
-        mechBodyParts = GetComponentInChildren<MechBodyParts>();
 
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName.Contains("Space")) {
+            isAffectedByGravity = false;
+        }
+
+        if (sceneName.Contains("Base")) {
+            canExplodeIn3D = false;
+        }
+
+        mechBodyParts = GetComponentInChildren<MechBodyParts>();
+        mechBodyParts.canExplodeIn3D = canExplodeIn3D;
+        mechBodyParts.isAffectedByGravity = isAffectedByGravity;
 
         thrusterFuelCurrent = thrusterFuelMax;
 

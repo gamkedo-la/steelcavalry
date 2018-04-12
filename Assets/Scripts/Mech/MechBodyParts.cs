@@ -1,27 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MechBodyParts : MonoBehaviour {
     [SerializeField] private float screenshakePower = 15f;
-    [SerializeField] private bool canExplodeIn3D = false;
-    [SerializeField] private bool isAffectedByGravity = true;
+    public bool canExplodeIn3D = true;
+    public bool isAffectedByGravity = true;
     
     Transform[] bodyPartsTransforms;
 
 	// Use this for initialization
 	void Start () {
-        bodyPartsTransforms = GetComponentsInChildren<Transform>();
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (sceneName.Contains("Space")) {
-            isAffectedByGravity = false;
-        }
-
-        if (sceneName.Contains("Base")) {
-            canExplodeIn3D = false;
-        }
+        bodyPartsTransforms = GetComponentsInChildren<Transform>();        
     }
     
     public void MakeBodyParts (float expForceMin, float expForceMax) {
