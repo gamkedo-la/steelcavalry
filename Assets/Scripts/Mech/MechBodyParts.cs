@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MechBodyParts : MonoBehaviour {
     [SerializeField] private float screenshakePower = 15f;
     [SerializeField] private bool canExplodeIn3D = true;
-
+    
     Transform[] bodyPartsTransforms;
 
 	// Use this for initialization
@@ -58,10 +59,14 @@ public class MechBodyParts : MonoBehaviour {
 
                 Rigidbody bodyPartRb = bodyPart.GetComponent<Rigidbody>();
                 bodyPartRb = bodyPartRb == null ? bodyPart.AddComponent<Rigidbody>() : bodyPartRb;
-                bodyPartRb.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.forward * Random.Range(expForceMin, expForceMax));
-                bodyPartRb.useGravity = false;
-                bodyPartRb.drag = 0.7f;
-                bodyPartRb.angularDrag = 0.1f; 
+                bodyPartRb.AddForce(Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector2.left * Random.Range(expForceMin, expForceMax));
+
+                if (SceneManager.GetActiveScene().name.Contains("Space")) {
+                    bodyPartRb.useGravity = false;
+                }
+
+                bodyPartRb.drag = 1.0f;
+                bodyPartRb.angularDrag = 0.05f; 
 
                 bodyPart.transform.SetParent(null);
             }
