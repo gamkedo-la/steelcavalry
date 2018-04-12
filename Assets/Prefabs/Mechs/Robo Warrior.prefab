@@ -2917,6 +2917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenshakePower: 5
+  canExplodeIn3D: 0
+  isAffectedByGravity: 1
 --- !u!114 &114423211561411288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2959,7 +2961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleWaitSeconds: 5
-  belowThisSpeedIsIdle: 0.005
+  belowThisSpeedIsIdle: 0.2
 --- !u!114 &114504894407294362
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3278,6 +3278,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114016686577208100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3321,6 +3322,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114041638484766612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3348,6 +3350,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114285528296611220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3456,6 +3459,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114379026223637140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3470,6 +3474,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114415185008693264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3497,6 +3502,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114515806943276398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3511,6 +3517,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114533137553454298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3552,6 +3559,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114618784582536794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3613,6 +3621,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114712331308402562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3625,7 +3634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleWaitSeconds: 5
-  belowThisSpeedIsIdle: 0.01
+  belowThisSpeedIsIdle: 1e-15
 --- !u!114 &114712769439891840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3640,6 +3649,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114729702165885192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3654,6 +3664,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114739242064904312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3687,6 +3698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenshakePower: 15
+  canExplodeIn3D: 0
+  isAffectedByGravity: 1
 --- !u!114 &114780204954429260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3929,6 +3942,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114959183683793010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3943,6 +3957,7 @@ MonoBehaviour:
   waitTime: 2
   fadePerSecond: 0.5
   destroyAtTheEnd: 1
+  distanceYtoFade: 100
 --- !u!114 &114984276807266078
 MonoBehaviour:
   m_ObjectHideFlags: 1
