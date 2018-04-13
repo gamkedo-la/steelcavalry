@@ -61,7 +61,7 @@ public class MechBodyParts : MonoBehaviour {
                 bodyPartRb.drag = 1.0f;
                 bodyPartRb.angularDrag = 0.05f; 
 
-                bodyPart.transform.SetParent(null);
+                bodyPartRb.transform.SetParent(null);
             }
             else {
                 // a nice tightly fit bbox (will only fit tightly to parts that are mostly axis aligned)

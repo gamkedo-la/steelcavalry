@@ -345,9 +345,9 @@ public class Mech : MonoBehaviour
 
     private void KillPlayerInMech() {
         if (driver && driver.mechImIn && driver.mechImIn.GetName() == mechName) {
-            driver.ExitMech();
             HP hp = driver.GetComponent<HP>();
             hp.TakeDamage(explosionDamageToPlayer);
+            driver.ExitMech();
         }
     }
 
