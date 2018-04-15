@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MechBodyParts : MonoBehaviour {
-    [SerializeField] private float screenshakePower = 15f;
+    [SerializeField] private float screenshakePower = 100f;
     public bool canExplodeIn3D = true;
     public bool isAffectedByGravity = true;
     
