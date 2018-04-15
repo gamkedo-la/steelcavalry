@@ -71,7 +71,7 @@ public class Player : MonoBehaviour {
 		inMech,
 		outOfMech
 	}
-	public PlayerState _state;
+	public PlayerState _state;    
     
     public Team team = Team.Independant;
 
@@ -112,7 +112,8 @@ public class Player : MonoBehaviour {
 	}
 
     void Start () {
-        slopeWalker.enabled = true;
+        slopeWalker.enabled = true;        
+        gameObject.tag = useKeyboardInput || useGamepadInput ? "Player" : "Enemy";
 	}
 
 	void EnterMech(Mech mech) {
