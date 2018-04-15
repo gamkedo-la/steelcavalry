@@ -5,7 +5,7 @@ using System.Collections;
 public class CanisterGrenade : MonoBehaviour
 {
     [HideInInspector] public Team fromTeam;
-    public float screenshakePower = 8f;
+    public float screenshakePower = 50f;
 
 	[SerializeField] private GameObject explosionPrefab = null;
 	[SerializeField] private GameEventAudioEvent explosionAudio = null;

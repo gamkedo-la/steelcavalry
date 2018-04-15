@@ -47,7 +47,7 @@ public class MainCamera : MonoBehaviour {
         }
 	}
 
-    public void ShakeTheCam(float shakeValue, int wait = 0, float rate = 0.1f) {
+    public void ShakeTheCam(float shakeValue, int wait = 0, float rate = 0.01f) {
         if (canShake) {
             if (shakePower <= 0) {
                 originalCamPosition = mainCam.transform.position;
@@ -71,7 +71,7 @@ public class MainCamera : MonoBehaviour {
             float quakePower = Random.value * shakePower - shakePower;
             Vector3 displacedPosition = mainCam.transform.position;
 
-            displacedPosition.x += quakePower * (myPlayer.GetComponent<Player>().isFacingRight ? -0.5f : 0.5f);
+            displacedPosition.x += quakePower * Random.value > 0.5f ? 1f : -1f * Random.Range(0.25f, 1f);
             displacedPosition.y += quakePower * -0.25f;
             displacedPosition.z += quakePower * 0.2f;
 

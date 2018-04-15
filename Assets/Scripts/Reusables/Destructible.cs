@@ -12,7 +12,7 @@ public class Destructible : MonoBehaviour
 	[SerializeField] private float disintegrateDelayDeltaMin = 0.1f;
 	[SerializeField] private float disintegrateDelayDeltaMax = 0.3f;
 	[SerializeField] private float disintegrateDecayTime = 1f;
-    [SerializeField] private float screenshakePower = 5f;
+    [SerializeField] private float screenshakePower = 30f;
 
     private GameObject spritesRoot;
 
