@@ -287,6 +287,10 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public bool isHumanPlayer() {
+		return (isAiPlayer == false);
+	}
+
     void EnableWeapons(bool enabled) {
         if (weaponManager != null) {
             if (enabled) {

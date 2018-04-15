@@ -939,11 +939,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.06
+      value: 23.84
       objectReference: {fileID: 0}
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.6
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -983,6 +983,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492795346373150, guid: 3b5f037bc83b95d4f82a85272b67bce3,
+        type: 2}
+      propertyPath: maxHp
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
@@ -4510,11 +4515,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 47.49
+      value: 47.2
       objectReference: {fileID: 0}
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.91
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4539,6 +4544,11 @@ Prefab:
     - target: {fileID: 4734899132806736, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492795346373150, guid: 3b5f037bc83b95d4f82a85272b67bce3,
+        type: 2}
+      propertyPath: maxHp
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5f037bc83b95d4f82a85272b67bce3, type: 2}
@@ -7920,7 +7930,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9281,7 +9291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2055731703}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9510002, y: 22.851, z: 4}
+  m_LocalPosition: {x: 0.9510002, y: 22.851, z: 1.3}
   m_LocalScale: {x: 19.297289, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 689881150}

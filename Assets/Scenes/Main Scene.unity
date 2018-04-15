@@ -2855,7 +2855,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a6e623e754a58248a418c893a23709f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a6e623e754a58248a418c893a23709f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8762,6 +8762,11 @@ Prefab:
         type: 2}
       propertyPath: canShake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20998328387198472, guid: c4b08e18fc5a48e428cd5eab6fcee40d,
+        type: 2}
+      propertyPath: orthographic size
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4b08e18fc5a48e428cd5eab6fcee40d, type: 2}

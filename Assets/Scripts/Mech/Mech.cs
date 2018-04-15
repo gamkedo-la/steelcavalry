@@ -254,7 +254,9 @@ public class Mech : MonoBehaviour
                 rocketPivot.transform.Rotate(Vector3.back * Time.deltaTime * gGRocketRotateSpeed);
         }
 
-        HandleAbilities();
+		if(driver != null && driver.isHumanPlayer()) {
+			HandleAbilities();
+		}
 
         mechRigidbody.drag = drag * Mathf.Pow(mechRigidbody.velocity.magnitude, 2);        
 
