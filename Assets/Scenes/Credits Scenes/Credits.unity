@@ -233,21 +233,22 @@ MonoBehaviour:
     Jackson</size></b> Project lead, Robo Warrior model, pilot sprite, win state,
     goal UI, mech collision code, weapon slot icons, health code, mech stealing feature,
     scene transitions, pause menu, addl. code for drones and mines, story text, level
-    select, mission details, progress saving, assorted bug fixing, addl. level design\r\n<b><size=20>Randy
-    Tan Shaoxian</size></b> Mech animation state integrations and related programming
-    (Robo Warrior, Cassowary, Ostrich, and Kiwi), minimap, gameplay cursor, mech turning
-    code, enemy vision code, slope navigation, jetpack player movement, various refactoring
-    and project organizational cleanup for readability, detecting/stopping friendly
-    fire\r\n<b><size=20>Kornel</size></b> Weapons code (both overall system as well
-    as authoring lasers, turret, homing missiles, canisters), in-game user interface
-    icons and implementation, weapons graphics and related visual effects, shell ejections,
-    dust particles, mine explosion, assorted physics error debugging, support for
-    starting weapons, player uniform, sprite shattering code\r\n<b><size=20>Charlene
-    A.</size></b> Animations and related activities (ex. weight painting, rigging
-    fixes) for Robo Warrior, Cassowary, Ostrich, and Kiwi\r\n<b><size=20>Sergio Solorzano</size></b>
-    Winged Spawn mech's modeling, textures, fire particles, rigging, animation, implementation,
-    Robo Warrior and Cassowary rigging\r\n<b><size=20>Nick Fewkes</size></b> Models
-    for 3 Mechs (Kiwi, Cassowary III, Ostrich IV)\r\n<b><size=20>Lou Herard</size></b>
+    select, mission details, progress saving, assorted bug fixing, addl. level design,
+    Spanish translation\r\n<b><size=20>Randy Tan Shaoxian</size></b> Mech animation
+    state integrations and related programming (Robo Warrior, Cassowary, Ostrich,
+    and Kiwi), minimap, gameplay cursor, mech turning code, enemy vision code, slope
+    navigation, jetpack player movement, various refactoring and project organizational
+    cleanup for readability, detecting/stopping friendly fire\r\n<b><size=20>Kornel</size></b>
+    Weapons code (both overall system as well as authoring lasers, turret, homing
+    missiles, canisters), in-game user interface icons and implementation, weapons
+    graphics and related visual effects, shell ejections, dust particles, mine explosion,
+    assorted physics error debugging, support for starting weapons, player uniform,
+    sprite shattering code\r\n<b><size=20>Charlene A.</size></b> Animations and related
+    activities (ex. weight painting, rigging fixes) for Robo Warrior, Cassowary, Ostrich,
+    and Kiwi\r\n<b><size=20>Sergio Solorzano</size></b> Winged Spawn mech's modeling,
+    textures, fire particles, rigging, animation, implementation, Robo Warrior and
+    Cassowary rigging and skinning\r\n<b><size=20>Nick Fewkes</size></b> Models for
+    3 Mechs (Kiwi, Cassowary III, Ostrich IV)\r\n<b><size=20>Lou Herard</size></b>
     Music for credits and city level\r\n<b><size=20>R\xE9my Lapointe</size></b> Enemy
     Base level, drones implementation, elevator and door code, early refactoring and
     bug fixing\r\n<b><size=20>Christer \"McFunkypants\" Kaitila</size></b> Enemy AI,
@@ -268,7 +269,9 @@ MonoBehaviour:
     Ambient loop, shot sound\r\n<b><size=20>Dan Lazar</size></b> Addl. mech design
     (Golden Goose)\r\n<b><size=20>Chris DeLeon</size></b> Initial jetpack and mech
     enter/exit prototype, background city model (level 1), tutorial area, minor last
-    minute bug fixing or late integrations\r\n<b><size=20>Tyler Crouch</size></b>
+    minute bug fixing or late integrations\r\n<b><size=20>Simon J Hoffiz</size></b>
+    Spanish translation editing/proofreading\r\n<b><size=20>Fernando L. Canizo</size></b>
+    Spanish translation editing/proofreading\r\n<b><size=20>Tyler Crouch</size></b>
     Testing (non-member)"
 --- !u!222 &160717269
 CanvasRenderer:
@@ -376,6 +379,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &431669836
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.37041497
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.9739685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 49.660316
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822309244195242, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c1ee5d1631398d14bb9cdeed2285e3f7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &737754250
 GameObject:
   m_ObjectHideFlags: 0
