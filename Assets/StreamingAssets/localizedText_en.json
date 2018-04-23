@@ -53,5 +53,8 @@
     }, {
     	"key": "enemy_base",
     	"value": "enemy base"
+    }, {
+    	"key": "controls",
+    	"value": "Move - [WASD] or [arrow] keys\nFly - [Up] or [Spacebar]\nAim - [Mouse]\nPrimary weapon - [Left mouse button]\nSecondary weapon - [Right mouse button]\nEnter/exit mechs - [E]\nPause Game - [Escape]\nLauncher Weapon - [Q]\nMech shields - [Left shift]"
     }]
 }

@@ -53,5 +53,8 @@
     }, {
     	"key": "enemy_base",
     	"value": "la base enemiga"
+    }, {
+    	"key": "controls",
+    	"value": "Mover - [WASD] o teclas de [dirección]\nVolar - [Arriba] o [Barra espaciadora]\nApuntar - [Ratón]\nArma primaria - [Botón izquierdo del ratón]\nArma secundaria - [Botón derecho del ratón]\nEntrar / Salir del robot - [E]\nPausar el juego - [Escape]\nDisparar lanzador - [Q]\nEscudo - [Mayúscula izquierda]"
     }]
 }
