@@ -12,6 +12,18 @@
     	"key": "level_select",
     	"value": "Seleccione nivel"
     }, {
+    	"key": "how_to_play",
+    	"value": "Cómo jugar"
+    }, {
+    	"key": "options",
+    	"value": "Opciones"
+    }, {
+    	"key": "credits",
+    	"value": "Créditos"
+    }, {
+    	"key": "make_games",
+    	"value": "Diseña tus juegos"
+    }, {
     	"key": "language_select",
     	"value": "Idioma"
     }, {
@@ -26,5 +38,20 @@
     }, {
     	"key": "back_button",
     	"value": "Volver"
+    }, {
+    	"key": "reset_progress",
+    	"value": "Reiniciar"
+    }, {
+    	"key": "cleared_level",
+    	"value": "Completado"
+    }, {
+    	"key": "city",
+    	"value": "la Ciudad"
+    }, {
+    	"key": "space_station",
+    	"value": "la estación espacial"
+    }, {
+    	"key": "enemy_base",
+    	"value": "la base enemiga"
     }]
 }

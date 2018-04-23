@@ -12,6 +12,18 @@
     	"key": "level_select",
     	"value": "Level select"
     }, {
+    	"key": "how_to_play",
+    	"value": "How to play"
+    }, {
+    	"key": "options",
+    	"value": "Options"
+    }, {
+    	"key": "credits",
+    	"value": "Credits"
+    }, {
+    	"key": "make_games",
+    	"value": "Make games"
+    }, {
     	"key": "language_select",
     	"value": "Language"
     }, {
@@ -26,5 +38,20 @@
     }, {
     	"key": "back_button",
     	"value": "Back"
+    }, {
+    	"key": "reset_progress",
+    	"value": "Reset progress"
+    }, {
+    	"key": "cleared_level",
+    	"value": "Cleared"
+    }, {
+    	"key": "city",
+    	"value": "city"
+    }, {
+    	"key": "space_station",
+    	"value": "space station"
+    }, {
+    	"key": "enemy_base",
+    	"value": "enemy base"
     }]
 }
