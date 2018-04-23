@@ -8,6 +8,6 @@ public class ChangeToolTip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnDestroy() {
-		toolTip.text = "Press E to\nEnter/Exit mech";
+		toolTip.text = LocalizationManager.instance.GetLocalizedValue("tooltip_enter_mech");
 	}
 }

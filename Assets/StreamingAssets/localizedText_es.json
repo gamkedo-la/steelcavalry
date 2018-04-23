@@ -71,5 +71,11 @@
     }, {
     	"key": "mission_details_text",
     	"value": "Bienvenido a Caballería de Acero, soldado. ¡Te has graduado entre los primeros de tu clase en la Academia de pilotos y hoy realizarás tu primera misión! Unos piratas espaciales han ocupado parte de la ciudad y han tomado rehenes para pedir rescate. Limpia el área y distráelos mientras otro equipo ayuda a rescatar a los rehenes."
+    }, {
+    	"key": "tooltip_shoot",
+    	"value": "Botón izquierdo del\nratón para disparar"
+    }, {
+    	"key": "tooltip_enter_mech",
+    	"value": "Pulsa E para\nEntrar/Salir del robot"
     }]
 }

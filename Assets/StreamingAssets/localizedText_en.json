@@ -71,5 +71,11 @@
     }, {
     	"key": "mission_details_text",
     	"value": "Welcome to the Steel Cavalry, private. You graduated at the top of your class at mech piloteer academy and today you are going on your first mission! Some space pirates have occupied part of the city and have taken hostages for ransom. Clear out the area and distract them while another team helps clear out the hostages."
+    }, {
+    	"key": "tooltip_shoot",
+    	"value": "Left Mouse\nto shoot"
+    }, {
+    	"key": "tooltip_enter_mech",
+    	"value": "Press E to\nEnter/Exit mech"
     }]
 }
