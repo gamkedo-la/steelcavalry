@@ -6,6 +6,9 @@
     	"key": "intro_skip",
     	"value": "Clic para omitir"
 	}, {
+		"key": "click_to_start",
+    	"value": "Clic para iniciar"
+    }, {
     	"key": "start_game",
     	"value": "Inicio Juego"
     }, {
@@ -56,5 +59,17 @@
     }, {
     	"key": "controls",
     	"value": "Mover - [WASD] o teclas de [dirección]\nVolar - [Arriba] o [Barra espaciadora]\nApuntar - [Ratón]\nArma primaria - [Botón izquierdo del ratón]\nArma secundaria - [Botón derecho del ratón]\nEntrar / Salir del robot - [E]\nPausar el juego - [Escape]\nDisparar lanzador - [Q]\nEscudo - [Mayúscula izquierda]"
+    }, {
+    	"key": "mission_details_title",
+    	"value": "Detalles de la misión"
+    }, {
+    	"key": "back_to_main_menu",
+    	"value": "Regresar al menú principal"
+    }, {
+    	"key": "continue",
+    	"value": "Continuar"
+    }, {
+    	"key": "mission_details_text",
+    	"value": "Bienvenido a Caballería de Acero, soldado. ¡Te has graduado entre los primeros de tu clase en la Academia de pilotos y hoy realizarás tu primera misión! Unos piratas espaciales han ocupado parte de la ciudad y han tomado rehenes para pedir rescate. Limpia el área y distráelos mientras otro equipo ayuda a rescatar a los rehenes."
     }]
 }

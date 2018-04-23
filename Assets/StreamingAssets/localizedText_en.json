@@ -6,6 +6,9 @@
     	"key": "intro_skip",
     	"value": "Click to Skip"
     }, {
+    	"key": "click_to_start",
+    	"value": "Click to start"
+    }, {
     	"key": "start_game",
     	"value": "Start Game"
     }, {
@@ -56,5 +59,17 @@
     }, {
     	"key": "controls",
     	"value": "Move - [WASD] or [arrow] keys\nFly - [Up] or [Spacebar]\nAim - [Mouse]\nPrimary weapon - [Left mouse button]\nSecondary weapon - [Right mouse button]\nEnter/exit mechs - [E]\nPause Game - [Escape]\nLauncher Weapon - [Q]\nMech shields - [Left shift]"
+    }, {
+    	"key": "mission_details_title",
+    	"value": "Mission Details"
+    }, {
+    	"key": "back_to_main_menu",
+    	"value": "Back to main menu"
+    }, {
+    	"key": "continue",
+    	"value": "Continue"
+    }, {
+    	"key": "mission_details_text",
+    	"value": "Welcome to the Steel Cavalry, private. You graduated at the top of your class at mech piloteer academy and today you are going on your first mission! Some space pirates have occupied part of the city and have taken hostages for ransom. Clear out the area and distract them while another team helps clear out the hostages."
     }]
 }

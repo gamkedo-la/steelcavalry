@@ -53,7 +53,7 @@ public class TypeOutText : MonoBehaviour {
 
 			if (fullText == "") {
 				yield return new WaitForSeconds(1.0f);
-				buttonText.text = "Click to Start";
+				buttonText.text = LocalizationManager.instance.GetLocalizedValue("click_to_start");
 				pulseButton = true;
 			} else if (fullText[0] == '\n') {
 				fullText = fullText[0] + ">" + fullText.Substring(1, fullText.Length - 1);
