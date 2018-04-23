@@ -63,12 +63,6 @@ public class InGameMenu : MonoBehaviour {
 				Pause();
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.C)) {
-			MissionComplete();
-		}
-		if (Input.GetKeyDown(KeyCode.X)) {
-			MissionFailed();
-		}
 	}
 
 	void SetSceneAndMenuUI () {
