@@ -6,6 +6,12 @@
     	"key": "intro_skip",
     	"value": "Click to Skip"
     }, {
+    	"key": "start_game",
+    	"value": "Start Game"
+    }, {
+    	"key": "level_select",
+    	"value": "Level select"
+    }, {
     	"key": "language_select",
     	"value": "Language"
     }, {

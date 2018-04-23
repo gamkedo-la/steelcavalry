@@ -5,6 +5,12 @@
     }, {
     	"key": "intro_skip",
     	"value": "Clic para omitir"
+	}, {
+    	"key": "start_game",
+    	"value": "Inicio Juego"
+    }, {
+    	"key": "level_select",
+    	"value": "Seleccione nivel"
     }, {
     	"key": "language_select",
     	"value": "Idioma"

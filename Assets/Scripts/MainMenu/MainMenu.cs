@@ -81,26 +81,31 @@ public class MainMenu : MonoBehaviour {
 
     public void OpenOptions() {
         mainMenu.SetActive(false);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
         optionsMenu.SetActive(true);
     }
 
     public void CloseOptions() {
         mainMenu.SetActive(true);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
         optionsMenu.SetActive(false);
     }
 
 	public void OpenControls() {
 		mainMenu.SetActive(false);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
 		controlsMenu.SetActive(true);
 	}
 
 	public void CloseControls() {
 		mainMenu.SetActive(true);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
 		controlsMenu.SetActive(false);
 	}
 
     public void ShowLevelSelect() {
         mainMenu.SetActive(false);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
         levelSelectMenu.SetActive(true);
         SetClearedPanels();
         DisplayProgress();
@@ -138,6 +143,7 @@ public class MainMenu : MonoBehaviour {
 
     public void HideLevelSelect() {
         mainMenu.SetActive(true);
+        LocalizationManager.instance.UpdateLocalizedTextElements();
         levelSelectMenu.SetActive(false);
     }
 
