@@ -9,8 +9,8 @@ public class LocalizationManager : MonoBehaviour {
 
 	private Dictionary<string, string> localizedText;
 	private bool isReady = false;
+	private string missingTextString = "Localized text not found";
 
-	// Use this for initialization
 	void Awake () {
 		if (instance == null) {
 			instance = this;
@@ -25,6 +25,10 @@ public class LocalizationManager : MonoBehaviour {
 		localizedText = new Dictionary<string, string>();
 		string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
 		if (File.Exists(filePath)) {
+			
+			SetSelectedLanguage(fileName);
+
+			string selectedLanguage = PlayerPrefs.GetString("selectedLanguage", "spanish");
 			string dataAsJson = File.ReadAllText(filePath);
 			LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
 
@@ -34,15 +38,52 @@ public class LocalizationManager : MonoBehaviour {
 				localizedText.Add(key, value);
 			}
 
+			UpdateLocalizedTextElements();
+
+			isReady = true;
+
 			Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries") ;
 		} else {
 			Debug.LogError("Cannot find file '" + filePath + "'!");
 		}
-
-		isReady = true;
 	}
 
-	public bool getIsReady() {
+	public bool GetIsReady () {
 		return isReady;
+	}
+
+	public void SetSelectedLanguage (string fileName) {
+		string selectedLanguage = "english";
+		if (fileName != "localizedText_en.json") {
+			selectedLanguage = "spanish";
+		}
+		PlayerPrefs.SetString("selectedLanguage", selectedLanguage);
+	}
+
+	public void UpdateLocalizedTextElements() {
+		LocalizedText[] textObjects = FindObjectsOfType<LocalizedText>();
+		foreach(LocalizedText textObject in textObjects) {
+			textObject.SetLocalizedText();
+		}
+	}
+
+	public string GetLocalizedValue (string key) {
+		if (localizedText == null) {
+			string selectedLanguage = PlayerPrefs.GetString("selectedLanguage", "english");
+			Debug.Log("selectedLanguage is " + selectedLanguage);
+			if (selectedLanguage == "english") {				
+				LoadLocalizedText("localizedText_en.json");
+			} else {
+				LoadLocalizedText("localizedText_es.json");
+			}
+		}
+
+		string localizedValue = missingTextString;
+		
+		if (localizedText.ContainsKey(key)) {
+			localizedValue = localizedText[key];
+		}
+
+		return localizedValue;
 	}
 }

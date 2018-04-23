@@ -1,1 +1,24 @@
-{"items":[]}
+{
+    "items": [{
+    	"key": "intro_text",
+    	"value": "Inicializando corteza robótica...\nTemperatura del reactor en condiciones óptimas...\nComputadora en línea...\nEscudo de iones energizado...\nMecanismos automáticos activos...\nRobot tipo Luciérnaga en rango..."
+    }, {
+    	"key": "intro_skip",
+    	"value": "Clic para omitir"
+    }, {
+    	"key": "language_select",
+    	"value": "Idioma"
+    }, {
+    	"key": "master_volume",
+    	"value": "Volumen principal"
+    }, {
+    	"key": "effects_volume",
+    	"value": "Volumen de efectos"
+    }, {
+    	"key": "music_volume",
+    	"value": "Volumen de la música"
+    }, {
+    	"key": "back_button",
+    	"value": "Volver"
+    }]
+}

@@ -155,6 +155,10 @@ public class MainMenu : MonoBehaviour {
         music.volume = volume * PlayerPrefs.GetFloat("masterVolume", 1f);
     }
 
+    public void SetLanguage(string fileName) {
+        LocalizationManager.instance.LoadLocalizedText(fileName);
+    }
+
 	[DllImport("__Internal")]
 	private static extern void openWindow(string url);
 }

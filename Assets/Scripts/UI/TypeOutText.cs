@@ -21,7 +21,10 @@ public class TypeOutText : MonoBehaviour {
 	private float pulseInterval = 0.75f;
 
 	// Use this for initialization
-	void Start () {
+	private IEnumerator Start () {
+		while (!LocalizationManager.instance.GetIsReady()) {
+            yield return null;
+        }
 		buttonText = button.GetComponent<Text>();
 		displayText = GetComponent<Text>();
 		fullText = displayText.text;
@@ -31,6 +34,7 @@ public class TypeOutText : MonoBehaviour {
 		audioSource = GetComponent<AudioSource>();
 		StartCoroutine (TypeLetter());
 	}
+
 	IEnumerator TypeLetter()
 	{
 		yield return new WaitForSeconds (1.00f);

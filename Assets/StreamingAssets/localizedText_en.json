@@ -1,1 +1,24 @@
-{"items":[]}
+{
+    "items": [{
+    	"key": "intro_text",
+    	"value": "Mech cortex initialized...\nReactor temp in optimal range...\nTargeting computer online...\nIonized shield grid energized...\nActuators actuating...\nFirefly class mech in range..."
+    }, {
+    	"key": "intro_skip",
+    	"value": "Click to Skip"
+    }, {
+    	"key": "language_select",
+    	"value": "Language"
+    }, {
+    	"key": "master_volume",
+    	"value": "Master Volume"
+    }, {
+    	"key": "effects_volume",
+    	"value": "Effects Volume"
+    }, {
+    	"key": "music_volume",
+    	"value": "Music Volume"
+    }, {
+    	"key": "back_button",
+    	"value": "Back"
+    }]
+}
