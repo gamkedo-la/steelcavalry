@@ -77,5 +77,38 @@
     }, {
     	"key": "tooltip_enter_mech",
     	"value": "Press E to\nEnter/Exit mech"
+    }, {
+    	"key": "level_objective",
+    	"value": "Destroy all targets"
+    }, {
+    	"key": "game_paused",
+    	"value": "paused"
+    }, {
+    	"key": "retry",
+    	"value": "retry"
+    }, {
+    	"key": "resume",
+    	"value": "resume"
+    }, {
+    	"key": "next_stage",
+    	"value": "next stage"
+    }, {
+    	"key": "menu",
+    	"value": "menu"
+    }, {
+    	"key": "player_died",
+    	"value": "mission failed"
+    }, {
+    	"key": "player_won",
+    	"value": "mission complete"
+    }, {
+    	"key": "city_cleared",
+    	"value": "Well done, private! It looks like more of those space pirates are attacking a transport ship. I just sent you their coordinates. Get over there ASAP!"
+    }, {
+    	"key": "space_station_cleared",
+    	"value": "Good work! While you kept the ship safe, we traced outgoing transmissions back to the pirate base. Coordinates sent. Let's go round 'em up!"
+    }, {
+    	"key": "enemy_base_cleared",
+    	"value": "It looks like you got 'em all! A team is inbound to secure the area and confiscate their equipment. Come on back to HQ for debriefing. Excellent work!"
     }]
 }

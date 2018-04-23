@@ -25,26 +25,25 @@ public class InGameMenu : MonoBehaviour {
 
 	[SerializeField] private GameEventAudioEvent stageClearedAudio = null;
 
-	private string pauseText = "Paused";
-	private string playerDiedText = "Mission Failed";
-	private string playerWonText = "Mission Complete";
-
-	private string cityClearedText = 
-		"Well done, private! It looks like more of those space pirates are " + 
-		"attacking a transport ship. I just sent you their coordinates. Get over there ASAP!";
-
-	private string spaceStationClearedText = 
-		"Good work! While you kept the ship safe, we traced outgoing " +
-		"transmissions back to the pirate base. Coordinates sent. Let's go round 'em up!";
-
-	private string enemyBaseClearedText = 
-		"It looks like you got 'em all! A team is inbound to secure the area " + 
-		"and confiscate their equipment. Come on back to HQ for debriefing. Excellent work!";
+	private string pauseText;
+	private string playerDiedText;
+	private string playerWonText;
+	private string cityClearedText;
+	private string spaceStationClearedText;
+	private string enemyBaseClearedText;
 
 	private List<string> sceneNames = new List<string>();
 	private int totalScenes = 3;
 
 	void Start () {
+		pauseText = LocalizationManager.instance.GetLocalizedValue("game_paused");
+		playerDiedText = LocalizationManager.instance.GetLocalizedValue("player_died");
+		playerWonText = LocalizationManager.instance.GetLocalizedValue("player_won");
+
+		cityClearedText = LocalizationManager.instance.GetLocalizedValue("city_cleared");
+		spaceStationClearedText = LocalizationManager.instance.GetLocalizedValue("space_station_cleared");
+		enemyBaseClearedText = LocalizationManager.instance.GetLocalizedValue("enemy_base_cleared");
+
 		audioManager = GameObject.Find("Audio Manager");
 		SetSceneAndMenuUI();
 		DeactivateMenu();
@@ -63,6 +62,12 @@ public class InGameMenu : MonoBehaviour {
 			} else {
 				Pause();
 			}
+		}
+		if (Input.GetKeyDown(KeyCode.C)) {
+			MissionComplete();
+		}
+		if (Input.GetKeyDown(KeyCode.X)) {
+			MissionFailed();
 		}
 	}
 

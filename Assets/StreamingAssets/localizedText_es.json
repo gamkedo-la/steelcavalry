@@ -77,5 +77,38 @@
     }, {
     	"key": "tooltip_enter_mech",
     	"value": "Pulsa E para\nEntrar/Salir del robot"
+    }, {
+    	"key": "level_objective",
+    	"value": "Destruya todos los enemigos"
+    }, {
+    	"key": "game_paused",
+    	"value": "Pausado"
+    }, {
+    	"key": "retry",
+    	"value": "reintentar"
+    }, {
+    	"key": "resume",
+    	"value": "Reanudar"
+    }, {
+    	"key": "next_stage",
+    	"value": "siguiente nivel"
+    }, {
+    	"key": "menu",
+    	"value": "menú"
+    }, {
+    	"key": "player_died",
+    	"value": "Misión Fracasada"
+    }, {
+    	"key": "player_won",
+    	"value": "Misión Completada"
+    }, {
+    	"key": "city_cleared",
+    	"value": "¡Bien hecho, soldado! Parece que más de esos piratas están atacando una nave de transporte. Le acabo de enviar sus coordenadas. ¡Vaya allí inmediatamente!"
+    }, {
+    	"key": "space_station_cleared",
+    	"value": "¡Buen trabajo! Mientras usted mantenía la nave a salvo, interceptamos las transmisiones de los piratas y localizamos su base. Coordenadas enviadas. ¡Acábelos!"
+    }, {
+    	"key": "enemy_base_cleared",
+    	"value": "¡Parece que los eliminó a todos! Un equipo está en camino para asegurar el área y confiscar el equipo. Vuelva al Cuartel General para reportarse. ¡Excelente trabajo!"
     }]
 }
