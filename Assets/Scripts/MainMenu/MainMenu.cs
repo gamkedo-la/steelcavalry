@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour {
     private GameObject spaceStationClearedPanel;
     private GameObject enemyBaseClearedPanel;
 
+	private string lastLangFileSet = "localizedText_en.json";
+
     private void Start() {
         music = GetComponent<AudioSource>();
         Debug.Log(GetComponent<AudioSource>());
@@ -161,7 +163,16 @@ public class MainMenu : MonoBehaviour {
         music.volume = volume * PlayerPrefs.GetFloat("masterVolume", 1f);
     }
 
+	public void ToggleLanguage() {
+		if(lastLangFileSet == "localizedText_en.json") {
+			SetLanguage("localizedText_es.json");
+		} else {
+			SetLanguage("localizedText_en.json");
+		}
+	}
+
     public void SetLanguage(string fileName) {
+		lastLangFileSet = fileName;
         LocalizationManager.instance.LoadLocalizedText(fileName);
     }
 
