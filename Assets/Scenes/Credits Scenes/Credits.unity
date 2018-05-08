@@ -245,22 +245,23 @@ MonoBehaviour:
     assorted physics error debugging, support for starting weapons, player uniform,
     sprite shattering code\r\n<b><size=20>Charlene A.</size></b> Animations and related
     activities (ex. weight painting, rigging fixes) for Robo Warrior, Cassowary, Ostrich,
-    and Kiwi\r\n<b><size=20>Sergio Solorzano</size></b> Winged Spawn mech's modeling,
-    textures, fire particles, rigging, animation, implementation, Robo Warrior and
-    Cassowary rigging and skinning\r\n<b><size=20>Nick Fewkes</size></b> Models for
-    3 Mechs (Kiwi, Cassowary III, Ostrich IV)\r\n<b><size=20>Lou Herard</size></b>
-    Music for credits and city level\r\n<b><size=20>R\xE9my Lapointe</size></b> Enemy
-    Base level, drones implementation, elevator and door code, early refactoring and
-    bug fixing\r\n<b><size=20>Christer \"McFunkypants\" Kaitila</size></b> Enemy AI,
-    space station level, selection of space backgrounds (public domain, courtesy of
-    NASA), city foreground decoration greeble and lighting art, boundary checks, enemy
-    removal effects, story text, voice over, experiments (unreleased) with gamepad
-    local multiplayer\r\n<b><size=20>Daniel Viruet</size></b> Menu scene, platform
-    models, mech colliders, addl. tuning, city background mech model (Robo Knight),
-    mine model (updated)\r\n<b><size=20>Miles Robson</size></b> Mines code (and original
-    model, not shown), camera zoom code improvements\r\n<b><size=20>Vignesh Ramesh</size></b>
-    Action sound effects, controls guide, several background songs\r\n<b><size=20>Christopher
-    McLaughlin</size></b> Intro text sequence (writing, code, and display of wireframe)\r\n<b><size=20>Andy
+    and Kiwi\r\n<b><size=20>Sergio Solorzano</size></b>  Modelled and textured Winged
+    Spawn (incl. its sword and wings), created the fire particle effects for this
+    mech, as well as rigged, skinned and animated Winged Spawn, also rigged and skinned
+    Cassowary and RoboWarrior\r\n<b><size=20>Nick Fewkes</size></b> Models for 3 Mechs
+    (Kiwi, Cassowary III, Ostrich IV)\r\n<b><size=20>Lou Herard</size></b> Music for
+    credits and city level\r\n<b><size=20>R\xE9my Lapointe</size></b> Enemy Base level,
+    drones implementation, elevator and door code, early refactoring and bug fixing\r\n<b><size=20>Christer
+    \"McFunkypants\" Kaitila</size></b> Enemy AI, space station level, selection of
+    space backgrounds (public domain, courtesy of NASA), city foreground decoration
+    greeble and lighting art, boundary checks, enemy removal effects, story text,
+    voice over, experiments (unreleased) with gamepad local multiplayer\r\n<b><size=20>Daniel
+    Viruet</size></b> Menu scene, platform models, mech colliders, addl. tuning, city
+    background mech model (Robo Knight), mine model (updated)\r\n<b><size=20>Miles
+    Robson</size></b> Mines code (and original model, not shown), camera zoom code
+    improvements\r\n<b><size=20>Vignesh Ramesh</size></b> Action sound effects, controls
+    guide, several background songs\r\n<b><size=20>Christopher McLaughlin</size></b>
+    Intro text sequence (writing, code, and display of wireframe)\r\n<b><size=20>Andy
     King</size></b> Kiwi integration, addl. texturing for Cassowary\r\n<b><size=20>Nicholas
     Polchies</size></b> Robo Warrior rigging, menu buttons, sound and music sliders
     \r\n<b><size=20>Caspar \"SpadXIII\" Dunant</size></b> Ostrich integration fixes,
