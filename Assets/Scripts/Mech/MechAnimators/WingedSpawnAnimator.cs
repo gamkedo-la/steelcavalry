@@ -132,13 +132,15 @@ public class WingedSpawnAnimator : MonoBehaviour
     void Update()
     {
         mechInUse = mechScript.inUse;
+        
 
 		if (mechInUse == false || mechScript.driver == null)
         {
             return;
         }
 
-		if(mechScript.driver) {
+        
+        if (mechScript.inUse) {
 			inputUp = mechScript.driver.inputUp;
 			inputDown = mechScript.driver.inputDown;
 			inputRight = mechScript.driver.inputRight;
@@ -146,7 +148,7 @@ public class WingedSpawnAnimator : MonoBehaviour
 			inputFire = mechScript.driver.inputFire;
 		}
 
-        //Debug.Log("Mech in use " + mechInUse);
+
 
         //Mech fly animation: raycast dist to ground
         float minDistToGround = 0.55f;//dist for standby animation to occur
@@ -154,19 +156,20 @@ public class WingedSpawnAnimator : MonoBehaviour
         
         int groundLayerMaskIgnore = ~LayerMask.GetMask("Mechs");
         RaycastHit2D groundHit = Physics2D.Raycast(transform.position, rayDown, 20.0f, groundLayerMaskIgnore);
-
-        if (groundHit)
+        //Debug.DrawRay(transform.position, rayDown, Color.green);
+        /*if (groundHit)
         {
             if(groundHit.collider)
             {
                 GroundDist = groundHit.distance;//dist to ground
-                //Debug.Log("collider hit " + groundHit.collider.gameObject.name);
-                //Debug.Log("Distance to Ground " + GroundDist);
+                Debug.Log("collider hit " + groundHit.collider.gameObject.name);
+                Debug.Log("Distance to Ground " + GroundDist);
                 Debug.DrawRay(transform.position, rayDown, Color.green);
             }
-        }
-        
-        if (GroundDist<= minDistToGround)
+        }*/
+        //Debug.Log("HERE NOW  " + GroundDist + " " + minDistToGround);
+        //if (GroundDist<= minDistToGround)
+        if(mechScript.isOnGround)
             anim.SetBool(onGroundHash, true);
         else
             anim.SetBool(onGroundHash, false);
@@ -181,7 +184,8 @@ public class WingedSpawnAnimator : MonoBehaviour
             anim.speed = 0;
         }
 
-        if (GroundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
+        //if (GroundDist <= minDistToGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
+        if (mechScript.isOnGround && mechInUse && !inputUp && !inputDown && (inputLeft || inputRight))//mechScript.inUse
         {
             walk = walkSpeed;
             //Debug.Log("inputLeft " + inputLeft + " inputUp" + inputUp + " inputDown" + inputDown);

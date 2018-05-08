@@ -218,7 +218,7 @@ public class Player : MonoBehaviour {
 
 	// putting all input response here lets us turn it off for "dumb players" ie AI
 	void handleInput() {
-
+        
 		if (useKeyboardInput) {
 			inputUp = Input.GetAxisRaw ("Vertical") > 0.1f || Input.GetKey(KeyCode.Space);
 			inputDown = Input.GetAxisRaw ("Vertical") < -0.1f;
@@ -459,7 +459,7 @@ public class Player : MonoBehaviour {
                         audioEvent.Raise(AudioEvents.PlayerJetpack, transform.position);
                         Invoke("JetpackSoundOff", 0.2f);
                     }
-
+                    
                     //transform.position += Vector3.up * Time.deltaTime * jetPackPower;
                     playerBody.velocity = new Vector2(playerBody.velocity.x, Time.deltaTime * jetPackPower);
                     //playerBody.gravityScale = 1.0f;
