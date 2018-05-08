@@ -132,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963943026457644}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000092950584, y: 0.40557948, z: 0.19862472}
+  m_LocalPosition: {x: -0.0001, y: 0.4056, z: 0.1016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4724689428086812}
@@ -147,16 +147,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995069063983258}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.57, y: 1.002, z: -4.992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.047017623, y: 0.0062512564, z: 0.00041968995, w: -0.9988744}
+  m_LocalPosition: {x: 8.975308, y: 6.519658, z: 0.27690506}
+  m_LocalScale: {x: 2.0183616, y: 2.0183663, z: 2.0183618}
   m_Children:
   - {fileID: 4840477222044976}
   - {fileID: 4788127634657172}
   - {fileID: 4315811517573222}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.09, z: 0}
 --- !u!4 &4694847328515600
 Transform:
   m_ObjectHideFlags: 1
@@ -324,6 +324,7 @@ MonoBehaviour:
   parameters: {fileID: 11400000, guid: 847e0aca6ed52974c88b6ecc7787a9b6, type: 2}
   weaponSlotEvents: {fileID: 11400000, guid: b4957f3adf8ed5f47956a3862db88087, type: 2}
   didDamageEvent: {fileID: 11400000, guid: d1189c27826cf1842a11b0dea7fad8e1, type: 2}
+  fromTeam: 0
   type: 0
   maxLaserSize: 20
   laserScaleCorrection: 45
@@ -393,7 +394,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1888405533
+  randomSeed: 1538467580
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3710,7 +3711,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1505940169
+  randomSeed: 1602936254
   InitialModule:
     serializedVersion: 3
     enabled: 1

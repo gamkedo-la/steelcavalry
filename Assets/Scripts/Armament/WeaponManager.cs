@@ -166,7 +166,7 @@ public class WeaponManager : MonoBehaviour
 				g = Instantiate( weapon.GetGameObject( ), turretMountPoint.position, Quaternion.identity, turretMountPoint );
 				g.transform.localPosition = Vector3.zero;
 
-				turret = g.GetComponent<IWeapon>();
+                turret = g.GetComponent<IWeapon>();
                 equippedWeapons.Add(turret);
 
 				IsPlayerDriving( isPlayerDriver );
@@ -175,7 +175,12 @@ public class WeaponManager : MonoBehaviour
 
 				var mech = GetComponent<Mech>( );
 				if ( mech ) SwapModel( mech.GetName( ) );
-			}
+
+                    //if (mech && mech.GetName().CompareTo("Winged Spawn") == 0 && g.name.CompareTo("Laser Turret2(Clone)")==0)
+                        //g.transform.position += Vector3.up*1;
+                    //+=Vector3(x,y,z);
+
+            }
 			break;
 
 			case WeaponType.Launcher:
